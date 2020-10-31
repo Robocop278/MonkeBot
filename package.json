@@ -1,0 +1,13 @@
+{
+	"name": "Monke Bot",
+	"version": "1.0.0",
+	"description": "Stupee Monke",
+	"main": "bot.js",
+	"author": "Christian Gutierrez",
+	"dependencies": {
+		"@discordjs/opus": "^0.3.3",
+		"discord.js": "^12.0.2",
+		"ffmpeg-static": "^4.2.7",
+		"ytdl-core": "^4.0.0"
+	}
+}
