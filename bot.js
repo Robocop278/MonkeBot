@@ -28,7 +28,7 @@ const SAD_GIFS = [
 // Main client functions
 client.on('ready', () => {
     client.user.setActivity('with his balls', { type: 'PLAYING' });
-    console.log(`Countdown bot ready`);
+    console.log(`Monke bot ready`);
     // botChannel = client.channels.cache.get('690360349316087828'); // channel ID for personal test server, not usable in goofs
     mainChannel = client.channels.cache.get(constants.CHANNEL_MAIN);
     botChannel = client.channels.cache.get(constants.CHANNEL_BOT);
@@ -157,7 +157,6 @@ function startTimerCountdown() {
 function sendCountdownStatus(verbose = false) {
     var currentdate = new Date();
     console.log("Checking date object: Hours: " + currentdate.getHours() + ", Minutes: " + currentdate.getMinutes() + ", Seconds: " + currentdate.getSeconds())
-    
     if (goalDate > currentdate) 
     {
         // get total seconds between the times
@@ -192,7 +191,6 @@ function sendCountdownStatus(verbose = false) {
         // If its the goal date, ping some people
         botChannel.send("<@" + constants.CHRISTIAN + "> <@" + constants.JON + "> <@" + constants.SPENCER + "> OH FUCK OH SHIT IT'S HERE FUCK FUCK FUCK FUCK FUCK AAHAHAHAHAHAHHHAHAHAHHAHHAHAHAH YEEEEEEEEEEEEEAAAAHHHHHH BOOOOOIIIIIIIIIIIII!!!!!!!!!");
     }
-    
 }
 
 // Login to server
