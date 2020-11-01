@@ -82,7 +82,7 @@ client.on('message', msg => {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=TrRDqD-bpWY');
         }
         else if (/sax.*(and|&).*sex/i.test(msg.content)) {
-            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0');
+            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '290');
         }
         else if (/cock.*rock/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=6yisws5rKoo');
