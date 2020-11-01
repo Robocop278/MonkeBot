@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const ytdl = require('ytdl-core');
+const ytdl = require('discord-ytdl-core');
 
 // Import constants
 const constants = require('./constants');
@@ -82,7 +82,7 @@ client.on('message', msg => {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=TrRDqD-bpWY');
         }
         else if (/sax.*(and|&).*sex/i.test(msg.content)) {
-            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '4m50s');
+            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0');
         }
         else if (/cock.*rock/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=6yisws5rKoo');
@@ -109,7 +109,7 @@ client.on('message', msg => {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gOBimZmfw_4');
         }
         else if (/sylvanas/i.test(msg.content)) {
-            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=AdYPzbPiosg', '17s');
+            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=AdYPzbPiosg', '17');
         }
         else if (/wednesday/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=du-TY1GUFGk');
@@ -130,7 +130,7 @@ client.on('message', msg => {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gTUALBzIBWM');
         }
         else if (/monke\s*that.?s\s*shit/i.test(msg.content)) {
-            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9s');
+            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9');
         }
         else if (/football/i.test(msg.content)) {
             if (Math.random() >= 0.5) {
@@ -209,13 +209,18 @@ function getRndInteger(min, max) {
 }
 
 // Given a msg and youtubeURL, if msg member is currently in a voice channel, jump into that voice channel and play youtubeURL audio
-async function playYoutubeSound(msg, youtubeURL, startTime = '0s') {
+async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
     if (!msg.guild) return;
-    console.log('Playing sound...');
 
     if (msg.member.voice.channel) {
+        console.log('Connecting to voice channel...');
         const connection = await msg.member.voice.channel.join();
-        const dispatcher = connection.play(ytdl(youtubeURL, {filter: 'audioonly', begin: startTime}));
+        console.log('Connected to voice channel');
+        console.log('Fetching Youtube data...');
+        ytInfo = await ytdl.getInfo(youtubeURL);
+        console.log('Youtube data fetched');
+        console.log('Playing sound...');
+        const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
         dispatcher.on('finish', () => {
             console.log('Finished playing!');
             dispatcher.destroy();
