@@ -132,6 +132,13 @@ client.on('message', msg => {
         else if (/monke\s*that.?s\s*shit/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9s');
         }
+        else if (/football/i.test(msg.content)) {
+            if (Math.random() >= 0.5) {
+                playYoutubeSound(msg, 'https://www.youtube.com/watch?v=37-AlmNdESg');
+            } else {
+                playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ZKPnAfopfO8');
+            }
+        }
     }
 });
 
