@@ -77,10 +77,10 @@ client.on('message', msg => {
         else if (/monke.*suck/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=rPWDl5Zt_TQ');
         }
-        else if (/monke\s*die/i.test(msg.content)) {
+        else if (/monke.*die/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=xEvJmI7uJ-g');
         }
-        else if (/monke\s*nut/i.test(msg.content)) {
+        else if (/monke.*nut/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=TrRDqD-bpWY');
         }
         else if (/sax.*(and|&).*sex/i.test(msg.content)) {
@@ -145,6 +145,16 @@ client.on('message', msg => {
         {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + timecards.getRandomTimecardVideoID());
         }
+        else if (/monke\s*play\s*despacito/i.test(msg.content)) 
+        {
+            if (Math.random() >= 0.95) {
+                playYoutubeSound(msg, 'https://www.youtube.com/watch?v=W3GrSMYbkBE');
+            } else {
+                playYoutubeSound(msg, 'https://www.youtube.com/watch?v=FWOXAPI5kZg');
+            }
+        }
+
+        
     }
 });
 
