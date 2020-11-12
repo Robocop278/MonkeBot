@@ -4,6 +4,8 @@ const ytdl = require('discord-ytdl-core');
 
 // Import constants
 const constants = require('./constants');
+// Other imports
+const timecards = require('./timecards');
 
 // Holds reference to our channels
 var mainChannel; // main channel
@@ -139,6 +141,10 @@ client.on('message', msg => {
                 playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ZKPnAfopfO8');
             }
         }
+        else if (/monke.*timecard/i.test(msg.content)) 
+        {
+            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + timecards.getRandomTimecardVideoID());
+        }
     }
 });
 
@@ -213,18 +219,22 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
     if (!msg.guild) return;
 
     if (msg.member.voice.channel) {
-        console.log('Connecting to voice channel...');
-        const connection = await msg.member.voice.channel.join();
-        console.log('Connected to voice channel');
-        console.log('Fetching Youtube data...');
-        ytInfo = await ytdl.getInfo(youtubeURL);
-        console.log('Youtube data fetched');
-        console.log('Playing sound...');
-        const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
-        dispatcher.on('finish', () => {
-            console.log('Finished playing!');
-            dispatcher.destroy();
-            msg.member.voice.channel.leave();
-        });
+        try {
+            console.log('Connecting to voice channel...');
+            const connection = await msg.member.voice.channel.join();
+            console.log('Connected to voice channel');
+            console.log('Fetching Youtube data...');
+            ytInfo = await ytdl.getInfo(youtubeURL);
+            console.log('Youtube data fetched');
+            console.log('Playing sound...');
+            const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
+            dispatcher.on('finish', () => {
+                console.log('Finished playing!');
+                dispatcher.destroy();
+                msg.member.voice.channel.leave();
+            });
+        } catch (err) {
+            console.log("ERROR: Failed to play youtube id: " + youtubeURL + ", error text: " + err);
+        }
     }
 }
