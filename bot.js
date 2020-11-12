@@ -126,10 +126,17 @@ client.on('message', msg => {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MADvxFXWvwE');
         }
         else if (/bonk/i.test(msg.content)) {
-            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gwxTZaa3NgI');
+            if (Math.random() >= 0.95) {
+                playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5KEPE2VUSA8');
+            } else {
+                playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gwxTZaa3NgI');
+            }
         }
         else if (/don.?t\s*do\s*it/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gTUALBzIBWM');
+        }
+        else if (/speen|spin/i.test(msg.content)) {
+            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=cerkDJLuT_k');
         }
         else if (/monke.*that.?s\s*shit/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9');
@@ -145,13 +152,17 @@ client.on('message', msg => {
         {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + timecards.getRandomTimecardVideoID());
         }
-        else if (/monke\s*play\s*despacito/i.test(msg.content)) 
+        else if (/monke.*play\s*despacito/i.test(msg.content)) 
         {
             if (Math.random() >= 0.95) {
                 playYoutubeSound(msg, 'https://www.youtube.com/watch?v=W3GrSMYbkBE');
             } else {
                 playYoutubeSound(msg, 'https://www.youtube.com/watch?v=FWOXAPI5kZg');
             }
+        }
+        else if (/CBT/i.test(msg.content))
+        {
+            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=nOPIu7isD3s');
         }
 
         
