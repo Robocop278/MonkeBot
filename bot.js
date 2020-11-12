@@ -131,7 +131,7 @@ client.on('message', msg => {
         else if (/don.?t\s*do\s*it/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gTUALBzIBWM');
         }
-        else if (/monke\s*that.?s\s*shit/i.test(msg.content)) {
+        else if (/monke.*that.?s\s*shit/i.test(msg.content)) {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9');
         }
         else if (/football/i.test(msg.content)) {
