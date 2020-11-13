@@ -164,6 +164,10 @@ client.on('message', msg => {
         {
             playYoutubeSound(msg, 'https://www.youtube.com/watch?v=nOPIu7isD3s');
         }
+        else if (/oof/i.test(msg.content))
+        {
+            playYoutubeSound(msg, 'https://www.youtube.com/watch?v=HoBa2SyvtpE');
+        }
 
         
     }
