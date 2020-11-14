@@ -169,6 +169,10 @@ client.on('message', msg => {
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=HoBa2SyvtpE');
         }
+        else if (/ford truck month/i.test(msg.content))
+        {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=RVKmdsO6f3g');
+        }
 
         
     }
