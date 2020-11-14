@@ -40,7 +40,6 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
             PLAY_LOCK = 0;
         }
         dateSinceLastPlay = dateNow;
-        console.log("Current spam parameters: avgTimeBetweenSounds = " + avgTimeBetweenSounds + ", numOfRecentlyPlayedSounds = " + numOfRecentlyPlayedSounds)
 
         try {
             console.log('Connecting to voice channel...');
@@ -60,7 +59,6 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
                         PLAY_LOCK = 0;
                     }
                 } else {
-                    console.log("NOT LOCKED, LEAVING VOICE CHANNEL");
                     msg.member.voice.channel.leave();
                 }
             });
