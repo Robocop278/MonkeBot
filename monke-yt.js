@@ -37,6 +37,7 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
         } else {
         	avgTimeBetweenSounds = 0;
         	numOfRecentlyPlayedSounds = 0;
+            PLAY_LOCK = 0;
         }
         dateSinceLastPlay = dateNow;
         console.log("Current spam parameters: avgTimeBetweenSounds = " + avgTimeBetweenSounds + ", numOfRecentlyPlayedSounds = " + numOfRecentlyPlayedSounds)
@@ -46,18 +47,25 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
             const connection = await msg.member.voice.channel.join();
             console.log('Connected to voice channel');
             console.log('Fetching Youtube data...');
-            ytInfo = await ytdl.getInfo(youtubeURL);
+            ytInfo = await ytdl.getInfo(trueYoutubeURL);
             console.log('Youtube data fetched');
             console.log('Playing sound...');
             const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
             dispatcher.on('finish', () => {
                 console.log('Finished playing!');
                 dispatcher.destroy();
-                msg.member.voice.channel.leave();
-                PLAY_LOCK = 0;
+                if (PLAY_LOCK == 1) {
+                    if (trueYoutubeURL === 'https://www.youtube.com/watch?v=8NuYSsROSOk') {
+                        msg.member.voice.channel.leave();
+                        PLAY_LOCK = 0;
+                    }
+                } else {
+                    console.log("NOT LOCKED, LEAVING VOICE CHANNEL");
+                    msg.member.voice.channel.leave();
+                }
             });
         } catch (err) {
-            console.log("ERROR: Failed to play youtube id: " + youtubeURL + ", error text: " + err);
+            console.log("ERROR: Failed to play youtube id: " + trueYoutubeURL + ", error text: " + err);
             PLAY_LOCK = 0; // turn off play lock just in case
         }
     }
