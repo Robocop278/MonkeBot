@@ -65,6 +65,7 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
         } catch (err) {
             console.log("ERROR: Failed to play youtube id: " + trueYoutubeURL + ", error text: " + err);
             PLAY_LOCK = 0; // turn off play lock just in case
+            msg.member.voice.channel.leave();
         }
     }
 }
