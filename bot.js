@@ -184,7 +184,7 @@ client.on('message', msg => {
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EcsPhdyZM4k');
         }
-        else if (/phasmophobia/i.test(msg.content))
+        else if (/phasmo/i.test(msg.content))
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + phasmo.getRandomSpiritBoxVideoID());
         }
