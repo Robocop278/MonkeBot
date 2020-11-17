@@ -66,6 +66,7 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
             console.log("ERROR: Failed to play youtube id: " + trueYoutubeURL + ", error text: " + err);
             PLAY_LOCK = 0; // turn off play lock just in case
             msg.member.voice.channel.leave();
+            msg.channel.send("https://media1.tenor.com/images/52d0f87259135bce058da8bf66ba7ee9/tenor.gif?itemid=5384362");
         }
     }
 }
