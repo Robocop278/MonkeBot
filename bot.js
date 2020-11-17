@@ -55,6 +55,7 @@ client.on('message', msg => {
         else if (/bee/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
                 msg.channel.send(beeGif);
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=8CvqmD0CZao');
             } else {
                 msg.react('🐝').catch(function() {
                     console.log("whoopsies");
