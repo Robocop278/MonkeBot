@@ -4,9 +4,11 @@ const client = new Discord.Client();
 
 // Import constants
 const constants = require('./constants');
+// Youtube handler
+const mYouTube = require('./monke-yt');
 // Other imports
 const timecards = require('./timecards');
-const mYouTube = require('./monke-yt');
+const phasmo = require('./phasmophobia-sounds');
 
 // Holds reference to our channels
 var mainChannel; // main channel
@@ -178,6 +180,16 @@ client.on('message', msg => {
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=_bSEfx6D8mA');
         }
+        else if (/^e$/i.test(msg.content))
+        {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EcsPhdyZM4k');
+        }
+        else if (/^e$/i.test(msg.content))
+        {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + phasmo.getRandomSpiritBoxVideoID());
+        }
+
+        
 
         
     }
