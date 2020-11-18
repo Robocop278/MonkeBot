@@ -14,8 +14,13 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
 	// We only continue if the message is from a guild
     if (!msg.guild) return;
 
+    // Immediately store a reference to the voice channel
+    // If the member that sent the msg leaves, we will error
+    // When trying to get their voice channel
+    var voiceChannel = msg.member.voice.channel;
+
     // We only care to continue if the user is in a voice channel
-    if (msg.member.voice.channel) {
+    if (voiceChannel) {
 
     	var trueYoutubeURL = youtubeURL;
 
@@ -43,7 +48,7 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
 
         try {
             console.log('Connecting to voice channel...');
-            const connection = await msg.member.voice.channel.join();
+            const connection = await voiceChannel.join();
             console.log('Connected to voice channel');
             console.log('Fetching Youtube data...');
             ytInfo = await ytdl.getInfo(trueYoutubeURL);
@@ -55,17 +60,17 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
                 dispatcher.destroy();
                 if (PLAY_LOCK == 1) {
                     if (trueYoutubeURL === 'https://www.youtube.com/watch?v=8NuYSsROSOk') {
-                        msg.member.voice.channel.leave();
+                        voiceChannel.leave();
                         PLAY_LOCK = 0;
                     }
                 } else {
-                    msg.member.voice.channel.leave();
+                    voiceChannel.leave();
                 }
             });
         } catch (err) {
             console.log("ERROR: Failed to play youtube id: " + trueYoutubeURL + ", error text: " + err);
             PLAY_LOCK = 0; // turn off play lock just in case
-            msg.member.voice.channel.leave();
+            voiceChannel.leave();
             msg.channel.send("https://media1.tenor.com/images/52d0f87259135bce058da8bf66ba7ee9/tenor.gif?itemid=5384362");
         }
     }
