@@ -14,9 +14,9 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
 	// We only continue if the message is from a guild
     if (!msg.guild) return;
 
-    // Immediately store a reference to the voice channel
-    // If the member that sent the msg leaves, we will error
-    // When trying to get their voice channel
+    // Immediately store a reference to the voice channel. If we don't do this, we
+    // can error out if we try to leave the member's voice channel but they've left
+    // the voice channel they were originally in
     var voiceChannel = msg.member.voice.channel;
 
     // We only care to continue if the user is in a voice channel
