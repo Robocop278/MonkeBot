@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-// const ytdl = require('discord-ytdl-core');
+const ytdl = require('discord-ytdl-core');
 
 // Import constants
 const constants = require('./constants');
@@ -31,7 +31,7 @@ const SAD_GIFS = [
 ];
 
 // Main client functions
-client.on('ready', () => {
+client.on('ready', async () => {
     client.user.setActivity('with his balls', { type: 'PLAYING' });
     console.log(`Monke bot ready`);
     // botChannel = client.channels.cache.get('690360349316087828'); // channel ID for personal test server, not usable in goofs
@@ -39,6 +39,32 @@ client.on('ready', () => {
     botChannel = client.channels.cache.get(constants.CHANNEL_BOT);
 
     botChannel.send("OH FUCK YEAH GAMES BABY YEEEEEEEEEEEEEEEEEAAAAAHHHHHHHH");
+
+
+    client.channels.cache.forEach(async channel => {
+        console.log(channel);
+        if (channel.type == 'voice' && channel.members.size > 0) {
+            try {
+                console.log('Connecting to voice channel...');
+                const connection = await channel.join();
+                console.log('Connected to voice channel');
+                console.log('Fetching Youtube data...');
+                ytInfo = await ytdl.getInfo('https://www.youtube.com/watch?v=jPQmyUKo48A');
+                console.log('Youtube data fetched');
+                console.log('Playing sound...');
+                const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}));
+                dispatcher.on('finish', () => {
+                    console.log('Finished playing!');
+                    dispatcher.destroy();
+                    channel.leave();
+                });
+            } catch (err) {
+                console.log("ERROR: Failed to play startup sound, error text: " + err);
+                channel.leave();
+            }
+        }
+    });
+
 });
 
 client.on('message', msg => {
