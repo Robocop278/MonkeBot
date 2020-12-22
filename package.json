@@ -6,9 +6,9 @@
 	"author": "Christian Gutierrez",
 	"dependencies": {
 		"@discordjs/opus": "^0.3.3",
-		"discord-ytdl-core": "^4.1.3",
-		"discord.js": "^12.0.2",
+		"discord-ytdl-core": "^4.1.5",
+		"discord.js": "^12.5.1",
 		"ffmpeg-static": "^4.2.7",
-		"ytdl-core": "^4.0.0"
+		"ytdl-core": "^4.1.2"
 	}
 }
