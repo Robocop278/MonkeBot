@@ -102,7 +102,7 @@ client.on('message', msg => {
             }
         }
         else if (/monke.*fart/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=1B0RQBH0LOw');
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=hr7GyFM7pX4');
         }
         else if (/monke.*suck/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=rPWDl5Zt_TQ');
@@ -229,6 +229,7 @@ client.on('message', msg => {
         else if (/monke\s*shut\s*down/i.test(msg.content))
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
+            // https://stackoverflow.com/questions/23766259/restart-node-js-server-programmatically
         }
 
 
