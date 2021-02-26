@@ -90,6 +90,9 @@ client.on('message', msg => {
                 });
             }
         }
+        else if (/amon?g\s*us/i.test(msg.content)) {
+            msg.channel.send('ඞ');
+        }        
         else if (/fuck\s*you.*monke/i.test(msg.content)) {
             msg.channel.send(SAD_GIFS[getRndInteger(0, SAD_GIFS.length)]);
         }
