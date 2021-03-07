@@ -229,6 +229,10 @@ client.on('message', msg => {
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=XgUB3lF9IQA');
         }
+        else if (/800.?588.?2300/i.test(msg.content))
+        {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ovVvtC4wXSQ');
+        }
         else if (/monke\s*shut\s*down/i.test(msg.content))
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
