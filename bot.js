@@ -233,6 +233,10 @@ client.on('message', msg => {
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ovVvtC4wXSQ');
         }
+        else if (/1.?900.?490.?FREAK|freddie\s*freaker/i.test(msg.content))
+        {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MmOiRyWLug0');
+        }
         else if (/shrek|somebody\s*once\s*told\s*me/i.test(msg.content))
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=g7_VlmEamUQ');
