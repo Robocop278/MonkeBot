@@ -120,7 +120,11 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '290');
         }
         else if (/cock.*rock/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=6yisws5rKoo');
+            if (Math.random() >= 0.90) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ZYR_r0A-K3g');
+            } else {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=6yisws5rKoo');
+            }
         }
         else if (/jabroni/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=8K2wTF7pZzI');
