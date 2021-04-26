@@ -94,7 +94,7 @@ client.on('message', msg => {
             msg.channel.send('ඞ');
         }        
         else if (/fuck\s*you.*monke/i.test(msg.content)) {
-            msg.channel.send(SAD_GIFS[getRndInteger(0, SAD_GIFS.length)]);
+            msg.channel.send(SAD_GIFS[Math.floor(Math.random() * SAD_GIFS.length)]);
         }
         else if (/monke.*time.*(left|til|for)/i.test(msg.content)) {
             sendCountdownStatus(true);
@@ -253,6 +253,10 @@ client.on('message', msg => {
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
             // https://stackoverflow.com/questions/23766259/restart-node-js-server-programmatically
+        }
+        else if (msg.mentions.has(client.user)) // If message is pinging Monke Bot
+        {
+            msg.channel.send(PINGED_GIFS[Math.floor(Math.random() * PINGED_GIFS.length)]);
         }
 
 
