@@ -249,6 +249,10 @@ client.on('message', msg => {
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=g7_VlmEamUQ');
         }
+        else if (/godzilla/i.test(msg.content))
+        {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=JkUQ6s4mrWw');
+        }
         else if (/monke\s*shut\s*down/i.test(msg.content))
         {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
