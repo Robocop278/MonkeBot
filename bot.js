@@ -206,7 +206,7 @@ client.on('message', msg => {
             if (Math.random() >= 0.95) {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=N8xVS57hAs4');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=HoBa2SyvtpE');
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=3w-2gUSus34');
             }
         }
         else if (/ford truck month/i.test(msg.content))
