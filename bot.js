@@ -6,9 +6,14 @@ const ytdl = require('discord-ytdl-core');
 const constants = require('./constants');
 // Youtube handler
 const mYouTube = require('./monke-yt');
+// Monke Houses
+const mHouses = require('./monke-houses');
 // Other imports
 const timecards = require('./timecards');
 const phasmo = require('./phasmophobia-sounds');
+
+// Holds reference to the main server
+var goofsServer;
 
 // Holds reference to our channels
 var mainChannel; // main channel
@@ -33,38 +38,49 @@ const SAD_GIFS = [
 // Main client functions
 client.on('ready', async () => {
     client.user.setActivity('with his balls', { type: 'PLAYING' });
-    console.log(`Monke bot ready`);
     // botChannel = client.channels.cache.get('690360349316087828'); // channel ID for personal test server, not usable in goofs
     mainChannel = client.channels.cache.get(constants.CHANNEL_MAIN);
     botChannel = client.channels.cache.get(constants.CHANNEL_BOT);
 
-    botChannel.send("OH FUCK YEAH GAMES BABY YEEEEEEEEEEEEEEEEEAAAAAHHHHHHHH");
+    // Announce startup and jump into voice to play intro sound
+    if (false) {
+        botChannel.send("OH FUCK YEAH GAMES BABY YEEEEEEEEEEEEEEEEEAAAAAHHHHHHHH");
 
-
-    client.channels.cache.forEach(async channel => {
-        console.log(channel);
-        if (channel.type == 'voice' && channel.members.size > 0) {
-            try {
-                console.log('Connecting to voice channel...');
-                const connection = await channel.join();
-                console.log('Connected to voice channel');
-                console.log('Fetching Youtube data...');
-                ytInfo = await ytdl.getInfo('https://www.youtube.com/watch?v=jPQmyUKo48A');
-                console.log('Youtube data fetched');
-                console.log('Playing sound...');
-                const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}));
-                dispatcher.on('finish', () => {
-                    console.log('Finished playing!');
-                    dispatcher.destroy();
+        console.log("Parsing through channels for startup sound...");
+        client.channels.cache.forEach(async channel => {
+            console.log("Found channel " + channel.id);
+            if (channel.type == 'voice' && channel.members.size > 0) {
+                try {
+                    console.log('Connecting to voice channel...');
+                    const connection = await channel.join();
+                    console.log('Connected to voice channel');
+                    console.log('Fetching Youtube data...');
+                    ytInfo = await ytdl.getInfo('https://www.youtube.com/watch?v=jPQmyUKo48A');
+                    console.log('Youtube data fetched');
+                    console.log('Playing sound...');
+                    const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}));
+                    dispatcher.on('finish', () => {
+                        console.log('Finished playing!');
+                        dispatcher.destroy();
+                        channel.leave();
+                    });
+                } catch (err) {
+                    console.log("ERROR: Failed to play startup sound, error text: " + err);
                     channel.leave();
-                });
-            } catch (err) {
-                console.log("ERROR: Failed to play startup sound, error text: " + err);
-                channel.leave();
+                }
             }
+        });
+    }
+
+    // Find our main server, will be needed later
+    console.log("Parsing through servers...");
+    client.guilds.cache.forEach(async server =>{
+        if (server.id == constants.SERVER_GOOFS) {
+            goofsServer = server;
+            console.log("Found our goofs server!");
         }
     });
-
+    console.log(`Monke bot ready`);
 });
 
 client.on('message', msg => {
@@ -74,7 +90,7 @@ client.on('message', msg => {
         }
         else if (/kenny/i.test(msg.content)) {
             if (Math.random() >= 0.90) {
-                msg.channel.send("<@" + constants.KENNY + ">");
+                msg.channel.send("<@" + constants.USERS.KENNY + ">");
             }
         }
         else if (/kenna/i.test(msg.content)) {
@@ -93,7 +109,7 @@ client.on('message', msg => {
         else if (/amon?g\s*us/i.test(msg.content)) {
             msg.channel.send('ඞ');
         }        
-        else if (/fuck\s*you.*monke/i.test(msg.content)) {
+        else if (/(fuck\s*you|shut.*up).*monke/i.test(msg.content)) {
             msg.channel.send(SAD_GIFS[Math.floor(Math.random() * SAD_GIFS.length)]);
         }
         else if (/monke.*time.*(left|til|for)/i.test(msg.content)) {
@@ -163,8 +179,11 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MADvxFXWvwE');
         }
         else if (/bonk/i.test(msg.content)) {
-            if (Math.random() >= 0.95) {
+            var randomAmt = Math.random();
+            if (randomAmt >= 0.99) {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5KEPE2VUSA8');
+            } else if (randomAmt >= 0.95) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=08EqQPIvHOU');
             } else {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gwxTZaa3NgI');
             }
@@ -185,85 +204,130 @@ client.on('message', msg => {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ZKPnAfopfO8');
             }
         }
-        else if (/monke.*timecard/i.test(msg.content)) 
-        {
+        else if (/monke.*timecard/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + timecards.getRandomTimecardVideoID());
         }
-        else if (/monke.*play\s*despacito/i.test(msg.content)) 
-        {
+        else if (/monke.*play\s*despacito/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=W3GrSMYbkBE');
             } else {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=FWOXAPI5kZg');
             }
         }
-        else if (/CBT/i.test(msg.content))
-        {
+        else if (/CBT/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=nOPIu7isD3s');
         }
-        else if (/oof/i.test(msg.content))
-        {
+        else if (/oof/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=N8xVS57hAs4');
             } else {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=3w-2gUSus34');
             }
         }
-        else if (/ford truck month/i.test(msg.content))
-        {
+        else if (/ford truck month/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=RVKmdsO6f3g');
         }
-        else if (/surprise/i.test(msg.content))
-        {
+        else if (/surprise/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=_bSEfx6D8mA');
         }
-        else if (/^e$/i.test(msg.content))
-        {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EcsPhdyZM4k');
+        else if (/^e$/i.test(msg.content)) {
+            if (Math.random() >= 0.95) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=T732jM9juhA');
+            } else {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EcsPhdyZM4k');
+            }
         }
-        else if (/phasmo/i.test(msg.content))
-        {
+        else if (/phasmo/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + phasmo.getRandomSpiritBoxVideoID());
         }
-        else if (/shut\s*up/i.test(msg.content))
-        {
+        else if (/shut\s*up/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ptAVrZh7hV0');
         }
-        else if (/u\s*right/i.test(msg.content))
-        {
+        else if (/u\s*right/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MCT80HJWQ2A', '4');
         }
-        else if (/john/i.test(msg.content))
-        {
+        else if (/john/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=XgUB3lF9IQA');
         }
-        else if (/800.?588.?2300/i.test(msg.content))
-        {
+        else if (/800.?588.?2300/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ovVvtC4wXSQ');
         }
-        else if (/1.?900.?490.?FREAK|freddie\s*freaker/i.test(msg.content))
-        {
+        else if (/1.?900.?490.?FREAK|freddie\s*freaker/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MmOiRyWLug0');
         }
-        else if (/shrek|somebody\s*once\s*told\s*me/i.test(msg.content))
-        {
+        else if (/shrek|somebody\s*once\s*told\s*me/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=g7_VlmEamUQ');
         }
-        else if (/godzilla/i.test(msg.content))
-        {
+        else if (/godzilla/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=JkUQ6s4mrWw');
         }
-        else if (/taco\s*bell/i.test(msg.content))
-        {
+        else if (/taco\s*bell/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=dNl4-w9ZrBs');
         }
-        else if (/monke\s*shut\s*down/i.test(msg.content))
-        {
+        else if (/monke.*th(ink|oughts)/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=V-tFWwXTJn8');
+        }
+        else if (/egg/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=nhB5WoUYQbc');
+        }
+        else if (/bean/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=60l1nZIhslU');
+        }
+        else if (/jam/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=aAh7UnQnC7I');
+        }
+        else if (/cheese/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Kf2CSy_ZHCA', '5');
+        }
+        else if (/pizza/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=czTksCF6X8Y');
+        }
+        else if (/kick.*butt/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MVMyxJiA9Cg');
+        }
+        else if (/clap/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EHjWieD29AM');
+        }
+        else if (/sell?\s?fish/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=I1USdCFPR_A');
+        }
+        else if (/what'?s\s*your\s*point/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Jk5qghpFY-g');
+        }
+        else if (/find\s*jeffrey/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=jj_TywZ_X_w', '13');
+        }
+        else if (/brerb/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=1mQG7z-5wok');
+        }
+        else if (/krabby\s*patty/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=E-xhxS581Uc');
+        }
+        else if (/devious/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=FFVu0Zbth2A');
+        }
+        else if (/game\s*over/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=IsS_VMzY10I');
+        }
+        else if (/liberal/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=QxdC2H2Nndg');
+        }
+
+        
+        else if (/monke assign houses/i.test(msg.content)){
+            msg.channel.send("Assigning houses");
+            mHouses.autoAssignHouses(goofsServer, constants.ROLES);
+        }
+        else if (/monke clear houses/i.test(msg.content)){
+            msg.channel.send("Clearing houses");
+            mHouses.clearAllHouses(goofsServer);
+        }
+
+        else if (/monke(y)?\s*shut\s*down/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
             // https://stackoverflow.com/questions/23766259/restart-node-js-server-programmatically
         }
-        else if (msg.mentions.has(client.user)) // If message is pinging Monke Bot
-        {
+        else if (msg.mentions.has(client.user)) { // If message is pinging Monke Bot
             msg.channel.send(PINGED_GIFS[Math.floor(Math.random() * PINGED_GIFS.length)]);
         }
 
@@ -328,7 +392,7 @@ function sendCountdownStatus(verbose = false) {
     } 
     else {
         // If its the goal date, ping some people
-        botChannel.send("<@" + constants.CHRISTIAN + "> <@" + constants.JON + "> <@" + constants.SPENCER + "> OH FUCK OH SHIT IT'S HERE FUCK FUCK FUCK FUCK FUCK AAHAHAHAHAHAHHHAHAHAHHAHHAHAHAH YEEEEEEEEEEEEEAAAAHHHHHH BOOOOOIIIIIIIIIIIII!!!!!!!!!");
+        botChannel.send("<@" + constants.USERS.CHRISTIAN + "> <@" + constants.USERS.JON + "> <@" + constants.USERS.SPENCER + "> OH FUCK OH SHIT IT'S HERE FUCK FUCK FUCK FUCK FUCK AAHAHAHAHAHAHHHAHAHAHHAHHAHAHAH YEEEEEEEEEEEEEAAAAHHHHHH BOOOOOIIIIIIIIIIIII!!!!!!!!!");
     }
 }
 
@@ -339,28 +403,3 @@ client.login(constants.PRIVATE_KEY);
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
-
-// Given a msg and youtubeURL, if msg member is currently in a voice channel, jump into that voice channel and play youtubeURL audio
-// async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
-//     if (!msg.guild) return;
-
-//     if (msg.member.voice.channel) {
-//         try {
-//             console.log('Connecting to voice channel...');
-//             const connection = await msg.member.voice.channel.join();
-//             console.log('Connected to voice channel');
-//             console.log('Fetching Youtube data...');
-//             ytInfo = await ytdl.getInfo(youtubeURL);
-//             console.log('Youtube data fetched');
-//             console.log('Playing sound...');
-//             const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
-//             dispatcher.on('finish', () => {
-//                 console.log('Finished playing!');
-//                 dispatcher.destroy();
-//                 msg.member.voice.channel.leave();
-//             });
-//         } catch (err) {
-//             console.log("ERROR: Failed to play youtube id: " + youtubeURL + ", error text: " + err);
-//         }
-//     }
-// }
