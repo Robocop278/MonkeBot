@@ -215,7 +215,11 @@ client.on('message', msg => {
             }
         }
         else if (/CBT/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=nOPIu7isD3s');
+            if (Math.random() >= 0.95) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=fR9ClX0egTc');
+            } else {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=WWeMOKnBfZ8');
+            }
         }
         else if (/oof/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
@@ -312,6 +316,25 @@ client.on('message', msg => {
         else if (/liberal/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=QxdC2H2Nndg');
         }
+        else if (/careless|whisper/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=izGwDsrQ1eQ');
+        }
+        else if (/stop\s*it|get\s*some\s*help/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=9Deg7VrpHbM');
+        }
+        else if (/huge/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=h8Jui7XaKQA');
+        }
+        else if (/toxic/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=xr5t5vG1fHY');
+        }
+        else if (/th[sa]nks/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=OLmun1JEIw0', '41');
+        }
+        else if (/uncle/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=XvbxrpFx0FU');
+        }
+        
 
         
         else if (/monke assign houses/i.test(msg.content)){
@@ -321,6 +344,10 @@ client.on('message', msg => {
         else if (/monke clear houses/i.test(msg.content)){
             msg.channel.send("Clearing houses");
             mHouses.clearAllHouses(goofsServer);
+        }
+        else if (/monke test add points/i.test(msg.content)){
+            console.log("Testing add points");
+            mHouses.addHousePoints(msg);
         }
 
         else if (/monke(y)?\s*shut\s*down/i.test(msg.content)) {

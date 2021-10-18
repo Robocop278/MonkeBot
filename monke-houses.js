@@ -21,6 +21,8 @@ const HOUSES = [
 ];
 
 // Points per action range: 10-138
+const POINT_ADD_MIN = 10;
+const POINT_ADD_MAX = 138;
 // point dampening system
 // Maybe depending on reactions of meme
 
@@ -117,6 +119,7 @@ function autoAssignHouses(server, roles = null) {
 
 }
 
+// Goes through all members in the given server and clears any roles pertinent to the houses system
 function clearAllHouses(server) {
 	// Iterate through all members in the server
 	server.members.fetch().then(fetchedMembers => {
@@ -146,6 +149,17 @@ function clearAllHouses(server) {
 	}).catch(console.error);
 }
 
+// Generate a random amount of points for a message from a discord member. Msg needed in order to both fetch the member and check their roles, and to reply to the original message
+function addHousePoints(msg) {
+	HOUSES.forEach(house => {
+		if (msg.member._roles.includes(house.id)) {
+			// Generate points
+			var pointsToAdd = randomIntFromInterval(POINT_ADD_MIN, POINT_ADD_MAX);
+			msg.reply(`${pointsToAdd} points to ${house.name}!`);
+		}
+	});
+}
+
 
 // Private methods
 
@@ -165,8 +179,14 @@ function shuffle(a) {
     return a;
 }
 
+// https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
 
 module.exports = {
 	autoAssignHouses,
-	clearAllHouses
+	clearAllHouses,
+	addHousePoints
 };
