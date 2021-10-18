@@ -242,6 +242,7 @@ client.on('message', msg => {
             }
         }
         else if (/phasmo/i.test(msg.content)) {
+            console.log('spooky incoming...')
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + phasmo.getRandomSpiritBoxVideoID());
         }
         else if (/shut\s*up/i.test(msg.content)) {
@@ -336,6 +337,9 @@ client.on('message', msg => {
         }
         else if (/iasip/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=idoYCVLh2qI');
+        }
+        else if (/get\s*you\s*bitch/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=bip40seuVqI');
         }
         
 

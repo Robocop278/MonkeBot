@@ -56,7 +56,7 @@ async function playYoutubeSound(msg, youtubeURL, startTime = '0') {
             console.log('Playing sound...');
             const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
             dispatcher.on('finish', () => {
-                console.log('Finished playing!');
+                console.log('Finished playing!\n');
                 dispatcher.destroy();
                 if (PLAY_LOCK == 1) {
                     if (trueYoutubeURL === 'https://www.youtube.com/watch?v=8NuYSsROSOk') {
