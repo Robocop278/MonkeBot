@@ -334,6 +334,9 @@ client.on('message', msg => {
         else if (/uncle/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=XvbxrpFx0FU');
         }
+        else if (/iasip/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=idoYCVLh2qI');
+        }
         
 
         
