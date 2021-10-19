@@ -341,6 +341,9 @@ client.on('message', msg => {
         else if (/get\s*you\s*bitch/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=bip40seuVqI');
         }
+        else if (/congratulations|congrats/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wDajqW561KM');
+        }
         
 
         
