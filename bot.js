@@ -342,7 +342,15 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=bip40seuVqI');
         }
         else if (/congratulations|congrats/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wDajqW561KM');
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wDajqW561KMx');
+        }
+        else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
+            var bbSounds = ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b5/Echo1.ogg/revision/latest?cb=20141113012504','https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/0e/Echo3b.ogg/revision/latest?cb=20141113012523','https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/Echo4b.ogg/revision/latest?cb=20141113012542']
+            rnd = Math.floor(Math.random() * bbSounds.length)
+            mYouTube.playSoundOgg(msg, bbSounds[rnd]);
+        }
+        else if (/icpp/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/dota2_gamepedia/images/e/ed/Vo_nyx_assassin_nyx_attack_16.mp3/revision/latest?cb=20201017155639');
         }
         
 
