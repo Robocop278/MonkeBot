@@ -352,12 +352,36 @@ client.on('message', msg => {
         //Non-Youtube Sounds
 
         else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
-            var bbSounds = ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b5/Echo1.ogg/revision/latest?cb=20141113012504','https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/0e/Echo3b.ogg/revision/latest?cb=20141113012523','https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/Echo4b.ogg/revision/latest?cb=20141113012542']
+            var bbSounds = ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b5/Echo1.ogg/revision/latest?cb=20141113012504',
+                            'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/0e/Echo3b.ogg/revision/latest?cb=20141113012523',
+                            'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/Echo4b.ogg/revision/latest?cb=20141113012542']
             rnd = Math.floor(Math.random() * bbSounds.length)
             mYouTube.playSoundOgg(msg, bbSounds[rnd]);
         }
         else if (/icpp/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/dota2_gamepedia/images/e/ed/Vo_nyx_assassin_nyx_attack_16.mp3/revision/latest?cb=20201017155639');
+        }
+        else if (/ow|oww/i.test(msg.content)) {
+            if (Math.random() >= 0.7) {
+                mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/5/59/Owwcrit.ogg/revision/latest?cb=20211022064501")
+            }
+            else {
+                var owwSounds = [   "https://static.wikia.nocookie.net/monkebot/images/7/7a/Oww.ogg/revision/latest?cb=20211022063550",
+                                    "https://static.wikia.nocookie.net/monkebot/images/0/08/Oww2.ogg/revision/latest?cb=20211022063325"]
+                rnd = Math.floor(Math.random() * owwSounds.length)
+                mYouTube.playSoundOgg(msg, owwsounds[rnd]);
+            }
+        }
+        else if (/help/i.test(msg.content)) {
+            var helpSounds = [  'https://static.wikia.nocookie.net/monkebot/images/b/b1/Help_1.ogg/revision/latest?cb=20211022064642',
+                                'https://static.wikia.nocookie.net/monkebot/images/e/ec/Help_2.ogg/revision/latest?cb=20211022064701',
+                                'https://static.wikia.nocookie.net/monkebot/images/9/9a/Help_3.ogg/revision/latest?cb=20211022064719',
+                                'https://static.wikia.nocookie.net/monkebot/images/c/c8/Help_4.ogg/revision/latest?cb=20211022064730',
+                                'https://static.wikia.nocookie.net/monkebot/images/1/12/Help_5.ogg/revision/latest?cb=20211022064739',
+                                'https://static.wikia.nocookie.net/monkebot/images/e/ea/Engineer_helpme01.ogg/revision/latest?cb=20211022064755',
+                                'https://static.wikia.nocookie.net/monkebot/images/1/12/Engineer_helpme03.ogg/revision/latest?cb=20211022064803']
+            rnd = Math.floor(Math.random() * helpSounds.length)
+            mYouTube.playSoundOgg(msg, helpSounds[rnd]);
         }
         
 
