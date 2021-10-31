@@ -218,7 +218,7 @@ client.on('message', msg => {
             if (Math.random() >= 0.95) {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=fR9ClX0egTc');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=WWeMOKnBfZ8');
+                mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/b1/Cbt.ogg/revision/latest?cb=20211025041045');
             }
         }
         else if (/oof/i.test(msg.content)) {
@@ -379,12 +379,34 @@ client.on('message', msg => {
                                 'https://static.wikia.nocookie.net/monkebot/images/c/c8/Help_4.ogg/revision/latest?cb=20211022064730',
                                 'https://static.wikia.nocookie.net/monkebot/images/1/12/Help_5.ogg/revision/latest?cb=20211022064739',
                                 'https://static.wikia.nocookie.net/monkebot/images/e/ea/Engineer_helpme01.ogg/revision/latest?cb=20211022064755',
-                                'https://static.wikia.nocookie.net/monkebot/images/1/12/Engineer_helpme03.ogg/revision/latest?cb=20211022064803']
+                                'https://static.wikia.nocookie.net/monkebot/images/1/12/Engineer_helpme03.ogg/revision/latest?cb=20211022064803',
+                                'https://overwikifiles.com/files/Citizen/Help01_male.ogg']
             rnd = Math.floor(Math.random() * helpSounds.length)
             mYouTube.playSoundOgg(msg, helpSounds[rnd]);
         }
+        else if (/pirate/i.test(msg.content)) {
+            if (Math.random() >= 0.85) {
+                mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/a/a6/Pirate_crit.ogg/revision/latest?cb=20211025042611")
+            }
+            else {
+                mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/3/38/Pirate.ogg/revision/latest?cb=20211025042453")
+            }
+        }
+        else if (/mmm monke/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/92/Mm_monke.ogg/revision/latest?cb=20211025043051');
+        }
+        else if (/^hi$/i.test(msg.content)) {
+            var hiSounds = [    'https://overwikifiles.com/files/Citizen/Hi01_male.ogg',
+                                'https://overwikifiles.com/files/Citizen/Hi02_male.ogg']
+            rnd = Math.floor(Math.random() * hiSounds.length)
+            mYouTube.playSoundOgg(msg, hiSounds[rnd]);
+        }
+
+
         
 
+
+    //Monke Houses
         
         else if (/monke assign houses/i.test(msg.content)){
             msg.channel.send("Assigning houses");
