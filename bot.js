@@ -384,7 +384,7 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * helpSounds.length)
             mYouTube.playSoundOgg(msg, helpSounds[rnd]);
         }
-        else if (/pirate/i.test(msg.content)) {
+        else if (/pirate|spencer/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
                 mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/a/a6/Pirate_crit.ogg/revision/latest?cb=20211025042611")
             }
