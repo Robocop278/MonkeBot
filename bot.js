@@ -369,7 +369,7 @@ client.on('message', msg => {
                 var owwSounds = [   "https://static.wikia.nocookie.net/monkebot/images/7/7a/Oww.ogg/revision/latest?cb=20211022063550",
                                     "https://static.wikia.nocookie.net/monkebot/images/0/08/Oww2.ogg/revision/latest?cb=20211022063325"]
                 rnd = Math.floor(Math.random() * owwSounds.length)
-                mYouTube.playSoundOgg(msg, owwsounds[rnd]);
+                mYouTube.playSoundOgg(msg, owwSounds[rnd]);
             }
         }
         else if (/help/i.test(msg.content)) {
