@@ -361,7 +361,7 @@ client.on('message', msg => {
         else if (/icpp/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/dota2_gamepedia/images/e/ed/Vo_nyx_assassin_nyx_attack_16.mp3/revision/latest?cb=20201017155639');
         }
-        else if (/ow|oww/i.test(msg.content)) {
+        else if (/^ow+$/i.test(msg.content)) {
             if (Math.random() >= 0.7) {
                 mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/5/59/Owwcrit.ogg/revision/latest?cb=20211022064501")
             }
