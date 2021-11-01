@@ -401,6 +401,9 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * hiSounds.length)
             mYouTube.playSoundOgg(msg, hiSounds[rnd]);
         }
+        else if (/^intermission$/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/bf/Intermission.mp3/revision/latest?cb=20211101030603');
+        }
 
 
         
