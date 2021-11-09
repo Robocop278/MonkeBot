@@ -345,7 +345,12 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wDajqW561KMx');
         }
         else if (/brain/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/UKU0AdOMXLA');
+            if (Math.random() >= 0.8) {
+                mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/2/22/Brain_crit.mp3/revision/latest?cb=20211105054825")
+            }
+            else {
+                mYouTube.playYoutubeSound(msg, 'https://youtu.be/UKU0AdOMXLA');
+            }
         }
         else if (/horsey|chobunso/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/leqy7do7KhE');
@@ -365,7 +370,7 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/dota2_gamepedia/images/e/ed/Vo_nyx_assassin_nyx_attack_16.mp3/revision/latest?cb=20201017155639');
         }
         else if (/^ow+$/i.test(msg.content)) {
-            if (Math.random() >= 0.7) {
+            if (Math.random() >= 0.85) {
                 mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/5/59/Owwcrit.ogg/revision/latest?cb=20211022064501")
             }
             else {
@@ -387,7 +392,7 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * helpSounds.length)
             mYouTube.playSoundOgg(msg, helpSounds[rnd]);
         }
-        else if (/pirate/i.test(msg.content)) {
+        else if (/pirate|spencer/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
                 mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/a/a6/Pirate_crit.ogg/revision/latest?cb=20211025042611")
             }
@@ -403,6 +408,21 @@ client.on('message', msg => {
                                 'https://overwikifiles.com/files/Citizen/Hi02_male.ogg']
             rnd = Math.floor(Math.random() * hiSounds.length)
             mYouTube.playSoundOgg(msg, hiSounds[rnd]);
+        }
+        else if (/^intermission$/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/bf/Intermission.mp3/revision/latest?cb=20211101030603');
+        }
+        else if (/duke1/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/e/ea/Duke1.ogg/revision/latest?cb=20211105055208');
+        }
+        else if (/duke2/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/3/32/Duke2.ogg/revision/latest?cb=20211105055304');
+        }
+        else if (/duke3/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/d/d9/Duke3.ogg/revision/latest?cb=20211105055331');
+        }
+        else if (/duke\s*riff/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/13/Duke_riff.ogg/revision/latest?cb=20211105055356');
         }
 
 
