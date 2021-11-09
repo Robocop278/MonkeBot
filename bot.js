@@ -353,7 +353,7 @@ client.on('message', msg => {
             }
         }
         else if (/horsey|chobunso/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/leqy7do7KhE');
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/2QYcKByGEY8');
         }
         
 
