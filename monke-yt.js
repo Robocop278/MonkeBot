@@ -107,7 +107,7 @@ async function playSoundOgg(msg, url, startTime = '0') {
                 dispatcher.destroy();
                 if (PLAY_LOCK == 1) {
                     if (trueYoutubeURL === 'https://www.youtube.com/watch?v=8NuYSsROSOk') {
-                        // voiceChannel.leave();
+                        voiceChannel.leave();
                         PLAY_LOCK = 0;
                     }
                 } else {
