@@ -88,7 +88,7 @@ client.on('message', msg => {
         if (msg.content.toLowerCase() === 'howdy') {
             msg.reply('Howdy partner :cowboy:');
         }
-        else if (/kenny/i.test(msg.content)) {
+        else if (/nia/i.test(msg.content)) {
             if (Math.random() >= 0.90) {
                 msg.channel.send("<@" + constants.USERS.KENNY + ">");
             }
