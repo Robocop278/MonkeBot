@@ -355,6 +355,9 @@ client.on('message', msg => {
         else if (/horsey|chobunso/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/2QYcKByGEY8');
         }
+        else if (/scatman/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/Hy8kmNEo1i8');
+        }
         
 
         //Non-Youtube Sounds
