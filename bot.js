@@ -358,7 +358,7 @@ client.on('message', msg => {
         else if (/scatman/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/Hy8kmNEo1i8');
         }
-        else if (/america/i.test(msg.content)) {
+        else if (/america|🇺🇸/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/MhQ5678cJU8');
         }
 
