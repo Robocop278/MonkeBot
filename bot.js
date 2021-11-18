@@ -429,6 +429,22 @@ client.on('message', msg => {
         else if (/duke\s*riff/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/13/Duke_riff.ogg/revision/latest?cb=20211105055356');
         }
+        else if (/meeting of the byeah[s]/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/91/Meeting_of_the_byeah.ogg/revision/latest?cb=20211118095123');
+        }
+        else if (/^byeah attack$/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/1b/Byeah_attack.ogg/revision/latest?cb=20211118095530');
+        }
+        else if (/^byeah$/i.test(msg.content)) {
+            var byeahSounds = [   'https://static.wikia.nocookie.net/monkebot/images/c/cd/Byeah.ogg/revision/latest?cb=20211118102233',
+                            'https://static.wikia.nocookie.net/monkebot/images/d/dc/Byeah1.ogg/revision/latest?cb=20211118102254',
+                            'https://static.wikia.nocookie.net/monkebot/images/5/56/Byeah2.ogg/revision/latest?cb=20211118102324',
+                            'https://static.wikia.nocookie.net/monkebot/images/d/dc/Byeah3.ogg/revision/latest?cb=20211118102354',
+                            'https://static.wikia.nocookie.net/monkebot/images/f/f4/Byeah4.ogg/revision/latest?cb=20211118102415',
+                            'https://static.wikia.nocookie.net/monkebot/images/1/17/Byeah5.ogg/revision/latest?cb=20211118102441']
+            rnd = Math.floor(Math.random() * byeahSounds.length)
+            mYouTube.playSoundOgg(msg, byeahSounds[rnd]);
+        }
 
 
         
