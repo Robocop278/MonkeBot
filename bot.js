@@ -362,7 +362,13 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/MhQ5678cJU8');
         }
 
-        //Non-Youtube Sounds
+
+    //////////////////////////////////
+    //                              //
+    //      Non-Youtube Sounds      //
+    //                              //
+    //////////////////////////////////
+
 
         else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
             var bbSounds = ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b5/Echo1.ogg/revision/latest?cb=20141113012504',
@@ -429,7 +435,7 @@ client.on('message', msg => {
         else if (/duke\s*riff/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/13/Duke_riff.ogg/revision/latest?cb=20211105055356');
         }
-        else if (/meeting of the byeah[s]/i.test(msg.content)) {
+        else if (/meeting of the byeahs?/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/91/Meeting_of_the_byeah.ogg/revision/latest?cb=20211118095123');
         }
         else if (/^byeah attack$/i.test(msg.content)) {
@@ -446,12 +452,14 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, byeahSounds[rnd]);
         }
 
-
         
+    ////////////////////////////
+    //                        //
+    //      Monke Houses      //
+    //                        //
+    ////////////////////////////
 
 
-    //Monke Houses
-        
         else if (/monke assign houses/i.test(msg.content)){
             msg.channel.send("Assigning houses");
             mHouses.autoAssignHouses(goofsServer, constants.ROLES);
