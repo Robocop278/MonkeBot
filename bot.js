@@ -120,18 +120,6 @@ client.on('message', msg => {
                 msg.channel.send("Shut the fuck up, Todd");
             }
         }
-        else if (/monke.*fart/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=hr7GyFM7pX4');
-        }
-        else if (/monke.*suck/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=rPWDl5Zt_TQ');
-        }
-        else if (/monke.*die/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=xEvJmI7uJ-g');
-        }
-        else if (/monke.*nut/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=TrRDqD-bpWY');
-        }
         else if (/sax.*(and|&).*sex/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '290');
         }
@@ -363,11 +351,11 @@ client.on('message', msg => {
         }
 
 
-    //////////////////////////////////
-    //                              //
-    //      Non-Youtube Sounds      //
-    //                              //
-    //////////////////////////////////
+    ///////////////////////////////////
+    //                               //
+    //      Non-Youtube  Sounds      //
+    //                               //
+    ///////////////////////////////////
 
 
         else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
@@ -451,13 +439,25 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * byeahSounds.length)
             mYouTube.playSoundOgg(msg, byeahSounds[rnd]);
         }
+        else if (/monke.*fart/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/87/Fart_reverb.mp3/revision/latest?cb=20211121065340');
+        }
+        else if (/monke.*suck|monke.*succ/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/be/Succ.mp3/revision/latest?cb=20211121064124');
+        }
+        else if (/monke.*die/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/2/29/Die.mp3/revision/latest?cb=20211121070306');
+        }
+        else if (/monke.*nut/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/55/Worlds_Loudest_Orgasm.mp3/revision/latest?cb=20211121062645');
+        }
 
         
-    ////////////////////////////
-    //                        //
-    //      Monke Houses      //
-    //                        //
-    ////////////////////////////
+    ///////////////////////////////////
+    //                               //
+    //         Monke  Houses         //
+    //                               //
+    ///////////////////////////////////
 
 
         else if (/monke assign houses/i.test(msg.content)){
