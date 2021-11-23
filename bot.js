@@ -349,6 +349,9 @@ client.on('message', msg => {
         else if (/america|🇺🇸|🦅/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/MhQ5678cJU8');
         }
+        else if (/burger\s*king|foot\s*lettuce/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/XPnwmZ6gf6I');
+        }
 
 
     ///////////////////////////////////
