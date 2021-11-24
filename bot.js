@@ -352,6 +352,9 @@ client.on('message', msg => {
         else if (/burger\s*king|foot\s*lettuce/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/XPnwmZ6gf6I');
         }
+        else if (/Emily|X[-\s]files/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/Vpqffgak7To');
+        }
 
 
     ///////////////////////////////////
