@@ -493,7 +493,7 @@ client.on('message', msg => {
 });
 
 client.on('messageDelete', msg => {
-    if (Math.random() >= 0.75) {
+    if (Math.random() >= 0.91) {
         msg.reply('I saw you delete that. You can\'t hide your mistakes.');
     }
 });
