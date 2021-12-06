@@ -355,6 +355,9 @@ client.on('message', msg => {
         else if (/Emily|X[-\s]files/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/Vpqffgak7To');
         }
+        else if (/beginning|beninging/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/fRCOpbp_Wyo');
+        }
 
 
     ///////////////////////////////////
