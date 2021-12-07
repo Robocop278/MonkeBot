@@ -360,6 +360,7 @@ client.on('message', msg => {
         }
         else if (/Charles|pull\s*up|capybara/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/v8Q4BSgBkRc');
+            msg.channel.send('https://c.tenor.com/g05O_S6b0f4AAAAd/capybara-ok-i-pull-up.gif');
         }
 
 
