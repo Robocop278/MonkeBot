@@ -359,7 +359,7 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/fRCOpbp_Wyo');
         }
         else if (/Charles|pull\s*up|capybara/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/fRCOpbp_Wyo');
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/v8Q4BSgBkRc');
         }
 
 
