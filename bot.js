@@ -35,13 +35,50 @@ const SAD_GIFS = [
     "https://media1.tenor.com/images/fc16662655be9b85c441650826a33d0a/tenor.gif?itemid=8227787"
 ];
 
+// Assorted sound arrays
+const BB_SOUNDS = [
+    'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b5/Echo1.ogg/revision/latest?cb=20141113012504',
+    'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/0e/Echo3b.ogg/revision/latest?cb=20141113012523',
+    'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/Echo4b.ogg/revision/latest?cb=20141113012542'
+];
+
+const OWW_SOUNDS = [
+    "https://static.wikia.nocookie.net/monkebot/images/7/7a/Oww.ogg/revision/latest?cb=20211022063550",
+    "https://static.wikia.nocookie.net/monkebot/images/0/08/Oww2.ogg/revision/latest?cb=20211022063325"
+];
+
+const HELP_SOUNDS = [
+    'https://static.wikia.nocookie.net/monkebot/images/b/b1/Help_1.ogg/revision/latest?cb=20211022064642',
+    'https://static.wikia.nocookie.net/monkebot/images/e/ec/Help_2.ogg/revision/latest?cb=20211022064701',
+    'https://static.wikia.nocookie.net/monkebot/images/9/9a/Help_3.ogg/revision/latest?cb=20211022064719',
+    'https://static.wikia.nocookie.net/monkebot/images/c/c8/Help_4.ogg/revision/latest?cb=20211022064730',
+    'https://static.wikia.nocookie.net/monkebot/images/1/12/Help_5.ogg/revision/latest?cb=20211022064739',
+    'https://static.wikia.nocookie.net/monkebot/images/e/ea/Engineer_helpme01.ogg/revision/latest?cb=20211022064755',
+    'https://static.wikia.nocookie.net/monkebot/images/1/12/Engineer_helpme03.ogg/revision/latest?cb=20211022064803',
+    'https://overwikifiles.com/files/Citizen/Help01_male.ogg'
+];
+
+const HI_SOUNDS = [
+    'https://overwikifiles.com/files/Citizen/Hi01_male.ogg',
+    'https://overwikifiles.com/files/Citizen/Hi02_male.ogg'
+];
+
+const BYEAH_SOUNDS = [
+    'https://static.wikia.nocookie.net/monkebot/images/c/cd/Byeah.ogg/revision/latest?cb=20211118102233',
+    'https://static.wikia.nocookie.net/monkebot/images/d/dc/Byeah1.ogg/revision/latest?cb=20211118102254',
+    'https://static.wikia.nocookie.net/monkebot/images/5/56/Byeah2.ogg/revision/latest?cb=20211118102324',
+    'https://static.wikia.nocookie.net/monkebot/images/d/dc/Byeah3.ogg/revision/latest?cb=20211118102354',
+    'https://static.wikia.nocookie.net/monkebot/images/f/f4/Byeah4.ogg/revision/latest?cb=20211118102415',
+    'https://static.wikia.nocookie.net/monkebot/images/1/17/Byeah5.ogg/revision/latest?cb=20211118102441'
+];
+
 var spoonPointer = 0;
-const HOW_TO_SPOON_ARRAY = [
+const HOW_TO_SPOON_SOUNDS = [
     "https://static.wikia.nocookie.net/central/images/6/66/HowToSpoon1.ogg/revision/latest?cb=20211210052044&format=original",
     "https://static.wikia.nocookie.net/central/images/f/f2/HowToSpoon2.ogg/revision/latest?cb=20211210053339&format=original",
     "https://static.wikia.nocookie.net/central/images/9/95/HowToSpoon3.ogg/revision/latest?cb=20211210053410&format=original",
     "https://static.wikia.nocookie.net/central/images/3/31/HowToSpoon4.ogg/revision/latest?cb=20211210053444&format=original",
-]
+];
 
 // Main client functions
 client.on('ready', async () => {
@@ -380,11 +417,8 @@ client.on('message', msg => {
 
 
         else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
-            var bbSounds = ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b5/Echo1.ogg/revision/latest?cb=20141113012504',
-                            'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/0e/Echo3b.ogg/revision/latest?cb=20141113012523',
-                            'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/Echo4b.ogg/revision/latest?cb=20141113012542']
-            rnd = Math.floor(Math.random() * bbSounds.length)
-            mYouTube.playSoundOgg(msg, bbSounds[rnd]);
+            rnd = Math.floor(Math.random() * BB_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, BB_SOUNDS[rnd]);
         }
         else if (/icpp/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/dota2_gamepedia/images/e/ed/Vo_nyx_assassin_nyx_attack_16.mp3/revision/latest?cb=20201017155639');
@@ -394,23 +428,13 @@ client.on('message', msg => {
                 mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/5/59/Owwcrit.ogg/revision/latest?cb=20211022064501")
             }
             else {
-                var owwSounds = [   "https://static.wikia.nocookie.net/monkebot/images/7/7a/Oww.ogg/revision/latest?cb=20211022063550",
-                                    "https://static.wikia.nocookie.net/monkebot/images/0/08/Oww2.ogg/revision/latest?cb=20211022063325"]
-                rnd = Math.floor(Math.random() * owwSounds.length)
-                mYouTube.playSoundOgg(msg, owwSounds[rnd]);
+                rnd = Math.floor(Math.random() * OWW_SOUNDS.length)
+                mYouTube.playSoundOgg(msg, OWW_SOUNDS[rnd]);
             }
         }
         else if (/help/i.test(msg.content)) {
-            var helpSounds = [  'https://static.wikia.nocookie.net/monkebot/images/b/b1/Help_1.ogg/revision/latest?cb=20211022064642',
-                                'https://static.wikia.nocookie.net/monkebot/images/e/ec/Help_2.ogg/revision/latest?cb=20211022064701',
-                                'https://static.wikia.nocookie.net/monkebot/images/9/9a/Help_3.ogg/revision/latest?cb=20211022064719',
-                                'https://static.wikia.nocookie.net/monkebot/images/c/c8/Help_4.ogg/revision/latest?cb=20211022064730',
-                                'https://static.wikia.nocookie.net/monkebot/images/1/12/Help_5.ogg/revision/latest?cb=20211022064739',
-                                'https://static.wikia.nocookie.net/monkebot/images/e/ea/Engineer_helpme01.ogg/revision/latest?cb=20211022064755',
-                                'https://static.wikia.nocookie.net/monkebot/images/1/12/Engineer_helpme03.ogg/revision/latest?cb=20211022064803',
-                                'https://overwikifiles.com/files/Citizen/Help01_male.ogg']
-            rnd = Math.floor(Math.random() * helpSounds.length)
-            mYouTube.playSoundOgg(msg, helpSounds[rnd]);
+            rnd = Math.floor(Math.random() * HELP_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, HELP_SOUNDS[rnd]);
         }
         else if (/pirate|spencer/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
@@ -424,10 +448,8 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/92/Mm_monke.ogg/revision/latest?cb=20211025043051');
         }
         else if (/^hi$/i.test(msg.content)) {
-            var hiSounds = [    'https://overwikifiles.com/files/Citizen/Hi01_male.ogg',
-                                'https://overwikifiles.com/files/Citizen/Hi02_male.ogg']
-            rnd = Math.floor(Math.random() * hiSounds.length)
-            mYouTube.playSoundOgg(msg, hiSounds[rnd]);
+            rnd = Math.floor(Math.random() * HI_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, HI_SOUNDS[rnd]);
         }
         else if (/^intermission$/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/bf/Intermission.mp3/revision/latest?cb=20211101030603');
@@ -451,14 +473,8 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/1b/Byeah_attack.ogg/revision/latest?cb=20211118095530');
         }
         else if (/^byeah$/i.test(msg.content)) {
-            var byeahSounds = [   'https://static.wikia.nocookie.net/monkebot/images/c/cd/Byeah.ogg/revision/latest?cb=20211118102233',
-                            'https://static.wikia.nocookie.net/monkebot/images/d/dc/Byeah1.ogg/revision/latest?cb=20211118102254',
-                            'https://static.wikia.nocookie.net/monkebot/images/5/56/Byeah2.ogg/revision/latest?cb=20211118102324',
-                            'https://static.wikia.nocookie.net/monkebot/images/d/dc/Byeah3.ogg/revision/latest?cb=20211118102354',
-                            'https://static.wikia.nocookie.net/monkebot/images/f/f4/Byeah4.ogg/revision/latest?cb=20211118102415',
-                            'https://static.wikia.nocookie.net/monkebot/images/1/17/Byeah5.ogg/revision/latest?cb=20211118102441']
-            rnd = Math.floor(Math.random() * byeahSounds.length)
-            mYouTube.playSoundOgg(msg, byeahSounds[rnd]);
+            rnd = Math.floor(Math.random() * BYEAH_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, BYEAH_SOUNDS[rnd]);
         }
         else if (/monke.*fart/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/87/Fart_reverb.mp3/revision/latest?cb=20211121065340');
@@ -473,8 +489,8 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/55/Worlds_Loudest_Orgasm.mp3/revision/latest?cb=20211121062645');
         }
         else if (/how\s*to\s*spoon/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, HOW_TO_SPOON_ARRAY[spoonPointer]);
-            spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_ARRAY.length;
+            mYouTube.playSoundOgg(msg, HOW_TO_SPOON_SOUNDS[spoonPointer]);
+            spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
         }
 
 
@@ -503,12 +519,10 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
             // https://stackoverflow.com/questions/23766259/restart-node-js-server-programmatically
         }
-        else if (msg.mentions.has(client.user)) { // If message is pinging Monke Bot
+        else if (msg.mentions.has(client.user) && !msg.mentions.everyone) { // If message is pinging Monke Bot (but not pinging everyone)
             msg.channel.send(PINGED_GIFS[Math.floor(Math.random() * PINGED_GIFS.length)]);
         }
 
-
-        
     }
 });
 
