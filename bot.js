@@ -35,6 +35,14 @@ const SAD_GIFS = [
     "https://media1.tenor.com/images/fc16662655be9b85c441650826a33d0a/tenor.gif?itemid=8227787"
 ];
 
+var spoonPointer = 0;
+const HOW_TO_SPOON_ARRAY = [
+    "https://static.wikia.nocookie.net/central/images/6/66/HowToSpoon1.ogg/revision/latest?cb=20211210052044&format=original",
+    "https://static.wikia.nocookie.net/central/images/f/f2/HowToSpoon2.ogg/revision/latest?cb=20211210053339&format=original",
+    "https://static.wikia.nocookie.net/central/images/9/95/HowToSpoon3.ogg/revision/latest?cb=20211210053410&format=original",
+    "https://static.wikia.nocookie.net/central/images/3/31/HowToSpoon4.ogg/revision/latest?cb=20211210053444&format=original",
+]
+
 // Main client functions
 client.on('ready', async () => {
     client.user.setActivity('with his balls', { type: 'PLAYING' });
@@ -464,6 +472,11 @@ client.on('message', msg => {
         else if (/monke.*nut/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/55/Worlds_Loudest_Orgasm.mp3/revision/latest?cb=20211121062645');
         }
+        else if (/how\s*to\s*spoon/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, HOW_TO_SPOON_ARRAY[spoonPointer]);
+            spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_ARRAY.length;
+        }
+
 
         
     ///////////////////////////////////
