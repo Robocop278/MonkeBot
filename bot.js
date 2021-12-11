@@ -74,10 +74,10 @@ const BYEAH_SOUNDS = [
 
 var spoonPointer = 0;
 const HOW_TO_SPOON_SOUNDS = [
-    "https://static.wikia.nocookie.net/central/images/6/66/HowToSpoon1.ogg/revision/latest?cb=20211210052044&format=original",
-    "https://static.wikia.nocookie.net/central/images/f/f2/HowToSpoon2.ogg/revision/latest?cb=20211210053339&format=original",
-    "https://static.wikia.nocookie.net/central/images/9/95/HowToSpoon3.ogg/revision/latest?cb=20211210053410&format=original",
-    "https://static.wikia.nocookie.net/central/images/3/31/HowToSpoon4.ogg/revision/latest?cb=20211210053444&format=original",
+    "https://static.wikia.nocookie.net/monkebot/images/6/66/HowToSpoon1.ogg/revision/latest?cb=20211211061733",
+    "https://static.wikia.nocookie.net/monkebot/images/f/f2/HowToSpoon2.ogg/revision/latest?cb=20211211061819",
+    "https://static.wikia.nocookie.net/monkebot/images/9/95/HowToSpoon3.ogg/revision/latest?cb=20211211061825",
+    "https://static.wikia.nocookie.net/monkebot/images/3/31/HowToSpoon4.ogg/revision/latest?cb=20211211061836",
 ];
 
 // Main client functions
