@@ -506,6 +506,7 @@ client.on('message', msg => {
             spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
         }
         else if (/^what\??$/i.test(msg.content)) {
+            currentSpoonDate = new Date();
             if (spoonPointer > 0 && (Math.abs(currentSpoonDate - lastSpoonDate) / 1000) <= 60) {
                 lastSpoonDate = new Date();
                 mYouTube.playSoundOgg(msg, HOW_TO_SPOON_SOUNDS[spoonPointer]);
