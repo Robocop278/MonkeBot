@@ -73,6 +73,8 @@ const BYEAH_SOUNDS = [
 ];
 
 var spoonPointer = 0;
+var currentSpoonDate = new Date();
+var lastSpoonDate = new Date();
 const HOW_TO_SPOON_SOUNDS = [
     "https://static.wikia.nocookie.net/monkebot/images/6/66/HowToSpoon1.ogg/revision/latest?cb=20211211061733",
     "https://static.wikia.nocookie.net/monkebot/images/f/f2/HowToSpoon2.ogg/revision/latest?cb=20211211061819",
@@ -495,10 +497,21 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/55/Worlds_Loudest_Orgasm.mp3/revision/latest?cb=20211121062645');
         }
         else if (/how\s*to\s*spoon/i.test(msg.content)) {
+            currentSpoonDate = new Date();
+            if ((Math.abs(currentSpoonDate - lastSpoonDate) / 1000) > 60) {
+                spoonPointer = 0;
+            }
+            lastSpoonDate = currentSpoonDate;
             mYouTube.playSoundOgg(msg, HOW_TO_SPOON_SOUNDS[spoonPointer]);
             spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
         }
-
+        else if (/^what\??$/i.test(msg.content)) {
+            if (spoonPointer > 0 && (Math.abs(currentSpoonDate - lastSpoonDate) / 1000) <= 60) {
+                lastSpoonDate = new Date();
+                mYouTube.playSoundOgg(msg, HOW_TO_SPOON_SOUNDS[spoonPointer]);
+                spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
+            }
+        }
 
         
     ///////////////////////////////////
