@@ -516,6 +516,9 @@ client.on('message', msg => {
                 spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
             }
         }
+        else if (/^cyberpunk$|cyberriff|cyber.*riff/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/5e/Cyber_riff.ogg/revision/latest?cb=20211227060931');
+        }
 
         
     ///////////////////////////////////
