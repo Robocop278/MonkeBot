@@ -418,6 +418,9 @@ client.on('message', msg => {
         else if (/sigma/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/wLz9xU6J88k');
         }
+        else if (/mail/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/fzRC37grckk');
+        }
 
 
     ///////////////////////////////////
