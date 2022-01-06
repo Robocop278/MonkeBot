@@ -421,6 +421,9 @@ client.on('message', msg => {
         else if (/mail/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/fzRC37grckk');
         }
+        else if (/mail/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/m1QrNZCjRag');
+        }
 
 
     ///////////////////////////////////
