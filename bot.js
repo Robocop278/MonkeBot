@@ -424,6 +424,9 @@ client.on('message', msg => {
         else if (/shut\s*down/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/m1QrNZCjRag');
         }
+        else if (/oh\s*my\s*goodness/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/6k5VOvrBCss');
+        }
 
 
     ///////////////////////////////////
