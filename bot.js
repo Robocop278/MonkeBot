@@ -430,6 +430,9 @@ client.on('message', msg => {
         else if (/do\s*your\s*best/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/jGatO6vMPqw', '9');
         }
+        else if (/dosh|loads\s*a\s*money/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/ULeDlxa3gyc');
+        }
 
 
     ///////////////////////////////////
