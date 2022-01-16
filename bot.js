@@ -534,7 +534,7 @@ client.on('message', msg => {
         else if (/^cyberpunk$|cyberriff|cyber.*riff/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/5e/Cyber_riff.ogg/revision/latest?cb=20211227060931');
         }
-        else if (/rune\s*scape/i.test(msg.content)) {
+        else if (/rune\s*scape|sea\s*shanty/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/BiggieShanty.ogg/revision/latest?cb=20220116211258');
         }
 
