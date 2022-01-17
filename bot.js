@@ -433,6 +433,9 @@ client.on('message', msg => {
         else if (/dosh|loads\s*a\s*money/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/ULeDlxa3gyc');
         }
+        else if (/beat\s*that\s*bitch/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/mRowQGqkjRA');
+        }
 
 
     ///////////////////////////////////
