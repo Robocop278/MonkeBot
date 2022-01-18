@@ -436,6 +436,9 @@ client.on('message', msg => {
         else if (/beat\s*that\s*bitch/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/mRowQGqkjRA');
         }
+        else if (/horny/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/_jhgncXEbjc');
+        }
 
 
     ///////////////////////////////////
