@@ -442,6 +442,9 @@ client.on('message', msg => {
         else if (/milk/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/e_vFCmv9KZ4', '5');
         }
+        else if (/wombo\s*combo/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/5PMmPRBfdBQ');
+        }
 
 
     ///////////////////////////////////
