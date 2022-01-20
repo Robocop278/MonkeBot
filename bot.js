@@ -470,7 +470,7 @@ client.on('message', msg => {
             }
         }
         else if (/that(s|'?s)\s*hilarious/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/5PMmPRBfdBQ');
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=oj0Nu5yTnTA');
         }
 
 
