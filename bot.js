@@ -445,6 +445,30 @@ client.on('message', msg => {
         else if (/wombo\s*combo/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/5PMmPRBfdBQ');
         }
+        else if (/interior|crocodile|alligator/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/kZwhNFOn4ik');
+        }
+        else if (/hold\s*it!/i.test(msg.content)) {
+            var prob = Math.random()
+            if (prob <= 0.5) {
+                mYouTube.playYoutubeSound(msg, 'https://youtu.be/66LCfFqIbAA');
+            } else if (prob <= 0.85) {
+                mYouTube.playYoutubeSound(msg, 'https://youtu.be/d7SYy5JvyOA');
+            } else {
+                mYouTube.playYoutubeSound(msg, 'https://youtu.be/d7SYy5JvyOA');
+            }
+        }
+        else if (/take\s*that!/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/fR4P8o95WPA');
+        }
+        else if (/OBJECTION!/.test(msg.content)) {
+            if (Math.random() >= 0.5) {
+                mYouTube.playYoutubeSound(msg, 'https://youtu.be/UxnvGDK0WGM');
+            }
+            else {
+                mYouTube.playYoutubeSound(msg, 'https://youtu.be/lAWdWk6a2gg');
+            }
+        }
 
 
     ///////////////////////////////////
