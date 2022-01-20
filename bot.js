@@ -469,6 +469,9 @@ client.on('message', msg => {
                 mYouTube.playYoutubeSound(msg, 'https://youtu.be/lAWdWk6a2gg');
             }
         }
+        else if (/that(s|'?s)\s*hilarious/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/5PMmPRBfdBQ');
+        }
 
 
     ///////////////////////////////////
