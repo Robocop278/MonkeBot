@@ -455,7 +455,7 @@ client.on('message', msg => {
             } else if (prob <= 0.85) {
                 mYouTube.playYoutubeSound(msg, 'https://youtu.be/d7SYy5JvyOA');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://youtu.be/d7SYy5JvyOA');
+                mYouTube.playYoutubeSound(msg, 'https://youtu.be/TIZH3Ur0zcQ');
             }
         }
         else if (/take\s*that!/i.test(msg.content)) {
