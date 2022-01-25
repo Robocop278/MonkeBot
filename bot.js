@@ -543,6 +543,9 @@ client.on('message', msg => {
         else if (/duke1/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/e/ea/Duke1.ogg/revision/latest?cb=20211105055208');
         }
+        else if (/duke2\.5/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/f/f6/Duke5.ogg/revision/latest?cb=20220125080837');
+        }
         else if (/duke2/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/3/32/Duke2.ogg/revision/latest?cb=20211105055304');
         }
