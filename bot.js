@@ -35,6 +35,14 @@ const SAD_GIFS = [
     "https://media1.tenor.com/images/fc16662655be9b85c441650826a33d0a/tenor.gif?itemid=8227787"
 ];
 
+const BOOF_GIFS = [
+    "https://thumbs.gfycat.com/DishonestSecondFawn-small.gif",
+    "https://thumbs.gfycat.com/ElderlyDefiniteAmericancreamdraft-size_restricted.gif",
+    "https://i.pinimg.com/originals/ac/94/ca/ac94cade932426132fb6d3240526a06e.gif",
+    "https://thumbs.gfycat.com/DisguisedEnchantedGalah-small.gif",
+    "https://media1.tenor.com/images/fc16662655be9b85c441650826a33d0a/tenor.gif?itemid=8227787"
+];
+
 // Assorted sound arrays
 const BB_SOUNDS = [
     'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b5/Echo1.ogg/revision/latest?cb=20141113012504',
@@ -158,6 +166,9 @@ client.on('message', msg => {
         }        
         else if (/(fuck\s*you|shut.*up).*monke/i.test(msg.content)) {
             msg.channel.send(SAD_GIFS[Math.floor(Math.random() * SAD_GIFS.length)]);
+        }
+        else if (/boof/i.test(msg.content)) {
+            msg.channel.send(BOOF_GIFS[Math.floor(Math.random() * BOOF_GIFS.length)]);
         }
         else if (/monke.*time.*(left|til|for)/i.test(msg.content)) {
             sendCountdownStatus(true);
