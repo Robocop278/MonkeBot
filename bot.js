@@ -448,6 +448,9 @@ client.on('message', msg => {
         else if (/horny/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/_jhgncXEbjc');
         }
+        else if (/you\s*can'?t\s*milk\s*those/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/RlKVC-MRmjA');
+        }
         else if (/milk/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/e_vFCmv9KZ4', '5');
         }
