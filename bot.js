@@ -36,11 +36,9 @@ const SAD_GIFS = [
 ];
 
 const BOOF_GIFS = [
-    "https://thumbs.gfycat.com/DishonestSecondFawn-small.gif",
-    "https://thumbs.gfycat.com/ElderlyDefiniteAmericancreamdraft-size_restricted.gif",
-    "https://i.pinimg.com/originals/ac/94/ca/ac94cade932426132fb6d3240526a06e.gif",
-    "https://thumbs.gfycat.com/DisguisedEnchantedGalah-small.gif",
-    "https://media1.tenor.com/images/fc16662655be9b85c441650826a33d0a/tenor.gif?itemid=8227787"
+    "https://c.tenor.com/jcjQaLHIG_YAAAAd/have-boof.gif",
+    "https://c.tenor.com/XX7_VZxPgw8AAAAd/forgot-the-boof.gif",
+    "https://c.tenor.com/88KcKzh9LrUAAAAC/judgement-judgeeyes.gif"
 ];
 
 // Assorted sound arrays
