@@ -484,6 +484,9 @@ client.on('message', msg => {
         else if (/bojji/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wWnak7V8hr0');
         }
+        else if (/mortis/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=iHLMnP7bpnk');
+        }
 
 
     ///////////////////////////////////
