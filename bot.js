@@ -88,6 +88,12 @@ const HOW_TO_SPOON_SOUNDS = [
     "https://static.wikia.nocookie.net/monkebot/images/3/31/HowToSpoon4.ogg/revision/latest?cb=20211211061836",
 ];
 
+const BOSS_SOUNDS = [
+    "https://static.wikia.nocookie.net/monkebot/images/3/37/Boss_vordt.ogg/revision/latest?cb=20220129223209",
+    "https://static.wikia.nocookie.net/monkebot/images/8/86/Boss_sephiroth.ogg/revision/latest?cb=20220129223642",
+    "https://static.wikia.nocookie.net/monkebot/images/c/c0/Boss_grimm.ogg/revision/latest?cb=20220129225349",
+];
+
 // Main client functions
 client.on('ready', async () => {
     client.user.setActivity('with his boof', { type: 'PLAYING' });
@@ -277,13 +283,6 @@ client.on('message', msg => {
         }
         else if (/surprise/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=_bSEfx6D8mA');
-        }
-        else if (/^e$/i.test(msg.content)) {
-            if (Math.random() >= 0.95) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=T732jM9juhA');
-            } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EcsPhdyZM4k');
-            }
         }
         else if (/phasmo/i.test(msg.content)) {
             console.log('spooky incoming...')
@@ -605,6 +604,26 @@ client.on('message', msg => {
         }
         else if (/sea\s*shanty/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/BiggieShanty.ogg/revision/latest?cb=20220116211258');
+        }
+        else if (/^e$/i.test(msg.content)) {
+            if (Math.random() >= 0.95) {
+                mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/17/E_crit.ogg/revision/latest?cb=20220129220753');
+            } else {
+                mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/6/61/E-long.ogg/revision/latest?cb=20220129220626');
+            }
+        }
+        else if (/^boss\s*music$/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * BOSS_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, BOSS_SOUNDS[rnd]);
+        }
+        else if (/^boss\s*vordt/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BOSS_SOUNDS[0]);
+        }
+        else if (/^boss\s*sephiroth/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BOSS_SOUNDS[1]);
+        }
+        else if (/^boss\s*grimm/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BOSS_SOUNDS[2]);
         }
 
         
