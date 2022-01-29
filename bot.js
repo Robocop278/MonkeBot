@@ -204,7 +204,7 @@ client.on('message', msg => {
         else if (/monke.*\srap\s*$/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=zlm6bcMD7Fg');
         }
-        else if (/music/i.test(msg.content)) {
+        else if (/^music$/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Lb4b91Ken7Y');
         }
         else if (/west virginia/i.test(msg.content)) {
