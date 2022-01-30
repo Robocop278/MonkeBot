@@ -625,6 +625,9 @@ client.on('message', msg => {
         else if (/^boss\s*grimm/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, BOSS_SOUNDS[2]);
         }
+        else if (/very\s*cool/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/b8/Very_cool.ogg/revision/latest?cb=20220130043257');
+        }
 
         
     ///////////////////////////////////
