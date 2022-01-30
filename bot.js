@@ -515,6 +515,12 @@ client.on('message', msg => {
         else if (/mortis/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=iHLMnP7bpnk');
         }
+        else if (/tequila/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=U_JFLb1IItM');
+        }
+        else if (/bitconnect/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=772eWds6z0U');
+        }
 
 
     ///////////////////////////////////
