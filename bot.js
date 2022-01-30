@@ -93,6 +93,15 @@ const BOSS_SOUNDS = [
     "https://static.wikia.nocookie.net/monkebot/images/8/86/Boss_sephiroth.ogg/revision/latest?cb=20220129223642",
     "https://static.wikia.nocookie.net/monkebot/images/c/c0/Boss_grimm.ogg/revision/latest?cb=20220129225349",
 ];
+const BONER_SOUNDS = [
+    "https://static.wikia.nocookie.net/monkebot/images/5/5d/Boner_-3.ogg/revision/latest?cb=20220130044031",
+    "https://static.wikia.nocookie.net/monkebot/images/8/82/Boner_-2.ogg/revision/latest?cb=20220130044108",
+    "https://static.wikia.nocookie.net/monkebot/images/6/67/Boner_-1.ogg/revision/latest?cb=20220130044134",
+    "https://static.wikia.nocookie.net/monkebot/images/7/78/Boner_0.ogg/revision/latest?cb=20220130044154",
+    "https://static.wikia.nocookie.net/monkebot/images/5/5e/Boner_1.ogg/revision/latest?cb=20220130044613",
+    "https://static.wikia.nocookie.net/monkebot/images/2/2e/Boner_2.ogg/revision/latest?cb=20220130044649",
+    "https://static.wikia.nocookie.net/monkebot/images/8/86/Boner_3.ogg/revision/latest?cb=20220130044713",
+];
 
 // Main client functions
 client.on('ready', async () => {
@@ -627,6 +636,31 @@ client.on('message', msg => {
         }
         else if (/very\s*cool/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/b8/Very_cool.ogg/revision/latest?cb=20220130043257');
+        }
+        else if (/^boner\s*-3/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BONER_SOUNDS[0]);
+        }
+        else if (/^boner\s*-2/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BONER_SOUNDS[1]);
+        }
+        else if (/^boner\s*-1/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BONER_SOUNDS[2]);
+        }
+        else if (/^boner\s*0/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BONER_SOUNDS[3]);
+        }
+        else if (/^boner\s*1/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BONER_SOUNDS[4]);
+        }
+        else if (/^boner\s*2/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BONER_SOUNDS[5]);
+        }
+        else if (/^boner\s*3/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, BONER_SOUNDS[6]);
+        }
+        else if (/^boner$/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * BONER_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, BONER_SOUNDS[rnd]);
         }
 
         
