@@ -521,6 +521,12 @@ client.on('message', msg => {
         else if (/bitconnect/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=772eWds6z0U');
         }
+        else if (/bwop/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EIA1iX7Ooz8');
+        }
+        else if (/disappoint/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Ncgv7ruZ6HU');
+        }
 
 
     ///////////////////////////////////
