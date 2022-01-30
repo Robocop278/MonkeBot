@@ -703,6 +703,12 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * COUNTRY_SOUNDS.length)
             mYouTube.playSoundOgg(msg, COUNTRY_SOUNDS[rnd]);
         }
+        else if (/dundun|dun\s*dun|law\s*and\s*order/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/bd/Dun_dun.ogg/revision/latest?cb=20220130113335');
+        }
+        else if (/^(shart|shart.mp3)$/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/3/3e/Shart.ogg/revision/latest?cb=20220130113702');
+        }
 
         
     ///////////////////////////////////
