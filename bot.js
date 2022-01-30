@@ -78,6 +78,13 @@ const BYEAH_SOUNDS = [
     'https://static.wikia.nocookie.net/monkebot/images/1/17/Byeah5.ogg/revision/latest?cb=20211118102441'
 ];
 
+const THINK_SOUNDS = [
+    'https://www.youtube.com/watch?v=V-tFWwXTJn8',
+    'https://www.youtube.com/watch?v=7neipvZ_H0c',
+    'https://www.youtube.com/watch?v=fPmruHc4S9Q',
+    'https://www.youtube.com/watch?v=U_JFLb1IItM'
+];
+
 var spoonPointer = 0;
 var currentSpoonDate = new Date();
 var lastSpoonDate = new Date();
@@ -322,7 +329,8 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=dNl4-w9ZrBs');
         }
         else if (/monke.*th(ink|oughts)/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=V-tFWwXTJn8');
+            rnd = Math.floor(Math.random() * THINK_SOUNDS.length)
+            mYouTube.playYoutubeSound(msg, THINK_SOUNDS[rnd]);
         }
         else if (/egg/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=nhB5WoUYQbc');
