@@ -544,6 +544,10 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
             mYouTube.playSoundOgg(msg, BB_SOUNDS[0]);
         }
+        else if (/(balloon\s*boy|balloonboy|bb)\s*(haha|laugh)/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * BB_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, BB_SOUNDS[2]);
+        }
         else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
             mYouTube.playSoundOgg(msg, BB_SOUNDS[rnd]);
@@ -706,7 +710,7 @@ client.on('message', msg => {
         else if (/dundun|dun\s*dun|law\s*and\s*order/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/bd/Dun_dun.ogg/revision/latest?cb=20220130113335');
         }
-        else if (/^(shart|shart.mp3)$/i.test(msg.content)) {
+        else if (/^(shart|shart.mp3)/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/3/3e/Shart.ogg/revision/latest?cb=20220130113702');
         }
 
