@@ -538,11 +538,11 @@ client.on('message', msg => {
 
         else if (/(balloon\s*boy|balloonboy|bb)\s*hello/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BB_SOUNDS[0]);
+            mYouTube.playSoundOgg(msg, BB_SOUNDS[1]);
         }
         else if (/(balloon\s*boy|balloonboy|bb)\s*hi/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BB_SOUNDS[1]);
+            mYouTube.playSoundOgg(msg, BB_SOUNDS[0]);
         }
         else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
