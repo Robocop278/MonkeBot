@@ -92,14 +92,15 @@ const HOW_TO_SPOON_SOUNDS = [
     "https://static.wikia.nocookie.net/monkebot/images/6/66/HowToSpoon1.ogg/revision/latest?cb=20211211061733",
     "https://static.wikia.nocookie.net/monkebot/images/f/f2/HowToSpoon2.ogg/revision/latest?cb=20211211061819",
     "https://static.wikia.nocookie.net/monkebot/images/9/95/HowToSpoon3.ogg/revision/latest?cb=20211211061825",
-    "https://static.wikia.nocookie.net/monkebot/images/3/31/HowToSpoon4.ogg/revision/latest?cb=20211211061836",
+    "https://static.wikia.nocookie.net/monkebot/images/3/31/HowToSpoon4.ogg/revision/latest?cb=20211211061836"
 ];
 
 const BOSS_SOUNDS = [
     "https://static.wikia.nocookie.net/monkebot/images/3/37/Boss_vordt.ogg/revision/latest?cb=20220129223209",
     "https://static.wikia.nocookie.net/monkebot/images/8/86/Boss_sephiroth.ogg/revision/latest?cb=20220129223642",
-    "https://static.wikia.nocookie.net/monkebot/images/c/c0/Boss_grimm.ogg/revision/latest?cb=20220129225349",
+    "https://static.wikia.nocookie.net/monkebot/images/c/c0/Boss_grimm.ogg/revision/latest?cb=20220129225349"
 ];
+
 const BONER_SOUNDS = [
     "https://static.wikia.nocookie.net/monkebot/images/5/5d/Boner_-3.ogg/revision/latest?cb=20220130044031",
     "https://static.wikia.nocookie.net/monkebot/images/8/82/Boner_-2.ogg/revision/latest?cb=20220130044108",
@@ -107,7 +108,15 @@ const BONER_SOUNDS = [
     "https://static.wikia.nocookie.net/monkebot/images/7/78/Boner_0.ogg/revision/latest?cb=20220130044154",
     "https://static.wikia.nocookie.net/monkebot/images/5/5e/Boner_1.ogg/revision/latest?cb=20220130044613",
     "https://static.wikia.nocookie.net/monkebot/images/2/2e/Boner_2.ogg/revision/latest?cb=20220130044649",
-    "https://static.wikia.nocookie.net/monkebot/images/8/86/Boner_3.ogg/revision/latest?cb=20220130044713",
+    "https://static.wikia.nocookie.net/monkebot/images/8/86/Boner_3.ogg/revision/latest?cb=20220130044713"
+];
+
+const COUNTRY_SOUNDS = [
+    "https://static.wikia.nocookie.net/monkebot/images/f/fc/Country_alabama.ogg/revision/latest?cb=20220130075013",
+    "https://static.wikia.nocookie.net/monkebot/images/1/16/Country_koth.ogg/revision/latest?cb=20220130080603",
+    "https://static.wikia.nocookie.net/monkebot/images/7/7b/Country_duel_1.ogg/revision/latest?cb=20220130080921",
+    "https://static.wikia.nocookie.net/monkebot/images/a/a6/Country_duel_2.ogg/revision/latest?cb=20220130080942",
+    "https://static.wikia.nocookie.net/monkebot/images/8/81/Country_tex-ex.ogg/revision/latest?cb=20220130080816"
 ];
 
 // Main client functions
@@ -515,6 +524,14 @@ client.on('message', msg => {
     ///////////////////////////////////
 
 
+        else if (/(balloon\s*boy|balloonboy|bb)\s*hello/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * BB_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, BB_SOUNDS[0]);
+        }
+        else if (/(balloon\s*boy|balloonboy|bb)\s*hi/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * BB_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, BB_SOUNDS[1]);
+        }
         else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
             mYouTube.playSoundOgg(msg, BB_SOUNDS[rnd]);
@@ -669,6 +686,10 @@ client.on('message', msg => {
         else if (/^boner$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BONER_SOUNDS.length)
             mYouTube.playSoundOgg(msg, BONER_SOUNDS[rnd]);
+        }
+        else if (/^country$/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * COUNTRY_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, COUNTRY_SOUNDS[rnd]);
         }
 
         
