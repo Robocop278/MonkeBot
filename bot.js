@@ -85,6 +85,11 @@ const THINK_SOUNDS = [
     'https://www.youtube.com/watch?v=U_JFLb1IItM'
 ];
 
+const WHIP_SOUNDS = [
+    'https://www.youtube.com/watch?v=qwvUvx9W8mA',
+    'https://www.youtube.com/watch?v=jMNyPqC12O4'
+];
+
 var spoonPointer = 0;
 var currentSpoonDate = new Date();
 var lastSpoonDate = new Date();
@@ -529,6 +534,10 @@ client.on('message', msg => {
         }
         else if (/gambino/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=bdYIC-otbvU');
+        }
+        else if (/whip/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * WHIP_SOUNDS.length)
+            mYouTube.playYoutubeSound(msg, WHIP_SOUNDS[rnd]);
         }
 
 
