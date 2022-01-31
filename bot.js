@@ -477,7 +477,7 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/RlKVC-MRmjA');
         }
         else if (/milk/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/e_vFCmv9KZ4', '5');
+            mYouTube.playYoutubeSound(msg, 'https://youtu.be/I9gLFHj5AWk', '4');
         }
         else if (/wombo\s*combo/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://youtu.be/5PMmPRBfdBQ');
