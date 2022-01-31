@@ -539,7 +539,7 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * WHIP_SOUNDS.length)
             mYouTube.playYoutubeSound(msg, WHIP_SOUNDS[rnd]);
         }
-        else if (/g(arry'?s)\s*mod/i.test(msg.content)) {
+        else if (/g(arry'?s)?\s*mod/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=_GGfz-o5khc');
         }
         else if (/winner/i.test(msg.content)) {
