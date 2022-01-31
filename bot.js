@@ -527,6 +527,9 @@ client.on('message', msg => {
         else if (/disappoint/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Ncgv7ruZ6HU');
         }
+        else if (/gambino/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=bdYIC-otbvU');
+        }
 
 
     ///////////////////////////////////
@@ -716,6 +719,13 @@ client.on('message', msg => {
         else if (/fitness\s*gram\s*pacer\s*test/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/97/At_night_i_think_of.mp3/revision/latest?cb=20220131041310');
         }
+        else if (/YYYY/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/f/fc/YYYY.mp3/revision/latest?cb=20220131041636');
+        }
+        else if (/monkey?\s*story/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/The_Story_Of_Three_Socks_And_The_Gold_Bears.mp3/revision/latest?cb=20220131041746');
+        }
+
 
         
     ///////////////////////////////////
