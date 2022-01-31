@@ -539,7 +539,17 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * WHIP_SOUNDS.length)
             mYouTube.playYoutubeSound(msg, WHIP_SOUNDS[rnd]);
         }
-
+        else if (/g(arry'?s)\s*mod/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=_GGfz-o5khc');
+        }
+        else if (/winner/i.test(msg.content)) {
+            if (Math.random() >= 0.9) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=d6ySILG_7xk');
+            }
+            else {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=VrxEVwByVA4');
+            }
+        }
 
     ///////////////////////////////////
     //                               //
