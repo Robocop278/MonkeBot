@@ -713,6 +713,9 @@ client.on('message', msg => {
         else if (/^(shart|shart.mp3)/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/3/3e/Shart.ogg/revision/latest?cb=20220130113702');
         }
+        else if (/fitness\s*gram\s*pacer\s*test/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/97/At_night_i_think_of.mp3/revision/latest?cb=20220131041310');
+        }
 
         
     ///////////////////////////////////
