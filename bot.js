@@ -586,25 +586,25 @@ client.on('message', msg => {
         else if (/^intermission$/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/bf/Intermission.mp3/revision/latest?cb=20211101030603');
         }
-        else if (/duke1\.5/i.test(msg.content)) {
+        else if (/duke1\s?5/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/2/20/Duke4.ogg/revision/latest?cb=20220125075631');
         }
-        else if (/duke1/i.test(msg.content)) {
+        else if (/duke\s?1/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/e/ea/Duke1.ogg/revision/latest?cb=20211105055208');
         }
-        else if (/duke2\.5/i.test(msg.content)) {
+        else if (/duke2\s?5/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/f/f6/Duke5.ogg/revision/latest?cb=20220125080837');
         }
-        else if (/duke2\.6/i.test(msg.content)) {
+        else if (/duke2\s?6/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/b1/Duke2-2.ogg/revision/latest?cb=20220127042036');
         }
-        else if (/duke2/i.test(msg.content)) {
+        else if (/duke\s?2/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/3/32/Duke2.ogg/revision/latest?cb=20211105055304');
         }
-        else if (/duke3\.5/i.test(msg.content)) {
+        else if (/duke3\s?5/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/c/c4/Duke6.ogg/revision/latest?cb=20220125082049');
         }
-        else if (/duke3/i.test(msg.content)) {
+        else if (/duke\s?3/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/d/d9/Duke3.ogg/revision/latest?cb=20211105055331');
         }
         else if (/duke\s*riff/i.test(msg.content)) {
