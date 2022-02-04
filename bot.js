@@ -565,12 +565,7 @@ client.on('message', msg => {
             }
         }
         else if (/tng/i.test(msg.content)) {
-            if (Math.random() >= 0.75) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=0AZpwvAOnqM');
-            }
-            else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=S280Pqq3T_w');
-            }
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=cTLRQDWHQlQ', '12');
         }
 
     ///////////////////////////////////
