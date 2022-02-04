@@ -564,6 +564,9 @@ client.on('message', msg => {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=S280Pqq3T_w');
             }
         }
+        else if (/stargate/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=yWCP8lcbcJg');
+        }
         else if (/tng/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=cTLRQDWHQlQ', '12');
         }
