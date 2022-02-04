@@ -550,6 +550,20 @@ client.on('message', msg => {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=VrxEVwByVA4');
             }
         }
+        else if (/bruh\s*moment/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=i8ooQ8vOAAs');
+        }
+        else if (/yoooo+/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=VKMw2it8dQY');
+        }
+        else if (/clown/i.test(msg.content)) {
+            if (Math.random() >= 0.75) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=0AZpwvAOnqM');
+            }
+            else {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=S280Pqq3T_w');
+            }
+        }
 
     ///////////////////////////////////
     //                               //
