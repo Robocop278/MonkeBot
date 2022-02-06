@@ -124,6 +124,23 @@ const COUNTRY_SOUNDS = [
     "https://static.wikia.nocookie.net/monkebot/images/8/81/Country_tex-ex.ogg/revision/latest?cb=20220130080816"
 ];
 
+const DRUNKE_SOUNDS = [
+    "https://wiki.teamfortress.com/w/images/2/27/Demoman_gibberish10.wav",
+    "https://wiki.teamfortress.com/w/images/7/7c/Demoman_gibberish13.wav",
+    "https://wiki.teamfortress.com/w/images/d/df/Demoman_gibberish03.wav",
+    "https://wiki.teamfortress.com/w/images/5/5b/Demoman_gibberish09.wav",
+    "https://wiki.teamfortress.com/w/images/1/17/Demoman_gibberish12.wav", 
+    "https://wiki.teamfortress.com/w/images/5/55/Demoman_jeers06.wav", 
+    "https://wiki.teamfortress.com/w/images/8/82/Demoman_gibberish04.wav", 
+    "https://wiki.teamfortress.com/w/images/f/f3/Demoman_gibberish05.wav", 
+    "https://wiki.teamfortress.com/w/images/3/37/Demoman_gibberish06.wav", 
+    "https://wiki.teamfortress.com/w/images/a/a4/Demoman_gibberish08.wav", 
+    "https://wiki.teamfortress.com/w/images/9/9d/Demoman_gibberish02.wav", 
+    "https://wiki.teamfortress.com/w/images/f/f3/Demoman_gibberish01.wav",
+    ""
+    
+];
+
 // Main client functions
 client.on('ready', async () => {
     client.user.setActivity('with his boof', { type: 'PLAYING' });
@@ -763,6 +780,10 @@ client.on('message', msg => {
         }
         else if (/monkey?\s*story/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/The_Story_Of_Three_Socks_And_The_Gold_Bears.mp3/revision/latest?cb=20220131041746');
+        }
+        else if (/drunke/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * DRUNKE_SOUNDS.length)
+            mYouTube.playSoundOgg(msg, DRUNKE_SOUNDS[rnd]);
         }
 
 
