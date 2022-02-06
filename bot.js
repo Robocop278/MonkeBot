@@ -785,6 +785,9 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * DRUNKE_SOUNDS.length)
             mYouTube.playSoundOgg(msg, DRUNKE_SOUNDS[rnd]);
         }
+        else if (/oreo/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://drive.google.com/file/d/1DBJGFS-i8MCon4oLZy4aSzIRrgZCCRkW/view?usp=sharing');
+        }
 
 
         
