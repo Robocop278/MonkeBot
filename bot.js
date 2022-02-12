@@ -588,7 +588,7 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=cTLRQDWHQlQ', '12');
         }
         else if (/yes\s*(or)?\s*no|true\s*(or)?\s*false/i.test(msg.content)) {
-            var prob = Math.random() >= 0.75;
+            var prob = Math.random();
             if (prob <= 0.48) {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MCT80HJWQ2A');
             } else if (prob <= 0.96) {
