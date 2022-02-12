@@ -266,6 +266,9 @@ client.on('message', msg => {
         else if (/wednesday/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=du-TY1GUFGk');
         }
+        else if (/friday/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5Ib_PrnSi50');
+        }
         else if (/say\s*goodbye/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wtx0fdzRAp8');
         }
