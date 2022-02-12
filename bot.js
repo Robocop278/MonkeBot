@@ -587,6 +587,18 @@ client.on('message', msg => {
         else if (/tng/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=cTLRQDWHQlQ', '12');
         }
+        else if (/yes\s*(or)?\s*no|true\s*(or)?\s*false/i.test(msg.content)) {
+            var prob = Math.random() >= 0.75;
+            if (prob <= 0.48) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MCT80HJWQ2A');
+            } else if (prob <= 0.96) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=GM-e46xdcUo');
+            } else if (prob <= 0.98) {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=yMLW6yj8XNY');
+            } else {
+                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=WXwWaueB1Ss');
+            }
+        }
 
     ///////////////////////////////////
     //                               //
