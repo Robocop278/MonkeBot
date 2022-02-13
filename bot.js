@@ -90,6 +90,13 @@ const WHIP_SOUNDS = [
     'https://www.youtube.com/watch?v=jMNyPqC12O4'
 ];
 
+const LOUNGE_SOUNDS = [
+    'https://www.youtube.com/watch?v=1prweT95Mo0',
+    'https://www.youtube.com/watch?v=0ssxu0Zj7Uw',
+    'https://www.youtube.com/watch?v=kSE15tLBdso'
+];
+
+
 var spoonPointer = 0;
 var currentSpoonDate = new Date();
 var lastSpoonDate = new Date();
@@ -601,6 +608,10 @@ client.on('message', msg => {
             } else {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=WXwWaueB1Ss');
             }
+        }
+        else if (/lounge/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * LOUNGE_SOUNDS.length)
+            mYouTube.playYoutubeSound(msg, LOUNGE_SOUNDS[rnd]);
         }
 
     ///////////////////////////////////
