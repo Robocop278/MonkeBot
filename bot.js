@@ -613,6 +613,15 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * LOUNGE_SOUNDS.length)
             mYouTube.playYoutubeSound(msg, LOUNGE_SOUNDS[rnd]);
         }
+        else if (/sexy/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=kQL7LW3CWXs');
+        }
+        else if (/scooby/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=igSHbtv52G4');
+        }
+        else if (/wildstar/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ey0wgQYTwnU');
+        }
 
     ///////////////////////////////////
     //                               //
