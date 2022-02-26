@@ -622,6 +622,9 @@ client.on('message', msg => {
         else if (/wildstar/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ey0wgQYTwnU');
         }
+        else if (/flashbang/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5tXQ91BYXgg');
+        }
 
     ///////////////////////////////////
     //                               //
