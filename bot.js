@@ -625,6 +625,9 @@ client.on('message', msg => {
         else if (/flashbang/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5tXQ91BYXgg');
         }
+        else if (/goofy/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MUL5w91dzbo');
+        }
 
     ///////////////////////////////////
     //                               //
