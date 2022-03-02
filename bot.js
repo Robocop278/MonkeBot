@@ -328,6 +328,9 @@ client.on('message', msg => {
                 mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/b1/Cbt.ogg/revision/latest?cb=20211025041045');
             }
         }
+        else if (/goofy/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MUL5w91dzbo');
+        }
         else if (/oof/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=N8xVS57hAs4');
@@ -624,9 +627,6 @@ client.on('message', msg => {
         }
         else if (/flashbang/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5tXQ91BYXgg');
-        }
-        else if (/goofy/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MUL5w91dzbo');
         }
 
     ///////////////////////////////////
