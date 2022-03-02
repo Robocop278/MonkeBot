@@ -631,6 +631,9 @@ client.on('message', msg => {
         else if (/ladder/i.test(msg.content)) {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=8aYeoR9LVlI');
         }
+        else if (/sneater/i.test(msg.content)) {
+            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MxbVL-lYx3w');
+        }
         
 
     ///////////////////////////////////
