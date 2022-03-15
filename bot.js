@@ -783,7 +783,7 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, BOSS_SOUNDS[2]);
         }
         else if (/very\s*cool/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.us-east-1.amazonaws.com/very%20cool.mp3');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.us-east-1.amazonaws.com/very%20cool.mp3?versionId=sTako3PL__TvOVp4JsdifL4q.Mu0m.6d');
         }
         else if (/^boner\s*-3/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, BONER_SOUNDS[0]);
