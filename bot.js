@@ -783,7 +783,7 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, BOSS_SOUNDS[2]);
         }
         else if (/very\s*cool/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/b8/Very_cool.ogg/revision/latest?cb=20220130043257');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/very+cool.ogg');
         }
         else if (/^boner\s*-3/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, BONER_SOUNDS[0]);
