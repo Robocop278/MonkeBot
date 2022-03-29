@@ -49,18 +49,18 @@ const BB_SOUNDS = [
 ];
 
 const OWW_SOUNDS = [
-    "https://static.wikia.nocookie.net/monkebot/images/7/7a/Oww.ogg/revision/latest?cb=20211022063550",
-    "https://static.wikia.nocookie.net/monkebot/images/0/08/Oww2.ogg/revision/latest?cb=20211022063325"
+    "https://monke.s3.amazonaws.com/oww/oww.ogg",
+    "https://monke.s3.amazonaws.com/oww/oww2.ogg"
 ];
 
 const HELP_SOUNDS = [
-    'https://static.wikia.nocookie.net/monkebot/images/b/b1/Help_1.ogg/revision/latest?cb=20211022064642',
-    'https://static.wikia.nocookie.net/monkebot/images/e/ec/Help_2.ogg/revision/latest?cb=20211022064701',
-    'https://static.wikia.nocookie.net/monkebot/images/9/9a/Help_3.ogg/revision/latest?cb=20211022064719',
-    'https://static.wikia.nocookie.net/monkebot/images/c/c8/Help_4.ogg/revision/latest?cb=20211022064730',
-    'https://static.wikia.nocookie.net/monkebot/images/1/12/Help_5.ogg/revision/latest?cb=20211022064739',
-    'https://static.wikia.nocookie.net/monkebot/images/e/ea/Engineer_helpme01.ogg/revision/latest?cb=20211022064755',
-    'https://static.wikia.nocookie.net/monkebot/images/1/12/Engineer_helpme03.ogg/revision/latest?cb=20211022064803',
+    'https://monke.s3.amazonaws.com/cry+of+fear/help_1.ogg',
+    'https://monke.s3.amazonaws.com/cry+of+fear/help_2.ogg',
+    'https://monke.s3.amazonaws.com/cry+of+fear/help_3.ogg',
+    'https://monke.s3.amazonaws.com/cry+of+fear/help_4.ogg',
+    'https://monke.s3.amazonaws.com/cry+of+fear/help_5.ogg',
+    'https://monke.s3.amazonaws.com/cry+of+fear/Engineer_helpme01.ogg',
+    'https://monke.s3.amazonaws.com/cry+of+fear/Engineer_helpme03.ogg',
     'https://overwikifiles.com/files/Citizen/Help01_male.ogg'
 ];
 
@@ -70,12 +70,12 @@ const HI_SOUNDS = [
 ];
 
 const BYEAH_SOUNDS = [
-    'https://static.wikia.nocookie.net/monkebot/images/c/cd/Byeah.ogg/revision/latest?cb=20211118102233',
-    'https://static.wikia.nocookie.net/monkebot/images/d/dc/Byeah1.ogg/revision/latest?cb=20211118102254',
-    'https://static.wikia.nocookie.net/monkebot/images/5/56/Byeah2.ogg/revision/latest?cb=20211118102324',
-    'https://static.wikia.nocookie.net/monkebot/images/d/dc/Byeah3.ogg/revision/latest?cb=20211118102354',
-    'https://static.wikia.nocookie.net/monkebot/images/f/f4/Byeah4.ogg/revision/latest?cb=20211118102415',
-    'https://static.wikia.nocookie.net/monkebot/images/1/17/Byeah5.ogg/revision/latest?cb=20211118102441'
+    'https://monke.s3.amazonaws.com/byeah/byeah.ogg',
+    'https://monke.s3.amazonaws.com/byeah/byeah1.ogg',
+    'https://monke.s3.amazonaws.com/byeah/byeah2.ogg',
+    'https://monke.s3.amazonaws.com/byeah/byeah3.ogg',
+    'https://monke.s3.amazonaws.com/byeah/byeah4.ogg',
+    'https://monke.s3.amazonaws.com/byeah/byeah5.ogg'
 ];
 
 const THINK_SOUNDS = [
@@ -108,43 +108,42 @@ const HOW_TO_SPOON_SOUNDS = [
 ];
 
 const BOSS_SOUNDS = [
-    "https://static.wikia.nocookie.net/monkebot/images/3/37/Boss_vordt.ogg/revision/latest?cb=20220129223209",
-    "https://static.wikia.nocookie.net/monkebot/images/8/86/Boss_sephiroth.ogg/revision/latest?cb=20220129223642",
-    "https://static.wikia.nocookie.net/monkebot/images/c/c0/Boss_grimm.ogg/revision/latest?cb=20220129225349"
+    "https://monke.s3.amazonaws.com/boss+music/boss+grimm.ogg",
+    "https://monke.s3.amazonaws.com/boss+music/boss+sephiroth.ogg",
+    "https://monke.s3.amazonaws.com/boss+music/boss+vordt.ogg"
 ];
 
 const BONER_SOUNDS = [
-    "https://static.wikia.nocookie.net/monkebot/images/5/5d/Boner_-3.ogg/revision/latest?cb=20220130044031",
-    "https://static.wikia.nocookie.net/monkebot/images/8/82/Boner_-2.ogg/revision/latest?cb=20220130044108",
-    "https://static.wikia.nocookie.net/monkebot/images/6/67/Boner_-1.ogg/revision/latest?cb=20220130044134",
-    "https://static.wikia.nocookie.net/monkebot/images/7/78/Boner_0.ogg/revision/latest?cb=20220130044154",
-    "https://static.wikia.nocookie.net/monkebot/images/5/5e/Boner_1.ogg/revision/latest?cb=20220130044613",
-    "https://static.wikia.nocookie.net/monkebot/images/2/2e/Boner_2.ogg/revision/latest?cb=20220130044649",
-    "https://static.wikia.nocookie.net/monkebot/images/8/86/Boner_3.ogg/revision/latest?cb=20220130044713"
+    "https://monke.s3.amazonaws.com/boner/boner+-3.ogg",
+    "https://monke.s3.amazonaws.com/boner/boner+-2.ogg",
+    "https://monke.s3.amazonaws.com/boner/boner+-1.ogg",
+    "https://monke.s3.amazonaws.com/boner/boner+0.ogg",
+    "https://monke.s3.amazonaws.com/boner/boner+1.ogg",
+    "https://monke.s3.amazonaws.com/boner/boner+2.ogg",
+    "https://monke.s3.amazonaws.com/boner/boner+3.ogg"
 ];
 
 const COUNTRY_SOUNDS = [
-    "https://static.wikia.nocookie.net/monkebot/images/f/fc/Country_alabama.ogg/revision/latest?cb=20220130075013",
-    "https://static.wikia.nocookie.net/monkebot/images/1/16/Country_koth.ogg/revision/latest?cb=20220130080603",
-    "https://static.wikia.nocookie.net/monkebot/images/7/7b/Country_duel_1.ogg/revision/latest?cb=20220130080921",
-    "https://static.wikia.nocookie.net/monkebot/images/a/a6/Country_duel_2.ogg/revision/latest?cb=20220130080942",
-    "https://static.wikia.nocookie.net/monkebot/images/8/81/Country_tex-ex.ogg/revision/latest?cb=20220130080816"
+    "https://monke.s3.amazonaws.com/country/country+alabama.ogg",
+    "https://monke.s3.amazonaws.com/country/country+tex-ex.ogg",
+    "https://monke.s3.amazonaws.com/country/country+duel+1.ogg",
+    "https://monke.s3.amazonaws.com/country/country+duel+2.ogg",
+    "https://monke.s3.amazonaws.com/country/country+koth.ogg"
 ];
 
 const DRUNKE_SOUNDS = [
-    "https://wiki.teamfortress.com/w/images/2/27/Demoman_gibberish10.wav",
-    "https://wiki.teamfortress.com/w/images/7/7c/Demoman_gibberish13.wav",
-    "https://wiki.teamfortress.com/w/images/d/df/Demoman_gibberish03.wav",
-    "https://wiki.teamfortress.com/w/images/5/5b/Demoman_gibberish09.wav",
-    "https://wiki.teamfortress.com/w/images/1/17/Demoman_gibberish12.wav", 
-    "https://wiki.teamfortress.com/w/images/5/55/Demoman_jeers06.wav", 
-    "https://wiki.teamfortress.com/w/images/8/82/Demoman_gibberish04.wav", 
-    "https://wiki.teamfortress.com/w/images/f/f3/Demoman_gibberish05.wav", 
-    "https://wiki.teamfortress.com/w/images/3/37/Demoman_gibberish06.wav", 
-    "https://wiki.teamfortress.com/w/images/a/a4/Demoman_gibberish08.wav", 
-    "https://wiki.teamfortress.com/w/images/9/9d/Demoman_gibberish02.wav", 
-    "https://wiki.teamfortress.com/w/images/f/f3/Demoman_gibberish01.wav",
-    ""
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish01.wav",
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish02.wav",
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish03.wav",
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish04.wav",
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish05.wav", 
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish06.wav", 
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish08.wav", 
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish09.wav", 
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish10.wav", 
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish12.wav", 
+    "https://monke.s3.amazonaws.com/demoman/Demoman_gibberish13.wav", 
+    "https://monke.s3.amazonaws.com/demoman/Demoman_jeers06.wav"
     
 ];
 
@@ -325,7 +324,7 @@ client.on('message', msg => {
             if (Math.random() >= 0.95) {
                 mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=fR9ClX0egTc');
             } else {
-                mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/b1/Cbt.ogg/revision/latest?cb=20211025041045');
+                mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/cbt.ogg');
             }
         }
         else if (/goofy/i.test(msg.content)) {
@@ -450,7 +449,7 @@ client.on('message', msg => {
         }
         else if (/brain/i.test(msg.content)) {
             if (Math.random() >= 0.8) {
-                mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/2/22/Brain_crit.mp3/revision/latest?cb=20211105054825")
+                mYouTube.playSoundOgg(msg, "https://monke.s3.amazonaws.com/brain+crit.mp3")
             }
             else {
                 mYouTube.playYoutubeSound(msg, 'https://youtu.be/UKU0AdOMXLA');
@@ -670,7 +669,7 @@ client.on('message', msg => {
         }
         else if (/^ow+$/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
-                mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/5/59/Owwcrit.ogg/revision/latest?cb=20211022064501")
+                mYouTube.playSoundOgg(msg, "https://monke.s3.amazonaws.com/oww/owwcrit.ogg")
             }
             else {
                 rnd = Math.floor(Math.random() * OWW_SOUNDS.length)
@@ -683,67 +682,67 @@ client.on('message', msg => {
         }
         else if (/pirate|spencer/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
-                mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/a/a6/Pirate_crit.ogg/revision/latest?cb=20211025042611")
+                mYouTube.playSoundOgg(msg, "https://monke.s3.amazonaws.com/spencer_crit.mp3")
             }
             else {
-                mYouTube.playSoundOgg(msg, "https://static.wikia.nocookie.net/monkebot/images/3/38/Pirate.ogg/revision/latest?cb=20211025042453")
+                mYouTube.playSoundOgg(msg, "https://monke.s3.amazonaws.com/spencer.mp3")
             }
         }
         else if (/mmm monke/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/92/Mm_monke.ogg/revision/latest?cb=20211025043051');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/mm_monke.ogg');
         }
         else if (/^hi$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * HI_SOUNDS.length)
             mYouTube.playSoundOgg(msg, HI_SOUNDS[rnd]);
         }
         else if (/^intermission$/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/bf/Intermission.mp3/revision/latest?cb=20211101030603');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/09+-+Intermission.mp3');
         }
-        else if (/duke1\s?\.5/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/2/20/Duke4.ogg/revision/latest?cb=20220125075631');
+        else if (/duke\s?1\s?\.5/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke1-1.ogg');
         }
         else if (/duke\s?1/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/e/ea/Duke1.ogg/revision/latest?cb=20211105055208');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke1.ogg');
         }
         else if (/duke2\s?\.5/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/f/f6/Duke5.ogg/revision/latest?cb=20220125080837');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2-1.ogg');
         }
         else if (/duke2\s?\.6/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/b1/Duke2-2.ogg/revision/latest?cb=20220127042036');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2-2.ogg');
         }
         else if (/duke\s?2/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/3/32/Duke2.ogg/revision/latest?cb=20211105055304');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2.ogg');
         }
         else if (/duke3\s?\.5/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/c/c4/Duke6.ogg/revision/latest?cb=20220125082049');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke3-1.ogg');
         }
         else if (/duke\s?3/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/d/d9/Duke3.ogg/revision/latest?cb=20211105055331');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke3.ogg');
         }
         else if (/duke\s*riff/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/13/Duke_riff.ogg/revision/latest?cb=20211105055356');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke+riff.ogg');
         }
         else if (/meeting of the byeahs?/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/91/Meeting_of_the_byeah.ogg/revision/latest?cb=20211118095123');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/byeah/meeting+of+the+byeah.ogg');
         }
         else if (/^byeah attack$/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/1b/Byeah_attack.ogg/revision/latest?cb=20211118095530');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/byeah/byeah+attack.ogg');
         }
         else if (/^byeah$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BYEAH_SOUNDS.length)
             mYouTube.playSoundOgg(msg, BYEAH_SOUNDS[rnd]);
         }
         else if (/monke.*fart/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/87/Fart_reverb.mp3/revision/latest?cb=20211121065340');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/fart-with-reverb.mp3');
         }
         else if (/monke.*suck|monke.*succ/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/be/Succ.mp3/revision/latest?cb=20211121064124');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/fart_with_extra_reverb_reversed.mp3');
         }
         else if (/monke.*die/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/2/29/Die.mp3/revision/latest?cb=20211121070306');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/yt1s.com+-+Metal+Gear+Solid+Snake+death+scream+sound+effect.mp3');
         }
-        else if (/monke.*nut/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/55/Worlds_Loudest_Orgasm.mp3/revision/latest?cb=20211121062645');
+        else if (/monke.*nut\s?t/i.test(msg.content)) {
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/yt1s.com+-+Worlds+Loudest+Orgasm.mp3');
         }
         else if (/how\s*to\s*spoon/i.test(msg.content)) {
             currentSpoonDate = new Date();
@@ -770,9 +769,9 @@ client.on('message', msg => {
         }
         else if (/^e$/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
-                mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/1/17/E_crit.ogg/revision/latest?cb=20220129220753');
+                mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/e+crit.ogg');
             } else {
-                mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/6/61/E-long.ogg/revision/latest?cb=20220129220626');
+                mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/e-long.ogg');
             }
         }
         else if (/^boss\s*music$/i.test(msg.content)) {
@@ -821,16 +820,16 @@ client.on('message', msg => {
             mYouTube.playSoundOgg(msg, COUNTRY_SOUNDS[rnd]);
         }
         else if (/dundun|dun\s*dun|law\s*and\s*order/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/b/bd/Dun_dun.ogg/revision/latest?cb=20220130113335');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/dun+dun.ogg');
         }
         else if (/^(shart|shart.mp3)/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/very+cool.ogg');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/shart.mp3');
         }
         else if (/fitness\s*gram\s*pacer\s*test/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/97/At_night_i_think_of.mp3/revision/latest?cb=20220131041310');
         }
         else if (/YYYY/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/f/fc/YYYY.mp3/revision/latest?cb=20220131041636');
+            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/YYYY.mp3');
         }
         else if (/monkey?\s*story/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/The_Story_Of_Three_Socks_And_The_Gold_Bears.mp3/revision/latest?cb=20220131041746');
