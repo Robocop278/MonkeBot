@@ -176,5 +176,6 @@ function msgcheck (msg) {
 
 module.exports = {
 	playYoutubeSound,
-    playSoundOgg
+    playSoundOgg,
+    playSoundWav
 };
