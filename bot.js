@@ -211,12 +211,12 @@ client.on('message', msg => {
             }
         }
         else if (/kenna/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=6vtsKGzGVK4');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=6vtsKGzGVK4');
         }
         else if (/bee/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
                 msg.channel.send(beeGif);
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=8CvqmD0CZao');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=8CvqmD0CZao');
             } else {
                 msg.react('🐝').catch(function() {
                     console.log("whoopsies");
@@ -241,405 +241,405 @@ client.on('message', msg => {
             }
         }
         else if (/sax.*(and|&).*sex/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '290');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '290');
         }
         else if (/cock.*rock/i.test(msg.content)) {
             if (Math.random() >= 0.90) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ZYR_r0A-K3g');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=ZYR_r0A-K3g');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=6yisws5rKoo');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=6yisws5rKoo');
             }
         }
         else if (/jabroni/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=8K2wTF7pZzI');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=8K2wTF7pZzI');
         }
         else if (/(you are already dead|omae wa mou shindeiru)/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=U_EV0HAHBTQ');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=U_EV0HAHBTQ');
         }
         else if (/explo(d|si)/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=GN_lbeRuM0k');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=GN_lbeRuM0k');
         }
         else if (/monke.*\srap\s*$/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=zlm6bcMD7Fg');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=zlm6bcMD7Fg');
         }
         else if (/^music$/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Lb4b91Ken7Y');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=Lb4b91Ken7Y');
         }
         else if (/west virginia/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=1vrEljMfXYo');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=1vrEljMfXYo');
         }
         else if (/what.*are.*you.*doing/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gOBimZmfw_4');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=gOBimZmfw_4');
         }
         else if (/sylvanas/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=AdYPzbPiosg', '17');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=AdYPzbPiosg', '17');
         }
         else if (/wednesday/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=du-TY1GUFGk');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=du-TY1GUFGk');
         }
         else if (/friday/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5Ib_PrnSi50');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5Ib_PrnSi50');
         }
         else if (/say\s*goodbye/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wtx0fdzRAp8');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=wtx0fdzRAp8');
         }
         else if (/rick\s*roll/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5hFevwJ4JXI');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5hFevwJ4JXI');
         }
         else if (/ram\s*ranch/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MADvxFXWvwE');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MADvxFXWvwE');
         }
         else if (/bonk/i.test(msg.content)) {
             var randomAmt = Math.random();
             if (randomAmt >= 0.99) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5KEPE2VUSA8');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5KEPE2VUSA8');
             } else if (randomAmt >= 0.95) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=08EqQPIvHOU');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=08EqQPIvHOU');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gwxTZaa3NgI');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=gwxTZaa3NgI');
             }
         }
         else if (/don.?t\s*do\s*it/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=gTUALBzIBWM');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=gTUALBzIBWM');
         }
         else if (/speen|spin/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=cerkDJLuT_k');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=cerkDJLuT_k');
         }
         else if (/monke.*that.?s\s*shit/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9');
         }
         else if (/football/i.test(msg.content)) {
             if (Math.random() >= 0.5) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=37-AlmNdESg');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=37-AlmNdESg');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ZKPnAfopfO8');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=ZKPnAfopfO8');
             }
         }
         else if (/monke.*timecard/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + timecards.getRandomTimecardVideoID());
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=' + timecards.getRandomTimecardVideoID());
         }
         else if (/monke.*play\s*despacito/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=W3GrSMYbkBE');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=W3GrSMYbkBE');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=FWOXAPI5kZg');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=FWOXAPI5kZg');
             }
         }
         else if (/CBT/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=fR9ClX0egTc');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=fR9ClX0egTc');
             } else {
-                mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/cbt.ogg');
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/cbt.ogg');
             }
         }
         else if (/goofy/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MUL5w91dzbo');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MUL5w91dzbo');
         }
         else if (/oof/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=N8xVS57hAs4');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=N8xVS57hAs4');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=3w-2gUSus34');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=3w-2gUSus34');
             }
         }
         else if (/ford truck month/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=RVKmdsO6f3g');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=RVKmdsO6f3g');
         }
         else if (/surprise/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=_bSEfx6D8mA');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=_bSEfx6D8mA');
         }
         else if (/phasmo/i.test(msg.content)) {
             console.log('spooky incoming...')
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=' + phasmo.getRandomSpiritBoxVideoID());
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=' + phasmo.getRandomSpiritBoxVideoID());
         }
         else if (/shut\s*up/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ptAVrZh7hV0');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=ptAVrZh7hV0');
         }
         else if (/u\s*right/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MCT80HJWQ2A', '4');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MCT80HJWQ2A', '4');
         }
         else if (/john/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=dGu2Be6tS1A');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=dGu2Be6tS1A');
         }
         else if (/800.?588.?2300/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ovVvtC4wXSQ');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=ovVvtC4wXSQ');
         }
         else if (/1.?900.?490.?FREAK|freddie\s*freaker/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MmOiRyWLug0');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MmOiRyWLug0');
         }
         else if (/shrek|somebody\s*once\s*told\s*me/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=g7_VlmEamUQ');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=g7_VlmEamUQ');
         }
         else if (/godzilla/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=JkUQ6s4mrWw');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=JkUQ6s4mrWw');
         }
         else if (/taco\s*bell/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=dNl4-w9ZrBs');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=dNl4-w9ZrBs');
         }
         else if (/monke.*th(ink|oughts)/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * THINK_SOUNDS.length)
-            mYouTube.playYoutubeSound(msg, THINK_SOUNDS[rnd]);
+            mYouTube.playSound(msg, THINK_SOUNDS[rnd]);
         }
         else if (/egg/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=nhB5WoUYQbc');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=nhB5WoUYQbc');
         }
         else if (/bean/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=60l1nZIhslU');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=60l1nZIhslU');
         }
         else if (/jam/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=aAh7UnQnC7I');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=aAh7UnQnC7I');
         }
         else if (/cheese/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Kf2CSy_ZHCA', '5');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=Kf2CSy_ZHCA', '5');
         }
         else if (/pizza/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=czTksCF6X8Y');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=czTksCF6X8Y');
         }
         else if (/kick.*butt/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MVMyxJiA9Cg');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MVMyxJiA9Cg');
         }
         else if (/clap/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EHjWieD29AM');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=EHjWieD29AM');
         }
         else if (/sell?\s?fish/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=I1USdCFPR_A');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=I1USdCFPR_A');
         }
         else if (/what'?s\s*your\s*point/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Jk5qghpFY-g');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=Jk5qghpFY-g');
         }
         else if (/find\s*jeffrey/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=jj_TywZ_X_w', '13');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=jj_TywZ_X_w', '13');
         }
         else if (/brerb/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=1mQG7z-5wok');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=1mQG7z-5wok');
         }
         else if (/krabby\s*patty/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=E-xhxS581Uc');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=E-xhxS581Uc');
         }
         else if (/devious/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=FFVu0Zbth2A');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=FFVu0Zbth2A');
         }
         else if (/game\s*over/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=IsS_VMzY10I');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=IsS_VMzY10I');
         }
         else if (/liberal/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=QxdC2H2Nndg');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=QxdC2H2Nndg');
         }
         else if (/careless|whisper/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=izGwDsrQ1eQ');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=izGwDsrQ1eQ');
         }
         else if (/stop\s*it|get\s*some\s*help/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=9Deg7VrpHbM');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=9Deg7VrpHbM');
         }
         else if (/huge/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=h8Jui7XaKQA');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=h8Jui7XaKQA');
         }
         else if (/toxic/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=xr5t5vG1fHY');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=xr5t5vG1fHY');
         }
         else if (/th[sa]nks/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=OLmun1JEIw0', '41');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=OLmun1JEIw0', '41');
         }
         else if (/uncle/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=XvbxrpFx0FU');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=XvbxrpFx0FU');
         }
         else if (/iasip/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=idoYCVLh2qI');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=idoYCVLh2qI');
         }
         else if (/get\s*you\s*bitch/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=bip40seuVqI');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=bip40seuVqI');
         }
         else if (/congratulations|congrats/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wDajqW561KMx');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=wDajqW561KMx');
         }
         else if (/brain/i.test(msg.content)) {
             if (Math.random() >= 0.8) {
-                mYouTube.playSoundOgg(msg, "https://monke.s3.amazonaws.com/brain+crit.mp3")
+                mYouTube.playSound(msg, "https://monke.s3.amazonaws.com/brain+crit.mp3")
             }
             else {
-                mYouTube.playYoutubeSound(msg, 'https://youtu.be/UKU0AdOMXLA');
+                mYouTube.playSound(msg, 'https://youtu.be/UKU0AdOMXLA');
             }
         }
         else if (/horsey|chobunso/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/2QYcKByGEY8');
+            mYouTube.playSound(msg, 'https://youtu.be/2QYcKByGEY8');
         }
         else if (/scatman/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/Hy8kmNEo1i8');
+            mYouTube.playSound(msg, 'https://youtu.be/Hy8kmNEo1i8');
         }
         else if (/america|🇺🇸|🦅/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/MhQ5678cJU8');
+            mYouTube.playSound(msg, 'https://youtu.be/MhQ5678cJU8');
         }
         else if (/burger\s*king|foot\s*lettuce/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/XPnwmZ6gf6I');
+            mYouTube.playSound(msg, 'https://youtu.be/XPnwmZ6gf6I');
         }
         else if (/Emily|X[-\s]files/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/Vpqffgak7To');
+            mYouTube.playSound(msg, 'https://youtu.be/Vpqffgak7To');
         }
         else if (/beginning|beninging/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/fRCOpbp_Wyo');
+            mYouTube.playSound(msg, 'https://youtu.be/fRCOpbp_Wyo');
         }
         else if (/Charles|pull\s*up|capybara/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/v8Q4BSgBkRc');
+            mYouTube.playSound(msg, 'https://youtu.be/v8Q4BSgBkRc');
             msg.channel.send('https://c.tenor.com/g05O_S6b0f4AAAAd/capybara-ok-i-pull-up.gif');
         }
         else if (/oh\s*ok/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/UrdhAzKcfNk');
+            mYouTube.playSound(msg, 'https://youtu.be/UrdhAzKcfNk');
         }
         else if (/i'?ll\s*kill\s*ya/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/NfrKsyUJqI4');
+            mYouTube.playSound(msg, 'https://youtu.be/NfrKsyUJqI4');
         }
         else if (/sigma/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/wLz9xU6J88k');
+            mYouTube.playSound(msg, 'https://youtu.be/wLz9xU6J88k');
         }
         else if (/mail/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/fzRC37grckk');
+            mYouTube.playSound(msg, 'https://youtu.be/fzRC37grckk');
         }
         else if (/shut\s*down/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/m1QrNZCjRag');
+            mYouTube.playSound(msg, 'https://youtu.be/m1QrNZCjRag');
         }
         else if (/oh\s*my\s*goodness/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/6k5VOvrBCss');
+            mYouTube.playSound(msg, 'https://youtu.be/6k5VOvrBCss');
         }
         else if (/do\s*your\s*best/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/jGatO6vMPqw', '9');
+            mYouTube.playSound(msg, 'https://youtu.be/jGatO6vMPqw', '9');
         }
         else if (/dosh|loads\s*a\s*money/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/ULeDlxa3gyc');
+            mYouTube.playSound(msg, 'https://youtu.be/ULeDlxa3gyc');
         }
         else if (/beat\s*that\s*bitch/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/mRowQGqkjRA');
+            mYouTube.playSound(msg, 'https://youtu.be/mRowQGqkjRA');
         }
         else if (/horny/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/_jhgncXEbjc');
+            mYouTube.playSound(msg, 'https://youtu.be/_jhgncXEbjc');
         }
         else if (/you\s*can'?t\s*milk\s*those/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/RlKVC-MRmjA');
+            mYouTube.playSound(msg, 'https://youtu.be/RlKVC-MRmjA');
         }
         else if (/milk/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/I9gLFHj5AWk', '4');
+            mYouTube.playSound(msg, 'https://youtu.be/I9gLFHj5AWk', '4');
         }
         else if (/wombo\s*combo/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/5PMmPRBfdBQ');
+            mYouTube.playSound(msg, 'https://youtu.be/5PMmPRBfdBQ');
         }
         else if (/interior|crocodile|alligator/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/kZwhNFOn4ik');
+            mYouTube.playSound(msg, 'https://youtu.be/kZwhNFOn4ik');
         }
         else if (/hold\s*it!/i.test(msg.content)) {
             var prob = Math.random()
             if (prob <= 0.5) {
-                mYouTube.playYoutubeSound(msg, 'https://youtu.be/66LCfFqIbAA');
+                mYouTube.playSound(msg, 'https://youtu.be/66LCfFqIbAA');
             } else if (prob <= 0.85) {
-                mYouTube.playYoutubeSound(msg, 'https://youtu.be/d7SYy5JvyOA');
+                mYouTube.playSound(msg, 'https://youtu.be/d7SYy5JvyOA');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://youtu.be/TIZH3Ur0zcQ');
+                mYouTube.playSound(msg, 'https://youtu.be/TIZH3Ur0zcQ');
             }
         }
         else if (/take\s*that!/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://youtu.be/fR4P8o95WPA');
+            mYouTube.playSound(msg, 'https://youtu.be/fR4P8o95WPA');
         }
         else if (/OBJECTION!/.test(msg.content)) {
             if (Math.random() >= 0.5) {
-                mYouTube.playYoutubeSound(msg, 'https://youtu.be/UxnvGDK0WGM');
+                mYouTube.playSound(msg, 'https://youtu.be/UxnvGDK0WGM');
             }
             else {
-                mYouTube.playYoutubeSound(msg, 'https://youtu.be/lAWdWk6a2gg');
+                mYouTube.playSound(msg, 'https://youtu.be/lAWdWk6a2gg');
             }
         }
         else if (/that'?s\s*hilarious/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=oj0Nu5yTnTA');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=oj0Nu5yTnTA');
         }
         else if (/bojji/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=wWnak7V8hr0');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=wWnak7V8hr0');
         }
         else if (/mortis/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=iHLMnP7bpnk');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=iHLMnP7bpnk');
         }
         else if (/tequila/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=U_JFLb1IItM');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=U_JFLb1IItM');
         }
         else if (/bitconnect/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=772eWds6z0U');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=772eWds6z0U');
         }
         else if (/bwop/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=EIA1iX7Ooz8');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=EIA1iX7Ooz8');
         }
         else if (/disappoint/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=Ncgv7ruZ6HU');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=Ncgv7ruZ6HU');
         }
         else if (/gambino/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=bdYIC-otbvU');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=bdYIC-otbvU');
         }
         else if (/whip/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * WHIP_SOUNDS.length)
-            mYouTube.playYoutubeSound(msg, WHIP_SOUNDS[rnd]);
+            mYouTube.playSound(msg, WHIP_SOUNDS[rnd]);
         }
         else if (/g(arry'?s)?\s*mod/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=_GGfz-o5khc');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=_GGfz-o5khc');
         }
         else if (/winner/i.test(msg.content)) {
             if (Math.random() >= 0.9) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=d6ySILG_7xk');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=d6ySILG_7xk');
             }
             else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=VrxEVwByVA4');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=VrxEVwByVA4');
             }
         }
         else if (/bruh\s*moment/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=i8ooQ8vOAAs');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=i8ooQ8vOAAs');
         }
         else if (/yoooo+/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=VKMw2it8dQY');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=VKMw2it8dQY');
         }
         else if (/clown/i.test(msg.content)) {
             if (Math.random() >= 0.75) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=0AZpwvAOnqM');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=0AZpwvAOnqM');
             }
             else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=S280Pqq3T_w');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=S280Pqq3T_w');
             }
         }
         else if (/stargate/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=yWCP8lcbcJg');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=yWCP8lcbcJg');
         }
         else if (/tng/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=cTLRQDWHQlQ', '12');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=cTLRQDWHQlQ', '12');
         }
         else if (/yes\s*(or)?\s*no|true\s*(or)?\s*false/i.test(msg.content)) {
             var prob = Math.random();
             if (prob <= 0.48) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MCT80HJWQ2A');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MCT80HJWQ2A');
             } else if (prob <= 0.96) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=GM-e46xdcUo');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=GM-e46xdcUo');
             } else if (prob <= 0.98) {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=yMLW6yj8XNY');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=yMLW6yj8XNY');
             } else {
-                mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=WXwWaueB1Ss');
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=WXwWaueB1Ss');
             }
         }
         // else if (/lounge/i.test(msg.content)) {
         //     rnd = Math.floor(Math.random() * LOUNGE_SOUNDS.length)
-        //     mYouTube.playYoutubeSound(msg, LOUNGE_SOUNDS[rnd]);
+        //     mYouTube.playSound(msg, LOUNGE_SOUNDS[rnd]);
         // }
         else if (/sexy/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=kQL7LW3CWXs');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=kQL7LW3CWXs');
         }
         else if (/scooby/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=igSHbtv52G4');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=igSHbtv52G4');
         }
         else if (/wildstar/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=ey0wgQYTwnU');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=ey0wgQYTwnU');
         }
         else if (/flashbang/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=5tXQ91BYXgg');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5tXQ91BYXgg');
         }
         else if (/ladder/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=8aYeoR9LVlI');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=8aYeoR9LVlI');
         }
         else if (/sneater/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=MxbVL-lYx3w');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MxbVL-lYx3w');
         }
         else if (/sumo/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=W2zAg39AXcs');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=W2zAg39AXcs');
         }
         else if (/pretty\s*good/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=JeimE8Wz6e4');
@@ -659,95 +659,95 @@ client.on('message', msg => {
         }
         else if (/(balloon\s*boy|balloonboy|bb)\s*hi/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BB_SOUNDS[0]);
+            mYouTube.playSound(msg, BB_SOUNDS[0]);
         }
         else if (/(balloon\s*boy|balloonboy|bb)\s*(haha|laugh)/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BB_SOUNDS[2]);
+            mYouTube.playSound(msg, BB_SOUNDS[2]);
         }
         else if (/balloon\s*boy|balloonboy/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BB_SOUNDS[rnd]);
+            mYouTube.playSound(msg, BB_SOUNDS[rnd]);
         }
         else if (/icpp/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/dota2_gamepedia/images/e/ed/Vo_nyx_assassin_nyx_attack_16.mp3/revision/latest?cb=20201017155639');
+            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/dota2_gamepedia/images/e/ed/Vo_nyx_assassin_nyx_attack_16.mp3/revision/latest?cb=20201017155639');
         }
         else if (/^ow+$/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
-                mYouTube.playSoundOgg(msg, "https://monke.s3.amazonaws.com/oww/owwcrit.ogg")
+                mYouTube.playSound(msg, "https://monke.s3.amazonaws.com/oww/owwcrit.ogg")
             }
             else {
                 rnd = Math.floor(Math.random() * OWW_SOUNDS.length)
-                mYouTube.playSoundOgg(msg, OWW_SOUNDS[rnd]);
+                mYouTube.playSound(msg, OWW_SOUNDS[rnd]);
             }
         }
         else if (/help/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * HELP_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, HELP_SOUNDS[rnd]);
+            mYouTube.playSound(msg, HELP_SOUNDS[rnd]);
         }
         else if (/pirate|spencer/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
-                mYouTube.playSoundOgg(msg, "https://monke.s3.amazonaws.com/spencer_crit.mp3")
+                mYouTube.playSound(msg, "https://monke.s3.amazonaws.com/spencer_crit.mp3")
             }
             else {
-                mYouTube.playSoundOgg(msg, "https://monke.s3.amazonaws.com/spencer.mp3")
+                mYouTube.playSound(msg, "https://monke.s3.amazonaws.com/spencer.mp3")
             }
         }
         else if (/mmm monke/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/mm_monke.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/mm_monke.ogg');
         }
         else if (/^hi$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * HI_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, HI_SOUNDS[rnd]);
+            mYouTube.playSound(msg, HI_SOUNDS[rnd]);
         }
         else if (/^intermission$/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/09+-+Intermission.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/09+-+Intermission.mp3');
         }
         else if (/duke\s?1\s?\.5/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke1-1.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke1-1.ogg');
         }
         else if (/duke\s?1/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke1.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke1.ogg');
         }
         else if (/duke2\s?\.5/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2-1.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2-1.ogg');
         }
         else if (/duke2\s?\.6/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2-2.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2-2.ogg');
         }
         else if (/duke\s?2/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke2.ogg');
         }
         else if (/duke3\s?\.5/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke3-1.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke3-1.ogg');
         }
         else if (/duke\s?3/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke3.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke3.ogg');
         }
         else if (/duke\s*riff/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke+riff.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke+riff.ogg');
         }
         else if (/meeting of the byeahs?/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/byeah/meeting+of+the+byeah.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/byeah/meeting+of+the+byeah.ogg');
         }
         else if (/^byeah attack$/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/byeah/byeah+attack.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/byeah/byeah+attack.ogg');
         }
         else if (/^byeah$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BYEAH_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BYEAH_SOUNDS[rnd]);
+            mYouTube.playSound(msg, BYEAH_SOUNDS[rnd]);
         }
         else if (/monke.*fart/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/fart-with-reverb.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/fart-with-reverb.mp3');
         }
         else if (/monke.*suck|monke.*succ/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/fart_with_extra_reverb_reversed.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/fart_with_extra_reverb_reversed.mp3');
         }
         else if (/monke.*die/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/yt1s.com+-+Metal+Gear+Solid+Snake+death+scream+sound+effect.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/yt1s.com+-+Metal+Gear+Solid+Snake+death+scream+sound+effect.mp3');
         }
         else if (/monke.*nut\s?t/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/yt1s.com+-+Worlds+Loudest+Orgasm.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/yt1s.com+-+Worlds+Loudest+Orgasm.mp3');
         }
         else if (/how\s*to\s*spoon/i.test(msg.content)) {
             currentSpoonDate = new Date();
@@ -755,116 +755,116 @@ client.on('message', msg => {
                 spoonPointer = 0;
             }
             lastSpoonDate = currentSpoonDate;
-            mYouTube.playSoundOgg(msg, HOW_TO_SPOON_SOUNDS[spoonPointer]);
+            mYouTube.playSound(msg, HOW_TO_SPOON_SOUNDS[spoonPointer]);
             spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
         }
         else if (/^what\??$/i.test(msg.content)) {
             currentSpoonDate = new Date();
             if (spoonPointer > 0 && (Math.abs(currentSpoonDate - lastSpoonDate) / 1000) <= 60) {
                 lastSpoonDate = currentSpoonDate;
-                mYouTube.playSoundOgg(msg, HOW_TO_SPOON_SOUNDS[spoonPointer]);
+                mYouTube.playSound(msg, HOW_TO_SPOON_SOUNDS[spoonPointer]);
                 spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
             }
         }
         else if (/^cyberpunk$|cyberriff|cyber.*riff/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/5e/Cyber_riff.ogg/revision/latest?cb=20211227060931');
+            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/5e/Cyber_riff.ogg/revision/latest?cb=20211227060931');
         }
         else if (/sea\s*shanty/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/BiggieShanty.ogg/revision/latest?cb=20220116211258');
+            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/BiggieShanty.ogg/revision/latest?cb=20220116211258');
         }
         else if (/^e$/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
-                mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/e+crit.ogg');
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/e+crit.ogg');
             } else {
-                mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/e-long.ogg');
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/e-long.ogg');
             }
         }
         else if (/^boss\s*music$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BOSS_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BOSS_SOUNDS[rnd]);
+            mYouTube.playSound(msg, BOSS_SOUNDS[rnd]);
         }
         else if (/^boss\s*vordt/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BOSS_SOUNDS[0]);
+            mYouTube.playSound(msg, BOSS_SOUNDS[0]);
         }
         else if (/^boss\s*sephiroth/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BOSS_SOUNDS[1]);
+            mYouTube.playSound(msg, BOSS_SOUNDS[1]);
         }
         else if (/^boss\s*grimm/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BOSS_SOUNDS[2]);
+            mYouTube.playSound(msg, BOSS_SOUNDS[2]);
         }
         else if (/very\s*cool/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/very+cool.mp3?_=2');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/very+cool.mp3?_=2');
         }
         else if (/^boner\s*-3/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BONER_SOUNDS[0]);
+            mYouTube.playSound(msg, BONER_SOUNDS[0]);
         }
         else if (/^boner\s*-2/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BONER_SOUNDS[1]);
+            mYouTube.playSound(msg, BONER_SOUNDS[1]);
         }
         else if (/^boner\s*-1/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BONER_SOUNDS[2]);
+            mYouTube.playSound(msg, BONER_SOUNDS[2]);
         }
         else if (/^boner\s*0/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BONER_SOUNDS[3]);
+            mYouTube.playSound(msg, BONER_SOUNDS[3]);
         }
         else if (/^boner\s*1/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BONER_SOUNDS[4]);
+            mYouTube.playSound(msg, BONER_SOUNDS[4]);
         }
         else if (/^boner\s*2/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BONER_SOUNDS[5]);
+            mYouTube.playSound(msg, BONER_SOUNDS[5]);
         }
         else if (/^boner\s*3/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, BONER_SOUNDS[6]);
+            mYouTube.playSound(msg, BONER_SOUNDS[6]);
         }
         else if (/^boner$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BONER_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BONER_SOUNDS[rnd]);
+            mYouTube.playSound(msg, BONER_SOUNDS[rnd]);
         }
         else if (/^country$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * COUNTRY_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, COUNTRY_SOUNDS[rnd]);
+            mYouTube.playSound(msg, COUNTRY_SOUNDS[rnd]);
         }
         else if (/dundun|dun\s*dun|law\s*and\s*order/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/dun+dun.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/dun+dun.ogg');
         }
         else if (/^(shart|shart.mp3)/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/shart.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/shart.mp3');
         }
         else if (/fitness\s*gram\s*pacer\s*test/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/97/At_night_i_think_of.mp3/revision/latest?cb=20220131041310');
+            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/97/At_night_i_think_of.mp3/revision/latest?cb=20220131041310');
         }
         else if (/YYYY/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/YYYY.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/YYYY.mp3');
         }
         else if (/monkey?\s*story/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/The_Story_Of_Three_Socks_And_The_Gold_Bears.mp3/revision/latest?cb=20220131041746');
+            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/The_Story_Of_Three_Socks_And_The_Gold_Bears.mp3/revision/latest?cb=20220131041746');
         }
         else if (/drunke/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * DRUNKE_SOUNDS.length)
             mYouTube.playSound(msg, DRUNKE_SOUNDS[rnd]);
         }
         else if (/oreo/i.test(msg.content)) {
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/no_more_oreos.ogg');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/no_more_oreos.ogg');
         }
         else if (/lounge\s*classical/i.test(msg.content)) {
             let classical = lounge.getRandomClassical()
             console.log(classical)
             if(classical[0] === 0) {
                 console.log(classical[1])
-                mYouTube.playYoutubeSound(msg, classical[1])
+                mYouTube.playSound(msg, classical[1])
             }
             else {
                 console.log(classical[1])
-                mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/' + classical[1])
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/' + classical[1])
             }
         }
         else if (/lounge\s*piano/i.test(msg.content)) {
             let get = lounge.getRandomPiano()
-            mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/' + lounge.getRandomPiano());
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/' + lounge.getRandomPiano());
         }
         else if (/hehehe/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * TT_LAUGH_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, TT_LAUGH_SOUNDS[rnd]);
+            mYouTube.playSound(msg, TT_LAUGH_SOUNDS[rnd]);
         }
 
 
@@ -890,7 +890,7 @@ client.on('message', msg => {
         }
 
         else if (/monke(y)?\s*shut\s*down/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
             // https://stackoverflow.com/questions/23766259/restart-node-js-server-programmatically
         }
         else if (msg.mentions.has(client.user) && !msg.mentions.everyone) { // If message is pinging Monke Bot (but not pinging everyone)
