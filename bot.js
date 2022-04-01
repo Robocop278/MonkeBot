@@ -841,7 +841,7 @@ client.on('message', msg => {
         }
         else if (/drunke/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * DRUNKE_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, DRUNKE_SOUNDS[rnd]);
+            mYouTube.playSound(msg, DRUNKE_SOUNDS[rnd]);
         }
         else if (/oreo/i.test(msg.content)) {
             mYouTube.playSoundOgg(msg, 'https://monke.s3.amazonaws.com/no_more_oreos.ogg');
