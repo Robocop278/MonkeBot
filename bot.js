@@ -831,13 +831,13 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/shart.mp3');
         }
         else if (/fitness\s*gram\s*pacer\s*test/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/monkebot/images/9/97/At_night_i_think_of.mp3/revision/latest?cb=20220131041310');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/at_night_i_think_of.mp3');
         }
         else if (/YYYY/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/YYYY.mp3');
         }
         else if (/monkey?\s*story/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/The_Story_Of_Three_Socks_And_The_Gold_Bears.mp3/revision/latest?cb=20220131041746');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/The_Story_Of_Three_Socks_And_The_Gold_Bears.mp3');
         }
         else if (/drunke/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * DRUNKE_SOUNDS.length)
@@ -847,20 +847,16 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/no_more_oreos.ogg');
         }
         else if (/lounge\s*classical/i.test(msg.content)) {
-            let classical = lounge.getRandomClassical()
-            console.log(classical)
-            if(classical[0] === 0) {
-                console.log(classical[1])
-                mYouTube.playSound(msg, classical[1])
-            }
-            else {
-                console.log(classical[1])
-                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/' + classical[1])
-            }
+            mYouTube.playSound(msg, lounge.getRandomClassical())
         }
         else if (/lounge\s*piano/i.test(msg.content)) {
-            let get = lounge.getRandomPiano()
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/' + lounge.getRandomPiano());
+            mYouTube.playSound(msg, lounge.getRandomPiano());
+        }
+        else if (/lounge\s*jazz/i.test(msg.content)) {
+            mYouTube.playSound(msg, lounge.getRandomJazz());
+        }
+        else if (/heHEhe/.test(msg.content)) {
+            mYouTube.playSound(msg, TT_LAUGH_SOUNDS[0]);
         }
         else if (/hehehe/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * TT_LAUGH_SOUNDS.length)
