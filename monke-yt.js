@@ -51,15 +51,18 @@ async function playSound(msg, url, startTime = '0') {
             const connection = await voiceChannel.join();
             console.log('Connected to voice channel');
             console.log('Fetching Youtube data...');
-            ytInfo = await ytdl.getInfo(trueURL);
             console.log('Youtube data fetched');
             console.log('Playing sound...');
             var stream;
-            var streamType = "unknown";
             try {
+                ytInfo = await ytdl.getInfo(trueURL);
                 stream = ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'});
             } catch (err) {
-                stream = ytdl.arbitraryStream(url, {opusEncoded: true});
+                stream = ytdl.arbitraryStream(trueURL, {opusEncoded: true});
+            }
+            var streamType = "unknown";
+            if (/\.ogg/i.test(trueURL)) {
+                streamType = "ogg";
             }
             // let stream = ytdl.arbitraryStream(url, {opusEncoded: true});
             const dispatcher = connection.play(stream, {type:streamType, seek: startTime});
