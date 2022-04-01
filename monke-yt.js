@@ -54,15 +54,17 @@ async function playSound(msg, url, startTime = '0') {
             console.log('Youtube data fetched');
             console.log('Playing sound...');
             var stream;
-            try {
+            var streamType = "unknown";
+            if (/youtube\./i.test(trueURL)) {
                 ytInfo = await ytdl.getInfo(trueURL);
                 stream = ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'});
-            } catch (err) {
+            } else {
                 stream = ytdl.arbitraryStream(trueURL, {opusEncoded: true});
-            }
-            var streamType = "unknown";
-            if (/\.ogg/i.test(trueURL)) {
-                streamType = "ogg";
+                if (/\.ogg/i.test(trueURL)) {
+                    streamType = "ogg";
+                } else if (/\.wav/i.test(trueURL)) {
+                    streamType = "wav";
+                }
             }
             // let stream = ytdl.arbitraryStream(url, {opusEncoded: true});
             const dispatcher = connection.play(stream, {type:streamType, seek: startTime});
