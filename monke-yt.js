@@ -55,7 +55,7 @@ async function playSound(msg, url, startTime = '0') {
             console.log(`Playing sound from link ${url}`);
             var stream;
             var streamType = "unknown";
-            if (/youtube\./i.test(trueURL)) {
+            if (/youtu\./i.test(trueURL)) {
                 ytInfo = await ytdl.getInfo(trueURL);
                 stream = ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'});
             } else {
