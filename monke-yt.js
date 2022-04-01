@@ -61,7 +61,7 @@ async function playSound(msg, url, startTime = '0') {
             } else {
                 stream = ytdl.arbitraryStream(trueURL, {opusEncoded: true});
                 if (/\.ogg/i.test(trueURL)) {
-                    streamType = "ogg";
+                    streamType = "opus";
                 } else if (/\.wav/i.test(trueURL)) {
                     streamType = "wav";
                 }
