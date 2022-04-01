@@ -67,7 +67,7 @@ async function playSound(msg, url, startTime = '0') {
                 }
             }
             // let stream = ytdl.arbitraryStream(url, {opusEncoded: true});
-            const dispatcher = connection.play(stream, {type:streamType, seek: startTime});
+            const dispatcher = connection.play(stream, {type: streamType, seek: startTime});
             // const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
             dispatcher.on('finish', () => {
                 console.log('Finished playing!\n');
@@ -82,7 +82,7 @@ async function playSound(msg, url, startTime = '0') {
                 }
             });
         } catch (err) {
-            console.log("ERROR: Failed to play youtube id: " + trueURL + ", error text: " + err);
+            console.log("ERROR: Failed to play audio id: " + trueURL + ", error text: " + err.message);
             PLAY_LOCK = 0; // turn off play lock just in case
             // voiceChannel.leave(); // Used to leave channel, but its funnier to leave the bot chilling in chat for random sound effects without the join channel giveaway
             msg.channel.send("https://media1.tenor.com/images/52d0f87259135bce058da8bf66ba7ee9/tenor.gif?itemid=5384362");
