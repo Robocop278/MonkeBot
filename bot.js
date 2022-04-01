@@ -642,7 +642,7 @@ client.on('message', msg => {
             mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=W2zAg39AXcs');
         }
         else if (/pretty\s*good/i.test(msg.content)) {
-            mYouTube.playYoutubeSound(msg, 'https://www.youtube.com/watch?v=JeimE8Wz6e4');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=JeimE8Wz6e4');
         }
         
 
@@ -655,7 +655,7 @@ client.on('message', msg => {
 
         else if (/(balloon\s*boy|balloonboy|bb)\s*hello/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
-            mYouTube.playSoundOgg(msg, BB_SOUNDS[1]);
+            mYouTube.playSound(msg, BB_SOUNDS[1]);
         }
         else if (/(balloon\s*boy|balloonboy|bb)\s*hi/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BB_SOUNDS.length)
