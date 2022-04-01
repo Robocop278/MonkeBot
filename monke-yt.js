@@ -60,10 +60,8 @@ async function playSound(msg, url, startTime = '0') {
                 stream = ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'});
             } else {
                 stream = ytdl.arbitraryStream(trueURL, {opusEncoded: true});
-                if (/\.ogg/i.test(trueURL)) {
+                if (/\.ogg/i.test(trueURL) || /\.wav/i.test(trueURL)) {
                     streamType = "opus";
-                } else if (/\.wav/i.test(trueURL)) {
-                    streamType = "wav";
                 }
             }
             // let stream = ytdl.arbitraryStream(url, {opusEncoded: true});
