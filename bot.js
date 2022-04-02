@@ -851,9 +851,11 @@ client.on('message', msg => {
             mYouTube.playSound(msg, lounge.getRandomClassical())
         }
         else if (/lounge\s*piano/i.test(msg.content)) {
-            let url = aws.getRandomFromFolder('lounge/piano')
-            console.log(url)
-            mYouTube.playSound(msg, url);
+            (async () => {
+                let url = await aws.getRandomFromFolder('lounge/piano')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
         }
         else if (/lounge\s*jazz/i.test(msg.content)) {
             mYouTube.playSound(msg, lounge.getRandomJazz());
@@ -864,6 +866,13 @@ client.on('message', msg => {
         else if (/hehehe/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * TT_LAUGH_SOUNDS.length)
             mYouTube.playSound(msg, TT_LAUGH_SOUNDS[rnd]);
+        }
+        else if (/halo/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('HaloAnnouncer')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
         }
 
 
