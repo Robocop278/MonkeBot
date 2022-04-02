@@ -848,7 +848,11 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/no_more_oreos.ogg');
         }
         else if (/lounge\s*classical/i.test(msg.content)) {
-            mYouTube.playSound(msg, lounge.getRandomClassical())
+            (async () => {
+                let url = await aws.getRandomFromFolder('lounge/classical')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
         }
         else if (/lounge\s*piano/i.test(msg.content)) {
             (async () => {
@@ -858,7 +862,11 @@ client.on('message', msg => {
             })()
         }
         else if (/lounge\s*jazz/i.test(msg.content)) {
-            mYouTube.playSound(msg, lounge.getRandomJazz());
+            (async () => {
+                let url = await aws.getRandomFromFolder('lounge/jazz')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
         }
         else if (/heHEhe/.test(msg.content)) {
             mYouTube.playSound(msg, TT_LAUGH_SOUNDS[0]);
@@ -873,6 +881,9 @@ client.on('message', msg => {
                 console.log(url)
                 mYouTube.playSound(msg, url);
             })()
+        }
+        else if (/be\s*quiet/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/I_would_really_prefer_if_you_would_be_quiet.mp3');
         }
 
 
