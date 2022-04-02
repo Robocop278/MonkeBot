@@ -847,27 +847,6 @@ client.on('message', msg => {
         else if (/oreo/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/no_more_oreos.ogg');
         }
-        else if (/lounge\s*classical/i.test(msg.content)) {
-            (async () => {
-                let url = await aws.getRandomFromFolder('lounge/classical')
-                console.log(url)
-                mYouTube.playSound(msg, url);
-            })()
-        }
-        else if (/lounge\s*piano/i.test(msg.content)) {
-            (async () => {
-                let url = await aws.getRandomFromFolder('lounge/piano')
-                console.log(url)
-                mYouTube.playSound(msg, url);
-            })()
-        }
-        else if (/lounge\s*jazz/i.test(msg.content)) {
-            (async () => {
-                let url = await aws.getRandomFromFolder('lounge/jazz')
-                console.log(url)
-                mYouTube.playSound(msg, url);
-            })()
-        }
         else if (/heHEhe/.test(msg.content)) {
             mYouTube.playSound(msg, TT_LAUGH_SOUNDS[0]);
         }
@@ -885,6 +864,69 @@ client.on('message', msg => {
         else if (/be\s*quiet/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/I_would_really_prefer_if_you_would_be_quiet.mp3');
         }
+        else if (/these\s*are\s*the\s*mysteries/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/These_Are_The_Mysteries.mp3');
+        }
+        else if(/Valve/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Valve.mp3');
+        }
+        else if (/fox\s*fanfare/i.test(msg.content)) {
+            if (Math.random() >= 0.95) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/01 - 20th Century Fox Fanfare.mp3');
+            } else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Fox_Fanfare_shitty.mp3');
+                msg.channel.send('https://imgur.com/F8KZaFl');
+            }
+        }
+        else if(/borgir/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/borgir.mp3');
+        }
+
+
+    ///////////////////////////////////
+    //                               //
+    //        Lounge  Commands       //
+    //                               //
+    ///////////////////////////////////
+
+
+
+        else if (/lounge\s*classical/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('lounge/classical')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
+        }
+
+        else if (/lounge\s*piano/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('lounge/piano')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/lounge\s*jazz/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('lounge/jazz')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/lounge\s*video\s*games/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('lounge/video_games')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/lounge\s*movie/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('lounge/movie')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
+        }
 
 
         
@@ -893,6 +935,7 @@ client.on('message', msg => {
     //         Monke  Houses         //
     //                               //
     ///////////////////////////////////
+
 
 
         else if (/monke assign houses/i.test(msg.content)){
