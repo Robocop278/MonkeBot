@@ -6,6 +6,7 @@
 	"author": "Christian Gutierrez",
 	"dependencies": {
 		"@discordjs/opus": "^0.3.3",
+		"aws-sdk": "^2.1106.0",
 		"discord-ytdl-core": "^4.1.5",
 		"discord.js": "^12.5.3",
 		"ffmpeg-static": "^4.4.0",

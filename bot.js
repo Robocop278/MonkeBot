@@ -12,6 +12,7 @@ const mHouses = require('./monke-houses');
 const timecards = require('./timecards');
 const phasmo = require('./phasmophobia-sounds');
 const lounge = require('./lounge-sounds');
+const aws = require('./aws-adapter');
 
 // Holds reference to the main server
 var goofsServer;
@@ -850,7 +851,9 @@ client.on('message', msg => {
             mYouTube.playSound(msg, lounge.getRandomClassical())
         }
         else if (/lounge\s*piano/i.test(msg.content)) {
-            mYouTube.playSound(msg, lounge.getRandomPiano());
+            let url = aws.getRandomFromFolder('lounge/piano')
+            console.log(url)
+            mYouTube.playSound(msg, url);
         }
         else if (/lounge\s*jazz/i.test(msg.content)) {
             mYouTube.playSound(msg, lounge.getRandomJazz());
