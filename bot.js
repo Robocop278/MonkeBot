@@ -645,6 +645,11 @@ client.on('message', msg => {
         else if (/pretty\s*good/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=JeimE8Wz6e4');
         }
+        else if (/I\s*clapped(!|when\s*I\s*saw\s*it)/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=4rNhTcq4Iqk');
+        }
+
+
         
 
     ///////////////////////////////////
@@ -864,22 +869,29 @@ client.on('message', msg => {
         else if (/be\s*quiet/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/I_would_really_prefer_if_you_would_be_quiet.mp3');
         }
-        else if (/these\s*are\s*the\s*mysteries/i.test(msg.content)) {
+        else if (/these\s*are\s*the\s*mysteries|tatm/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/These_Are_The_Mysteries.mp3');
         }
         else if(/Valve/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Valve.mp3');
         }
         else if (/fox\s*fanfare/i.test(msg.content)) {
-            if (Math.random() >= 0.95) {
-                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/01 - 20th Century Fox Fanfare.mp3');
-            } else {
+            if (Math.random() >= 0.80) {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Fox_Fanfare_shitty.mp3');
                 msg.channel.send('https://imgur.com/F8KZaFl');
+            } else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/01 - 20th Century Fox Fanfare.mp3');
             }
         }
-        else if(/borgir/i.test(msg.content)) {
+        else if(/b(o|u)rgir/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/borgir.mp3');
+        }
+        else if (/spooky\s*string/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('SpookyString')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
         }
 
 
