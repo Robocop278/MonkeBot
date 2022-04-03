@@ -241,9 +241,9 @@ client.on('message', msg => {
                 msg.channel.send("Shut the fuck up, Todd");
             }
         }
-        else if (/sax.*(and|&).*sex/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '290');
-        }
+        // else if (/sax.*(and|&).*sex/i.test(msg.content)) {
+        //     mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '290');
+        // }
         else if (/cock.*rock/i.test(msg.content)) {
             if (Math.random() >= 0.90) {
                 mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=ZYR_r0A-K3g');
@@ -892,6 +892,9 @@ client.on('message', msg => {
                 console.log(url)
                 mYouTube.playSound(msg, url);
             })()
+        }
+        else if(/sax\s*(and|&)\s*sex/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Sax & Sex - Simply the best.mp3');
         }
 
 
