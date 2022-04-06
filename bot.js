@@ -103,10 +103,10 @@ var spoonPointer = 0;
 var currentSpoonDate = new Date();
 var lastSpoonDate = new Date();
 const HOW_TO_SPOON_SOUNDS = [
-    "https://static.wikia.nocookie.net/monkebot/images/6/66/HowToSpoon1.ogg/revision/latest?cb=20211211061733",
-    "https://static.wikia.nocookie.net/monkebot/images/f/f2/HowToSpoon2.ogg/revision/latest?cb=20211211061819",
-    "https://static.wikia.nocookie.net/monkebot/images/9/95/HowToSpoon3.ogg/revision/latest?cb=20211211061825",
-    "https://static.wikia.nocookie.net/monkebot/images/3/31/HowToSpoon4.ogg/revision/latest?cb=20211211061836"
+    "https://monke.s3.amazonaws.com/howtospoon/HowToSpoon1.ogg",
+    "https://monke.s3.amazonaws.com/howtospoon/HowToSpoon2.ogg",
+    "https://monke.s3.amazonaws.com/howtospoon/HowToSpoon3.ogg",
+    "https://monke.s3.amazonaws.com/howtospoon/HowToSpoon4.ogg",
 ];
 
 const BOSS_SOUNDS = [
@@ -151,6 +151,18 @@ const TT_LAUGH_SOUNDS = [
     "https://static.wikia.nocookie.net/tattletail/images/0/06/Laughter1.ogg/revision/latest?cb=20170505143643&format=original",
     "https://static.wikia.nocookie.net/tattletail/images/2/2f/Laughter2.ogg/revision/latest?cb=20170505143657&format=original",
     "https://static.wikia.nocookie.net/tattletail/images/2/25/Laughter3.ogg/revision/latest?cb=20170505143717&format=original"
+]
+const TT_MAMA_SOUNDS = [
+    "https://static.wikia.nocookie.net/tattletail/images/c/c4/TMama1.ogg/revision/latest?cb=20170505144615",
+    "https://static.wikia.nocookie.net/tattletail/images/b/b2/TMama2.ogg/revision/latest?cb=20170505144642",
+    "https://static.wikia.nocookie.net/tattletail/images/e/ef/TMama3.ogg/revision/latest?cb=20170505144709",
+    "https://static.wikia.nocookie.net/tattletail/images/b/be/TMama4.ogg/revision/latest?cb=20170505144737",
+    "https://static.wikia.nocookie.net/tattletail/images/9/9a/TMama5.ogg/revision/latest?cb=20170505144834",
+    "https://static.wikia.nocookie.net/tattletail/images/a/aa/TMama6.ogg/revision/latest?cb=20170505144905",
+    "https://static.wikia.nocookie.net/tattletail/images/3/32/TMama7.ogg/revision/latest?cb=20170505144938",
+    "https://static.wikia.nocookie.net/tattletail/images/f/f0/Misc14.ogg/revision/latest?cb=20170505144227",
+    "https://static.wikia.nocookie.net/tattletail/images/5/58/EmptyBattery.ogg/revision/latest?cb=20170505142938",
+    "https://static.wikia.nocookie.net/tattletail/images/b/b5/Ritual2.ogg/revision/latest?cb=20170918231359"
 ]
 
 // Main client functions
@@ -772,11 +784,15 @@ client.on('message', msg => {
                 spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
             }
         }
-        else if (/^cyberpunk$|cyberriff|cyber.*riff/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/monkebot/images/5/5e/Cyber_riff.ogg/revision/latest?cb=20211227060931');
+        else if (/^cyberpunk|cyberriff|cyber.*riff|2077/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/cyber riff.ogg');
         }
         else if (/sea\s*shanty/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/monkebot/images/8/8f/BiggieShanty.ogg/revision/latest?cb=20220116211258');
+            if (Math.random() >= 0.95) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/BiggieShanty.ogg');
+            } else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Ian Taylor - Sea Shanty 2.mp3');
+            }
         }
         else if (/^e$/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
@@ -896,6 +912,16 @@ client.on('message', msg => {
         else if(/sax\s*(and|&)\s*sex/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Sax & Sex - Simply the best.mp3');
         }
+        else if(/tt\s*(uhoh|uh\s*oh)/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/tattletail/images/5/58/EmptyBattery.ogg/revision/latest?cb=20170505142938');
+        }
+        else if(/no\s*more\s*mama/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/tattletail/images/b/b5/Ritual2.ogg/revision/latest?cb=20170918231359');
+        }
+        else if (/tt\s*mama/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * TT_MAMA_SOUNDS.length)
+            mYouTube.playSound(msg, TT_MAMA_SOUNDS[rnd]);
+        }
 
 
     ///////////////////////////////////
@@ -928,7 +954,7 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, url);
             })()
         }
-        else if (/lounge\s*video\s*games/i.test(msg.content)) {
+        else if (/lounge\s*video\s*game/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/video_games')
                 console.log(url)
