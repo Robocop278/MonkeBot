@@ -370,9 +370,6 @@ client.on('message', msg => {
         else if (/1.?900.?490.?FREAK|freddie\s*freaker/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MmOiRyWLug0');
         }
-        else if (/shrek|somebody\s*once\s*told\s*me/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=g7_VlmEamUQ');
-        }
         else if (/godzilla/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=JkUQ6s4mrWw');
         }
@@ -919,7 +916,7 @@ client.on('message', msg => {
         else if(/bbq pit boys/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3');
         }
-        else if(/The entire bee movie/i.test(msg.content)) {
+        else if(/The entire bee movie|laws of aviation|According to all known laws of aviation, there is no way a bee should be able to fly/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/The Entire Bee Movie.mp3');
         }
         else if(/The entire shrek movie/i.test(msg.content)) {
@@ -934,6 +931,9 @@ client.on('message', msg => {
                     console.log("whoopsies");
                 });
             }
+        }
+        else if (/shrek|somebody\s*once\s*told\s*me/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=g7_VlmEamUQ');
         }
 
 
