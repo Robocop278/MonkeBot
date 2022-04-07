@@ -226,16 +226,6 @@ client.on('message', msg => {
         else if (/kenna/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=6vtsKGzGVK4');
         }
-        else if (/bee/i.test(msg.content)) {
-            if (Math.random() >= 0.95) {
-                msg.channel.send(beeGif);
-                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=8CvqmD0CZao');
-            } else {
-                msg.react('🐝').catch(function() {
-                    console.log("whoopsies");
-                });
-            }
-        }
         else if (/amon?g\s*us/i.test(msg.content)) {
             msg.channel.send('ඞ');
         }        
@@ -928,6 +918,22 @@ client.on('message', msg => {
         }
         else if(/bbq pit boys/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3');
+        }
+        else if(/The entire bee movie/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/The Entire Bee Movie.mp3');
+        }
+        else if(/The entire shrek movie/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/The Entire Shrek Movie.mp3');
+        }
+        else if (/bee/i.test(msg.content)) {
+            if (Math.random() >= 0.95) {
+                msg.channel.send(beeGif);
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=8CvqmD0CZao');
+            } else {
+                msg.react('🐝').catch(function() {
+                    console.log("whoopsies");
+                });
+            }
         }
 
 
