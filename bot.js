@@ -660,8 +660,9 @@ client.on('message', msg => {
         else if (/I\s*clapped(!|when\s*I\s*saw\s*it)/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=4rNhTcq4Iqk');
         }
-
-
+        else if (/fart?scape/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/Fartscape.wav');
+        }
         
 
     ///////////////////////////////////
