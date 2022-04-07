@@ -922,6 +922,9 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * TT_MAMA_SOUNDS.length)
             mYouTube.playSound(msg, TT_MAMA_SOUNDS[rnd]);
         }
+        else if(/star\s*wars/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/lounge/movie/02 - Main Title,Rebel Blockade Runner.mp3');
+        }
 
 
     ///////////////////////////////////
