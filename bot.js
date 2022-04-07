@@ -920,7 +920,13 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/The Entire Bee Movie.mp3');
         }
         else if(/The entire shrek movie/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/The Entire Shrek Movie.mp3');
+            if (Math.random() >= 0.49) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/shrek retold.mp3');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/The Entire Shrek Movie.mp3');
+                msg.channel.send('https://i.redd.it/4vwc2telggr21.gif');
+            }
         }
         else if (/bee/i.test(msg.content)) {
             if (Math.random() >= 0.95) {
@@ -935,6 +941,23 @@ client.on('message', msg => {
         else if (/shrek|somebody\s*once\s*told\s*me/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=g7_VlmEamUQ');
         }
+        else if (/doodle.*dip/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/doodledip.mp3');
+        }
+        else if (/I can.*t take it anymore/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/I cant take it anymore.mp3');
+        }
+        else if (/i.*m working on it/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('im working on it')
+                console.log(url)
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/pumpkin cowboy/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=4iTAkRHGbuM');
+        }
+
 
 
     ///////////////////////////////////
