@@ -957,6 +957,9 @@ client.on('message', msg => {
         else if (/pumpkin cowboy/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=4iTAkRHGbuM');
         }
+        else if (/SHUT THE FUCK UP/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/SHUT THE FUCK UP penn.mp3');
+        }
 
 
 
