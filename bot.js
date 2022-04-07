@@ -926,6 +926,9 @@ client.on('message', msg => {
         else if(/star.*wars/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/lounge/movie/02 - Main Title,Rebel Blockade Runner.mp3');
         }
+        else if(/bbq pit boys/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3');
+        }
 
 
     ///////////////////////////////////
