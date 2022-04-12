@@ -52,7 +52,7 @@ async function playSound(msg, url, startTime = '0') {
             console.log('Connected to voice channel');
             console.log('Fetching Youtube data...');
             console.log('Youtube data fetched');
-            console.log(`Playing sound from link ${url}`);
+            console.log(`${msg} - Playing sound from link ${url}`);
             var stream;
             var streamType = "unknown";
             if (/youtu/i.test(trueURL)) {
