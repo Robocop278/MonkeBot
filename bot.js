@@ -960,6 +960,9 @@ client.on('message', msg => {
         else if (/SHUT THE FUCK UP/.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/SHUT THE FUCK UP penn.mp3');
         }
+        else if (/(EEnE 88|88) Fingers|slide guitar/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE 88 Fingers Edd.wav');
+        }
 
 
 
