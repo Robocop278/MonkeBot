@@ -1003,7 +1003,7 @@ client.on('message', msg => {
         else if (/crow/.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Crows.wav');
         }
-        else if (/EEnE Mama/.test(msg.content)) {
+        else if (/EEnE\s*Mama/.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Mama Doll.wav');
         }
         else if (/EEnE\s*monkey/i.test(msg.content)) {
@@ -1024,7 +1024,7 @@ client.on('message', msg => {
         else if (/EEnE\s*horn/.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE THE Horn.wav');
         }
-        else if (/https:\/\/tenor.com\/view\/life-has-many-doors-ed-boy-ed-boy-many-doors-yes-gif-20774500)/.test(msg.content)) {
+        else if (/https:\/\/tenor.com\/view\/life-has-many-doors-ed-boy-ed-boy-many-doors-yes-gif-20774500/.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE VOX ROLF Many Doors Ed Boy.wav');
         }
         else if (/EEnE\s*doors/.test(msg.content)) {
