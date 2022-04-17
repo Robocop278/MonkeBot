@@ -17,10 +17,10 @@ const s3Client = new AWS.S3({
 async function getRandomFromFolder(input){
 	const data = await s3Client.listObjectsV2({Prefix:`${input}/`, StartAfter:`${input}/`}).promise();
   	data.Contents = data.Contents.filter(entry => entry.Size > 0) // filter out folders so we just have actual s3 resources
-	console.log(data);
-	console.log(data.Contents.length);
-  	console.log(data.Contents[0].Key);
-  	console.log(`https://monke.s3.amazonaws.com/${data.Contents[Math.floor(Math.random() * data.Contents.length)].Key}`);
+	//console.log(data);
+	//console.log(data.Contents.length);
+  	//console.log(data.Contents[0].Key);
+  	//console.log(`https://monke.s3.amazonaws.com/${data.Contents[Math.floor(Math.random() * data.Contents.length)].Key}`);
   	// let count = Math.floor(Math.random() * data['Contents'].length)
     // console.log("Success", data['Contents'][Math.floor(Math.random() * data['Contents'].length)]['Key']);
     // console.log(`https://monke.s3.amazonaws.com/${data['Contents'][Math.floor(Math.random() * data['Contents'].length)]['Key']}`)
