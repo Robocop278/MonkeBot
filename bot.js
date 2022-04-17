@@ -1009,6 +1009,12 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, url);
             })()
         }
+        else if (/EEnE\s*band\s*hits/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('EEnE/Band Hits')
+                mYouTube.playSound(msg, url);
+            })()
+        }
         else if (/(EEnE\s*88|88)\s*Fingers|slide\s*guitar/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE 88 Fingers Edd.wav');
         }
@@ -1017,12 +1023,6 @@ client.on('message', msg => {
         }
         else if (/EEnE Title/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE - Episode Title.wav');
-        }
-        else if (/EEnE\s*band\s*hits/i.test(msg.content)) {
-            (async () => {
-                let url = await aws.getRandomFromFolder('EEnE/Band Hits')
-                mYouTube.playSound(msg, url);
-            })()
         }
         else if (/crow/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Crows.wav');
