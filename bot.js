@@ -866,7 +866,6 @@ client.on('message', msg => {
         else if (/halo/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('HaloAnnouncer')
-                console.log(url)
                 mYouTube.playSound(msg, url);
             })()
         }
@@ -893,7 +892,6 @@ client.on('message', msg => {
         else if (/spooky\s*string/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('SpookyString')
-                console.log(url)
                 mYouTube.playSound(msg, url);
             })()
         }
@@ -944,24 +942,100 @@ client.on('message', msg => {
         else if (/doodle.*dip/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/doodledip.mp3');
         }
-        else if (/I can.*t take it anymore/i.test(msg.content)) {
+        else if (/I\s*can.*t\s*take\s*it\s*anymore/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/I cant take it anymore.mp3');
         }
-        else if (/i.*m working on it/i.test(msg.content)) {
+        else if (/i.*m\s*working\s*on\s*it/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('im working on it')
-                console.log(url)
                 mYouTube.playSound(msg, url);
             })()
         }
-        else if (/pumpkin cowboy/i.test(msg.content)) {
+        else if (/pumpkin\s*cowboy/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=4iTAkRHGbuM');
         }
-        else if (/SHUT THE FUCK UP/.test(msg.content)) {
+        else if (/SHUT\s*THE\s*FUCK\s*UP/.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/SHUT THE FUCK UP penn.mp3');
         }
-        else if (/(EEnE 88|88) Fingers|slide guitar/.test(msg.content)) {
+        else if (/soccer/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Mundial Ronaldinho Soccer 64.mp3');
+        }
+        else if(/a\s*ghost.*s\s*pumpkin\s*soup|Pumpkin\s*hill/i.test(msg.content)) {
+            if (Math.random() >= 0.49) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/A Ghost\'s Pumpkin Soup ...for Pumpkin Hill - Sonic Adventure 2 - crit.mp3');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/A Ghost\'s Pumpkin Soup (Pumpkin Hill) - Sonic Adventure 2 [OST].mp3');
+                msg.channel.send('https://i.redd.it/4vwc2telggr21.gif');
+            }
+        }
+
+
+    ///////////////////////////////////
+    //                               //
+    //       EEnE Sound Effects      //
+    //                               //
+    ///////////////////////////////////
+
+
+
+        else if (/(EEnE\s*88|88)\s*Fingers|slide\s*guitar/.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE 88 Fingers Edd.wav');
+        }
+        else if (/EEnE Hello/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Hello.wav');
+        }
+        else if (/EEnE Title/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE - Episode Title.wav');
+        }
+        else if (/EEnE\s*band\s*hits/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('EEnE/Band Hits')
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/(EEnE\s*)?bird/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('EEnE/birds')
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/crow/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Crows.wav');
+        }
+        else if (/EEnE Mama/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Mama Doll.wav');
+        }
+        else if (/EEnE\s*monkey/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('EEnE/monkey')
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/EEnE\s*orangutan/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('EEnE/orangutan')
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/EEnE\s*slide/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Slide 2 longer.wav');
+        }
+        else if (/EEnE\s*horn/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE THE Horn.wav');
+        }
+        else if (/(https://tenor.com/view/life-has-many-doors-ed-boy-ed-boy-many-doors-yes-gif-20774500)/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE VOX ROLF Many Doors Ed Boy.wav');
+        }
+        else if (/EEnE\s*doors/.test(msg.content)) {
+            msg.channel.send('https://tenor.com/view/life-has-many-doors-ed-boy-ed-boy-many-doors-yes-gif-20774500');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE VOX ROLF Many Doors Ed Boy.wav');
+        }
+        else if (/EEnE\s*yodel/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Yodel Goofy.wav');
+        }
+        else if (/EEnE\s*baby\s*gasp/.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Baby Gasp 1.wav');
         }
 
 
@@ -977,7 +1051,6 @@ client.on('message', msg => {
         else if (/lounge\s*classical/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/classical')
-                console.log(url)
                 mYouTube.playSound(msg, url);
             })()
         }
@@ -985,28 +1058,24 @@ client.on('message', msg => {
         else if (/lounge\s*piano/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/piano')
-                console.log(url)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*jazz/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/jazz')
-                console.log(url)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*video\s*game/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/video_games')
-                console.log(url)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*movie/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/movie')
-                console.log(url)
                 mYouTube.playSound(msg, url);
             })()
         }
