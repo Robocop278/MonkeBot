@@ -969,6 +969,14 @@ client.on('message', msg => {
                 msg.channel.send('https://i.redd.it/4vwc2telggr21.gif');
             }
         }
+        else if(/luck/i.test(msg.content)) {
+            if (Math.random() >= 0.49) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/luckluckluck.wav');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/luck.mp3');
+            }
+        }
 
 
     ///////////////////////////////////
