@@ -772,7 +772,7 @@ client.on('message', msg => {
                 spoonPointer = (spoonPointer+1) % HOW_TO_SPOON_SOUNDS.length;
             }
         }
-        else if (/^cyberpunk|cyberriff|cyber.*riff|2077/i.test(msg.content)) {
+        else if (/^cyberpunk|cyberriff|cyber.*riff|^2077$/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/cyber riff.ogg');
         }
         else if (/sea\s*shanty/i.test(msg.content)) {
@@ -1009,7 +1009,7 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, url);
             })()
         }
-        else if (/EEnE\s*band\s*hits/i.test(msg.content)) {
+        else if (/EEnE\s*band/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('EEnE/Band Hits')
                 mYouTube.playSound(msg, url);
