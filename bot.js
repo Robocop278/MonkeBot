@@ -650,6 +650,9 @@ client.on('message', msg => {
         else if (/fart?scape/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/Fartscape.wav');
         }
+        else if (/punchline/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=-h1F93EJIds');
+        }
         
 
     ///////////////////////////////////
