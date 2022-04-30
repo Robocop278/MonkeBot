@@ -991,8 +991,8 @@ client.on('message', msg => {
             }
         }
         else if(/mars\s*the\s*bringer\s*of\s*war/i.test(msg.content)) {
-            if (Math.random() >= 0.49) {
-                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/mars.mp3');
+            if (Math.random() >= 0.89) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/mars crit.mp3');
             }
             else {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/mars.mp3');
