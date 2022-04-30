@@ -694,12 +694,22 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * HELP_SOUNDS.length)
             mYouTube.playSound(msg, HELP_SOUNDS[rnd]);
         }
-        else if (/pirate|spencer/i.test(msg.content)) {
+        else if (/pirate/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
                 mYouTube.playSound(msg, "https://monke.s3.amazonaws.com/spencer_crit.mp3")
             }
             else {
                 mYouTube.playSound(msg, "https://monke.s3.amazonaws.com/spencer.mp3")
+            }
+        }
+        else if (/spencer/i.test(msg.content)) {
+            if (Math.random() >= 0.50) {
+                if (Math.random() >= 0.90) {
+                    mYouTube.playSound(msg, "https://monke.s3.amazonaws.com/spencer_crit.mp3")
+                }
+                else {
+                    mYouTube.playSound(msg, "https://monke.s3.amazonaws.com/spencer.mp3")
+                }
             }
         }
         else if (/mmm monke/i.test(msg.content)) {
@@ -945,7 +955,7 @@ client.on('message', msg => {
         else if (/doodle.*dip/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/doodledip.mp3');
         }
-        else if (/I\s*can.*t\s*take\s*it\s*anymore/i.test(msg.content)) {
+        else if (/I\s*can.*t\s*take\s*(it|this)\s*anymore/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/I cant take it anymore.mp3');
         }
         else if (/i.*m\s*working\s*on\s*it/i.test(msg.content)) {
@@ -980,6 +990,15 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/luck.mp3');
             }
         }
+        else if(/mars\s*the\s*bringer\s*of\s*war/i.test(msg.content)) {
+            if (Math.random() >= 0.49) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/mars.mp3');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/mars.mp3');
+            }
+        }
+
 
 
     ///////////////////////////////////
