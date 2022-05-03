@@ -654,7 +654,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=-h1F93EJIds');
         }
         else if (/taps/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=-WChTqYlDjtI');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=WChTqYlDjtI');
         }
         
 
