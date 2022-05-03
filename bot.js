@@ -726,7 +726,12 @@ client.on('message', msg => {
             mYouTube.playSound(msg, HI_SOUNDS[rnd]);
         }
         else if (/^intermission$/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/09+-+Intermission.mp3');
+            if (Math.random() >= 0.85) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/intermission crit.mp3');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/09+-+Intermission.mp3');
+            }
         }
         else if (/duke\s?1\s?\.5/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/duke+riff/duke1-1.ogg');
