@@ -1009,6 +1009,9 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/mars.mp3');
             }
         }
+        else if(/super\s*mario\s*world/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=waKumDkYrDY');
+        }
 
 
 
