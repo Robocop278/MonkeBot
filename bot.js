@@ -1162,6 +1162,11 @@ client.on('message', msg => {
         }
         else if (msg.mentions.has(client.user) && !msg.mentions.everyone) { // If message is pinging Monke Bot (but not pinging everyone)
             msg.channel.send(PINGED_GIFS[Math.floor(Math.random() * PINGED_GIFS.length)]);
+            // Also jump into the channel that the user is in and play a join sound
+            (async () => {
+                let url = await aws.getRandomFromFolder('MonkeJoinSounds')
+                mYouTube.playSound(msg, url);
+            })()
         }
 
     }
