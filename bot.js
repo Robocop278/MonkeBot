@@ -922,7 +922,7 @@ client.on('message', msg => {
         else if(/sax\s*(and|&)\s*sex/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Sax & Sex - Simply the best.mp3');
         }
-        else if(/tt\s*(uhoh|uh\s*oh)/i.test(msg.content)) {
+        else if(/tt\s*uh.*oh/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://static.wikia.nocookie.net/tattletail/images/5/58/EmptyBattery.ogg/revision/latest?cb=20170505142938');
         }
         else if(/no\s*more\s*mama/i.test(msg.content)) {
@@ -932,8 +932,17 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * TT_MAMA_SOUNDS.length)
             mYouTube.playSound(msg, TT_MAMA_SOUNDS[rnd]);
         }
-        else if(/star.*wars/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/lounge/movie/02 - Main Title,Rebel Blockade Runner.mp3');
+        else if (/star.*war/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('the  star war')
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/(cantina\s*band|jizz)/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('the  star war/cantina band')
+                mYouTube.playSound(msg, url);
+            })()
         }
         else if(/bbq pit boys/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3');
