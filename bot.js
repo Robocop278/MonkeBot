@@ -1029,6 +1029,7 @@ client.on('message', msg => {
         }
         else if(/(bad|bone)/i.test(msg.content)) {
             if (Math.random() >= 0.99) {
+                msg.channel.send('https://tenor.com/view/esqueleto-gif-24452082');
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone normal ear rape.mp3');
             }
             else {
