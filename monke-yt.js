@@ -46,13 +46,16 @@ async function playSound(msg, url, startTime = '0') {
         }
         dateSinceLastPlay = dateNow;
 
+        let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${msg} - Playing sound from link <${url}>`)
         try {
-            console.log('Connecting to voice channel...');
+            // console.log('Connecting to voice channel...');
             const connection = await voiceChannel.join();
-            console.log('Connected to voice channel');
-            console.log('Fetching Youtube data...');
-            console.log('Youtube data fetched');
+            // console.log('Connected to voice channel');
+            // console.log('Fetching Youtube data...');
+            // console.log('Youtube data fetched');
             console.log(`${msg} - Playing sound from link ${url}`);
+            // msg.guild.channels.cache.find(i => i.name === 'monke-logs').send('test')
+            console.log(sent.id)
             var stream;
             var streamType = "unknown";
             if (/youtu/i.test(trueURL)) {
@@ -78,6 +81,9 @@ async function playSound(msg, url, startTime = '0') {
                 }
             });
         } catch (err) {
+            console.log(sent)
+            sent.reply(`failure ... ${err.message}`)
+            // msg.guild.channels.cache.get('974290034133987429').send(`failure ... ${err.message}`)
             console.log("ERROR: Failed to play audio id: " + trueURL + ", error text: " + err.message);
             PLAY_LOCK = 0; // turn off play lock just in case
             // voiceChannel.leave(); // Used to leave channel, but its funnier to leave the bot chilling in chat for random sound effects without the join channel giveaway

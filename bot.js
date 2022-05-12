@@ -214,9 +214,15 @@ client.on('ready', async () => {
 });
 
 client.on('message', msg => {
+
     if (!(msg.author.id === '690351869650010333')) {
         if (msg.content.toLowerCase() === 'howdy') {
             msg.reply('Howdy partner :cowboy:');
+        }
+        else if (/monke say time/i.test(msg.content)) {
+            let currentgettime = new Date().toLocaleString()
+            console.log(currentgettime);
+            msg.reply(currentgettime);
         }
         else if (/nia/i.test(msg.content)) {
             if (Math.random() >= 0.90) {
