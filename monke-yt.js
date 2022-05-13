@@ -22,6 +22,8 @@ async function playSound(msg, url, startTime = '0') {
     // We only care to continue if the user is in a voice channel
     if (voiceChannel) {
 
+        `${result['color 5'] ? 'color 5 exists!' : 'color 5 does not exist!'}`
+        
         let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${msg} - Playing sound from link <${url}>`)
         var trueURL = url;
 
