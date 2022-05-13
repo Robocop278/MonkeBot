@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+require('discord-reply');
 const client = new Discord.Client();
 const ytdl = require('discord-ytdl-core');
 
@@ -103,10 +104,10 @@ var spoonPointer = 0;
 var currentSpoonDate = new Date();
 var lastSpoonDate = new Date();
 const HOW_TO_SPOON_SOUNDS = [
-    "https://monke.s3.amazonaws.com/howtospoon/HowToSpoon1.ogg",
-    "https://monke.s3.amazonaws.com/howtospoon/HowToSpoon2.ogg",
-    "https://monke.s3.amazonaws.com/howtospoon/HowToSpoon3.ogg",
-    "https://monke.s3.amazonaws.com/howtospoon/HowToSpoon4.ogg",
+    "https://monke.s3.amazonaws.com/howtospoon/howToSpoon1.ogg",
+    "https://monke.s3.amazonaws.com/howtospoon/howToSpoon2.ogg",
+    "https://monke.s3.amazonaws.com/howtospoon/howToSpoon3.ogg",
+    "https://monke.s3.amazonaws.com/howtospoon/howToSpoon4.ogg",
 ];
 
 const BOSS_SOUNDS = [
@@ -217,12 +218,50 @@ client.on('message', msg => {
 
     if (!(msg.author.id === '690351869650010333')) {
         if (msg.content.toLowerCase() === 'howdy') {
-            msg.reply('Howdy partner :cowboy:');
+            msg.lineReply('Howdy partner :cowboy:');
         }
         else if (/monke say time/i.test(msg.content)) {
             let currentgettime = new Date().toLocaleString()
             console.log(currentgettime);
-            msg.reply(currentgettime);
+            msg.lineReply(currentgettime);
+        }
+        else if (/reply-confirm/i.test(msg.content)) {
+            msg.lineReply('Confirm with `yes` or deny with `no`')
+            msg.channel.awaitMessages(m => m.author.id == msg.author.id,
+                {max: 1, time: 30000}).then(collected => {
+                        // only accept messages by the user who sent the command
+                        // accept only 1 message, and return the promise after 30000ms = 30s
+
+                        // first (and, in this case, only) message of the collection
+                        if (collected.first().content.toLowerCase() == 'yes') {
+                                msg.lineReply('CONFIRMATION CONFIRMIFIED');
+                        }
+                        else
+                                msg.lineReply('Operation canceled.');      
+                }).catch(() => {
+                        message.lineReply('No answer after 30 seconds, operation canceled.');
+                });
+        }
+        else if (/emoji-confirm/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3');
+            msg.lineReply(`Confirm by reacting with '👍' or '👎'.`);
+            msg.react('👍').then(r => {
+                msg.react('👎');
+            });
+            msg.awaitReactions((reaction, user) => user.id == msg.author.id && (reaction.emoji.name == '👍' || reaction.emoji.name == '👎'),
+                {max: 1, time: 33000}).then(collected => {
+                        // only accept messages by the user who sent the command
+                        // accept only 1 message, and return the promise after 30000ms = 30s
+
+                        // first (and, in this case, only) message of the collection
+                        if (collected.first().emoji.name == '👍') {
+                                msg.lineReply('CONFIRMATION CONFIRMIFIED');
+                        }
+                        else
+                                msg.lineReply('Operation canceled.');      
+                }).catch(() => {
+                        msg.lineReply('No answer after 30 seconds, operation canceled.');
+                });
         }
         else if (/nia/i.test(msg.content)) {
             if (Math.random() >= 0.90) {
@@ -660,7 +699,12 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=-h1F93EJIds');
         }
         else if (/taps/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=WChTqYlDjtI');
+            if (Math.random() >= 0.75) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/drunk taps.wav');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=WChTqYlDjtI');
+            }
         }
         else if (/batman/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=DKq4uoGdnFw');
@@ -1027,6 +1071,9 @@ client.on('message', msg => {
         else if(/super\s*mario\s*world/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=waKumDkYrDY');
         }
+        else if(/jeopardy/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3');
+        }
         else if (/bad.*to.*the.*bone.*but.*it.*is.*earrape/.test(msg.content)) {
             msg.channel.send('https://tenor.com/view/esqueleto-gif-24452082');
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone ear rape.wav');
@@ -1044,10 +1091,15 @@ client.on('message', msg => {
                     mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3');
                 }
                 else {
-                    mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone quiet.mp3');
+                    mYouTube.playSound(msg, 'if (Math.random() >= 0.99) {');
                 } 
             }
             
+        }
+        else if (/jon/i.test(msg.content)) {
+            if (Math.random() >= 0.60) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jon Jon Jon.mp3');
+            }
         }
 
 
@@ -1214,7 +1266,7 @@ client.on('message', msg => {
 
 client.on('messageDelete', msg => {
     if (Math.random() >= 0.91) {
-        msg.reply('I saw you delete that. You can\'t hide your mistakes.');
+        msg.lineReply('I saw you delete that. You can\'t hide your mistakes.');
     }
 });
 

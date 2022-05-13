@@ -22,6 +22,7 @@ async function playSound(msg, url, startTime = '0') {
     // We only care to continue if the user is in a voice channel
     if (voiceChannel) {
 
+        let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${msg} - Playing sound from link <${url}>`)
         var trueURL = url;
 
         // Check to see if we're getting a lot of consecutive sound requests
@@ -33,6 +34,7 @@ async function playSound(msg, url, startTime = '0') {
             avgTimeBetweenSounds = avgTimeBetweenSounds + ((delta - avgTimeBetweenSounds)/numOfRecentlyPlayedSounds);
             if (numOfRecentlyPlayedSounds >= 10 && avgTimeBetweenSounds < 3) {
                 console.log("SPAM MEME TRIGGERED");
+                sent.lineReply(`SPAM DETECTED`)
                 // If we're in this block, we are considered as being "spammed", so we replace the url with our own silly meme, lock the youtube sound temporarily, then reset all of our spam vars
                 trueURL = 'https://www.youtube.com/watch?v=8NuYSsROSOk';
                 PLAY_LOCK = 1;
@@ -46,7 +48,7 @@ async function playSound(msg, url, startTime = '0') {
         }
         dateSinceLastPlay = dateNow;
 
-        let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${msg} - Playing sound from link <${url}>`)
+        
         try {
             // console.log('Connecting to voice channel...');
             const connection = await voiceChannel.join();
@@ -55,7 +57,7 @@ async function playSound(msg, url, startTime = '0') {
             // console.log('Youtube data fetched');
             console.log(`${msg} - Playing sound from link ${url}`);
             // msg.guild.channels.cache.find(i => i.name === 'monke-logs').send('test')
-            console.log(sent.id)
+            // console.log(sent.id)
             var stream;
             var streamType = "unknown";
             if (/youtu/i.test(trueURL)) {
@@ -81,8 +83,8 @@ async function playSound(msg, url, startTime = '0') {
                 }
             });
         } catch (err) {
-            console.log(sent)
-            sent.reply(`failure ... ${err.message}`)
+            // console.log(sent)
+            sent.lineReply(`failure ... ${err.stack}`)
             // msg.guild.channels.cache.get('974290034133987429').send(`failure ... ${err.message}`)
             console.log("ERROR: Failed to play audio id: " + trueURL + ", error text: " + err.message);
             PLAY_LOCK = 0; // turn off play lock just in case
