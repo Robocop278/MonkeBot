@@ -1091,7 +1091,7 @@ client.on('message', msg => {
                     mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3');
                 }
                 else {
-                    mYouTube.playSound(msg, 'if (Math.random() >= 0.99) {');
+                    mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone ear rape.wav');
                 } 
             }
             
