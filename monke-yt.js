@@ -1,5 +1,6 @@
 const ytdl = require('discord-ytdl-core');
 
+
 var avgTimeBetweenSounds = 0;
 var numOfRecentlyPlayedSounds = 0;
 var dateSinceLastPlay = new Date();
@@ -22,10 +23,13 @@ async function playSound(msg, url, startTime = '0') {
     // We only care to continue if the user is in a voice channel
     if (voiceChannel) {
 
-        `${result['color 5'] ? 'color 5 exists!' : 'color 5 does not exist!'}`
-        
-        let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${msg} - Playing sound from link <${url}>`)
         var trueURL = url;
+        console.log(`${/youtu/i.test(trueURL) ? 'youtube' : 'not youtube!'}`)
+        console.log(`${/youtu/i.test(trueURL) ? `${msg} - Playing sound from link <${url}>` : `${msg} - Playing sound from link ${url}`}`)
+        
+        
+        // let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${msg} - Playing sound from link <${url}>`)
+        let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${/youtu/i.test(trueURL) ? `${msg} - Playing sound from link <${url}>` : `${msg} - Playing sound from link ${encodeURI(trueURL)}`}`)
 
         // Check to see if we're getting a lot of consecutive sound requests
         var dateNow = new Date();

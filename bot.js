@@ -226,6 +226,7 @@ client.on('message', msg => {
             msg.lineReply(currentgettime);
         }
         else if (/reply-confirm/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3');
             msg.lineReply('Confirm with `yes` or deny with `no`')
             msg.channel.awaitMessages(m => m.author.id == msg.author.id,
                 {max: 1, time: 30000}).then(collected => {
@@ -234,10 +235,14 @@ client.on('message', msg => {
 
                         // first (and, in this case, only) message of the collection
                         if (collected.first().content.toLowerCase() == 'yes') {
-                                msg.lineReply('CONFIRMATION CONFIRMIFIED');
+                                msg.channel.send('CONFIRMATION CONFIRMIFIED');
+                                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Stage Clear 2 - Super Smash Bros. Melee.mp3');
                         }
-                        else
-                                msg.lineReply('Operation canceled.');      
+                        else {
+                            msg.channel.send('Operation canceled.');
+                            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/fart.mp3');
+                        }
+                                 
                 }).catch(() => {
                         message.lineReply('No answer after 30 seconds, operation canceled.');
                 });
@@ -255,10 +260,13 @@ client.on('message', msg => {
 
                         // first (and, in this case, only) message of the collection
                         if (collected.first().emoji.name == '👍') {
-                                msg.lineReply('CONFIRMATION CONFIRMIFIED');
+                                msg.channel.send('CONFIRMATION CONFIRMIFIED');
+                                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Stage Clear 2 - Super Smash Bros. Melee.mp3');
                         }
-                        else
-                                msg.lineReply('Operation canceled.');      
+                        else {
+                            msg.channel.send('Operation canceled.');
+                            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/fart.mp3');
+                        }
                 }).catch(() => {
                         msg.lineReply('No answer after 30 seconds, operation canceled.');
                 });
