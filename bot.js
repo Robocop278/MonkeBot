@@ -1102,11 +1102,15 @@ client.on('message', msg => {
                     mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone quiet.wav');
                 } 
             }
-            
         }
         else if (/jon/i.test(msg.content)) {
             if (Math.random() >= 0.60) {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jon Jon Jon.mp3');
+            }
+        }
+        else if (/dial.?up/i.test(msg.content)) {
+            if (Math.random() >= 0.60) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/dialup.mp3');
             }
         }
 

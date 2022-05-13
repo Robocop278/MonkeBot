@@ -25,7 +25,7 @@ async function playSound(msg, url, startTime = '0') {
 
         var trueURL = url;
         console.log(`${/youtu/i.test(trueURL) ? 'youtube' : 'not youtube!'}`)
-        console.log(`${/youtu/i.test(trueURL) ? `${msg} - Playing sound from link <${url}>` : `${msg} - Playing sound from link ${url}`}`)
+        // console.log(`${/youtu/i.test(trueURL) ? `${msg} - Playing sound from link <${url}>` : `${msg} - Playing sound from link ${url}`}`)
         
         
         // let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${msg} - Playing sound from link <${url}>`)
