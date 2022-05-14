@@ -216,6 +216,14 @@ client.on('ready', async () => {
 
 client.on('message', msg => {
 
+
+    ///////////////////////////////////
+    //                               //
+    //       Interactive Monke       //
+    //                               //
+    ///////////////////////////////////
+
+
     if (!(msg.author.id === '690351869650010333')) {
         if (msg.content.toLowerCase() === 'howdy') {
             msg.lineReply('Howdy partner :cowboy:');
@@ -276,9 +284,6 @@ client.on('message', msg => {
                 msg.channel.send("<@" + constants.USERS.KENNY + ">");
             }
         }
-        else if (/kenna/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=6vtsKGzGVK4');
-        }
         else if (/amon?g\s*us/i.test(msg.content)) {
             msg.channel.send('ඞ');
         }        
@@ -295,6 +300,22 @@ client.on('message', msg => {
             if (Math.random() >= 0.75) {
                 msg.channel.send("Shut the fuck up, Todd");
             }
+        }
+        else if (/monke.*th(ink|oughts)/i.test(msg.content)) {
+            rnd = Math.floor(Math.random() * THINK_SOUNDS.length)
+            mYouTube.playSound(msg, THINK_SOUNDS[rnd]);
+        }
+
+        
+        ///////////////////////////////////
+        //                               //
+        //      Gen/Youtube  Sounds      //
+        //                               //
+        ///////////////////////////////////
+
+
+        else if (/kenna/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=6vtsKGzGVK4');
         }
         // else if (/sax.*(and|&).*sex/i.test(msg.content)) {
         //     mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=c51x_iJjjD0', '290');
@@ -428,10 +449,6 @@ client.on('message', msg => {
         }
         else if (/taco\s*bell/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=dNl4-w9ZrBs');
-        }
-        else if (/monke.*th(ink|oughts)/i.test(msg.content)) {
-            rnd = Math.floor(Math.random() * THINK_SOUNDS.length)
-            mYouTube.playSound(msg, THINK_SOUNDS[rnd]);
         }
         else if (/egg/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=nhB5WoUYQbc');
@@ -1002,7 +1019,7 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, url);
             })()
         }
-        else if(/bbq pit boys/i.test(msg.content)) {
+        else if(/bbq?.*pit boys/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3');
         }
         else if(/The entire bee movie|laws of aviation|According to all known laws of aviation, there is no way a bee should be able to fly/i.test(msg.content)) {
@@ -1077,7 +1094,12 @@ client.on('message', msg => {
             }
         }
         else if(/super\s*mario\s*world/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=waKumDkYrDY');
+            if (Math.random() >= 0.89) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/soundclown/dinosaur-land.mp3');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=waKumDkYrDY');
+            }
         }
         else if(/jeopardy/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3');
@@ -1099,7 +1121,7 @@ client.on('message', msg => {
                     mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3');
                 }
                 else {
-                    mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone quiet.wav');
+                    mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone quiet.mp3');
                 } 
             }
         }
@@ -1109,8 +1131,14 @@ client.on('message', msg => {
             }
         }
         else if (/dial.?up/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/dialup.mp3');
+        }
+        else if (/thx/i.test(msg.content)) {
             if (Math.random() >= 0.60) {
-                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/dialup.mp3');
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/soundclown/thx-crank.mp3');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/thx-normal.mp3');
             }
         }
 
