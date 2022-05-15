@@ -1,5 +1,13 @@
 #!/bin/bash
 
-git pull
-pm2 stop
-pm2 start bot.js --watch
+exec("ls -la", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+});

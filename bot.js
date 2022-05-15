@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 require('discord-reply');
 const client = new Discord.Client();
 const ytdl = require('discord-ytdl-core');
-var exec = require('child_process').exec;
+const exec = require('child_process').exec;
 
 // Import constants
 const constants = require('./constants');
