@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 require('discord-reply');
 const client = new Discord.Client();
 const ytdl = require('discord-ytdl-core');
+var exec = require('child_process').exec;
 
 // Import constants
 const constants = require('./constants');
@@ -304,6 +305,10 @@ client.on('message', msg => {
         else if (/monke.*th(ink|oughts)/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * THINK_SOUNDS.length)
             mYouTube.playSound(msg, THINK_SOUNDS[rnd]);
+        }
+        else if (/monke.*restart/i.test(msg.content)) {
+            msg.lineReply('brb');
+            exec('sh gitpull.sh');
         }
 
         
@@ -1152,6 +1157,12 @@ client.on('message', msg => {
         else if (/(rimshot|ba.*dum.*ti?sh?)/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('badumtss')
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/(cleveland)/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('cleveland')
                 mYouTube.playSound(msg, url);
             })()
         }
