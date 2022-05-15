@@ -549,8 +549,10 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://youtu.be/fRCOpbp_Wyo');
         }
         else if (/Charles|pull\s*up|capybara/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://youtu.be/v8Q4BSgBkRc');
-            msg.channel.send('https://c.tenor.com/g05O_S6b0f4AAAAd/capybara-ok-i-pull-up.gif');
+            if (Math.random() >= 0.60) {
+                mYouTube.playSound(msg, 'https://youtu.be/v8Q4BSgBkRc');
+                msg.channel.send('https://c.tenor.com/g05O_S6b0f4AAAAd/capybara-ok-i-pull-up.gif');
+            }
         }
         else if (/oh\s*ok/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://youtu.be/UrdhAzKcfNk');
@@ -659,14 +661,6 @@ client.on('message', msg => {
         }
         else if (/yoooo+/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=VKMw2it8dQY');
-        }
-        else if (/clown/i.test(msg.content)) {
-            if (Math.random() >= 0.75) {
-                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=0AZpwvAOnqM');
-            }
-            else {
-                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=S280Pqq3T_w');
-            }
         }
         else if (/stargate/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=yWCP8lcbcJg');
@@ -888,7 +882,7 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/e-long.ogg');
             }
         }
-        else if (/^boss\s*music$/i.test(msg.content)) {
+        else if (/^boss.*(music|fight)$/i.test(msg.content)) {
             rnd = Math.floor(Math.random() * BOSS_SOUNDS.length)
             mYouTube.playSound(msg, BOSS_SOUNDS[rnd]);
         }
@@ -1141,6 +1135,27 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/thx-normal.mp3');
             }
         }
+        else if (/soundclown/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('soundclown')
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/clown/i.test(msg.content)) {
+            if (Math.random() >= 0.75) {
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=0AZpwvAOnqM');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=S280Pqq3T_w');
+            }
+        }
+        else if (/(rimshot|ba.*dum.*ti?sh?)/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('badumtss')
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        
 
 
 
@@ -1239,7 +1254,6 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, url);
             })()
         }
-
         else if (/lounge\s*piano/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/piano')
