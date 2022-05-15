@@ -306,9 +306,11 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * THINK_SOUNDS.length)
             mYouTube.playSound(msg, THINK_SOUNDS[rnd]);
         }
-        else if (/monke.*restart/i.test(msg.content)) {
-            msg.lineReply('brb');
-            exec('sh gitpull.sh');
+        else if (/monke.*pull/i.test(msg.content)) {
+            if (message.member.roles.cache.some(role => role.name === 'MonkeBot Wranglers')) {
+                msg.lineReply('brb');
+                exec('sh gitpull.sh');
+            }
         }
 
         
