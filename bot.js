@@ -1113,12 +1113,14 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Bad_To_The_Bone.mp3');
         }
         else if(/(bad|bone)/i.test(msg.content)) {
-            if (Math.random() >= 0.99) {
+            let bad_random = Math.random()
+            msg.guild.channels.cache.get('974290034133987429').send(`${bad_random} bad`)
+            if (bad_random >= 0.99) {
                 msg.channel.send('https://tenor.com/view/esqueleto-gif-24452082');
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone ear rape.wav');
             }
             else {
-               if (Math.random() >= 0.70) {
+               if (bad_random >= 0.70) {
                     mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3');
                 }
                 else {
