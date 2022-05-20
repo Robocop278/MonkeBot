@@ -1168,6 +1168,9 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, url);
             })()
         }
+        else if (/laugh\s*track/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=QGroZXx2eGM');
+        }
         
 
 
