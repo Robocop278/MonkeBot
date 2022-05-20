@@ -318,7 +318,7 @@ client.on('message', msg => {
                 exec('sh gitpull.sh');
             }
             else {
-                msg.lineReply('need MonkeBot Wrangler role...');
+                msg.lineReply('need MonkeBot Wrangler role...!');
             }
         }
 
