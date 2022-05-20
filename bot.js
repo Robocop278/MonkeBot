@@ -213,6 +213,7 @@ client.on('ready', async () => {
         }
     });
     console.log(`Monke bot ready`);
+    msg.guild.channels.cache.get('974290034133987429').send(`monke bot started up and ready`)
 });
 
 client.on('message', msg => {
