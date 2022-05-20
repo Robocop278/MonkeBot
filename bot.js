@@ -169,7 +169,7 @@ const TT_MAMA_SOUNDS = [
 
 // Main client functions
 client.on('ready', async () => {
-    client.user.setActivity('with his boof', { type: 'PLAYING' });
+    client.user.setActivity('his meats cook', { type: 'WATCHING' });
     // botChannel = client.channels.cache.get('690360349316087828'); // channel ID for personal test server, not usable in goofs
     mainChannel = client.channels.cache.get(constants.CHANNEL_MAIN);
     botChannel = client.channels.cache.get(constants.CHANNEL_BOT);
