@@ -213,7 +213,11 @@ client.on('ready', async () => {
         }
     });
     console.log(`Monke bot ready`);
-    msg.guild.channels.cache.get('974290034133987429').send(`monke bot started up and ready`)
+    client.channels.fetch('974290034133987429')
+    .then(channel => {
+        channel.send(`monke bot started up and ready`);
+    })
+    // msg.guild.channels.cache.get('974290034133987429').send(`monke bot started up and ready`)
 });
 
 client.on('message', msg => {
@@ -308,9 +312,13 @@ client.on('message', msg => {
             mYouTube.playSound(msg, THINK_SOUNDS[rnd]);
         }
         else if (/monke.*pull/i.test(msg.content)) {
-            if (msg.member.roles.cache.has(899529644880056341)) {
+            let my_roles = msg.member.roles.cache;
+            if (msg.member.roles.cache.has('899529644880056341')) {
                 msg.lineReply('brb');
                 exec('sh gitpull.sh');
+            }
+            else {
+                msg.lineReply('need MonkeBot Wrangler role...');
             }
         }
 
