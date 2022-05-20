@@ -1172,7 +1172,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=QGroZXx2eGM');
         }
         else if (/grill/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=NKoJDyKo1QQ');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=K21kmzN5Zk8', '8');
         }
         
 
