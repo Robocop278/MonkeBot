@@ -314,7 +314,7 @@ client.on('message', msg => {
         else if (/monke.*pull/i.test(msg.content)) {
             let my_roles = msg.member.roles.cache;
             if (msg.member.roles.cache.has('899529644880056341')) {
-                msg.lineReply('brb');
+                msg.lineReply('brb!');
                 exec('sh gitpull.sh');
             }
             else {
