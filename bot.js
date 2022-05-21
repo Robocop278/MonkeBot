@@ -1119,7 +1119,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Bad_To_The_Bone.mp3');
         }
         else if(/(bad|bone)/i.test(msg.content)) {
-            let bad_random = Math.random()
+            let bad_random = Math.random().toFixed(3);
             msg.guild.channels.cache.get('974290034133987429').send(`${bad_random} bad`)
             if (bad_random >= 0.99) {
                 msg.channel.send('https://tenor.com/view/esqueleto-gif-24452082');
