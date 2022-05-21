@@ -1122,7 +1122,7 @@ client.on('message', msg => {
             let bad_random = Math.random().toFixed(3);
             msg.guild.channels.cache.get('974290034133987429').send(`${bad_random} bad`)
             if (bad_random >= 0.99) {
-                msg.channel.send('https://tenor.com/view/esqueleto-gif-24452082');
+                msg.lineReply('https://tenor.com/view/esqueleto-gif-24452082');
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone ear rape.wav');
             }
             else {
@@ -1181,6 +1181,9 @@ client.on('message', msg => {
         }
         else if (/grill/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=K21kmzN5Zk8', '8');
+        }
+        else if (/(vine|boom)/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom.mp3');
         }
         
 
