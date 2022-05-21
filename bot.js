@@ -744,13 +744,10 @@ client.on('message', msg => {
         else if (/batman/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=DKq4uoGdnFw');
         }
+        else if (/celebrat/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=1Qu6Dyn-c6M');
+        }
         
-
-    ///////////////////////////////////
-    //                               //
-    //      Non-Youtube  Sounds      //
-    //                               //
-    ///////////////////////////////////
 
 
         else if (/(balloon\s*boy|balloonboy|bb)\s*hello/i.test(msg.content)) {
