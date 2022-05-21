@@ -1185,6 +1185,9 @@ client.on('message', msg => {
         else if (/(vine|boom)/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom.mp3');
         }
+        else if (/why.*are.*you.*gay/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why are you gay.wav');
+        }
         
 
 
