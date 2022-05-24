@@ -166,6 +166,13 @@ const TT_MAMA_SOUNDS = [
     "https://static.wikia.nocookie.net/tattletail/images/5/58/EmptyBattery.ogg/revision/latest?cb=20170505142938",
     "https://static.wikia.nocookie.net/tattletail/images/b/b5/Ritual2.ogg/revision/latest?cb=20170918231359"
 ]
+const GO_TO_BED_RANGE = ['09:00:00','13:00:00'];
+const GO_TO_BED_RANGE_TEST = ['00:00:00','01:00:00'];
+const GO_TO_BED_GIFS = ["https://media.giphy.com/media/faIJtxH7QqlVNVBUNl/giphy.gif",
+    "https://monophy.com/media/26hiscEbskfemtM7m/monophy.gif",
+    "http://i.cdn.turner.com/cnn/2011/LIVING/05/13/go.the.f--k.to.sleep/t1larg.bookillustration.jpg",
+    "https://i.kym-cdn.com/entries/icons/original/000/036/356/limmy.jpg"
+];
 
 // Main client functions
 client.on('ready', async () => {
@@ -229,15 +236,27 @@ client.on('message', msg => {
     //                               //
     ///////////////////////////////////
 
+    let currentgettime = new Date().toLocaleTimeString('it-IT');
+    
 
     if (!(msg.author.id === '690351869650010333')) {
         if (msg.content.toLowerCase() === 'howdy') {
             msg.lineReply('Howdy partner :cowboy:');
         }
         else if (/monke say time/i.test(msg.content)) {
-            let currentgettime = new Date().toLocaleString()
             console.log(currentgettime);
             msg.lineReply(currentgettime);
+        }
+        else if(currentgettime >= GO_TO_BED_RANGE[0] && currentgettime <= GO_TO_BED_RANGE[1] && Math.random() >= 0.25) {
+            msg.lineReply(GO_TO_BED_GIFS[Math.floor(Math.random() * GO_TO_BED_GIFS.length)]);
+        }
+        else if(/in time range/i.test(msg.content)) {
+            if(currentgettime >= GO_TO_BED_RANGE_TEST[0] && currentgettime <= GO_TO_BED_RANGE_TEST[1]){
+                msg.lineReply("The Test Range is 12am and 1am UTC 00. \n You are in the range!");
+            }
+            else {
+                msg.lineReply("The Test Range is 12am and 1am UTC 00. \n You are ***NOT*** in the range!");
+            }
         }
         else if (/reply-confirm/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3');
@@ -1111,9 +1130,15 @@ client.on('message', msg => {
         else if(/jeopardy/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3');
         }
-        else if (/bad.*to.*the.*bone.*but.*it.*is.*earrape/.test(msg.content)) {
+        else if (/bad.*to.*the.*bone.*but.*it.*is.*ear.*rape/.test(msg.content)) {
             msg.channel.send('https://tenor.com/view/esqueleto-gif-24452082');
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bad to the bone ear rape.wav');
+        }
+        else if (/(rimshot|ba.*dum.*ti?sh?)/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('badumtss')
+                mYouTube.playSound(msg, url);
+            })()
         }
         else if (/bad.*to.*the.*bone/.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Bad_To_The_Bone.mp3');
@@ -1163,12 +1188,6 @@ client.on('message', msg => {
             else {
                 mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=S280Pqq3T_w');
             }
-        }
-        else if (/(rimshot|ba.*dum.*ti?sh?)/i.test(msg.content)) {
-            (async () => {
-                let url = await aws.getRandomFromFolder('badumtss')
-                mYouTube.playSound(msg, url);
-            })()
         }
         else if (/(cleveland)/i.test(msg.content)) {
             (async () => {
