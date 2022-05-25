@@ -247,7 +247,7 @@ client.on('message', msg => {
             console.log(currentgettime);
             msg.lineReply(currentgettime);
         }
-        else if(currentgettime >= GO_TO_BED_RANGE[0] && currentgettime <= GO_TO_BED_RANGE[1] && Math.random() >= 0.25) {
+        else if(currentgettime >= GO_TO_BED_RANGE[0] && currentgettime <= GO_TO_BED_RANGE[1] && Math.random() >= 0.85) {
             msg.lineReply(GO_TO_BED_GIFS[Math.floor(Math.random() * GO_TO_BED_GIFS.length)]);
         }
         else if(/in time range/i.test(msg.content)) {
