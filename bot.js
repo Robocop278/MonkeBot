@@ -166,7 +166,7 @@ const TT_MAMA_SOUNDS = [
     "https://static.wikia.nocookie.net/tattletail/images/5/58/EmptyBattery.ogg/revision/latest?cb=20170505142938",
     "https://static.wikia.nocookie.net/tattletail/images/b/b5/Ritual2.ogg/revision/latest?cb=20170918231359"
 ]
-const GO_TO_BED_RANGE = ['09:00:00','13:00:00'];
+const GO_TO_BED_RANGE = ['08:00:00','12:00:00'];
 const GO_TO_BED_RANGE_TEST = ['00:00:00','01:00:00'];
 const GO_TO_BED_GIFS = ["https://media.giphy.com/media/faIJtxH7QqlVNVBUNl/giphy.gif",
     "https://monophy.com/media/26hiscEbskfemtM7m/monophy.gif",
