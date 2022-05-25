@@ -239,8 +239,18 @@ client.on('message', msg => {
     let currentgettime = new Date().toLocaleTimeString('it-IT');
     
 
-    if (!(msg.author.id === '690351869650010333')) {
-        if (msg.content.toLowerCase() === 'howdy') {
+    if (!(msg.author.id === '690351869650010333')) { //not monke itself
+        if (/monke.*pull/i.test(msg.content)) {
+            let my_roles = msg.member.roles.cache;
+            if (msg.member.roles.cache.has('899529644880056341')) {
+                msg.lineReply('brb!');
+                exec('sh gitpull.sh');
+            }
+            else {
+                msg.lineReply('need MonkeBot Wrangler role...!');
+            }
+        }
+        else if (msg.content.toLowerCase() === 'howdy') {
             msg.lineReply('Howdy partner :cowboy:');
         }
         else if (/monke say time/i.test(msg.content)) {
@@ -330,16 +340,7 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * THINK_SOUNDS.length)
             mYouTube.playSound(msg, THINK_SOUNDS[rnd]);
         }
-        else if (/monke.*pull/i.test(msg.content)) {
-            let my_roles = msg.member.roles.cache;
-            if (msg.member.roles.cache.has('899529644880056341')) {
-                msg.lineReply('brb!');
-                exec('sh gitpull.sh');
-            }
-            else {
-                msg.lineReply('need MonkeBot Wrangler role...!');
-            }
-        }
+        
 
         
         ///////////////////////////////////
