@@ -24,7 +24,7 @@ async function playSound(msg, url, startTime = '0') {
     if (voiceChannel) {
 
         var trueURL = url;
-        console.log(`${/youtu/i.test(trueURL) ? 'youtube' : 'not youtube!'}`)
+        // console.log(`${/youtu/i.test(trueURL) ? 'youtube' : 'not youtube!'}`)
         // console.log(`${/youtu/i.test(trueURL) ? `${msg} - Playing sound from link <${url}>` : `${msg} - Playing sound from link ${url}`}`)
         
         
@@ -77,7 +77,7 @@ async function playSound(msg, url, startTime = '0') {
             const dispatcher = connection.play(stream, {type: streamType, seek: startTime});
             // const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
             dispatcher.on('finish', () => {
-                console.log('Finished playing!\n');
+                console.log('Finished playing!');
                 dispatcher.destroy();
                 if (PLAY_LOCK == 1) {
                     if (trueURL === 'https://www.youtube.com/watch?v=8NuYSsROSOk') { // this could be done better

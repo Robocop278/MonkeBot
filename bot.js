@@ -1036,7 +1036,7 @@ client.on('message', msg => {
         }
         else if (/star.*war/i.test(msg.content)) {
             (async () => {
-                let url = await aws.getRandomFromFolder('the  star war')
+                let url = await aws.getRandomFromFolder('the  star war', msg)
                 msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
@@ -1177,9 +1177,9 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/thx-normal.mp3');
             }
         }
-        else if (/soundclown/i.test(msg.content)) {
+        else if (/sound.*clown/i.test(msg.content)) {
             (async () => {
-                let url = await aws.getRandomFromFolder('soundclown')
+                let url = await aws.getRandomFromFolder('soundclown', msg)
                 msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
@@ -1305,35 +1305,35 @@ client.on('message', msg => {
 
         else if (/lounge\s*classical/i.test(msg.content)) {
             (async () => {
-                let url = await aws.getRandomFromFolder('lounge/classical')
+                let url = await aws.getRandomFromFolder('lounge/classical', msg)
                 msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*piano/i.test(msg.content)) {
             (async () => {
-                let url = await aws.getRandomFromFolder('lounge/piano')
+                let url = await aws.getRandomFromFolder('lounge/piano', msg)
                 msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*jazz/i.test(msg.content)) {
             (async () => {
-                let url = await aws.getRandomFromFolder('lounge/jazz')
+                let url = await aws.getRandomFromFolder('lounge/jazz', msg)
                 msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*video\s*game/i.test(msg.content)) {
             (async () => {
-                let url = await aws.getRandomFromFolder('lounge/video_games')
+                let url = await aws.getRandomFromFolder('lounge/video_games', msg)
                 msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*movie/i.test(msg.content)) {
             (async () => {
-                let url = await aws.getRandomFromFolder('lounge/movie')
+                let url = await aws.getRandomFromFolder('lounge/movie', msg)
                 msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
