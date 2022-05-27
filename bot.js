@@ -1037,6 +1037,7 @@ client.on('message', msg => {
         else if (/star.*war/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('the  star war')
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
@@ -1179,6 +1180,7 @@ client.on('message', msg => {
         else if (/soundclown/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('soundclown')
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
@@ -1304,30 +1306,35 @@ client.on('message', msg => {
         else if (/lounge\s*classical/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/classical')
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*piano/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/piano')
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*jazz/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/jazz')
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*video\s*game/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/video_games')
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
         else if (/lounge\s*movie/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('lounge/movie')
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
                 mYouTube.playSound(msg, url);
             })()
         }
@@ -1390,6 +1397,12 @@ function startTimerCountdown() {
     var milliDelay = 60000 - milliOffset;
     console.log("Waiting for " + milliDelay + " milliseconds before starting timer");
     setTimeout(() => {sendCountdownStatus(); setInterval(sendCountdownStatus, 60*1000);}, milliDelay);
+}
+
+function replyNowPlaying(url){
+    let urlSplit = url.split('/');
+    let nowPlaying = urlSplit[urlSplit.length-1]
+    return nowPlaying
 }
 
 function sendCountdownStatus(verbose = false) {
