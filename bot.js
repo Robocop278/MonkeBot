@@ -340,6 +340,13 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * THINK_SOUNDS.length)
             mYouTube.playSound(msg, THINK_SOUNDS[rnd]);
         }
+        else if (/monke.*clear/i.test(msg.content)){
+            let cacheRegex = /(monke clear) (\w+ ?\w+)/i;
+            let input = msg.content.match(cacheRegex)[2];
+            if(aws.clearCache(input.replace(' ','/'))){
+                msg.lineReply(`${input} has been cleared.`)
+            }
+        }
         
 
         

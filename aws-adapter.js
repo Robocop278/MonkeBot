@@ -85,10 +85,20 @@ function checkRepeatCache(data, input, msg){
 		}
 	}
 }
+function clearCache(input){
+	if(!Reflect.has(awsCache, input)){
+		return false;
+	}
+	else{
+		awsCache[input].length = 0;
+		return true;
+	}
+}
 
 // input = 'lounge/classical';
 // getRandomFromFolder(input);
 
 module.exports = {
-	getRandomFromFolder
+	getRandomFromFolder,
+	clearCache
 }
