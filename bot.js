@@ -343,7 +343,10 @@ client.on('message', msg => {
         else if (/monke.*clear/i.test(msg.content)){
             let cacheRegex = /(monke clear) (\w+ ?\w+)/i;
             let input = msg.content.match(cacheRegex)[2];
-            if(aws.clearCache(input.replace(' ','/'))){
+            if(input == null){
+                msg.lineReply(`please specify which command to clear. EX: 'monke clear lounge piano'`)
+            }
+            else if(aws.clearCache(input.replace(' ','/'))){
                 msg.lineReply(`${input} has been cleared.`)
             }
         }
