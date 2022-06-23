@@ -740,7 +740,11 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=ey0wgQYTwnU');
         }
         else if (/flashbang/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5tXQ91BYXgg');
+            if (Math.random() < 0.75) {
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5tXQ91BYXgg');
+            } else {
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=kjkFP1jU4hk');
+            }
         }
         else if (/ladder/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=8aYeoR9LVlI');
@@ -1219,6 +1223,12 @@ client.on('message', msg => {
         }
         else if (/why.*are.*you.*gay/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why are you gay.wav');
+        }
+        else if (/g(od|ah)\s*dam/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('GahDamn')
+                mYouTube.playSound(msg, url);
+            })()
         }
         
 
