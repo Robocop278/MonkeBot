@@ -166,7 +166,7 @@ const TT_MAMA_SOUNDS = [
     "https://static.wikia.nocookie.net/tattletail/images/5/58/EmptyBattery.ogg/revision/latest?cb=20170505142938",
     "https://static.wikia.nocookie.net/tattletail/images/b/b5/Ritual2.ogg/revision/latest?cb=20170918231359"
 ]
-const GO_TO_BED_RANGE = ['08:00:00','12:00:00'];
+const GO_TO_BED_RANGE = ['12:00:00','16:00:00'];
 const GO_TO_BED_RANGE_TEST = ['00:00:00','01:00:00'];
 const GO_TO_BED_GIFS = ["https://media.giphy.com/media/faIJtxH7QqlVNVBUNl/giphy.gif",
     "https://monophy.com/media/26hiscEbskfemtM7m/monophy.gif",
@@ -1230,6 +1230,20 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, url);
             })()
         }
+        else if (/pump test/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('HungryPumpkin/Give Me')
+                mYouTube.playSound(msg, url);
+                url = await aws.getRandomFromFolder('HungryPumpkin/foods')
+                sleep(1550).then(() => {
+                    mYouTube.playSound(msg, url);
+                });
+            })()
+            
+        }
+        else if (/no.*I.*don.*t.*want.*that/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/HungryPumpkin/h_eggs.wav');
+        }
         
 
 
@@ -1418,6 +1432,10 @@ function startTimerCountdown() {
     console.log("Waiting for " + milliDelay + " milliseconds before starting timer");
     setTimeout(() => {sendCountdownStatus(); setInterval(sendCountdownStatus, 60*1000);}, milliDelay);
 }
+
+function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
 
 function replyNowPlaying(url){
     let urlSplit = url.split('/');
