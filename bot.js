@@ -1242,7 +1242,10 @@ client.on('message', msg => {
             
         }
         else if (/no.*I.*don.*t.*want.*that/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/HungryPumpkin/h_eggs.wav');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/HungryPumpkin/h_no.wav');
+            sleep(1550).then(() => {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/HungryPumpkin/h_idontwant.wav');
+            });
         }
         
 
