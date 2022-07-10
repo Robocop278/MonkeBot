@@ -45,6 +45,12 @@ const BOOF_GIFS = [
     "https://c.tenor.com/88KcKzh9LrUAAAAC/judgement-judgeeyes.gif"
 ];
 
+const PULL_DENY_GIFS = [
+    "https://c.tenor.com/zrItGKVKzYoAAAAd/mokey-puppet-monkey.gif",
+    "https://c.tenor.com/rSpLSbGlCXYAAAAC/monkey-no.gif",
+    "https://c.tenor.com/ukJ-Ncx0eFYAAAAd/gorilla-no.gif"
+];
+
 // Assorted sound arrays
 const BB_SOUNDS = [
     'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b5/Echo1.ogg/revision/latest?cb=20141113012504',
@@ -247,7 +253,7 @@ client.on('message', msg => {
                 exec('sh gitpull.sh');
             }
             else {
-                msg.lineReply('need MonkeBot Wrangler role...!');
+                msg.reply(PULL_DENY_GIFS[Math.floor(Math.random() * PULL_DENY_GIFS.length)]);
             }
         }
         else if (msg.content.toLowerCase() === 'howdy') {
