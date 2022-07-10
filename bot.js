@@ -1241,7 +1241,7 @@ client.on('message', msg => {
                 let url = await aws.getRandomFromFolder('HungryPumpkin/Give Me')
                 await mYouTube.playSound(msg, url);
                 url = await aws.getRandomFromFolder('HungryPumpkin/foods')
-                    mYouTube.playSound(msg, url);
+                mYouTube.playSound(msg, url);
             })()
             
         }

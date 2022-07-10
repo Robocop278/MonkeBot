@@ -74,7 +74,7 @@ async function playSound(msg, url, startTime = '0') {
                 streamType = "opus";
             }
             // let stream = ytdl.arbitraryStream(url, {opusEncoded: true});
-            const dispatcher = connection.play(stream, {type: streamType, seek: startTime});
+            const dispatcher = await connection.play(stream, {type: streamType, seek: startTime});
             // const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
             dispatcher.on('finish', () => {
                 console.log('Finished playing!');
