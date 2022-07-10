@@ -1239,11 +1239,9 @@ client.on('message', msg => {
         else if (/pump test/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('HungryPumpkin/Give Me')
-                mYouTube.playSound(msg, url);
+                await mYouTube.playSound(msg, url);
                 url = await aws.getRandomFromFolder('HungryPumpkin/foods')
-                sleep(1550).then(() => {
                     mYouTube.playSound(msg, url);
-                });
             })()
             
         }
