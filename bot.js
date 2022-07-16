@@ -1243,7 +1243,6 @@ client.on('message', msg => {
                 let url2 = aws.getRandomFromFolder('HungryPumpkin/foods')
 
                 Promise.all([url1, url2]).then( ([giveMe, food]) => {
-                    console.log(giveMe, food)
                     mYouTube.playSound(msg, giveMe)
                         .then(() => mYouTube.playSound(msg, food))
                 })
