@@ -1239,11 +1239,15 @@ client.on('message', msg => {
         else if (/pump test/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('HungryPumpkin/Give Me')
-                mYouTube.playSound(msg, url);
-                url = await aws.getRandomFromFolder('HungryPumpkin/foods')
-                sleep(1550 * ( Math.random() >= 0.66 ? 10 : 1 )).then(() => {
-                    mYouTube.playSound(msg, url);
-                });
+                mYouTube.playSound(msg, url)
+                    .then(
+                        url = await aws.getRandomFromFolder('HungryPumpkin/foods')
+                        mYouTube.playSound(msg, url)
+                        )
+                // url = await aws.getRandomFromFolder('HungryPumpkin/foods')
+                // sleep(1550 * ( Math.random() >= 0.66 ? 10 : 1 )).then(() => {
+                //     mYouTube.playSound(msg, url);
+                // });
             })()
             
         }
