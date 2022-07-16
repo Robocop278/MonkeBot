@@ -7,8 +7,9 @@ var dateSinceLastPlay = new Date();
 var PLAY_LOCK = 0;
 
 
-// Given a msg and url (yourube or to a raw resource), if msg member is currently in a voice channel, jump into that voice channel and play audio
-async function playSound(msg, url, startTime = '0') {
+// Given a msg and url (youtube or to a raw resource), if msg member is currently in a voice channel, jump into that voice channel and play audio
+const playSound = async(msg, url, startTime = '0') => {
+    console.log('START AT playSound');
     // return if we're currently locked
     if (PLAY_LOCK == 1) return;
 
@@ -73,20 +74,26 @@ async function playSound(msg, url, startTime = '0') {
                 stream = ytdl.arbitraryStream(trueURL, {opusEncoded: true});
                 streamType = "opus";
             }
+            console.log('GOT STREAM');
             // let stream = ytdl.arbitraryStream(url, {opusEncoded: true});
             const dispatcher = connection.play(stream, {type: streamType, seek: startTime});
+            console.log('GOT DISPATCHER');
             // const dispatcher = connection.play(ytdl.downloadFromInfo(ytInfo, {filter: 'audioonly'}), {seek: startTime});
-            dispatcher.on('finish', () => {
-                console.log('Finished playing!');
-                dispatcher.destroy();
-                if (PLAY_LOCK == 1) {
-                    if (trueURL === 'https://www.youtube.com/watch?v=8NuYSsROSOk') { // this could be done better
-                        voiceChannel.leave();
-                        PLAY_LOCK = 0;
+            return new Promise( resolve => {
+                dispatcher.on('finish', () => {
+                    console.log('Finished playing!');
+                    dispatcher.destroy();
+                    if (PLAY_LOCK == 1) {
+                        if (trueURL === 'https://www.youtube.com/watch?v=8NuYSsROSOk') { // this could be done better
+                            voiceChannel.leave();
+                            PLAY_LOCK = 0;
+                        }
+                    } else {
+                        // voiceChannel.leave(); // Used to leave channel, but its funnier to leave the bot chilling in chat for random sound effects without the join channel giveaway
                     }
-                } else {
-                    // voiceChannel.leave(); // Used to leave channel, but its funnier to leave the bot chilling in chat for random sound effects without the join channel giveaway
-                }
+                    console.log("PLAYSOUND RESOLVED")
+                    resolve()
+                });
             });
         } catch (err) {
             // console.log(sent)
@@ -96,7 +103,10 @@ async function playSound(msg, url, startTime = '0') {
             PLAY_LOCK = 0; // turn off play lock just in case
             // voiceChannel.leave(); // Used to leave channel, but its funnier to leave the bot chilling in chat for random sound effects without the join channel giveaway
             msg.channel.send("https://media1.tenor.com/images/52d0f87259135bce058da8bf66ba7ee9/tenor.gif?itemid=5384362");
+            return Promise.resolve()
         }
+    } else {
+        return Promise.resolve()
     }
 }
 
