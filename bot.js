@@ -172,7 +172,7 @@ const TT_MAMA_SOUNDS = [
     "https://static.wikia.nocookie.net/tattletail/images/5/58/EmptyBattery.ogg/revision/latest?cb=20170505142938",
     "https://static.wikia.nocookie.net/tattletail/images/b/b5/Ritual2.ogg/revision/latest?cb=20170918231359"
 ]
-const GO_TO_BED_RANGE = ['12:00:00','16:00:00'];
+const GO_TO_BED_RANGE = ['09:00:00','13:00:00'];
 const GO_TO_BED_RANGE_TEST = ['00:00:00','01:00:00'];
 const GO_TO_BED_GIFS = ["https://media.giphy.com/media/faIJtxH7QqlVNVBUNl/giphy.gif",
     "https://monophy.com/media/26hiscEbskfemtM7m/monophy.gif",
@@ -218,6 +218,8 @@ client.on('ready', async () => {
     }
 
     // Find our main server, will be needed later
+    let inittime = new Date();
+    console.log(inittime.toLocaleTimeString('it-IT') + " " + inittime.getTimezoneOffset())
     console.log("Parsing through servers...");
     client.guilds.cache.forEach(async server =>{
         if (server.id == constants.SERVER_GOOFS) {
@@ -228,8 +230,8 @@ client.on('ready', async () => {
     console.log(`Monke bot ready`);
     client.channels.fetch('974290034133987429')
     .then(channel => {
-        channel.send(`monke bot started up and ready`);
-    })
+        channel.send(`monke started at ${inittime}, it ${inittime.getTimezoneOffset() == 0 ? 'is being hosted via AWS.':`***is being hosted locally***, probably by ${inittime.getTimezoneOffset() >= 420 ? 'socal nerds christian or lisbin.':'the Ohio:tm: lad kebo.'}`}`);
+    });
     // msg.guild.channels.cache.get('974290034133987429').send(`monke bot started up and ready`)
 });
 
@@ -259,6 +261,9 @@ client.on('message', msg => {
         else if (msg.content.toLowerCase() === 'howdy') {
             msg.lineReply('Howdy partner :cowboy:');
         }
+        else if (/monke perish/i.test(msg.content)) {
+            msg.lineReply('https://monke.s3.amazonaws.com/monke/monke%20perish.mp4');
+        }
         else if (/monke say time/i.test(msg.content)) {
             console.log(currentgettime);
             msg.lineReply(currentgettime);
@@ -267,11 +272,8 @@ client.on('message', msg => {
             msg.lineReply(GO_TO_BED_GIFS[Math.floor(Math.random() * GO_TO_BED_GIFS.length)]);
         }
         else if(/in time range/i.test(msg.content)) {
-            if(currentgettime >= GO_TO_BED_RANGE_TEST[0] && currentgettime <= GO_TO_BED_RANGE_TEST[1]){
-                msg.lineReply("The Test Range is 12am and 1am UTC 00. \n You are in the range!");
-            }
-            else {
-                msg.lineReply("The Test Range is 12am and 1am UTC 00. \n You are ***NOT*** in the range!");
+            if(currentgettime >= GO_TO_BED_RANGE[0] && currentgettime <= GO_TO_BED_RANGE[1]){
+                msg.lineReply(`The Test Range is ${GO_TO_BED_RANGE[0]} and ${GO_TO_BED_RANGE[1]} local time. ${currentgettime >= GO_TO_BED_RANGE[0] && currentgettime <= GO_TO_BED_RANGE[1] ? '\n You are in the range!':'\n You are  ***N O T***  in the range!'}\n\n*note that this should be used when hosted on cloud*`);
             }
         }
         else if (/reply-confirm/i.test(msg.content)) {
