@@ -272,9 +272,7 @@ client.on('message', msg => {
             msg.lineReply(GO_TO_BED_GIFS[Math.floor(Math.random() * GO_TO_BED_GIFS.length)]);
         }
         else if(/in time range/i.test(msg.content)) {
-            if(currentgettime >= GO_TO_BED_RANGE[0] && currentgettime <= GO_TO_BED_RANGE[1]){
-                msg.lineReply(`The Test Range is ${GO_TO_BED_RANGE[0]} and ${GO_TO_BED_RANGE[1]} local time. ${currentgettime >= GO_TO_BED_RANGE[0] && currentgettime <= GO_TO_BED_RANGE[1] ? '\n You are in the range!':'\n You are  ***N O T***  in the range!'}\n\n*note that this should be used when hosted on cloud*`);
-            }
+            msg.lineReply(`The Test Range is ${GO_TO_BED_RANGE[0]} and ${GO_TO_BED_RANGE[1]} local time. ${currentgettime >= GO_TO_BED_RANGE[0] && currentgettime <= GO_TO_BED_RANGE[1] ? '\n You are in the range!':'\n You are  ***N O T***  in the range!'}\n\n*note that this should be used when hosted on cloud*`);
         }
         else if (/reply-confirm/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3');
