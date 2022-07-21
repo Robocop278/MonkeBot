@@ -1252,13 +1252,18 @@ client.on('message', msg => {
                         .then(() => mYouTube.playSound(msg, food))
                 })
             })()
-            
         }
         else if (/no.*I.*don.*t.*want.*that/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/HungryPumpkin/h_no.wav');
             sleep(1550).then(() => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/HungryPumpkin/h_idontwant.wav');
             });
+        }
+        else if (/(gnome|ha.*he)/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/GNOME HAHE.mp3');
+        }
+        else if (/you have failed the challenge/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/GNOME CHALLENGE.mp3');
         }
         
 
