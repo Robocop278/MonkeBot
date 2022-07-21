@@ -1259,13 +1259,13 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/HungryPumpkin/h_idontwant.wav');
             });
         }
-        else if (/(gnome|ha.*he)/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME HAHE.mp3');
-        }
         else if (/you have failed the challenge/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME CHALLENGE.mp3');
         }
-        
+        else if (/(gnome|ha.*he)/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME HAHE.mp3');
+        }
+
 
 
 
