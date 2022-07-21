@@ -1260,10 +1260,10 @@ client.on('message', msg => {
             });
         }
         else if (/(gnome|ha.*he)/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/GNOME HAHE.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME HAHE.mp3');
         }
         else if (/you have failed the challenge/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/GNOME CHALLENGE.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME CHALLENGE.mp3');
         }
         
 
