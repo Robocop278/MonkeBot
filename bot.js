@@ -356,6 +356,11 @@ client.on('message', msg => {
                 msg.lineReply(`${input} has been cleared.`)
             }
         }
+        else if (/star.*trek/i.test(msg.content)) {
+            if (Math.random() >= 0.985) {
+                msg.lineReply('https://monke.s3.amazonaws.com/monke/nerd-alert.mp4');
+            }
+        }
         
 
         
