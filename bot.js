@@ -357,7 +357,7 @@ client.on('message', msg => {
             }
         }
         else if (/star.*trek/i.test(msg.content)) {
-            if (Math.random() >= 0.80) {
+            if (Math.random() >= 0.985) {
                 msg.lineReply('https://monke.s3.amazonaws.com/monke/nerd-alert.mp4');
             }
         }
