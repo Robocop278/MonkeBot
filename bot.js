@@ -710,7 +710,7 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=d6ySILG_7xk');
             }
             else {
-                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=VrxEVwByVA4');
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Stage+Clear+2+-+Super+Smash+Bros.+Melee.wav');
             }
         }
         else if (/bruh\s*moment/i.test(msg.content)) {
