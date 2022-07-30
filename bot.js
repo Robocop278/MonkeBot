@@ -895,7 +895,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, BYEAH_SOUNDS[rnd]);
         }
         else if (/monke.*fart/i.test(msg.content)) {
-            if (Math.random() >= 0.85) {
+            if (Math.random() >= 0.92) {
                 mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5I-Np6VFlAo');
             }
             else {
