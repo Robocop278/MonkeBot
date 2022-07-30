@@ -895,7 +895,12 @@ client.on('message', msg => {
             mYouTube.playSound(msg, BYEAH_SOUNDS[rnd]);
         }
         else if (/monke.*fart/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/fart-with-reverb.mp3');
+            if (Math.random() >= 0.85) {
+                mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5I-Np6VFlAo');
+            }
+            else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/fart-with-reverb.mp3');
+            }
         }
         else if (/monke.*suck|monke.*succ/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/fart_with_extra_reverb_reversed.mp3');
