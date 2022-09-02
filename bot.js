@@ -1271,7 +1271,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME HAHE.mp3');
         }
         else if (/caught in 4k/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/camerashutter.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/CameraShutter.mp3');
         }
 
 
