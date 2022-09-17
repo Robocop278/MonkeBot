@@ -1274,7 +1274,11 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/CameraShutter.mp3');
         }
         else if (/snore/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=w7mZjDmjFew');
+            if (Math.random() >= 0.75) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/snoreCrit.mp3');
+            } else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/snore.mp3');
+            }
         }
 
 
