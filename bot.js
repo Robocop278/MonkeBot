@@ -1272,6 +1272,8 @@ client.on('message', msg => {
         }
         else if (/caught in 4k/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/CameraShutter.mp3');
+        else if (/snore/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=w7mZjDmjFew');
         }
 
 
