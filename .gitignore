@@ -2,3 +2,5 @@ node_modules/*
 auth.json
 constants.js
 tests.js
+package.json
+package-lock.json
