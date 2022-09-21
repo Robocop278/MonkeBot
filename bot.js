@@ -239,6 +239,8 @@ client.on('message', msg => {
 
     let currentgettime = new Date().toLocaleTimeString('it-IT');
 
+
+
     ///////////////////////////////////
     //                               //
     //        Admin  Commands        //
@@ -246,9 +248,10 @@ client.on('message', msg => {
     ///////////////////////////////////
     
 
+
     if (!(msg.author.id === '690351869650010333')) { //not monke itself
         if (msg.member.roles.cache.has('899529644880056341')) {
-            // let my_roles = msg.member.roles.cache;
+            let my_roles = msg.member.roles.cache;
             if (/monke.app pull/i.test(msg.content)) {
                 msg.lineReply('pulling latest from git');
                 exec('sh shcmd/gitpull.sh');
@@ -257,12 +260,16 @@ client.on('message', msg => {
             //     msg.reply(PULL_DENY_GIFS[Math.floor(Math.random() * PULL_DENY_GIFS.length)]);
             // }
             else if (/monke.app shutdown/i.test(msg.content)) {
+                msg.lineReply('shutting down');
                 exec('sh shcmd/shutdown.sh');
             }
             else if (/monke.app restart/i.test(msg.content)) {
+                msg.lineReply('restarting, brb');
                 exec('sh shcmd/restart.sh');
             }
         }
+
+
 
     ///////////////////////////////////
     //                               //
@@ -270,8 +277,9 @@ client.on('message', msg => {
     //                               //
     ///////////////////////////////////
 
+
     
-        else if (msg.content.toLowerCase() === 'howdy') {
+        if (msg.content.toLowerCase() === 'howdy') {
             msg.lineReply('Howdy partner :cowboy:');
         }
         else if (/monke perish/i.test(msg.content)) {
@@ -382,6 +390,7 @@ client.on('message', msg => {
         //      Gen/Youtube  Sounds      //
         //                               //
         ///////////////////////////////////
+
 
 
         else if (/kenna/i.test(msg.content)) {
@@ -1293,7 +1302,6 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/snore.mp3');
             }
         }
-
 
 
 
