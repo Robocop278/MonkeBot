@@ -255,6 +255,7 @@ client.on('message', msg => {
             if (/monke.app pull/i.test(msg.content)) {
                 msg.lineReply('pulling latest from git');
                 exec('sh shcmd/gitpull.sh');
+                return;
             }
             // else {
             //     msg.reply(PULL_DENY_GIFS[Math.floor(Math.random() * PULL_DENY_GIFS.length)]);
@@ -262,10 +263,12 @@ client.on('message', msg => {
             else if (/monke.app shutdown/i.test(msg.content)) {
                 msg.lineReply('shutting down');
                 exec('sh shcmd/shutdown.sh');
+                return;
             }
             else if (/monke.app restart/i.test(msg.content)) {
                 msg.lineReply('restarting, brb');
                 exec('sh shcmd/restart.sh');
+                return;
             }
         }
 
