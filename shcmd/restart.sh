@@ -1,4 +1,3 @@
 #!/bin/bash
 
-pm2 stop bot.js
-pm2 start bot.js --watch
+pm2 restart bot.js --watch
