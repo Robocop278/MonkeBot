@@ -237,6 +237,32 @@ client.on('ready', async () => {
 
 client.on('message', msg => {
 
+    let currentgettime = new Date().toLocaleTimeString('it-IT');
+
+    ///////////////////////////////////
+    //                               //
+    //        Admin  Commands        //
+    //                               //
+    ///////////////////////////////////
+    
+
+    if (!(msg.author.id === '690351869650010333')) { //not monke itself
+        if (msg.member.roles.cache.has('899529644880056341')) {
+            // let my_roles = msg.member.roles.cache;
+            if (/monke.app pull/i.test(msg.content)) {
+                msg.lineReply('pulling latest from git');
+                exec('sh shcmd/gitpull.sh');
+            }
+            // else {
+            //     msg.reply(PULL_DENY_GIFS[Math.floor(Math.random() * PULL_DENY_GIFS.length)]);
+            // }
+            else if (/monke.app shutdown/i.test(msg.content)) {
+                exec('sh shcmd/shutdown.sh');
+            }
+            else if (/monke.app restart/i.test(msg.content)) {
+                exec('sh shcmd/restart.sh');
+            }
+        }
 
     ///////////////////////////////////
     //                               //
@@ -244,20 +270,7 @@ client.on('message', msg => {
     //                               //
     ///////////////////////////////////
 
-    let currentgettime = new Date().toLocaleTimeString('it-IT');
     
-
-    if (!(msg.author.id === '690351869650010333')) { //not monke itself
-        if (/monke.*pull/i.test(msg.content)) {
-            let my_roles = msg.member.roles.cache;
-            if (msg.member.roles.cache.has('899529644880056341')) {
-                msg.lineReply('brb!');
-                exec('sh gitpull.sh');
-            }
-            else {
-                msg.reply(PULL_DENY_GIFS[Math.floor(Math.random() * PULL_DENY_GIFS.length)]);
-            }
-        }
         else if (msg.content.toLowerCase() === 'howdy') {
             msg.lineReply('Howdy partner :cowboy:');
         }
