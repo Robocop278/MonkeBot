@@ -1305,6 +1305,9 @@ client.on('message', msg => {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/snore.mp3');
             }
         }
+        else if (/xra/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=mR65v4fDqOc'); 
+        }
 
 
 
