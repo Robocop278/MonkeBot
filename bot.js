@@ -443,7 +443,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=wtx0fdzRAp8');
         }
         else if (/rick\s*roll/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=5hFevwJ4JXI');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=3BFTio5296w');
         }
         else if (/ram\s*ranch/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=MADvxFXWvwE');
@@ -505,7 +505,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=RVKmdsO6f3g');
         }
         else if (/surprise/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=_bSEfx6D8mA');
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=1gehTA2DTcE');
         }
         else if (/phasmo/i.test(msg.content)) {
             console.log('spooky incoming...')
@@ -643,7 +643,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://youtu.be/NfrKsyUJqI4');
         }
         else if (/sigma/i.test(msg.content)) {
-            mYouTube.playSound(msg, 'https://youtu.be/wLz9xU6J88k');
+            mYouTube.playSound(msg, 'https://youtu.be/1-emQo-7O3Y');
         }
         else if (/mail/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://youtu.be/fzRC37grckk');
@@ -933,7 +933,7 @@ client.on('message', msg => {
         else if (/monke.*die/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/yt1s.com+-+Metal+Gear+Solid+Snake+death+scream+sound+effect.mp3');
         }
-        else if (/monke.*nut\s?t/i.test(msg.content)) {
+        else if (/monke.*nut/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/yt1s.com+-+Worlds+Loudest+Orgasm.mp3');
         }
         else if (/how\s*to\s*spoon/i.test(msg.content)) {
@@ -1015,10 +1015,10 @@ client.on('message', msg => {
             rnd = Math.floor(Math.random() * COUNTRY_SOUNDS.length)
             mYouTube.playSound(msg, COUNTRY_SOUNDS[rnd]);
         }
-        else if (/dundun|dun\s*dun|law\s*and\s*order/i.test(msg.content)) {
+        else if (/dun\s*dun|law\s*and\s*order/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/dun+dun.ogg');
         }
-        else if (/^(shart|shart.mp3)/i.test(msg.content)) {
+        else if (/^shart/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/shart.mp3');
         }
         else if (/fitness\s*gram\s*pacer\s*test/i.test(msg.content)) {
@@ -1178,7 +1178,7 @@ client.on('message', msg => {
         }
         else if(/super\s*mario\s*world/i.test(msg.content)) {
             if (Math.random() >= 0.89) {
-                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/soundclown/dinosaur-land.mp3');
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/soundclown/dinosaur-land.wav');
             }
             else {
                 mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=waKumDkYrDY');
