@@ -1314,7 +1314,7 @@ client.on('message', msg => {
         else if(/yippee/i.test(msg.content)) {
             if (Math.random() >= 0.85) {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/yippee/yippee jazz.mp3');
-            } if (Math.random() >= 0.70) {
+            } if else (Math.random() >= 0.70) {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/yippee/yippee full.mp3');
             } else {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/yippee/yippee.mp3');
