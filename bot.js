@@ -1321,9 +1321,9 @@ client.on('message', msg => {
                 msg.channel.send('https://tenor.com/view/yippee-gif-25852454');
             }
         }
-        // else if(/replace me!/i.test(msg.content)) {
-        //     mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=mR65v4fDqOc'); 
-        // }
+        else if(/lean/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=P1zOBJYKUBc', '5'); 
+        }
 
 
 
