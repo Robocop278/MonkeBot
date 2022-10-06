@@ -182,12 +182,12 @@ const GO_TO_BED_GIFS = ["https://media.giphy.com/media/faIJtxH7QqlVNVBUNl/giphy.
 
 var dubiousIndex = 0;
 const DUBIOUS_SOUNDS = [
-    "https://monke.s3.amazonaws.com/dubiousCreature-01.mp3",
-    "https://monke.s3.amazonaws.com/dubiousCreature-02.mp3"
+    "https://monke.s3.amazonaws.com/dubiousCreature-01.wav",
+    "https://monke.s3.amazonaws.com/dubiousCreature-02.wav"
 ]
 const DUBIOUS_SOUNDS_CRIT = [
-    "https://monke.s3.amazonaws.com/dubiousCreature-01-crit.mp3",
-    "https://monke.s3.amazonaws.com/dubiousCreature-02-crit.mp3"
+    "https://monke.s3.amazonaws.com/dubiousCreature-01-crit.wav",
+    "https://monke.s3.amazonaws.com/dubiousCreature-02-crit.wav"
 ]
 
 // Main client functions
