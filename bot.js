@@ -180,6 +180,16 @@ const GO_TO_BED_GIFS = ["https://media.giphy.com/media/faIJtxH7QqlVNVBUNl/giphy.
     "https://i.kym-cdn.com/entries/icons/original/000/036/356/limmy.jpg"
 ];
 
+var dubiousIndex = 0;
+const DUBIOUS_SOUNDS = [
+    "https://monke.s3.amazonaws.com/dubiousCreature-01.mp3",
+    "https://monke.s3.amazonaws.com/dubiousCreature-02.mp3"
+]
+const DUBIOUS_SOUNDS_CRIT = [
+    "https://monke.s3.amazonaws.com/dubiousCreature-01-crit.mp3",
+    "https://monke.s3.amazonaws.com/dubiousCreature-02-crit.mp3"
+]
+
 // Main client functions
 client.on('ready', async () => {
     client.user.setActivity('his meats cook', { type: 'WATCHING' });
@@ -1323,6 +1333,14 @@ client.on('message', msg => {
         }
         else if(/lean/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=P1zOBJYKUBc', '5'); 
+        }
+        else if(/dubious|creature/i.test(msg.content)) {
+            if (Math.random() >= 0.70) {
+                mYouTube.playSound(msg, DUBIOUS_SOUNDS_CRIT[dubiousIndex]);
+            } else {
+                mYouTube.playSound(msg, DUBIOUS_SOUNDS[dubiousIndex]);
+            }
+            dubiousIndex = (dubiousIndex+1) % DUBIOUS_SOUNDS.length;
         }
 
 
