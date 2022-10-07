@@ -406,6 +406,56 @@ client.on('message', msg => {
 
 
 
+        else if (/soundclown (.*)/i.test(msg.content)) {
+            (async () => {
+                let regexGroup = /soundclown (.*)/;
+                let x = msg.content.match(regexGroup)[1];
+                let results = await aws.searchTime('soundclown', x);
+                if(results == 0){
+                    msg.lineReply("we couldn't find shit lmao");
+                }
+                else if(results.length == 1){
+                    msg.lineReply(`Now Playing: ${results[0]}`);
+                    mYouTube.playSound(msg, `https://monke.s3.amazonaws.com/soundclown/${results[0]}`);
+                }
+                else {
+                    let stringy = "";
+                    for(x in results){
+                        stringy+=`${x}) ${results[x]}\n`;
+                    }
+                    msg.lineReply(`Found some, which one did you mean???\n\n\`${stringy}\`\n\nreply with the number you want to hear`)
+                    msg.channel.awaitMessages(m => m.author.id == msg.author.id,
+                        {max: 1, time: 30000}).then(collected => {
+                                // only accept messages by the user who sent the command
+                                // accept only 1 message, and return the promise after 30000ms = 30s
+        
+                                // first (and, in this case, only) message of the collection
+                                let optionSelect = collected.first().content.toLowerCase();
+                                if (optionSelect > results.length+1 || optionSelect < 0){
+                                    msg.lineReply('not in range, start search over.');
+                                }
+                                else {
+                                    mYouTube.playSound(msg, `https://monke.s3.amazonaws.com/soundclown/${results[optionSelect]}`);
+                                }                                         
+                        }).catch(() => {
+                                message.lineReply('No answer after 30 seconds, operation canceled.');
+                        });
+                }
+                console.log(results);
+            })()
+            // console.log(x)
+            // mYouTube.playSound(msg, url);
+        }
+        else if (/sound.*clown/i.test(msg.content)) {
+            (async () => {
+                let url = await aws.getRandomFromFolder('soundclown', msg)
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
+                mYouTube.playSound(msg, url);
+            })()
+        }
+        else if (/nerd.*alert/i.test(msg.content)) {
+            msg.lineReply('https://monke.s3.amazonaws.com/monke/nerd-alert.mp4');
+        }
         else if (/kenna/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=6vtsKGzGVK4');
         }
@@ -1080,7 +1130,7 @@ client.on('message', msg => {
         else if(/b(o|u)rgir/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/borgir.mp3');
         }
-        else if (/spooky\s*string/i.test(msg.content)) {
+        else if (/(spooky|horror)\s*str?ing/i.test(msg.content)) {
             (async () => {
                 let url = await aws.getRandomFromFolder('SpookyString')
                 mYouTube.playSound(msg, url);
@@ -1241,13 +1291,6 @@ client.on('message', msg => {
             else {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/thx-normal.mp3');
             }
-        }
-        else if (/sound.*clown/i.test(msg.content)) {
-            (async () => {
-                let url = await aws.getRandomFromFolder('soundclown', msg)
-                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
-                mYouTube.playSound(msg, url);
-            })()
         }
         else if (/clown/i.test(msg.content)) {
             if (Math.random() >= 0.75) {

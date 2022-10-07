@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk');
 const constants = require('./constants');
+const LazySearch = require('lazy-search')
 
 const S3_BUCKET = constants.aws_bucket_name;
 const REGION = constants.aws_region;
@@ -61,6 +62,26 @@ async function getRandomFromFolder(input, msg){ // only include the msg context 
 	//  	}
 	// });
 }
+async function searchTime(path, input){
+	let lazySearch = new LazySearch();
+	const data = await s3Client.listObjectsV2({Prefix:`${path}/`, StartAfter:`${path}/`}).promise();
+	data.Contents = data.Contents.filter(entry => entry.Size > 0);
+	let gaba = Object.entries(data.Contents)
+	// console.log(gaba[0][1].Key)
+	let results = []
+	for ([bub,x] of gaba){
+		sound = x.Key.split('/')[1];
+		// console.log(sound)
+		check = lazySearch.find(sound,input)
+		if (lazySearch.find(sound,input).length > 0)
+		{
+			// console.log(sound)
+			results.push(sound)
+		}
+		// console.log(lazySearch.find(sound,input))
+	}
+	return results;
+}
 
 function checkRepeatCache(data, input, msg){
 	let randomInput = data.Contents[Math.floor(Math.random() * data.Contents.length)].Key;
@@ -100,5 +121,6 @@ function clearCache(input){
 
 module.exports = {
 	getRandomFromFolder,
-	clearCache
+	clearCache,
+	searchTime
 }
