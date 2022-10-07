@@ -270,7 +270,7 @@ client.on('message', msg => {
             // else {
             //     msg.reply(PULL_DENY_GIFS[Math.floor(Math.random() * PULL_DENY_GIFS.length)]);
             // }
-            else if (/monke.app shutdown/i.test(msg.content)) {
+            else if (/monke.app (shutdown|stop|quit)/i.test(msg.content)) {
                 msg.lineReply('shutting down');
                 exec('sh shcmd/shutdown.sh');
                 return;
@@ -430,9 +430,9 @@ client.on('message', msg => {
                                 // accept only 1 message, and return the promise after 30000ms = 30s
         
                                 // first (and, in this case, only) message of the collection
-                                let optionSelect = collected.first().content.toLowerCase();
-                                if (optionSelect > results.length+1 || optionSelect < 0){
-                                    msg.lineReply('not in range, start search over.');
+                                let optionSelect = collected.first().content;
+                                if (optionSelect > results.length+1 || optionSelect < 0 || isNaN(optionSelect)){
+                                    msg.lineReply('not a number or in range, start search over.');
                                 }
                                 else {
                                     mYouTube.playSound(msg, `https://monke.s3.amazonaws.com/soundclown/${results[optionSelect]}`);
