@@ -1318,6 +1318,13 @@ client.on('message', msg => {
         else if (/(vine|boom)/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom.mp3');
         }
+        else if (/gay/i.test(msg.content)) {
+            if (msg.author.id == constants.USERS.CHRISTIAN) {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/youAreGay.wav');
+            } else {
+                mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/whyAreYouGay.wav');
+            }
+        }
         else if (/why.*are.*you.*gay/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why are you gay.wav');
         }
