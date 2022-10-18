@@ -1319,7 +1319,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom.mp3');
         }
         else if (/gay/i.test(msg.content)) {
-            if (msg.author.id == constants.USERS.CHRISTIAN) {
+            if (Math.random() >= 0.90 || msg.author.id == constants.USERS.JON) {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/youAreGay.wav');
             } else {
                 mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/whyAreYouGay.wav');
