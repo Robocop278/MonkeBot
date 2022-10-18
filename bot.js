@@ -481,6 +481,9 @@ client.on('message', msg => {
         else if (/monke.*\srap\s*$/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=zlm6bcMD7Fg');
         }
+        else if (/penis\s*music/i.test(msg.content)) {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=Ds14zhfHEvE');
+        }
         else if (/^music$/i.test(msg.content)) {
             mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=Lb4b91Ken7Y');
         }
