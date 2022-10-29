@@ -260,26 +260,30 @@ client.on('message', msg => {
 
 
     if (!(msg.author.id === '690351869650010333')) { //not monke itself
-        if (msg.member.roles.cache.has('899529644880056341')) {
-            let my_roles = msg.member.roles.cache;
-            if (/monke.app pull/i.test(msg.content)) {
-                msg.lineReply('pulling latest from git');
-                exec('sh shcmd/gitpull.sh');
-                return;
+        try {
+            if (msg.member.roles.cache.has('899529644880056341')) {
+                let my_roles = msg.member.roles.cache;
+                if (/monke.app pull/i.test(msg.content)) {
+                    msg.lineReply('pulling latest from git');
+                    exec('sh shcmd/gitpull.sh');
+                    return;
+                }
+                // else {
+                //     msg.reply(PULL_DENY_GIFS[Math.floor(Math.random() * PULL_DENY_GIFS.length)]);
+                // }
+                else if (/monke.app (shutdown|stop|quit)/i.test(msg.content)) {
+                    msg.lineReply('shutting down');
+                    exec('sh shcmd/shutdown.sh');
+                    return;
+                }
+                else if (/monke.app restart/i.test(msg.content)) {
+                    msg.lineReply('restarting, brb');
+                    exec('sh shcmd/restart.sh');
+                    return;
+                }
             }
-            // else {
-            //     msg.reply(PULL_DENY_GIFS[Math.floor(Math.random() * PULL_DENY_GIFS.length)]);
-            // }
-            else if (/monke.app (shutdown|stop|quit)/i.test(msg.content)) {
-                msg.lineReply('shutting down');
-                exec('sh shcmd/shutdown.sh');
-                return;
-            }
-            else if (/monke.app restart/i.test(msg.content)) {
-                msg.lineReply('restarting, brb');
-                exec('sh shcmd/restart.sh');
-                return;
-            }
+        } catch (error) {
+            console.error("Error reading roles: " + error + "\n" + JSON.stringify(msg));
         }
 
 
