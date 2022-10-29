@@ -249,7 +249,7 @@ client.on('message', msg => {
 
     let currentgettime = new Date().toLocaleTimeString('it-IT');
 
-
+    console.log(`Monke got message: ${msg.content}`)
 
     ///////////////////////////////////
     //                               //
