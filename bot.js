@@ -441,6 +441,7 @@ client.on('message', msg => {
                             msg.lineReply('not a number or in range, start search over.');
                         }
                         else {
+                            msg.lineReply(`Now Playing: ${results[optionSelect]}`);
                             mYouTube.playSound(msg, `https://monke.s3.amazonaws.com/soundclown/${results[optionSelect]}`);
                         }
                     }).catch(() => {
@@ -1400,6 +1401,9 @@ client.on('message', msg => {
             mYouTube.playSound(msg, DUBIOUS_SOUNDS[dubiousIndex]);
         }
         dubiousIndex = (dubiousIndex + 1) % DUBIOUS_SOUNDS.length;
+    }
+    else if(/boys are back/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/boys are back in town (to kill you).mp3'); 
     }
 
 
