@@ -12,8 +12,8 @@ const playSound = async(msg, url, startTime = '0') => {
     // return if we're currently locked
     if (PLAY_LOCK == 1) return;
 
-    // We only continue if the message is from a guild
-    if (!msg.guild) return;
+    // We only continue if the message is from a guild or from a valid member (ie. exclude bots)
+    if (!msg.guild || !msg.member) return;
 
     // Immediately store a reference to the voice channel. If we don't do this, we
     // can error out if we try to leave the member's voice channel but they've left
