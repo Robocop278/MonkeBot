@@ -263,7 +263,7 @@ client.on('message', msg => {
 
 
     try {
-        if (msg.member.roles.cache.has('899529644880056341')) {
+        if (msg.member != null && msg.member.roles.cache.has('899529644880056341')) {
             let my_roles = msg.member.roles.cache;
             if (/monke.app pull/i.test(msg.content)) {
                 msg.lineReply('pulling latest from git');
