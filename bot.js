@@ -173,7 +173,7 @@ const TT_MAMA_SOUNDS = [
     "https://static.wikia.nocookie.net/tattletail/images/b/b5/Ritual2.ogg/revision/latest?cb=20170918231359"
 ]
 const GO_TO_BED_RANGE = ['09:00:00', '13:00:00'];
-const GO_TO_BED_RANGE_TEST = ['00:00:00', '01:00:00'];
+//const GO_TO_BED_RANGE_TEST = ['00:00:00', '01:00:00'];
 const GO_TO_BED_GIFS = ["https://media.giphy.com/media/faIJtxH7QqlVNVBUNl/giphy.gif",
     "https://monophy.com/media/26hiscEbskfemtM7m/monophy.gif",
     "http://i.cdn.turner.com/cnn/2011/LIVING/05/13/go.the.f--k.to.sleep/t1larg.bookillustration.jpg",
@@ -229,7 +229,8 @@ client.on('ready', async () => {
 
     // Find our main server, will be needed later
     let inittime = new Date();
-    console.log(inittime.toLocaleTimeString('it-IT') + " " + inittime.getTimezoneOffset())
+    let OS = process.platform;
+    console.log(`------------------\n  INITIALIZATION\n------------------\nTIME:\t${inittime.toLocaleTimeString('it-IT')} \nOFFSET:\t${inittime.getTimezoneOffset()} \nOS:\t${OS}\n------------------\n`)
     console.log("Parsing through servers...");
     client.guilds.cache.forEach(async server => {
         if (server.id == constants.SERVER_GOOFS) {
@@ -252,7 +253,17 @@ client.on('message', msg => {
     }
 
     let currentgettime = new Date().toLocaleTimeString('it-IT');
-    console.log(`Monke got message: ${msg.content}`)
+    
+    if(!msg.content && msg.embeds)
+    {
+        console.log(`[${currentgettime}] ${msg.author.username}: [media embed]`)
+        return;
+    }
+    
+    console.log(`[${currentgettime}] ${msg.author.username} - ${msg.content}`)
+
+
+
 
     ///////////////////////////////////
     //                               //
@@ -267,6 +278,7 @@ client.on('message', msg => {
             let my_roles = msg.member.roles.cache;
             if (/monke.app pull/i.test(msg.content)) {
                 msg.lineReply('pulling latest from git');
+                console.log(`becoming stronger brb... \n`)
                 exec('sh shcmd/gitpull.sh');
                 return;
             }
@@ -275,11 +287,13 @@ client.on('message', msg => {
             // }
             else if (/monke.app (shutdown|stop|quit)/i.test(msg.content)) {
                 msg.lineReply('shutting down');
+                console.log(`fucking off, I dont need this shit \n`)
                 exec('sh shcmd/shutdown.sh');
                 return;
             }
             else if (/monke.app restart/i.test(msg.content)) {
                 msg.lineReply('restarting, brb');
+                console.log(`restarting, brb \n`)
                 exec('sh shcmd/restart.sh');
                 return;
             }
@@ -1325,15 +1339,15 @@ client.on('message', msg => {
     else if (/(vine|boom)/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom.mp3');
     }
+    else if (/why.*are.*you.*gay/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why are you gay.wav');
+    }
     else if (/gay/i.test(msg.content)) {
         if (Math.random() >= 0.90 || msg.author.id == constants.USERS.JON) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/youAreGay.wav');
         } else {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/whyAreYouGay.wav');
         }
-    }
-    else if (/why.*are.*you.*gay/i.test(msg.content)) {
-        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why are you gay.wav');
     }
     else if (/g(od|ah)\s*dam/i.test(msg.content)) {
         (async () => {
@@ -1404,6 +1418,9 @@ client.on('message', msg => {
     }
     else if(/boys are back/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/boys are back in town (to kill you).mp3'); 
+    }
+    else if(/california gurls/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/california gurls.mp3'); 
     }
 
 
