@@ -1337,7 +1337,11 @@ client.on('message', msg => {
         mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=K21kmzN5Zk8', '8');
     }
     else if (/(vine|boom)/i.test(msg.content)) {
-        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom.mp3');
+        if (Math.random() >= 0.90) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom-crit.mp3');
+        } else {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom.mp3');
+        }
     }
     else if (/why.*are.*you.*gay/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why are you gay.wav');
