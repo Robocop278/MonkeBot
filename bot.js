@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 require('discord-reply');
 const client = new Discord.Client();
 const ytdl = require('discord-ytdl-core');
-const exec = require('child_process').exec;
+const child_process = require('child_process');
+const exec = child_process.exec;
+const execSync = child_process.execSync;
 
 // Import constants
 const constants = require('./constants');
@@ -230,7 +232,9 @@ client.on('ready', async () => {
     // Find our main server, will be needed later
     let inittime = new Date();
     let OS = process.platform;
-    console.log(`------------------\n  INITIALIZATION\n------------------\nTIME:\t${inittime.toLocaleTimeString('it-IT')} \nOFFSET:\t${inittime.getTimezoneOffset()} \nOS:\t${OS}\n------------------\n`)
+    let bababooey = execSync(`git log -1 --pretty="format:The author of %h was %an, %ar;;The title was >>%s<<%n"`, {encoding: 'utf8'});
+    console.log(`------------------\n  INITIALIZATION\n------------------\nTIME:\t${inittime.toLocaleTimeString('it-IT')} \nOFFSET:\t${inittime.getTimezoneOffset()} \nOS:\t${OS}\n------------------\n`);
+    console.log(`${bababooey.replace(';;', '\n')}`);
     console.log("Parsing through servers...");
     client.guilds.cache.forEach(async server => {
         if (server.id == constants.SERVER_GOOFS) {
@@ -241,7 +245,7 @@ client.on('ready', async () => {
     console.log(`Monke bot ready`);
     client.channels.fetch('974290034133987429')
         .then(channel => {
-            channel.send(`monke started at ${inittime}, it ${inittime.getTimezoneOffset() == 0 ? 'is being hosted via AWS.' : `***is being hosted locally***, probably by ${inittime.getTimezoneOffset() >= 420 ? 'socal nerds christian or lisbin.' : 'the Ohio:tm: lad kebo.'}`}`);
+            channel.send(`------------------------------\nmonke started at ${inittime}, it ${inittime.getTimezoneOffset() == 0 ? 'is being hosted via AWS.' : `***is being hosted locally***, probably by ${inittime.getTimezoneOffset() >= 420 ? 'socal nerds christian or lisbin.' : 'the Ohio:tm: lad kebo.'}`}\n\n${bababooey.replace(';;', '\n')}------------------------------\n`);
         });
     // msg.guild.channels.cache.get('974290034133987429').send(`monke bot started up and ready`)
 });
@@ -374,11 +378,7 @@ client.on('message', msg => {
                 msg.lineReply('No answer after 30 seconds, operation canceled.');
             });
     }
-    else if (/nia/i.test(msg.content)) {
-        if (Math.random() >= 0.90) {
-            msg.channel.send("<@" + constants.USERS.KENNY + ">");
-        }
-    }
+
     else if (/amon?g\s*us/i.test(msg.content)) {
         msg.channel.send('ඞ');
     }
@@ -1421,6 +1421,14 @@ client.on('message', msg => {
     }
     else if(/california gurls/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/california gurls.mp3'); 
+    }
+    else if (/nia/i.test(msg.content)) {
+        if (Math.random() >= 0.90) {
+            msg.channel.send("<@" + constants.USERS.KENNY + ">");
+        }
+    }
+    else if(/bababooey/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bababooey.wav'); 
     }
 
 
