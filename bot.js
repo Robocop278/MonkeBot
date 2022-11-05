@@ -1338,7 +1338,7 @@ client.on('message', msg => {
     }
     else if (/(vine|boom)/i.test(msg.content)) {
         if (Math.random() >= 0.90) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom-crit.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom-crit.wav');
         } else {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/vine-boom.mp3');
         }
