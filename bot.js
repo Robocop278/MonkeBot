@@ -1434,6 +1434,9 @@ client.on('message', msg => {
     else if(/bababooey/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bababooey.wav'); 
     }
+    else if(/why/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why.mp3'); 
+    }
 
 
 
