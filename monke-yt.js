@@ -5,7 +5,7 @@ var avgTimeBetweenSounds = 0;
 var numOfRecentlyPlayedSounds = 0;
 var dateSinceLastPlay = new Date();
 var PLAY_LOCK = 0;
-
+let currentgettime = new Date().toLocaleTimeString('it-IT');
 
 // Given a msg and url (youtube or to a raw resource), if msg member is currently in a voice channel, jump into that voice channel and play audio
 const playSound = async(msg, url, startTime = '0') => {
@@ -28,8 +28,8 @@ const playSound = async(msg, url, startTime = '0') => {
         // console.log(`${/youtu/i.test(trueURL) ? `${msg} - Playing sound from link <${url}>` : `${msg} - Playing sound from link ${url}`}`)
         
         
-        // let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${msg} - Playing sound from link <${url}>`)
-        let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${/youtu/i.test(trueURL) ? `${msg} - Playing sound from link <${url}>` : `${msg} - Playing sound from link ${encodeURI(trueURL)}`}`)
+        //                                           monke-logs channel id
+        let sent = await msg.guild.channels.cache.get('974290034133987429').send(`${/youtu/i.test(trueURL) ? `[${currentgettime}] ${msg.channel.name} >  ${msg.author.username} - Playing sound from link <${url}>` : `[${currentgettime}] ${msg.channel.name} >  ${msg.author.username} - Playing sound from link ${encodeURI(trueURL)}`}`)
 
         // Check to see if we're getting a lot of consecutive sound requests
         var dateNow = new Date();

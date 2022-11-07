@@ -264,7 +264,7 @@ client.on('message', msg => {
         return;
     }
     
-    console.log(`[${currentgettime}] ${msg.author.username} - ${msg.content}`)
+    console.log(`[${currentgettime}] ${msg.channel.name} >  ${msg.author.username} - ${msg.content}`)
 
 
 
