@@ -552,10 +552,14 @@ client.on('message', msg => {
         mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9');
     }
     else if (/football/i.test(msg.content)) {
-        if (Math.random() >= 0.5) {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=37-AlmNdESg');
+        if (Math.random() >= 0.3) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/monke/NFL Earrape.mp4');
         } else {
-            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=ZKPnAfopfO8');
+            (async () => {
+                let url = await aws.getRandomFromFolder('NFL', msg)
+                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
+                mYouTube.playSound(msg, url);
+            })()
         }
     }
     else if (/monke.*timecard/i.test(msg.content)) {
