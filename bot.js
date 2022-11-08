@@ -1310,7 +1310,7 @@ client.on('message', msg => {
     }
     else if (/thx/i.test(msg.content)) {
         if (Math.random() >= 0.60) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/soundclown/thx-crank.mp3');
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/soundclown/thx-crank.wav');
         }
         else {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/thx-normal.mp3');
