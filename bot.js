@@ -556,8 +556,7 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/NFL_Earrape.mp3');
         } else {
             (async () => {
-                let url = await aws.getRandomFromFolder('NFL', msg)
-                msg.lineReply(`Now Playing: ${replyNowPlaying(url)}`)
+                let url = await aws.getRandomFromFolder('NFL')
                 mYouTube.playSound(msg, url);
             })()
         }
