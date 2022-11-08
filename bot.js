@@ -552,8 +552,8 @@ client.on('message', msg => {
         mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=jyeI3Ziii6w', '9');
     }
     else if (/football/i.test(msg.content)) {
-        if (Math.random() >= 0.3) {
-            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/monke/NFL Earrape.mp3');
+        if (Math.random() >= 0.75) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/NFL_Earrape.mp3');
         } else {
             (async () => {
                 let url = await aws.getRandomFromFolder('NFL', msg)
