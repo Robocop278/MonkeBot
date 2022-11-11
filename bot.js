@@ -1436,6 +1436,13 @@ client.on('message', msg => {
     else if(/why/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why.mp3'); 
     }
+    else if (/breathing in/i.test(msg.content)) {
+        if (Math.random() >= 0.95) {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/breathing in crit.mp3');
+        } else {
+            mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/breathing in.mp3');
+        }
+    }
 
 
 
