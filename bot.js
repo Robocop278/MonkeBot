@@ -282,7 +282,7 @@ client.on('message', msg => {
             let my_roles = msg.member.roles.cache;
             if (/monke.app pull/i.test(msg.content)) {
                 msg.lineReply('pulling latest from git');
-                console.log(`becoming stronger brb... \n`)
+                console.log(`becoming stronger brb...`)
                 exec('sh shcmd/gitpull.sh');
                 return;
             }
@@ -291,13 +291,13 @@ client.on('message', msg => {
             // }
             else if (/monke.app (shutdown|stop|quit)/i.test(msg.content)) {
                 msg.lineReply('shutting down');
-                console.log(`fucking off, I dont need this shit \n`)
+                console.log(`fucking off, I dont need this shit`)
                 exec('sh shcmd/shutdown.sh');
                 return;
             }
             else if (/monke.app restart/i.test(msg.content)) {
                 msg.lineReply('restarting, brb');
-                console.log(`restarting, brb \n`)
+                console.log(`restarting, brb`)
                 exec('sh shcmd/restart.sh');
                 return;
             }
@@ -1437,7 +1437,7 @@ client.on('message', msg => {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why.mp3'); 
     }
     else if (/breathing in/i.test(msg.content)) {
-        if (Math.random() >= 0.95) {
+        if (Math.random() >= 0.90) {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/breathing in crit.mp3');
         } else {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/breathing in.mp3');
