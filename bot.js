@@ -1425,11 +1425,11 @@ client.on('message', msg => {
     else if(/california gurls/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/california gurls.mp3'); 
     }
-    else if (/nia/i.test(msg.content)) {
-        if (Math.random() >= 0.90) {
-            msg.channel.send("<@" + constants.USERS.KENNY + ">");
-        }
-    }
+    // else if (/nia/i.test(msg.content)) {
+    //     if (Math.random() >= 0.90) {
+    //         msg.channel.send("<@" + constants.USERS.KENNY + ">");
+    //     }
+    // }
     else if(/bababooey/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bababooey.wav'); 
     }
