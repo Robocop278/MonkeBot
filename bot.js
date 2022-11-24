@@ -1443,6 +1443,9 @@ client.on('message', msg => {
             mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/breathing in.mp3');
         }
     }
+    else if(/minecraft steve/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/minecraft steve.mp3'); 
+    }
 
 
 
