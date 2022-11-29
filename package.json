@@ -1,7 +1,7 @@
 {
 	"name": "Monke-Bot",
 	"version": "1.0.0",
-	"description": "!monke commands",
+	"description": "Stupee Monke",
 	"main": "bot.js",
 	"author": "Christian Gutierrez",
 	"dependencies": {
