@@ -108,6 +108,12 @@ const LOUNGE_SOUNDS = [
     'https://www.youtube.com/watch?v=kSE15tLBdso'
 ];
 
+const GOBLIN_SOUNDS = [
+    'https://monke.s3.amazonaws.com/widdleGoblin.wav',
+    'https://monke.s3.amazonaws.com/widdleGoblinCrit01.wav',
+    'https://monke.s3.amazonaws.com/widdleGoblinCrit02.wav'
+];
+
 
 var spoonPointer = 0;
 var currentSpoonDate = new Date();
@@ -307,6 +313,15 @@ client.on('message', msg => {
     }
 
 
+    ///////////////////////////////////
+    //                               //
+    //    We do a little trolling    //
+    //                               //
+    ///////////////////////////////////
+
+    if (/^!monke commands$/i.test(msg.content)) {
+        msg.lineReply('https://cdnmetv.metv.com/z50xp-1619719725-16226-list_items-no.jpg');
+    }
 
     ///////////////////////////////////
     //                               //
@@ -316,7 +331,7 @@ client.on('message', msg => {
 
 
 
-    if (msg.content.toLowerCase() === 'howdy') {
+    else if (msg.content.toLowerCase() === 'howdy') {
         msg.lineReply('Howdy partner :cowboy:');
     }
     else if (/monke perish/i.test(msg.content)) {
@@ -1454,6 +1469,10 @@ client.on('message', msg => {
     }
     else if(/minecraft steve/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/minecraft steve.wav'); 
+    }
+    else if(/goblin/i.test(msg.content)) {
+        rnd = Math.floor(Math.random() * GOBLIN_SOUNDS.length)
+        mYouTube.playSound(msg, GOBLIN_SOUNDS[rnd]);
     }
 
 
