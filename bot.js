@@ -1474,6 +1474,9 @@ client.on('message', msg => {
         rnd = Math.floor(Math.random() * GOBLIN_SOUNDS.length)
         mYouTube.playSound(msg, GOBLIN_SOUNDS[rnd]);
     }
+    else if(/rare.*high.*moments/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/rareHighMoments.wav'); 
+    }
 
 
 
