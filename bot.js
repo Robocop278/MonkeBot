@@ -1434,7 +1434,16 @@ client.on('message', msg => {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/bababooey.wav'); 
     }
     else if(/why/i.test(msg.content)) {
-        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why.mp3'); 
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/why.mp3');
+    }
+    else if (/change\s*da\s*world/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/changeDaWorld.wav');
+    }
+    else if (/(?<!fe.*)male\s*fantasy/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/maleFantasy.wav');
+    }
+    else if (/let\s*me\s*in/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/letMeIn.wav');
     }
     else if (/breathing in/i.test(msg.content)) {
         if (Math.random() >= 0.90) {
@@ -1576,6 +1585,7 @@ client.on('message', msg => {
 
 
 
+
     ///////////////////////////////////
     //                               //
     //         Monke  Houses         //
@@ -1595,11 +1605,6 @@ client.on('message', msg => {
     else if (/monke test add points/i.test(msg.content)) {
         console.log("Testing add points");
         mHouses.addHousePoints(msg);
-    }
-
-    else if (/monke(y)?\s*shut\s*down/i.test(msg.content)) {
-        mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=renyltL2Dnc');
-        // https://stackoverflow.com/questions/23766259/restart-node-js-server-programmatically
     }
     else if (msg.mentions.has(client.user) && !msg.mentions.everyone) { // If message is pinging Monke Bot (but not pinging everyone)
         msg.channel.send(PINGED_GIFS[Math.floor(Math.random() * PINGED_GIFS.length)]);
