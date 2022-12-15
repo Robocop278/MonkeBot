@@ -1424,7 +1424,14 @@ client.on('message', msg => {
         }
     }
     else if (/lean/i.test(msg.content)) {
-        mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=P1zOBJYKUBc', '5');
+        if(Math.random() >= 0.85)
+        {
+            mYouTube.playSound(msg, 'https://www.youtube.com/watch?v=P1zOBJYKUBc', '5');
+        }
+        else
+        {
+            mYouTube.playSound(msg,'https://monke.s3.amazonaws.com/polar-lean.ogg')
+        }
     }
     else if (/dubious|creature/i.test(msg.content)) {
         if (Math.random() >= 0.70) {
