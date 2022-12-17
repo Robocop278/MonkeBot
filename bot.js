@@ -1484,6 +1484,12 @@ client.on('message', msg => {
     else if(/rare.*high.*moments/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/rareHighMoments.wav'); 
     }
+    else if(/jack\s?ass song/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/jackass full (minutemen - corona).mp3'); 
+    }
+    else if(/jack\s?ass/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/jackass.mp3'); 
+    }
 
 
 
