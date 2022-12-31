@@ -1397,14 +1397,14 @@ client.on('message', msg => {
     else if (/you have (failed|lost) the challenge/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME CHALLENGE.mp3');
     }
-    else if (/(gnome|ha\s*he)/i.test(msg.content)) {
-        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME HAHE.mp3');
-    }
     else if (/(gnome yay)/i.test(msg.content)) {
         (async () => {
             let url = await aws.getRandomFromFolder('gnome/yay')
             mYouTube.playSound(msg, url);
         })()
+    }
+    else if (/(gnome|ha\s*he)/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME HAHE.mp3');
     }
     else if (/caught in 4k/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/CameraShutter.mp3');
