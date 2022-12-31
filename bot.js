@@ -746,6 +746,9 @@ client.on('message', msg => {
     else if (/mail/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://youtu.be/fzRC37grckk');
     }
+    else if(/windows shut\s*down/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/windows xp shutdown.mp3'); 
+    }
     else if (/shut\s*down/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://youtu.be/m1QrNZCjRag');
     }
@@ -1499,9 +1502,7 @@ client.on('message', msg => {
     else if(/DUST|Detroit\s*Urban\s*Survival\s*Training/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/DUST.wav'); 
     }
-    else if(/windows shutdown/i.test(msg.content)) {
-        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/windows xp shutdown.mp3'); 
-    }
+    
 
 
 
