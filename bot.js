@@ -1397,6 +1397,12 @@ client.on('message', msg => {
     else if (/(gnome|ha\s*he)/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gnome/GNOME HAHE.mp3');
     }
+    else if (/(gnome yay)/i.test(msg.content)) {
+        (async () => {
+            let url = await aws.getRandomFromFolder('gnome/yay')
+            mYouTube.playSound(msg, url);
+        })()
+    }
     else if (/caught in 4k/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/CameraShutter.mp3');
     }
@@ -1492,6 +1498,9 @@ client.on('message', msg => {
     }
     else if(/DUST|Detroit\s*Urban\s*Survival\s*Training/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/DUST.wav'); 
+    }
+    else if(/windows shutdown/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/windows xp shutdown.mp3'); 
     }
 
 
