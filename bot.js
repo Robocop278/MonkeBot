@@ -1490,6 +1490,9 @@ client.on('message', msg => {
     else if(/jack\s?ass/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/jackass.mp3'); 
     }
+    else if(/DUST|Detroit\s*Urban\s*Survival\s*Training/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/DUST.wav'); 
+    }
 
 
 
