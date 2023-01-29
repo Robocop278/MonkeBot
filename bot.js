@@ -1502,7 +1502,7 @@ client.on('message', msg => {
     else if(/DUST|Detroit\s*Urban\s*Survival\s*Training/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/DUST.wav'); 
     }
-    else if(/all a (little|lil) nuts/i.test(msg.content)) {
+    else if(/all\sa\s(little|lil)\snuts/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/after%20all%2C%20we%27re%20all%20a%20little%20nuts.mp4'); 
     }
     else if(/nuts/i.test(msg.content)) {
