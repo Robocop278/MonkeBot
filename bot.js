@@ -1594,6 +1594,10 @@ client.on('message', msg => {
     else if (/EEnE\s*baby\s*gasp/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/EEnE/EEnE Baby Gasp 1.wav');
     }
+    else if(/gas/i.test(msg.content))
+    {
+        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gas/Jerma985 - gas.ogg');
+    }
 
 
 
