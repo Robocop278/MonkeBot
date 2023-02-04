@@ -1596,7 +1596,19 @@ client.on('message', msg => {
     }
     else if(/gas/i.test(msg.content))
     {
-        mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/gas/Jerma985 - gas.ogg');
+        (async () => {
+            let url = ""
+            if(Math.random() >= 0.85)
+            {
+                url = await aws.getRandomFromFolder('gas/crit',msg)
+            }
+            else
+            {
+                url = "https://monke.s3.amazonaws.com/gas/Jerma985 - gas.ogg"
+            }
+        
+            mYouTube.playSound(msg, url);
+        })()
     }
 
 

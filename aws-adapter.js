@@ -23,7 +23,8 @@ let awsCache = { // these are the folders we want to have no repeats in, good fo
 	"lounge/movie": [],
 	"soundclown": [],
 	"the  star war": [],
-	"NFL": []
+	"NFL": [],
+	"gas/crit": []
 };
 
 async function getRandomFromFolder(input, msg){ // only include the msg context if we want to check if it's in the cache; it's required to allow logging on reset
