@@ -1302,7 +1302,10 @@ client.on('message', msg => {
             mYouTube.playSound(msg, url);
         })()
     }
-    else if (/bad.*to.*the.*bone/.test(msg.content)) {
+    else if(/bone\s?hand/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/bone_hand.mp3'); 
+    }
+    else if (/bad.*to.*the.*bone/.test(msg.content)) { // 3/4/23
         mYouTube.playSound(msg, 'https://monke.s3.amazonaws.com/Bad_To_The_Bone.mp3');
     }
     else if (/(bad|bone)/i.test(msg.content)) {
@@ -1511,9 +1514,6 @@ client.on('message', msg => {
     }
     else if(/nuts/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/all_nuts.wav'); 
-    }
-    else if(/bone\s?hand/i.test(msg.content)) {
-        mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/bone_hand.mp3'); 
     }
     else if(/watching.*me/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/somebody_watching_me.mp3'); 
