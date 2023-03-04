@@ -1512,8 +1512,11 @@ client.on('message', msg => {
     else if(/nuts/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/all_nuts.wav'); 
     }
-    else if(/nuts/i.test(msg.content)) {
+    else if(/bone\s?hand/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/bone_hand.mp3'); 
+    }
+    else if(/watching.*me/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/somebody_watching_me.mp3'); 
     }
     
 
