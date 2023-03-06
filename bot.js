@@ -1518,6 +1518,9 @@ client.on('message', msg => {
     else if(/watching.*me/i.test(msg.content)) {
         mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/somebody_watching_me.mp3'); 
     }
+    else if(/rumbling/i.test(msg.content)) {
+        mYouTube.playSound(msg, 'https://monke.s3.us-east-1.amazonaws.com/rumbling.mp3'); 
+    }
     
 
 
