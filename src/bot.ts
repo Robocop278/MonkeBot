@@ -3,7 +3,7 @@ import {Client, Events, GatewayIntentBits, Partials} from 'discord.js';
 import * as monkeVoice from './monke-voice';
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
-const constantants = require('../config.json5');
+const configs = require('../config.json5');
 
 const client = new Client({
   intents: [
@@ -18,7 +18,7 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
   client.user?.setActivity('with type safety!', {type: ActivityType.Playing});
   client.user?.setAvatar('avatar_images/monkeBot_hardHat.png');
   client.guilds.cache
-    .get(constantants.CHANNEL_MAIN)
+    .get(configs.CHANNEL_MAIN)
     ?.members.cache.get('690351869650010333')
     ?.setNickname('🚧 Monke 2.0 🚧');
   console.log(`Ready! Logged in as ${c.user?.tag}`);
@@ -38,4 +38,4 @@ client.on(Events.MessageCreate, message => {
   console.log(`Message from ${message.author.username}: ${message.content}`);
 });
 
-client.login(constantants.PRIVATE_KEY);
+client.login(configs.PRIVATE_KEY);
