@@ -4,3 +4,4 @@ constants.js
 tests.js
 package.json
 package-lock.json
+config.json5
