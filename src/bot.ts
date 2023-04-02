@@ -1,9 +1,10 @@
-import {Guild} from 'discord.js';
-import {ActivityType} from 'discord.js';
+import {ActivityType, StageChannel, VoiceChannel} from 'discord.js';
 import {Client, Events, GatewayIntentBits, Partials} from 'discord.js';
+import * as monkeVoice from './monke-voice';
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
 const constantants = require('../config.json5');
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -26,6 +27,13 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
 client.on(Events.MessageCreate, message => {
   // We want to ignore all messages that come from monke itself
   if (message.author.id === '690351869650010333') return;
+
+  if (
+    message.member?.voice.channel !== null &&
+    message.member?.voice.channel !== undefined &&
+    !(message.member?.voice.channel instanceof StageChannel)
+  )
+    monkeVoice.connect(message.member?.voice.channel as VoiceChannel);
 
   console.log(`Message from ${message.author.username}: ${message.content}`);
 });
