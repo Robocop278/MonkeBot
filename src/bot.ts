@@ -10,13 +10,14 @@ const client = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildVoiceStates,
   ],
   partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
 
 client.once(Events.ClientReady, (c: Client<boolean>) => {
   client.user?.setActivity('with type safety!', {type: ActivityType.Playing});
-  client.user?.setAvatar('avatar_images/monkeBot_hardHat.png');
+  // client.user?.setAvatar('avatar_images/monkeBot_hardHat.png');
   client.guilds.cache
     .get(configs.CHANNEL_MAIN)
     ?.members.cache.get('690351869650010333')
@@ -32,10 +33,14 @@ client.on(Events.MessageCreate, message => {
     message.member?.voice.channel !== null &&
     message.member?.voice.channel !== undefined &&
     !(message.member?.voice.channel instanceof StageChannel)
-  )
+  ) {
     monkeVoice.connect(message.member?.voice.channel as VoiceChannel);
+    monkeVoice.testAudio();
+  }
 
   console.log(`Message from ${message.author.username}: ${message.content}`);
 });
 
 client.login(configs.PRIVATE_KEY);
+
+export = {};
