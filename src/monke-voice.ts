@@ -19,10 +19,10 @@ export function connect(channel: VoiceChannel) {
   });
 }
 
-export async function testAudio() {
+export async function testAudio(pathToFile: string) {
   const player = new AudioPlayer();
 
-  const resource = createAudioResource(createReadStream('Jerma985 - gas.ogg'));
+  const resource = createAudioResource(pathToFile);
 
   const connections = getVoiceConnections();
   console.log(connections.size);
