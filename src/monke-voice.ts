@@ -8,8 +8,8 @@ import {
   getVoiceConnections,
   joinVoiceChannel,
 } from '@discordjs/voice';
-import {VoiceChannel} from 'discord.js';
-import {createReadStream} from 'fs';
+import { VoiceChannel } from 'discord.js';
+import { createReadStream } from 'fs';
 
 export function connect(channel: VoiceChannel) {
   const connection = joinVoiceChannel({
@@ -20,6 +20,7 @@ export function connect(channel: VoiceChannel) {
 }
 
 export async function testAudio(pathToFile: string) {
+  console.log("testAudio");
   const player = new AudioPlayer();
 
   const resource = createAudioResource(pathToFile);
@@ -38,12 +39,22 @@ export async function testAudio(pathToFile: string) {
 
   player.play(resource);
 
-  setTimeout(() => {
-    subscribers.forEach(subscriber => {
-      subscriber.unsubscribe();
-    });
-    subscribers = [];
-  }, 5000);
+  player.on('stateChange', (oldState, newState) => {
+    if (newState.status === 'idle') {
+      console.log("unsubscribing in testAudio")
+      subscribers.forEach(subscriber => {
+        subscriber.unsubscribe();
+      });
+      subscribers = [];
+    }
+  })
+
+  // setTimeout(() => {
+  //   subscribers.forEach(subscriber => {
+  //     subscriber.unsubscribe();
+  //   });
+  //   subscribers = [];
+  // }, 30000);
 }
 
 function connectionReady(connections: Map<String, VoiceConnection>) {

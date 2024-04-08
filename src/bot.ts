@@ -1,7 +1,8 @@
-import {ActivityType, StageChannel, VoiceChannel} from 'discord.js';
-import {Client, Events, GatewayIntentBits, Partials} from 'discord.js';
+import { ActivityType, MediaChannel, Message, StageChannel, VoiceChannel, messageLink } from 'discord.js';
+import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
+import { ActionableCommand, MediaCommand, MonkeCommand, ReplyCommand } from './bot-commands';
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
 const configs = require('../config.json5');
@@ -17,7 +18,7 @@ const client = new Client({
 });
 
 client.once(Events.ClientReady, (c: Client<boolean>) => {
-  client.user?.setActivity('with type safety!', {type: ActivityType.Playing});
+  client.user?.setActivity('with type safety!', { type: ActivityType.Playing });
   // client.user?.setAvatar('avatar_images/monkeBot_hardHat.png');
   client.guilds.cache
     .get(configs.CHANNEL_MAIN)
@@ -26,9 +27,13 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
   console.log(`Ready! Logged in as ${c.user?.tag}`);
 });
 
+let currentMessage: Message;
 client.on(Events.MessageCreate, message => {
   // We want to ignore all messages that come from monke itself
   if (message.author.id === '690351869650010333') return;
+
+  console.log(`Message from ${message.author.username}: ${message.content}`);
+  currentMessage = message;
 
   const result = monkeCommands.test.find(
     (command: monkeCommands.MonkeCommand) => {
@@ -50,36 +55,74 @@ client.on(Events.MessageCreate, message => {
 
   if (result !== undefined) {
     if (
-      message.member?.id === configs.LISBIN &&
       message.member?.voice.channel !== null &&
       message.member?.voice.channel !== undefined &&
-      message.member?.voice.channel instanceof VoiceChannel &&
-      result.media !== undefined
+      message.member?.voice.channel instanceof VoiceChannel
     ) {
-      monkeVoice.connect(message.member?.voice.channel);
-      // if (result.crits !== undefined) {
-      //   const rand = Math.random();
-      //   result.crits.forEach(element => {
-      //     switch (element.comparatorType) {
-      //       case monkeCommands.Comparator.GreaterThanOrEqualTo:
-      //         return rand >= element.percentChance;
-      //       case monkeCommands.Comparator.GreaterThan:
-      //         return rand > element.percentChance;
-      //       case monkeCommands.Comparator.LessThanOrEqualTo:
-      //         return rand <= element.percentChance;
-      //       case monkeCommands.Comparator.LessThan:
-      //         return rand < element.percentChance;
-      //       default:
-      //         return result?.media;
-      //     }
-      //   });
-      // }
-      monkeVoice.testAudio(result.media);
+      console.log("Found match for lookUp: " + result.lookUp);
+      processCommand(result, message)
+    }
+  }
+});
+
+function processCommand(command: ActionableCommand, message: Message) {
+  console.log("processCommand: " + command);
+  if ((<MonkeCommand>command).content !== undefined) {
+    console.log("Fetched as MonkeCommand");
+    let monkeyCommand = command as MonkeCommand;
+    if (monkeyCommand.content.length === 1) {
+      // Check if a weight < 1 has been defined. If so, we need to roll to hit this event
+
+      if (monkeyCommand.content[0].weight && monkeyCommand.content[0].weight < 1) {
+        let rand = Math.random();
+        if (rand >= monkeyCommand.content[0].weight) {
+          return;
+        }
+      }
+      processCommand(monkeyCommand.content[0], message);
+    } else {
+      // Get all of our content. If no weight is explicitly declared, assume a weight of 1
+      // Get sum of all weights into weightsTotal
+      // Then generate a random number between 0 weightsTotal to determine which media to use
+      let weightsTotal = 0;
+
+      console.log("Parsing through available media:")
+      monkeyCommand.content.forEach(content => {
+        console.log("  Content weight: " + (content.weight ?? 1));
+        weightsTotal += (content.weight ?? 1);
+      });
+      console.log("Weight Sum for all content: " + weightsTotal);
+
+      let randIndex = Math.random() * weightsTotal;
+      console.log("Generated randIndex: " + randIndex);
+      let weightIndex = 0;
+      for (let content of monkeyCommand.content) {
+        weightIndex += (content.weight ?? 1);
+        console.log("  Current weightIndex: " + weightIndex);
+        if (randIndex < weightIndex) {
+          console.log("  Selecting content");
+          processCommand(content, message)
+          break;
+        }
+      };
+    }
+  }
+  else if ((<ReplyCommand>command).text_content !== undefined) {
+    console.log("Fetched as ReplyCommand");
+    let replyCommand = command as ReplyCommand;
+    currentMessage.reply(replyCommand.text_content);
+  }
+  else if ((<MediaCommand>command).media_url !== undefined) {
+    console.log("Fetched as MediaCommand");
+    let mediaCommand = command as MediaCommand;
+    let voiceChannel = message.member?.voice.channel
+    if (voiceChannel && voiceChannel instanceof VoiceChannel) {
+      monkeVoice.connect(voiceChannel);
+      monkeVoice.testAudio(mediaCommand.media_url);
     }
   }
 
-  console.log(`Message from ${message.author.username}: ${message.content}`);
-});
+}
 
 client.login(configs.PRIVATE_KEY);
 

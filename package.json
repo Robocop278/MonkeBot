@@ -2,8 +2,13 @@
 	"name": "monke-bot",
 	"version": "2.0.0",
 	"description": "Stupee Monke",
-	"main": "bot.js",
+	"main": "dist/bot.js",
 	"author": "Christian Gutierrez",
+	"scripts": {
+		"dev": "tsx watch src/bot.ts",
+		"build": "tsc",
+		"start": "node ."
+	},
 	"engines": {
 		"node": ">=16"
 	},
@@ -11,7 +16,8 @@
 		"@discordjs/opus": "^0.9.0",
 		"@discordjs/voice": "^0.15.0",
 		"chalk": "^4.1.0",
-		"discord.js": "^14.8.0",
+		"discord.js": "^14.14.1",
+		"dotenv": "^16.4.5",
 		"ffmpeg-static": "^5.1.0",
 		"json5": "^2.2.3",
 		"libsodium-wrappers": "^0.7.11",
@@ -21,7 +27,7 @@
 		"@npm/types": "^1.0.2",
 		"@types/eslint": "^8.37.0",
 		"@types/fs-extra": "^11.0.1",
-		"@types/node": "^18.15.11",
+		"@types/node": "^18.19.26",
 		"@types/prettier": "^2.7.2",
 		"@typescript-eslint/eslint-plugin": "^5.57.0",
 		"@typescript-eslint/parser": "^5.57.0",
@@ -33,7 +39,9 @@
 		"husky": "^8.0.3",
 		"prettier": "2.8.7",
 		"ts-node": "^10.9.1",
-		"typescript": "^5.0.3"
+		"tsup": "^8.0.2",
+		"tsx": "^4.7.1",
+		"typescript": "^5.4.3"
 	},
 	"peerDependencies": {
 		"typescript": ">=3"

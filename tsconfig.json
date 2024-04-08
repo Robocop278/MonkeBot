@@ -2,15 +2,22 @@
   "extends": "./tsconfig-google.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "build",
-    "resolveJsonModule": true,
+    "target": "ES2018",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "strict": true,
     "noImplicitAny": true,
+    "declaration": false,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
+    "outDir": "dist"
   },
   "include": [
-    "src/**/*.ts",
+    "src",
   ],
   "exclude": [
     "node_modules"
-   ]
+  ]
 }
