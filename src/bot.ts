@@ -2,7 +2,7 @@ import { ActivityType, MediaChannel, Message, StageChannel, VoiceChannel, messag
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
-import { ActionableCommand, MediaCommand, GroupCommand, SequenceCommand, ReplyCommand } from './bot-commands';
+import { ActionableCommand, MediaCommand, GroupCommand, SequenceCommand, ReplyCommand, ReactCommand } from './bot-commands';
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
 const configs = require('../config.json5');
@@ -148,6 +148,11 @@ function processCommand(command: ActionableCommand, message: Message) {
       monkeVoice.connect(voiceChannel);
       monkeVoice.testAudio(mediaCommand.media_url);
     }
+  }
+  else if ((<ReactCommand>command).reaction !== undefined) {
+    console.log("Fetched as ReactCommand");
+    let reactionCommand = command as ReactCommand;
+    message.react(reactionCommand.reaction);
   }
 
 }
