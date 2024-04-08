@@ -29,7 +29,11 @@ export interface ReactCommand extends CommandBase {
   reaction: string;
 }
 
-export type ActionableCommand = GroupCommand | SequenceCommand | ReplyCommand | MediaCommand | ReactCommand;
+export interface S3FolderCommand extends CommandBase {
+  bucket_folder: string;
+}
+
+export type ActionableCommand = GroupCommand | SequenceCommand | ReplyCommand | MediaCommand | ReactCommand | S3FolderCommand;
 
 export const test: RootCommand[] = [
   ///////////////////////////////////
@@ -64,7 +68,15 @@ export const test: RootCommand[] = [
   {
     lookUp: 'lean',
     command: {
-      media_url: 'https://monke.s3.amazonaws.com/polar-lean.ogg'
+      content: [
+        {
+          media_url: 'https://monke.s3.amazonaws.com/polar-lean.ogg',
+          weight: 8
+        },
+        {
+          media_url: 'https://www.youtube.com/watch?v=P1zOBJYKUBc'//, '5' //as in at 5 seconds
+        }
+      ]
     }
   },
   {
@@ -80,9 +92,43 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /tenor.*(autism.*creature|yipp?(e|i)e?)/i,
+    command: {
+      media_url: "https://monke.s3.amazonaws.com/yippee/yippee.mp3",
+      weight: 70
+    }
+  },
+  {
+    lookUp: /yippee/i,
+    command: {
+      content: [
+        {
+          weight: 70,
+          executeAll: true,
+          content: [
+            {
+              media_url: 'https://monke.s3.amazonaws.com/yippee/yippee.mp3'
+            },
+            {
+              text_content: 'https://tenor.com/view/yippee-gif-25852454'
+            }
+          ]
+        },
+        {
+          weight: 15,
+          media_url: 'https://monke.s3.amazonaws.com/yippee/yippee full.mp3'
+        },
+        {
+          weight: 15,
+          media_url: 'https://monke.s3.amazonaws.com/yippee/yippee jazz.mp3'
+        }
+      ]
+    }
+  },
+  {
     lookUp: /bwop/,
     command: {
-      media_url: 'https://www.youtube.com/watch?v=EIA1iX7Ooz8'
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/bwop.mp3'
     }
   },
   {
@@ -269,6 +315,132 @@ export const test: RootCommand[] = [
           ]
         }
       ]
+    }
+  },
+  {
+    lookUp: /super\s*mario\s*world/i,
+    command: {
+      content: [
+        {
+          media_url: 'https://www.youtube.com/watch?v=waKumDkYrDY',
+          weight: 7
+        }, {
+          media_url: 'https://monke.s3.amazonaws.com/soundclown/dinosaur-land.wav'
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /thx/i,
+    command: {
+      content: [
+        {
+          media_url: 'https://monke.s3.amazonaws.com/thx-normal.mp3',
+          weight: 6
+        },
+        {
+          media_url: 'https://monke.s3.amazonaws.com/soundclown/thx-crank.wav',
+          weight: 4
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /g(od|ah)\s*dam/i,
+    command: {
+      bucket_folder: 'GahDamn'
+    }
+  },
+  {
+    lookUp: /halo/i,
+    command: {
+      bucket_folder: 'HaloAnnouncer'
+    }
+  },
+  {
+    lookUp: /boys\sare\sback/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/boys are back in town (to kill you).mp3'
+    }
+  },
+  {
+    lookUp: /bababooey/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/bababooey.wav'
+    }
+  },
+  {
+    lookUp: /why/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/why.mp3'
+    }
+  },
+  {
+    lookUp: /change\s*da\s*world/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/changeDaWorld.wav'
+    }
+  },
+  {
+    lookUp: /rare.*high.*moments/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/rareHighMoments.wav'
+    }
+  },
+  {
+    lookUp: /breathing\sin/i,
+    command: {
+      content: [
+        {
+          weight: 9,
+          media_url: 'https://monke.s3.amazonaws.com/breathing in.mp3'
+        },
+        {
+          media_url: 'https://monke.s3.amazonaws.com/breathing in crit.mp3'
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /DUST|Detroit\s*Urban\s*Survival\s*Training/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/DUST.wav'
+    }
+  },
+  {
+    lookUp: /all\sa\s(little|lil)\snuts/i,
+    command: {
+      text_content: 'https://monke.s3.us-east-1.amazonaws.com/after%20all%2C%20we%27re%20all%20a%20little%20nuts.mp4'
+    }
+  },
+  {
+    lookUp: /nuts/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/all_nuts.wav'
+    }
+  },
+  {
+    lookUp: /watching.*me/i, // seems like it was deleted TODO Kevin or Lisbin do you know what this was?
+    command: {
+      text_content: 'https://monke.s3.us-east-1.amazonaws.com/somebody_watching_me.mp3'
+    }
+  },
+  {
+    lookUp: /alien/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/JOEL_ANTI_ALIEN_ALARM.ogg'
+    }
+  },
+  {
+    lookUp: /rumbling/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/rumbling.mp3'
+    }
+  },
+  {
+    lookUp: /cheezy\s*street/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/cheezy_street.mp3'
     }
   }
 ];

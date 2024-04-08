@@ -1,11 +1,19 @@
-import { ActivityType, MediaChannel, Message, StageChannel, VoiceChannel, messageLink } from 'discord.js';
+import { ActivityType, Message, VoiceChannel } from 'discord.js';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
-import { ActionableCommand, MediaCommand, GroupCommand, SequenceCommand, ReplyCommand, ReactCommand } from './bot-commands';
+import { ActionableCommand, MediaCommand, GroupCommand, SequenceCommand, ReplyCommand, ReactCommand, S3FolderCommand } from './bot-commands';
+import S3 from 'aws-sdk/clients/s3';
+
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
 const configs = require('../config.json5');
+
+const s3Client = new S3({
+  accessKeyId: configs.aws_access_key_id,
+  secretAccessKey: configs.aws_secret_access_key,
+  region: configs.aws_region
+});
 
 const client = new Client({
   intents: [
@@ -62,12 +70,12 @@ client.on(Events.MessageCreate, message => {
       message.member?.voice.channel instanceof VoiceChannel
     ) {
       console.log("Found match for lookUp: " + result.lookUp);
-      processCommand(result.command, message)
+      void processCommand(result.command, message)
     }
   }
 });
 
-function processCommand(command: ActionableCommand, message: Message) {
+async function processCommand(command: ActionableCommand, message: Message) {
   console.log("processCommand: " + command);
 
   // Check if a weight < 1 has been defined. If so, we need to roll to hit this event
@@ -153,6 +161,20 @@ function processCommand(command: ActionableCommand, message: Message) {
     console.log("Fetched as ReactCommand");
     let reactionCommand = command as ReactCommand;
     message.react(reactionCommand.reaction);
+  }
+  else if ((<S3FolderCommand>command).bucket_folder !== undefined) {
+    console.log("Fetched as S3FolderCommand");
+    let s3FolderCommand = command as S3FolderCommand;
+
+    const data = await s3Client.listObjectsV2({ Bucket: configs.aws_bucket_name, Prefix: s3FolderCommand.bucket_folder, StartAfter: s3FolderCommand.bucket_folder }).promise();
+    if (data.Contents) {
+      const dataContents = data.Contents.filter(entry => (entry.Size ?? 0) > 0)
+      const selectedMedia = dataContents[Math.floor(Math.random() * dataContents.length)].Key;
+      console.log("Selected S3 media: " + selectedMedia);
+      if (selectedMedia) {
+        processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+      }
+    }
   }
 
 }
