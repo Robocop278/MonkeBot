@@ -12,6 +12,11 @@ export interface GroupCommand extends CommandBase {
   executeAll?: boolean;
 }
 
+export interface SequenceCommand extends CommandBase {
+  sequence: ActionableCommand[];
+  sequenceId: string;
+}
+
 export interface ReplyCommand extends CommandBase {
   text_content: string;
 }
@@ -20,7 +25,7 @@ export interface MediaCommand extends CommandBase {
   media_url: string;
 }
 
-export type ActionableCommand = GroupCommand | ReplyCommand | MediaCommand;
+export type ActionableCommand = GroupCommand | SequenceCommand | ReplyCommand | MediaCommand;
 
 export const test: RootCommand[] = [
   ///////////////////////////////////
@@ -71,6 +76,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /bwop/,
+    command: {
+      media_url: 'https://www.youtube.com/watch?v=EIA1iX7Ooz8'
+    }
+  },
+  {
     lookUp: /YYYY/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/YYYY.mp3'
@@ -96,6 +107,38 @@ export const test: RootCommand[] = [
             },
             {
               text_content: 'https://tenor.com/view/esqueleto-gif-24452082'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /dubious|creature/i,
+    command: {
+      sequenceId: 'dubious',
+      sequence: [
+        {
+          content: [
+            {
+              media_url: 'https://monke.s3.amazonaws.com/dubiousCreature-01.wav',
+              weight: 7
+            },
+            {
+              media_url: 'https://monke.s3.amazonaws.com/dubiousCreature-01-crit.wav',
+              weight: 3
+            }
+          ]
+        },
+        {
+          content: [
+            {
+              media_url: 'https://monke.s3.amazonaws.com/dubiousCreature-02.wav',
+              weight: 7
+            },
+            {
+              media_url: 'https://monke.s3.amazonaws.com/dubiousCreature-02-crit.wav',
+              weight: 3
             }
           ]
         }

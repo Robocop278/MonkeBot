@@ -2,7 +2,7 @@ import { ActivityType, MediaChannel, Message, StageChannel, VoiceChannel, messag
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
-import { ActionableCommand, MediaCommand, GroupCommand, ReplyCommand } from './bot-commands';
+import { ActionableCommand, MediaCommand, GroupCommand, SequenceCommand, ReplyCommand } from './bot-commands';
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
 const configs = require('../config.json5');
@@ -16,6 +16,8 @@ const client = new Client({
   ],
   partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
+
+const commandSequenceIndices: { [key: string]: number } = {};
 
 client.once(Events.ClientReady, (c: Client<boolean>) => {
   client.user?.setActivity('with type safety!', { type: ActivityType.Playing });
@@ -67,22 +69,25 @@ client.on(Events.MessageCreate, message => {
 
 function processCommand(command: ActionableCommand, message: Message) {
   console.log("processCommand: " + command);
+
+  // Check if a weight < 1 has been defined. If so, we need to roll to hit this event
+  if (command.weight && command.weight < 1) {
+    let rand = Math.random();
+    console.log("Rolling for execution, weight: " + command.weight + ", rolled: " + rand);
+    if (rand >= command.weight) {
+      console.log("Execution failed, bad roll");
+      return;
+    }
+    console.log("Execution success, continuing");
+  }
+
   if ((<GroupCommand>command).content !== undefined) {
-    console.log("Fetched as MonkeCommand");
+    console.log("Fetched as GroupCommand");
     let monkeyCommand = command as GroupCommand;
 
     if (monkeyCommand.content.length === 1) {
-      // Check if a weight < 1 has been defined. If so, we need to roll to hit this event
-
-      if (monkeyCommand.content[0].weight && monkeyCommand.content[0].weight < 1) {
-        let rand = Math.random();
-        if (rand >= monkeyCommand.content[0].weight) {
-          return;
-        }
-      }
       processCommand(monkeyCommand.content[0], message);
     } else {
-
       // If exectuteAll is set to true, execute all commands
       if (monkeyCommand.executeAll) {
         monkeyCommand.content.forEach(element => {
@@ -116,6 +121,19 @@ function processCommand(command: ActionableCommand, message: Message) {
         }
       };
     }
+  }
+  else if ((<SequenceCommand>command).sequence) {
+    console.log("Fetched as SequenceCommand");
+    const sequenceCommand = command as SequenceCommand;
+
+    let sequenceIdx = commandSequenceIndices[sequenceCommand.sequenceId];
+    if (Number.isNaN(sequenceIdx) || sequenceIdx == undefined) {
+      sequenceIdx = -1;
+    }
+    sequenceIdx = (sequenceIdx + 1) % sequenceCommand.sequence.length;
+    commandSequenceIndices[sequenceCommand.sequenceId] = sequenceIdx;
+
+    processCommand(sequenceCommand.sequence[sequenceIdx], message);
   }
   else if ((<ReplyCommand>command).text_content !== undefined) {
     console.log("Fetched as ReplyCommand");
