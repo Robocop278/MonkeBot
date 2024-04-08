@@ -2,7 +2,7 @@ import { ActivityType, MediaChannel, Message, StageChannel, VoiceChannel, messag
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
-import { ActionableCommand, MediaCommand, MonkeCommand, ReplyCommand } from './bot-commands';
+import { ActionableCommand, MediaCommand, GroupCommand, ReplyCommand } from './bot-commands';
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
 const configs = require('../config.json5');
@@ -36,7 +36,7 @@ client.on(Events.MessageCreate, message => {
   currentMessage = message;
 
   const result = monkeCommands.test.find(
-    (command: monkeCommands.MonkeCommand) => {
+    (command: monkeCommands.RootCommand) => {
       if (
         typeof command.lookUp === 'string' &&
         message.content.includes(command.lookUp)
@@ -60,16 +60,17 @@ client.on(Events.MessageCreate, message => {
       message.member?.voice.channel instanceof VoiceChannel
     ) {
       console.log("Found match for lookUp: " + result.lookUp);
-      processCommand(result, message)
+      processCommand(result.command, message)
     }
   }
 });
 
 function processCommand(command: ActionableCommand, message: Message) {
   console.log("processCommand: " + command);
-  if ((<MonkeCommand>command).content !== undefined) {
+  if ((<GroupCommand>command).content !== undefined) {
     console.log("Fetched as MonkeCommand");
-    let monkeyCommand = command as MonkeCommand;
+    let monkeyCommand = command as GroupCommand;
+
     if (monkeyCommand.content.length === 1) {
       // Check if a weight < 1 has been defined. If so, we need to roll to hit this event
 
@@ -81,6 +82,15 @@ function processCommand(command: ActionableCommand, message: Message) {
       }
       processCommand(monkeyCommand.content[0], message);
     } else {
+
+      // If exectuteAll is set to true, execute all commands
+      if (monkeyCommand.executeAll) {
+        monkeyCommand.content.forEach(element => {
+          processCommand(element, message);
+        });
+        return;
+      }
+
       // Get all of our content. If no weight is explicitly declared, assume a weight of 1
       // Get sum of all weights into weightsTotal
       // Then generate a random number between 0 weightsTotal to determine which media to use
