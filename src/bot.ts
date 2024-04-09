@@ -37,6 +37,7 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
   console.log(`Ready! Logged in as ${c.user?.tag}`);
 });
 
+let timeoutId: NodeJS.Timeout;
 let currentMessage: Message;
 client.on(Events.MessageCreate, message => {
   // We want to ignore all messages that come from monke itself
@@ -70,6 +71,7 @@ client.on(Events.MessageCreate, message => {
       message.member?.voice.channel instanceof VoiceChannel
     ) {
       console.log("Found match for lookUp: " + result.lookUp);
+      clearTimeout(timeoutId);
       void processCommand(result.command, message)
     }
   }
@@ -150,11 +152,11 @@ async function processCommand(command: ActionableCommand, message: Message) {
     for (let i = 0; i < timedSequenceCommand.timedSequence.length; i++) {
       const sequenceEvent = timedSequenceCommand.timedSequence[i];
       await new Promise<void>((resolve) => {
-        setTimeout(() => {
+        timeoutId = setTimeout(() => {
           processCommand(sequenceEvent.command, message);
           resolve();
-        }, sequenceEvent.timeoutMillisecs)
-      })
+        }, sequenceEvent.timeoutMillisecs);
+      });
     }
   }
   else if ((<TextMessageCommand>command).text_content !== undefined) {
