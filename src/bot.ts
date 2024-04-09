@@ -2,7 +2,7 @@ import { ActivityType, Message, VoiceChannel } from 'discord.js';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
-import { ActionableCommand, MediaCommand, GroupCommand, SequenceCommand, ReplyCommand, ReactCommand, S3FolderCommand } from './bot-commands';
+import { ActionableCommand, MediaCommand, GroupCommand, SequenceCommand, TimedSequenceCommand, TextMessageCommand, ReactCommand, S3FolderCommand } from './bot-commands';
 import S3 from 'aws-sdk/clients/s3';
 
 require('json5/lib/register');
@@ -143,10 +143,28 @@ async function processCommand(command: ActionableCommand, message: Message) {
 
     processCommand(sequenceCommand.sequence[sequenceIdx], message);
   }
-  else if ((<ReplyCommand>command).text_content !== undefined) {
-    console.log("Fetched as ReplyCommand");
-    let replyCommand = command as ReplyCommand;
-    currentMessage.reply(replyCommand.text_content);
+  else if ((<TimedSequenceCommand>command).timedSequence !== undefined) {
+    console.log("Fetched as TimedSequenceCommand");
+    let timedSequenceCommand = command as TimedSequenceCommand;
+
+    for (let i = 0; i < timedSequenceCommand.timedSequence.length; i++) {
+      const sequenceEvent = timedSequenceCommand.timedSequence[i];
+      await new Promise<void>((resolve) => {
+        setTimeout(() => {
+          processCommand(sequenceEvent.command, message);
+          resolve();
+        }, sequenceEvent.timeoutMillisecs)
+      })
+    }
+  }
+  else if ((<TextMessageCommand>command).text_content !== undefined) {
+    console.log("Fetched as TextMessageCommand");
+    let textMessageCommand = command as TextMessageCommand;
+    if (textMessageCommand.reply) {
+      currentMessage.reply(textMessageCommand.text_content);
+    } else {
+      message.channel.send(textMessageCommand.text_content);
+    }
   }
   else if ((<MediaCommand>command).media_url !== undefined) {
     console.log("Fetched as MediaCommand");
@@ -166,9 +184,10 @@ async function processCommand(command: ActionableCommand, message: Message) {
     console.log("Fetched as S3FolderCommand");
     let s3FolderCommand = command as S3FolderCommand;
 
-    const data = await s3Client.listObjectsV2({ Bucket: configs.aws_bucket_name, Prefix: s3FolderCommand.bucket_folder, StartAfter: s3FolderCommand.bucket_folder }).promise();
+    const data = await s3Client.listObjectsV2({ Bucket: configs.aws_bucket_name, Prefix: `${s3FolderCommand.bucket_folder}/`, StartAfter: `${s3FolderCommand.bucket_folder}/` }).promise();
     if (data.Contents) {
-      const dataContents = data.Contents.filter(entry => (entry.Size ?? 0) > 0)
+      const dataContents = data.Contents.filter(entry => (entry.Size ?? 0) > 0);
+      console.log(`Reading S3 bucket contents for "${s3FolderCommand.bucket_folder}":\n${JSON.stringify(dataContents.map((entry) => entry.Key))}`);
       const selectedMedia = dataContents[Math.floor(Math.random() * dataContents.length)].Key;
       console.log("Selected S3 media: " + selectedMedia);
       if (selectedMedia) {

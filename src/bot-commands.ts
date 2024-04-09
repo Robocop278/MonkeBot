@@ -17,8 +17,17 @@ export interface SequenceCommand extends CommandBase {
   sequenceId: string;
 }
 
-export interface ReplyCommand extends CommandBase {
+export interface TimedSequenceEntry {
+  timeoutMillisecs: number;
+  command: ActionableCommand;
+}
+export interface TimedSequenceCommand extends CommandBase {
+  timedSequence: TimedSequenceEntry[];
+}
+
+export interface TextMessageCommand extends CommandBase {
   text_content: string;
+  reply?: boolean;
 }
 
 export interface MediaCommand extends CommandBase {
@@ -33,7 +42,7 @@ export interface S3FolderCommand extends CommandBase {
   bucket_folder: string;
 }
 
-export type ActionableCommand = GroupCommand | SequenceCommand | ReplyCommand | MediaCommand | ReactCommand | S3FolderCommand;
+export type ActionableCommand = GroupCommand | SequenceCommand | TimedSequenceCommand | TextMessageCommand | MediaCommand | ReactCommand | S3FolderCommand;
 
 export const test: RootCommand[] = [
   ///////////////////////////////////
@@ -44,7 +53,8 @@ export const test: RootCommand[] = [
   {
     lookUp: /^!monke commands$/i,
     command: {
-      text_content: 'https://cdnmetv.metv.com/z50xp-1619719725-16226-list_items-no.jpg'
+      text_content: 'https://cdnmetv.metv.com/z50xp-1619719725-16226-list_items-no.jpg',
+      reply: true
     }
   },
   {
@@ -140,15 +150,7 @@ export const test: RootCommand[] = [
   {
     lookUp: /boner/i,
     command: {
-      content: [
-        { media_url: 'https://monke.s3.amazonaws.com/boner/boner+-3.ogg' },
-        { media_url: 'https://monke.s3.amazonaws.com/boner/boner+-2.ogg' },
-        { media_url: 'https://monke.s3.amazonaws.com/boner/boner+-1.ogg' },
-        { media_url: 'https://monke.s3.amazonaws.com/boner/boner+0.ogg' },
-        { media_url: 'https://monke.s3.amazonaws.com/boner/boner+1.ogg' },
-        { media_url: 'https://monke.s3.amazonaws.com/boner/boner+2.ogg' },
-        { media_url: 'https://monke.s3.amazonaws.com/boner/boner+3.ogg' },
-      ]
+      bucket_folder: 'boner'
     }
   },
   {
@@ -438,9 +440,198 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /cheezy\s*street/i,
+    lookUp: /cheezy\s*street|rat\s*taxi/i,
     command: {
-      media_url: 'https://monke.s3.us-east-1.amazonaws.com/cheezy_street.mp3'
+      executeAll: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/cheezy_street.mp3'
+        },
+        {
+          timedSequence: [
+            {
+              command: { text_content: 'https://tenor.com/view/mozzarella-sticks-spinning-mozzarella-sticks-gif-24129498' },
+              timeoutMillisecs: 11700
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/nutella-gif-4099928683247293109' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/pesto-mozzarella-crustini-verde-burrata-gif-13144754' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/boba-fett-boba-feta-disney-the-book-of-boba-fett-boba-gif-24410023' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/tom-and-jerry-cheese-one-bite-jerry-mouse-gif-27668294' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rats-rat-dancing-dance-gif-26758028' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-gif-26402521' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-mice-crawling-roaming-gif-4449455' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/master-splinter-gif-11457286' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/remy-gif-18417714' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/butterfly-rat-beautiful-gif-13423696376657218513' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/white-cheese-cheese-chessy-delicious-yummy-gif-12756441' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-wheel-race-gif-11850721' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/cheese-wheel-italian-knife-trentino-gif-11362805' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/vanillabizcotti-vanbiz-vanbiztherapper-comedy-memes-gif-21535703' },
+              timeoutMillisecs: 666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/cheese-slice-cheddar-oddly-satisfying-gif-3382829' },
+              timeoutMillisecs: 666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/biggie-cheese-biggiecheese-aesthetic-gif-20932775' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/pixel-city-chill-gif-22227473' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/tom-and-jerry-gangster-cats-gif-18913622' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-dancing-rat-dancing-gif-24339527' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/muppets-from-space-rizzo-the-rat-lab-rat-punch-test-gif-27398336' },
+              timeoutMillisecs: 21328
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/lost-in-the-maze-oxygen-rat-in-a-maze-where-am-i-finding-the-exit-gif-21612298' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-in-a-maze-oxygen-gotta-escape-find-my-way-out-where-am-i-gif-21612283' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/labirent-maze-labyrinth-gif-10894379' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/exercise-funny-animals-mouse-rat-work-out-gif-17244075' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/work-out-cute-rat-exercise-fitness-gif-17489902' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/ugly-rat-gif-22684958' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/ninju-shino-buff-mice-demon-slayer-demon-slayer-season2-tengen-uzui-gif-24439479' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/taxi-insurance-car-insurance-cheap-taxi-insurance-insurance-company-insurance-in-london-gif-13721155' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-rat-drive-rat-driving-rat-car-gif-26515012' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/cheese-mouse-trap-food-hungry-creature-comforts-gif-12489639' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/transfer-bologna-siena-gif-22856402' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/transfer-verona-lake-garda-gif-22425999' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/mouse-trap-tom-and-jerry-gif-10143379' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/poison-gif-25302299' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/tkt-smart-gif-20642718' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/stiffy-uh-rat-mouse-grooves-gif-16483892' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-ouais-le-rat-rat-de-france-cest%C3%A7a-le-rat-rat-fr352-gif-24643050' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/taxi-insurance-car-insurance-cheap-taxi-insurance-insurance-company-insurance-in-london-gif-13721155' },
+              timeoutMillisecs: 13330
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-rat-drive-rat-driving-rat-car-gif-26515012' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/cheese-mouse-trap-food-hungry-creature-comforts-gif-12489639' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/transfer-bologna-siena-gif-22856402' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/transfer-verona-lake-garda-gif-22425999' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/mouse-trap-tom-and-jerry-gif-10143379' },
+              timeoutMillisecs: 1333
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/cute-peace-fade-bye-awesome-gif-16994521' },
+              timeoutMillisecs: 2666
+            }
+          ]
+        }
+      ]
     }
   }
 ];
