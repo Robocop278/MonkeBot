@@ -98,7 +98,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
     if (monkeyCommand.content.length === 1) {
       processCommand(monkeyCommand.content[0], message);
     } else {
-      // If exectuteAll is set to true, execute all commands
+      // If executeAll is set to true, execute all commands
       if (monkeyCommand.executeAll) {
         monkeyCommand.content.forEach(element => {
           processCommand(element, message);
