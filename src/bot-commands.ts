@@ -360,6 +360,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /juju/i,
+    command: {
+      bucket_folder: 'jujuOnThatBeat'
+    }
+  },
+  {
     lookUp: /boys\sare\sback/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/boys are back in town (to kill you).mp3'
