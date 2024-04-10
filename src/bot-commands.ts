@@ -446,6 +446,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /wh?a+h/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/whaaah.mp4'
+    }
+  },
+  {
     lookUp: /cheezy\s*street|rat\s*taxi/i,
     command: {
       executeAll: true,
