@@ -154,6 +154,18 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /tt.*laugh/,
+    command: {
+      bucket_folder: 'tatl/laugh'
+    }
+  },
+  {
+    lookUp: /tt.*mama/,
+    command: {
+      bucket_folder: 'tatl/mama'
+    }
+  },
+  {
     lookUp: /tired.*grandpa/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/imTiredOfThisGrandpa.mp3'
