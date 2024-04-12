@@ -154,6 +154,18 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /tired.*grandpa/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/imTiredOfThisGrandpa.mp3'
+    }
+  },
+  {
+    lookUp: /too.*damn.*bad/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/THATSTOODAMNBAD.mp3'
+    }
+  },
+  {
     lookUp: /bad|bone/,
     command: {
       content: [
