@@ -166,6 +166,36 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /goblin/,
+    command: {
+      bucket_folder: 'goblin'
+    }
+  },
+  {
+    lookUp: /drunke/,
+    command: {
+      bucket_folder: 'demoman'
+    }
+  },
+  {
+    lookUp: /byeah/,
+    command: {
+      bucket_folder: 'byeah'
+    }
+  },
+  {
+    lookUp: /cleveland/,
+    command: {
+      bucket_folder: 'cleveland'
+    }
+  },
+  {
+    lookUp: /badumtss/,
+    command: {
+      bucket_folder: 'badumtss'
+    }
+  },
+  {
     lookUp: /tired.*grandpa/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/imTiredOfThisGrandpa.mp3'
@@ -453,7 +483,7 @@ export const test: RootCommand[] = [
   },
   {
     lookUp: /watching.*me/i, // seems like it was deleted TODO Kevin or Lisbin do you know what this was?
-    command: {
+    command: {               // found it locally, idk where it went on s3  - KC
       text_content: 'https://monke.s3.us-east-1.amazonaws.com/somebody_watching_me.mp3'
     }
   },
