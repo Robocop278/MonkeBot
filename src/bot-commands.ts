@@ -117,6 +117,20 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: 'intermission',
+    command: {
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/09%20-%20Intermission.mp3',
+          weight: 5
+        },
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/intermission%20crit.mp3'
+        }
+      ]
+    }
+  },
+  {
     lookUp: /^e$/i,
     command: {
       content: [{
