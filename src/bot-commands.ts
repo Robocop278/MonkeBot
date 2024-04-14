@@ -13,9 +13,9 @@ export interface GroupCommand extends CommandBase {
   executeAll?: boolean;
 }
 
-export type SchCmd = 'update' | 'restart' | 'shutdown';
+export type ShCmd = 'update' | 'restart' | 'shutdown';
 export interface AdminCommand extends CommandBase {
-  shcmd: SchCmd;
+  shcmd: ShCmd;
 }
 
 export interface SequenceCommand extends CommandBase {
