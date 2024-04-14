@@ -111,7 +111,7 @@ export const test: RootCommand[] = [
           weight: 8
         },
         {
-          media_url: 'https://www.youtube.com/watch?v=P1zOBJYKUBc'//, '5' //as in at 5 seconds
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/I_Love_Lean.ogg'
         }
       ]
     }
@@ -339,6 +339,24 @@ export const test: RootCommand[] = [
     lookUp: /drunke/,
     command: {
       bucket_folder: 'demoman'
+    }
+  },
+  {
+    lookUp: /^ow+$/,
+    command: {
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/oww/oww.ogg',
+          weight: 3
+        },
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/oww/oww2.ogg',
+          weight: 3
+        },
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/oww/owwcrit.ogg'
+        }
+      ]
     }
   },
   {
