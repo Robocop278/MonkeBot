@@ -140,13 +140,16 @@ async function processCommand(command: ActionableCommand, message: Message) {
     console.log("AdminCommand awawaw");
     let adminshcmd = command as AdminCommand;
     if (message.member != null && message.member.roles.cache.has('899529644880056341')) {
+      console.log(adminshcmd.shcmd)
       switch (adminshcmd.shcmd) {
         case 'update': {
+          console.log(' we hit')
           exec('sh shcmd/update.sh');
           break;
         }
         default: {
           //fuck
+          console.log('FUCK WE DIDNT HIT ADMIN CORRECTLY')
           break;
         }
 
