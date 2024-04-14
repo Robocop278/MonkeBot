@@ -9,7 +9,7 @@ require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
 const configs = require('../config.json5');
 
-const child_process = require('child_process');
+const child_process = require('node:child_process');
 const exec = child_process.exec;
 const execSync = child_process.execSync;
 
