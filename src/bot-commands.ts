@@ -197,7 +197,54 @@ export const test: RootCommand[] = [
   {
     lookUp: /clash.*royale|clashr/,
     command: {
-      bucket_folder: 'Clash Royale'
+      content: [
+        {
+          executeAll: true,
+          content: [
+            {
+              media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_crying_01_dl.ogg'
+            },
+            {
+              reply: true,
+              text_content: 'https://media.tenor.com/s6Y_D_8viO4AAAAM/clash-royale-cry.gif'
+            }
+          ]
+        },
+        {
+          executeAll: true,
+          content: [
+            {
+              media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_happy_01_dl.ogg'
+            },
+            {
+              reply: true,
+              text_content: 'https://tenor.com/7Wej.gif'
+            }
+          ]
+        }, {
+          executeAll: true,
+          content: [
+            {
+              media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_laughter_01_dl.ogg'
+            },
+            {
+              reply: true,
+              text_content: 'https://tenor.com/xoga.gif'
+            }
+          ]
+        }, {
+          executeAll: true,
+          content: [
+            {
+              media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_mad_01_dl.ogg'
+            },
+            {
+              reply: true,
+              text_content: 'https://tenor.com/bWWbq.gif'
+            }
+          ]
+        }
+      ]
     }
   },
   {
