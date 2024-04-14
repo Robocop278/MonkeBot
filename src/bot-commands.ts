@@ -678,9 +678,9 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /watching.*me/i, // seems like it was deleted TODO Kevin or Lisbin do you know what this was?
-    command: {               // found it locally, idk where it went on s3  - KC
-      text_content: 'https://monke.s3.us-east-1.amazonaws.com/somebody_watching_me.mp3'
+    lookUp: /watching.*me/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/somebody_watching_me.mp3'
     }
   },
   {
