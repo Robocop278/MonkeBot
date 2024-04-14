@@ -144,26 +144,32 @@ async function processCommand(command: ActionableCommand, message: Message) {
       switch (adminshcmd.shcmd) {
         case 'update': {
           console.log(' pulling latest from git')
+          await message.reply("https://tenor.com/view/chef-armando-strainer-chef-cooking-gif-7301575759299383064");
           exec('sh shcmd/update.sh');
           break;
         }
         case 'restart': {
           console.log(' restarting')
+          await message.reply("https://tenor.com/view/bmo-adventure-time-recharge-batteries-power-gif-5006828");
           exec('sh shcmd/update.sh');
           break;
         }
         case 'shutdown': {
           console.log(` fucking off, I don't need this shit`)
+          await message.reply("https://tenor.com/view/walks-away-sad-leave-tom-and-jerry-gif-16877258");
           exec('sh shcmd/shutdown.sh');
           break;
         }
-        default: {
-          //fuck
-          console.log('FUCK WE DIDNT HIT ADMIN CORRECTLY')
-          break;
-        }
-
       }
+    } else {
+      processCommand({
+        content: [
+          { media_url: 'https://64.media.tumblr.com/fcb630b33a66e2d0a45e76baa59f1e2b/tumblr_o35vmuaRom1s2w9y9o4_500.gif' },
+          { media_url: 'https://www.reactiongifs.com/r/trlrky.gif' },
+          { media_url: 'https://www.bigfooty.com/forum/media/dr-evil-how-about-no-gif.115792/full' },
+          { media_url: 'https://giphy.com/gifs/ForbesTheCulture-fortheculture-forbestheculture-forbes-the-culture-0FPXJfQjetvyOFcOgo' }
+        ]
+      }, message);
     }
   }
   else if ((<SequenceCommand>command).sequence) {

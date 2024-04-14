@@ -13,8 +13,9 @@ export interface GroupCommand extends CommandBase {
   executeAll?: boolean;
 }
 
+export type SchCmd = 'update' | 'restart' | 'shutdown';
 export interface AdminCommand extends CommandBase {
-  shcmd: string;
+  shcmd: SchCmd;
 }
 
 export interface SequenceCommand extends CommandBase {
@@ -55,46 +56,19 @@ export const test: RootCommand[] = [
   {
     lookUp: /monke\.app update/,
     command: {
-      executeAll: true,
-      content: [
-        {
-          reply: true,
-          text_content: 'pulling latest from git'
-        },
-        {
-          shcmd: 'update'
-        }
-      ]
+      shcmd: 'update'
     }
   },
   {
     lookUp: /monke\.app restart/,
     command: {
-      executeAll: true,
-      content: [
-        {
-          reply: true,
-          text_content: 'restarting... brb'
-        },
-        {
-          shcmd: 'restart'
-        }
-      ]
+      shcmd: 'restart'
     }
   },
   {
     lookUp: /monke\.app shutdown/,
     command: {
-      executeAll: true,
-      content: [
-        {
-          reply: true,
-          text_content: 'shutting down :sad:'
-        },
-        {
-          shcmd: 'shutdown'
-        }
-      ]
+      shcmd: 'shutdown'
     }
   },
 
