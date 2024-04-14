@@ -55,7 +55,46 @@ export const test: RootCommand[] = [
   {
     lookUp: /monke\.app update/,
     command: {
-      shcmd: 'update'
+      executeAll: true,
+      content: [
+        {
+          reply: true,
+          text_content: 'pulling latest from git'
+        },
+        {
+          shcmd: 'update'
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /monke\.app restart/,
+    command: {
+      executeAll: true,
+      content: [
+        {
+          reply: true,
+          text_content: 'restarting... brb'
+        },
+        {
+          shcmd: 'restart'
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /monke\.app shutdown/,
+    command: {
+      executeAll: true,
+      content: [
+        {
+          reply: true,
+          text_content: 'shutting down :sad:'
+        },
+        {
+          shcmd: 'shutdown'
+        }
+      ]
     }
   },
 

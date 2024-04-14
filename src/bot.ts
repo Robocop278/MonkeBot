@@ -143,9 +143,18 @@ async function processCommand(command: ActionableCommand, message: Message) {
       console.log(adminshcmd.shcmd)
       switch (adminshcmd.shcmd) {
         case 'update': {
-          console.log(' we hit')
-          exec('echo "test"')
+          console.log(' pulling latest from git')
           exec('sh shcmd/update.sh');
+          break;
+        }
+        case 'restart': {
+          console.log(' restarting')
+          exec('sh shcmd/update.sh');
+          break;
+        }
+        case 'shutdown': {
+          console.log(` fucking off, I don't need this shit`)
+          exec('sh shcmd/shutdown.sh');
           break;
         }
         default: {
