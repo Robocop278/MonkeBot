@@ -342,6 +342,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /rumbling/,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/rumbling.mp3'
+    }
+  },
+  {
     lookUp: /^ow+$/,
     command: {
       content: [
