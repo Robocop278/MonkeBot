@@ -190,6 +190,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /gnome.*yay/,
+    command: {
+      bucket_folder: 'gnome/yay'
+    }
+  },
+  {
     lookUp: /badumtss/,
     command: {
       bucket_folder: 'badumtss'
