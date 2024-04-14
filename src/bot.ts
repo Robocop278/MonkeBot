@@ -174,7 +174,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
     let voiceChannel = message.member?.voice.channel
     if (voiceChannel && voiceChannel instanceof VoiceChannel) {
       monkeVoice.connect(voiceChannel);
-      monkeVoice.testAudio(mediaCommand.media_url);
+      await monkeVoice.testAudio(mediaCommand.media_url);
     }
   }
   else if ((<ReactCommand>command).reaction !== undefined) {
