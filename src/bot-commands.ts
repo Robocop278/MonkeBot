@@ -163,6 +163,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /monke.*suck|monke.*succ/,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/fart_with_extra_reverb_reversed.mp3'
+    }
+  },
+  {
     lookUp: /bwop/,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/bwop.mp3'
