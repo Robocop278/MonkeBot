@@ -2,12 +2,16 @@ import { ActivityType, Message, VoiceChannel } from 'discord.js';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
-import { ActionableCommand, MediaCommand, GroupCommand, SequenceCommand, TimedSequenceCommand, TextMessageCommand, ReactCommand, S3FolderCommand } from './bot-commands';
+import { ActionableCommand, MediaCommand, GroupCommand, AdminCommand, SequenceCommand, TimedSequenceCommand, TextMessageCommand, ReactCommand, S3FolderCommand } from './bot-commands';
 import S3 from 'aws-sdk/clients/s3';
 
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
 const configs = require('../config.json5');
+
+const child_process = require('child_process');
+const exec = child_process.exec;
+const execSync = child_process.execSync;
 
 const s3Client = new S3({
   accessKeyId: configs.aws_access_key_id,
@@ -130,6 +134,22 @@ async function processCommand(command: ActionableCommand, message: Message) {
           break;
         }
       };
+    }
+  }
+  else if ((<AdminCommand>command).shcmd !== undefined) {
+    let adminshcmd = command as AdminCommand;
+    if (message.member != null && message.member.roles.cache.has('899529644880056341')) {
+      switch (adminshcmd.shcmd) {
+        case 'update': {
+          exec('sh shcmd/update.sh');
+          break;
+        }
+        default: {
+          //fuck
+          break;
+        }
+
+      }
     }
   }
   else if ((<SequenceCommand>command).sequence) {

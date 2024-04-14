@@ -7,9 +7,14 @@ export interface RootCommand {
   command: ActionableCommand;
 }
 
+
 export interface GroupCommand extends CommandBase {
   content: ActionableCommand[];
   executeAll?: boolean;
+}
+
+export interface AdminCommand extends CommandBase {
+  shcmd: string;
 }
 
 export interface SequenceCommand extends CommandBase {
@@ -42,9 +47,18 @@ export interface S3FolderCommand extends CommandBase {
   bucket_folder: string;
 }
 
-export type ActionableCommand = GroupCommand | SequenceCommand | TimedSequenceCommand | TextMessageCommand | MediaCommand | ReactCommand | S3FolderCommand;
+export type ActionableCommand = GroupCommand | AdminCommand | SequenceCommand | TimedSequenceCommand | TextMessageCommand | MediaCommand | ReactCommand | S3FolderCommand;
 
 export const test: RootCommand[] = [
+
+  // admin shit
+  {
+    lookUp: /monke.app update/,
+    command: {
+      shcmd: 'update'
+    }
+  },
+
   ///////////////////////////////////
   //                               //
   //    We do a little trolling    //
@@ -139,6 +153,18 @@ export const test: RootCommand[] = [
     lookUp: /bwop/,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/bwop.mp3'
+    }
+  },
+  {
+    lookUp: /clash.*royale|clashr/,
+    command: {
+      bucket_folder: 'Clash Royale'
+    }
+  },
+  {
+    lookUp: /heheheha/,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash Royale/king_laughter_01_dl.ogg'
     }
   },
   {
