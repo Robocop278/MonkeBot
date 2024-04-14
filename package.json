@@ -6,7 +6,7 @@
 	"author": "Christian Gutierrez",
 	"scripts": {
 		"dev": "tsx watch src/bot.ts",
-		"build": "tsc",
+		"build": "tsc --verbose",
 		"start": "pm2 start . --watch"
 	},
 	"engines": {
