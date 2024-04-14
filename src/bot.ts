@@ -39,6 +39,12 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
     ?.members.cache.get('690351869650010333')
     ?.setNickname('🚧 Monke 2.0 🚧');
   console.log(`Ready! Logged in as ${c.user?.tag}`);
+
+  let inittime = new Date();
+  let OS = process.platform;
+  let initinfo = execSync(`git log -1 --pretty="format:The author of %h was %an, %ar;;The title was >>%s<<%n"`, { encoding: 'utf8' });
+  console.log(`------------------\n  INITIALIZATION\n------------------\nTIME:\t${inittime.toLocaleTimeString('it-IT')} \nOFFSET:\t${inittime.getTimezoneOffset()} \nOS:\t${OS}\n------------------\n`);
+  console.log(`${initinfo.replace(';;', '\n')}------------------\n`);
 });
 
 let timeoutId: NodeJS.Timeout;
