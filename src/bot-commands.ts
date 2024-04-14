@@ -314,19 +314,19 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /balloon\s*boy|balloonboy|bb)\s*hello/,
+    lookUp: /(balloon\s*boy|balloonboy|bb)\s*hello)/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hello.ogg'
     }
   },
   {
-    lookUp: /balloon\s*boy|balloonboy|bb)\s*hi/,
+    lookUp: /(balloon\s*boy|balloonboy|bb)\s*hi/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hi.ogg'
     }
   },
   {
-    lookUp: /balloon\s*boy|balloonboy|bb)\s*(haha|laugh)/,
+    lookUp: /(balloon\s*boy|balloonboy|bb)\s*(haha|laugh)/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_laugh.ogg'
     }
