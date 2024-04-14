@@ -7,7 +7,10 @@
 	"scripts": {
 		"dev": "tsx watch src/bot.ts",
 		"build": "tsc --build --verbose",
-		"start": "pm2 start . --watch"
+		"start": "pm2 start . --watch",
+		"restart": "pm2 restart .",
+		"update": "git pull --rebase; npm run build;",
+		"stop": "pm2 stop ."
 	},
 	"engines": {
 		"node": ">=16"
