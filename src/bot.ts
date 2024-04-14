@@ -144,6 +144,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
       switch (adminshcmd.shcmd) {
         case 'update': {
           console.log(' we hit')
+          exec('echo "test"')
           exec('sh shcmd/update.sh');
           break;
         }
