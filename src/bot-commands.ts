@@ -164,7 +164,7 @@ export const test: RootCommand[] = [
   {
     lookUp: /heheheha/,
     command: {
-      media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash Royale/king_laughter_01_dl.ogg'
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_laughter_01_dl.ogg'
     }
   },
   {
