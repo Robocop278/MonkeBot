@@ -2,7 +2,7 @@
 	"name": "monke-bot",
 	"version": "2.0.0",
 	"description": "Stupee Monke",
-	"main": "dist/bot.js",
+	"main": "dist/src/bot.js",
 	"author": "Christian Gutierrez",
 	"scripts": {
 		"dev": "tsx watch src/bot.ts",
