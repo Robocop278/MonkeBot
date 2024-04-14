@@ -248,9 +248,63 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /heheheha/,
+    lookUp: /king.*sad|king.*cry/,
     command: {
-      media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_laughter_01_dl.ogg'
+      executeAll: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_crying_01_dl.ogg'
+        },
+        {
+          reply: true,
+          text_content: 'https://media.tenor.com/s6Y_D_8viO4AAAAM/clash-royale-cry.gif'
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /heheheha|king.*laugh/,
+    command: {
+      executeAll: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_laughter_01_dl.ogg'
+        },
+        {
+          reply: true,
+          text_content: 'https://tenor.com/xoga.gif'
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /king.*happy/,
+    command: {
+      executeAll: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_happy_01_dl.ogg'
+        },
+        {
+          reply: true,
+          text_content: 'https://tenor.com/7Wej.gif'
+        }
+      ]
+    }
+  },
+  {
+    lookUp: /king.*mad|king.*angry|king.*rage/,
+    command: {
+      executeAll: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_mad_01_dl.ogg'
+        },
+        {
+          reply: true,
+          text_content: 'https://tenor.com/bWWbq.gif'
+        }
+      ]
     }
   },
   {
@@ -331,11 +385,11 @@ export const test: RootCommand[] = [
       content: [
         {
           media_url: 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3',
-          weight: 70
+          weight: 30
         },
         {
           media_url: 'https://monke.s3.amazonaws.com/bad to the bone quiet.mp3',
-          weight: 30
+          weight: 70
         },
         {
           executeAll: true,
