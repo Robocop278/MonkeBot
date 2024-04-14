@@ -314,6 +314,30 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /balloon\s*boy|balloonboy|bb)\s*hello/,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hello.ogg'
+    }
+  },
+  {
+    lookUp: /balloon\s*boy|balloonboy|bb)\s*hi/,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hi.ogg'
+    }
+  },
+  {
+    lookUp: /balloon\s*boy|balloonboy|bb)\s*(haha|laugh)/,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_laugh.ogg'
+    }
+  },
+  {
+    lookUp: /balloon\s*boy|balloonboy/,
+    command: {
+      bucket_folder: 'bb_sounds'
+    }
+  },
+  {
     lookUp: /boner/i,
     command: {
       bucket_folder: 'boner'
