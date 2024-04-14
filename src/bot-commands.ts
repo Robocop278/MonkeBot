@@ -53,7 +53,7 @@ export const test: RootCommand[] = [
 
   // admin shit
   {
-    lookUp: /monke.app update/,
+    lookUp: /monke\.app update/,
     command: {
       shcmd: 'update'
     }

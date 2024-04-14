@@ -137,6 +137,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
     }
   }
   else if ((<AdminCommand>command).shcmd !== undefined) {
+    console.log("AdminCommand awawaw");
     let adminshcmd = command as AdminCommand;
     if (message.member != null && message.member.roles.cache.has('899529644880056341')) {
       switch (adminshcmd.shcmd) {
