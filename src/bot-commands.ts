@@ -342,9 +342,9 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /rumbling/,
+    lookUp: /oreo/,
     command: {
-      media_url: 'https://monke.s3.us-east-1.amazonaws.com/rumbling.mp3'
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/no_more_oreos.ogg'
     }
   },
   {
