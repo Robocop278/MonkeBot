@@ -308,6 +308,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /bby.*pit boys/,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3'
+    }
+  },
+  {
     lookUp: /(balloon\s*boy|balloonboy|bb)\s*hello/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hello.ogg'
