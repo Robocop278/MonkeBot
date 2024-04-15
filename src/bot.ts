@@ -232,10 +232,10 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
 
       await new Promise<void>((resolve) => {
         setTimeout(() => {
+          resolve();
           if (selfUuid === timedSequenceUuid) {
             processCommand(sequenceEvent.command, message);
           }
-          resolve();
         }, sequenceEvent.timeout_ms);
       });
     }
