@@ -738,6 +738,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /jeopardy/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3'
+    }
+  },
+  {
     lookUp: /cheezy\s*street|rat\s*taxi/i,
     command: {
       executeAll: true,
