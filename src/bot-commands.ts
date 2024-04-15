@@ -744,6 +744,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /you.*are.*gay/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/youAreGay.wav'
+    }
+  },
+  {
     lookUp: /gay/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/why%20are%20you%20gay.wav'
