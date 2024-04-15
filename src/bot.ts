@@ -219,7 +219,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       if (selfUuid != timedSequenceUuid) {
         // Special case, if there is a cleanup command remaining in the rest of our timed sequence, execute it now
         console.log("selfUuid != timedSequenceUuid, checking for cleanup command");
-        let cleanupCommand = timedSequenceCommand.timed_sequence.slice(i).find((event) => {
+        let cleanupCommand = timedSequenceCommand.timed_sequence.find((event) => {
           (<CleanUpCommand>event.command).clean_up !== undefined
         });
         if (cleanupCommand) {
