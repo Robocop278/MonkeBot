@@ -30,7 +30,6 @@ const client = new Client({
   partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
 
-const sentMessages: Message[] = [];
 const commandSequenceIndices: { [key: string]: number } = {};
 let timedSequenceUuid: string;
 
@@ -66,13 +65,13 @@ client.on(Events.MessageCreate, message => {
   const result = monkeCommands.test.find(
     (command: monkeCommands.RootCommand) => {
       if (
-        typeof command.lookUp === 'string' &&
-        message.content.includes(command.lookUp)
+        typeof command.look_up === 'string' &&
+        message.content.includes(command.look_up)
       ) {
         return command;
       } else if (
-        command.lookUp instanceof RegExp &&
-        command.lookUp.test(message.content)
+        command.look_up instanceof RegExp &&
+        command.look_up.test(message.content)
       ) {
         return command;
       } else {
@@ -87,16 +86,24 @@ client.on(Events.MessageCreate, message => {
       message.member?.voice.channel !== undefined &&
       message.member?.voice.channel instanceof VoiceChannel
     ) {
-      console.log("Found match for lookUp: " + result.lookUp);
-      sentMessages.length = 0;
+      console.log("Found match for lookUp: " + result.look_up);
       timedSequenceUuid = "";
       void processCommand(result.command, message)
     }
   }
 });
 
-async function processCommand(command: ActionableCommand, message: Message) {
+interface MessageContext {
+  message: Message;
+  sent_messages: Message[]
+}
+async function processCommand(command: ActionableCommand, message: Message | MessageContext) {
   console.log("processCommand: " + command);
+
+  // First check our message. If it's just a message, set up a new message context to work with
+  if (message instanceof Message) {
+    message = { message: message, sent_messages: [] };
+  }
 
   // Check if a weight < 1 has been defined. If so, we need to roll to hit this event
   if (command.weight && command.weight < 1) {
@@ -117,7 +124,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
       processCommand(monkeyCommand.content[0], message);
     } else {
       // If executeAll is set to true, execute all commands
-      if (monkeyCommand.executeAll) {
+      if (monkeyCommand.execute_all) {
         monkeyCommand.content.forEach(async element => {
           await processCommand(element, message);
         });
@@ -154,24 +161,24 @@ async function processCommand(command: ActionableCommand, message: Message) {
   else if ((<AdminCommand>command).shcmd !== undefined) {
     console.log("Fetched as AdminCommand");
     let adminshcmd = command as AdminCommand;
-    if (message.member?.roles.cache.has('899529644880056341')) {
+    if (message.message.member?.roles.cache.has('899529644880056341')) {
       console.log(adminshcmd.shcmd)
       switch (adminshcmd.shcmd) {
         case 'update': {
           console.log(' pulling latest from git')
-          await message.reply("https://tenor.com/view/chef-armando-strainer-chef-cooking-gif-7301575759299383064");
+          await message.message.reply("https://tenor.com/view/chef-armando-strainer-chef-cooking-gif-7301575759299383064");
           exec('sh shcmd/update.sh');
           break;
         }
         case 'restart': {
           console.log(' restarting')
-          await message.reply("https://tenor.com/view/bmo-adventure-time-recharge-batteries-power-gif-5006828");
+          await message.message.reply("https://tenor.com/view/bmo-adventure-time-recharge-batteries-power-gif-5006828");
           exec('sh shcmd/restart.sh');
           break;
         }
         case 'shutdown': {
           console.log(` fucking off, I don't need this shit`)
-          await message.reply("https://tenor.com/view/walks-away-sad-leave-tom-and-jerry-gif-16877258");
+          await message.message.reply("https://tenor.com/view/walks-away-sad-leave-tom-and-jerry-gif-16877258");
           exec('sh shcmd/shutdown.sh');
           break;
         }
@@ -192,28 +199,35 @@ async function processCommand(command: ActionableCommand, message: Message) {
     console.log("Fetched as SequenceCommand");
     const sequenceCommand = command as SequenceCommand;
 
-    let sequenceIdx = commandSequenceIndices[sequenceCommand.sequenceId];
+    let sequenceIdx = commandSequenceIndices[sequenceCommand.sequence_id];
     if (Number.isNaN(sequenceIdx) || sequenceIdx == undefined) {
       sequenceIdx = -1;
     }
     sequenceIdx = (sequenceIdx + 1) % sequenceCommand.sequence.length;
-    commandSequenceIndices[sequenceCommand.sequenceId] = sequenceIdx;
+    commandSequenceIndices[sequenceCommand.sequence_id] = sequenceIdx;
 
     processCommand(sequenceCommand.sequence[sequenceIdx], message);
     console.log("Finished SequenceCommand");
   }
-  else if ((<TimedSequenceCommand>command).timedSequence !== undefined) {
+  else if ((<TimedSequenceCommand>command).timed_sequence !== undefined) {
     console.log("Fetched as TimedSequenceCommand");
     let timedSequenceCommand = command as TimedSequenceCommand;
 
     const selfUuid: string = (timedSequenceUuid = uuidv4());
 
-    for (let i = 0; i < timedSequenceCommand.timedSequence.length; i++) {
+    for (let i = 0; i < timedSequenceCommand.timed_sequence.length; i++) {
       if (selfUuid != timedSequenceUuid) {
+        // Special case, if there is a cleanup command remaining in the rest of our timed sequence, execute it now
+        let cleanupCommand = timedSequenceCommand.timed_sequence.slice(i).find((event) => {
+          (<CleanUpCommand>event.command).clean_up !== undefined
+        });
+        if (cleanupCommand) {
+          processCommand(cleanupCommand.command, message);
+        }
         break;
       }
 
-      const sequenceEvent = timedSequenceCommand.timedSequence[i];
+      const sequenceEvent = timedSequenceCommand.timed_sequence[i];
 
       await new Promise<void>((resolve) => {
         setTimeout(() => {
@@ -221,7 +235,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
             processCommand(sequenceEvent.command, message);
           }
           resolve();
-        }, sequenceEvent.timeoutMillisecs);
+        }, sequenceEvent.timeout_ms);
       });
     }
     console.log("Finished TimedSequenceCommand");
@@ -230,16 +244,16 @@ async function processCommand(command: ActionableCommand, message: Message) {
     console.log("Fetched as TextMessageCommand");
     let textMessageCommand = command as TextMessageCommand;
     if (textMessageCommand.reply) {
-      sentMessages.push(await currentMessage.reply(textMessageCommand.text_content));
+      message.sent_messages.push(await currentMessage.reply(textMessageCommand.text_content));
     } else {
-      sentMessages.push(await message.channel.send(textMessageCommand.text_content));
+      message.sent_messages.push(await message.message.channel.send(textMessageCommand.text_content));
     }
     console.log("Finished TextMessageCommand");
   }
   else if ((<MediaCommand>command).media_url !== undefined) {
     console.log("Fetched as MediaCommand");
     let mediaCommand = command as MediaCommand;
-    let voiceChannel = message.member?.voice.channel
+    let voiceChannel = message.message.member?.voice.channel
     if (voiceChannel && voiceChannel instanceof VoiceChannel) {
       monkeVoice.connect(voiceChannel);
       await monkeVoice.testAudio(mediaCommand.media_url);
@@ -249,7 +263,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
   else if ((<ReactCommand>command).reaction !== undefined) {
     console.log("Fetched as ReactCommand");
     let reactionCommand = command as ReactCommand;
-    message.react(reactionCommand.reaction);
+    message.message.react(reactionCommand.reaction);
     console.log("Finished ReactCommand");
   }
   else if ((<S3FolderCommand>command).bucket_folder !== undefined) {
@@ -273,7 +287,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
     let cleanUpCommand = command as CleanUpCommand;
 
     if (cleanUpCommand.clean_up) {
-      (message.channel as TextChannel).bulkDelete(sentMessages);
+      (message.message.channel as TextChannel).bulkDelete(message.sent_messages);
     }
     console.log("Finished CleanUpCommand");
   }

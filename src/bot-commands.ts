@@ -3,14 +3,14 @@ interface CommandBase {
 }
 
 export interface RootCommand {
-  lookUp: string | RegExp;
+  look_up: string | RegExp;
   command: ActionableCommand;
 }
 
 
 export interface GroupCommand extends CommandBase {
   content: ActionableCommand[];
-  executeAll?: boolean;
+  execute_all?: boolean;
 }
 
 export type ShCmd = 'update' | 'restart' | 'shutdown';
@@ -20,15 +20,15 @@ export interface AdminCommand extends CommandBase {
 
 export interface SequenceCommand extends CommandBase {
   sequence: ActionableCommand[];
-  sequenceId: string;
+  sequence_id: string;
 }
 
 export interface TimedSequenceEntry {
-  timeoutMillisecs: number;
+  timeout_ms: number;
   command: ActionableCommand;
 }
 export interface TimedSequenceCommand extends CommandBase {
-  timedSequence: TimedSequenceEntry[];
+  timed_sequence: TimedSequenceEntry[];
 }
 
 export interface TextMessageCommand extends CommandBase {
@@ -58,19 +58,19 @@ export const test: RootCommand[] = [
 
   // admin shit
   {
-    lookUp: /monke\.app update/,
+    look_up: /monke\.app update/,
     command: {
       shcmd: 'update'
     }
   },
   {
-    lookUp: /monke\.app restart/,
+    look_up: /monke\.app restart/,
     command: {
       shcmd: 'restart'
     }
   },
   {
-    lookUp: /monke\.app shutdown/,
+    look_up: /monke\.app shutdown/,
     command: {
       shcmd: 'shutdown'
     }
@@ -82,20 +82,20 @@ export const test: RootCommand[] = [
   //                               //
   ///////////////////////////////////
   {
-    lookUp: /^!monke commands$/i,
+    look_up: /^!monke commands$/i,
     command: {
       text_content: 'https://cdnmetv.metv.com/z50xp-1619719725-16226-list_items-no.jpg',
       reply: true
     }
   },
   {
-    lookUp: /howdy/i,
+    look_up: /howdy/i,
     command: {
       text_content: 'Howdy partner :cowboy:'
     }
   },
   {
-    lookUp: /amon?g\s*us/i,
+    look_up: /amon?g\s*us/i,
     command: {
       content: [{
         text_content: 'ඞ',
@@ -107,7 +107,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: 'lean',
+    look_up: 'lean',
     command: {
       content: [
         {
@@ -121,7 +121,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: 'intermission',
+    look_up: 'intermission',
     command: {
       content: [
         {
@@ -135,7 +135,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /^e$/i,
+    look_up: /^e$/i,
     command: {
       content: [{
         media_url: 'https://monke.s3.amazonaws.com/e-long.ogg',
@@ -147,19 +147,19 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /tenor.*(autism.*creature|yipp?(e|i)e?)/i,
+    look_up: /tenor.*(autism.*creature|yipp?(e|i)e?)/i,
     command: {
       media_url: "https://monke.s3.amazonaws.com/yippee/yippee.mp3",
       weight: 70
     }
   },
   {
-    lookUp: /yippee/i,
+    look_up: /yippee/i,
     command: {
       content: [
         {
           weight: 70,
-          executeAll: true,
+          execute_all: true,
           content: [
             {
               media_url: 'https://monke.s3.amazonaws.com/yippee/yippee.mp3'
@@ -181,23 +181,23 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /monke.*suck|monke.*succ/,
+    look_up: /monke.*suck|monke.*succ/,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/fart_with_extra_reverb_reversed.mp3'
     }
   },
   {
-    lookUp: /bwop/,
+    look_up: /bwop/,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/bwop.mp3'
     }
   },
   {
-    lookUp: /clash.*royale|clashr/,
+    look_up: /clash.*royale|clashr/,
     command: {
       content: [
         {
-          executeAll: true,
+          execute_all: true,
           content: [
             {
               media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_crying_01_dl.ogg'
@@ -209,7 +209,7 @@ export const test: RootCommand[] = [
           ]
         },
         {
-          executeAll: true,
+          execute_all: true,
           content: [
             {
               media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_happy_01_dl.ogg'
@@ -220,7 +220,7 @@ export const test: RootCommand[] = [
             }
           ]
         }, {
-          executeAll: true,
+          execute_all: true,
           content: [
             {
               media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_laughter_01_dl.ogg'
@@ -231,7 +231,7 @@ export const test: RootCommand[] = [
             }
           ]
         }, {
-          executeAll: true,
+          execute_all: true,
           content: [
             {
               media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_mad_01_dl.ogg'
@@ -246,9 +246,9 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /king.*sad|king.*cry/,
+    look_up: /king.*sad|king.*cry/,
     command: {
-      executeAll: true,
+      execute_all: true,
       content: [
         {
           media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_crying_01_dl.ogg'
@@ -261,9 +261,9 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /heheheha|king.*laugh/,
+    look_up: /heheheha|king.*laugh/,
     command: {
-      executeAll: true,
+      execute_all: true,
       content: [
         {
           media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_laughter_01_dl.ogg'
@@ -276,9 +276,9 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /king.*happy/,
+    look_up: /king.*happy/,
     command: {
-      executeAll: true,
+      execute_all: true,
       content: [
         {
           media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_happy_01_dl.ogg'
@@ -291,9 +291,9 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /king.*mad|king.*angry|king.*rage/,
+    look_up: /king.*mad|king.*angry|king.*rage/,
     command: {
-      executeAll: true,
+      execute_all: true,
       content: [
         {
           media_url: 'https://monke.s3.us-east-1.amazonaws.com/Clash%20Royale/king_mad_01_dl.ogg'
@@ -306,79 +306,79 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /YYYY/,
+    look_up: /YYYY/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/YYYY.mp3'
     }
   },
   {
-    lookUp: /bby.*pit boys/,
+    look_up: /bby.*pit boys/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3'
     }
   },
   {
-    lookUp: /(balloon\s*boy|balloonboy|bb)\s*hello/,
+    look_up: /(balloon\s*boy|balloonboy|bb)\s*hello/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hello.ogg'
     }
   },
   {
-    lookUp: /(balloon\s*boy|balloonboy|bb)\s*hi/,
+    look_up: /(balloon\s*boy|balloonboy|bb)\s*hi/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hi.ogg'
     }
   },
   {
-    lookUp: /(balloon\s*boy|balloonboy|bb)\s*(haha|laugh)/,
+    look_up: /(balloon\s*boy|balloonboy|bb)\s*(haha|laugh)/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_laugh.ogg'
     }
   },
   {
-    lookUp: /balloon\s*boy|balloonboy/,
+    look_up: /balloon\s*boy|balloonboy/,
     command: {
       bucket_folder: 'bb_sounds'
     }
   },
   {
-    lookUp: /boner/i,
+    look_up: /boner/i,
     command: {
       bucket_folder: 'boner'
     }
   },
   {
-    lookUp: /tt.*laugh/,
+    look_up: /tt.*laugh/,
     command: {
       bucket_folder: 'tatl/laugh'
     }
   },
   {
-    lookUp: /tt.*mama/,
+    look_up: /tt.*mama/,
     command: {
       bucket_folder: 'tatl/mama'
     }
   },
   {
-    lookUp: /goblin/,
+    look_up: /goblin/,
     command: {
       bucket_folder: 'goblin'
     }
   },
   {
-    lookUp: /drunke/,
+    look_up: /drunke/,
     command: {
       bucket_folder: 'demoman'
     }
   },
   {
-    lookUp: /oreo/,
+    look_up: /oreo/,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/no_more_oreos.ogg'
     }
   },
   {
-    lookUp: /^ow+$/,
+    look_up: /^ow+$/,
     command: {
       content: [
         {
@@ -396,43 +396,43 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /byeah/,
+    look_up: /byeah/,
     command: {
       bucket_folder: 'byeah'
     }
   },
   {
-    lookUp: /cleveland/,
+    look_up: /cleveland/,
     command: {
       bucket_folder: 'cleveland'
     }
   },
   {
-    lookUp: /gnome.*yay/,
+    look_up: /gnome.*yay/,
     command: {
       bucket_folder: 'gnome/yay'
     }
   },
   {
-    lookUp: /badumtss/,
+    look_up: /badumtss/,
     command: {
       bucket_folder: 'badumtss'
     }
   },
   {
-    lookUp: /tired.*grandpa/i,
+    look_up: /tired.*grandpa/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/imTiredOfThisGrandpa.mp3'
     }
   },
   {
-    lookUp: /too.*damn.*bad/i,
+    look_up: /too.*damn.*bad/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/THATSTOODAMNBAD.mp3'
     }
   },
   {
-    lookUp: /bad|bone/,
+    look_up: /bad|bone/,
     command: {
       content: [
         {
@@ -444,7 +444,7 @@ export const test: RootCommand[] = [
           weight: 70
         },
         {
-          executeAll: true,
+          execute_all: true,
           content: [
             {
               media_url: 'https://monke.s3.amazonaws.com/bad to the bone ear rape.wav'
@@ -458,9 +458,9 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /dubious|creature/i,
+    look_up: /dubious|creature/i,
     command: {
-      sequenceId: 'dubious',
+      sequence_id: 'dubious',
       sequence: [
         {
           content: [
@@ -490,7 +490,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /boof/i,
+    look_up: /boof/i,
     command: {
       content: [
         {
@@ -506,9 +506,9 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /how\s*to\s*spoon/i,
+    look_up: /how\s*to\s*spoon/i,
     command: {
-      sequenceId: 'how-to-spoon',
+      sequence_id: 'how-to-spoon',
       sequence: [
         { media_url: 'https://monke.s3.amazonaws.com/howtospoon/howToSpoon1.ogg' },
         { media_url: 'https://monke.s3.amazonaws.com/howtospoon/howToSpoon2.ogg' },
@@ -518,29 +518,29 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /shart/i,
+    look_up: /shart/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/shart.mp3'
     }
   },
   {
-    lookUp: /b(o|u)rgir/i,
+    look_up: /b(o|u)rgir/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/borgir.mp3'
     }
   },
   {
-    lookUp: /sax\s*(and|&)\s*sex/i,
+    look_up: /sax\s*(and|&)\s*sex/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/Sax & Sex - Simply the best.mp3'
     }
   },
   {
-    lookUp: /the entire shrek movie/i,
+    look_up: /the entire shrek movie/i,
     command: {
       content: [
         {
-          executeAll: true,
+          execute_all: true,
           content: [
             {
               media_url: 'https://monke.s3.amazonaws.com/The Entire Shrek Movie.mp3'
@@ -557,13 +557,13 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /doodle.*dip/i,
+    look_up: /doodle.*dip/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/doodledip.mp3'
     }
   },
   {
-    lookUp: /luck/i,
+    look_up: /luck/i,
     command: {
       content: [
         {
@@ -576,7 +576,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /bee/i,
+    look_up: /bee/i,
     command: {
       content: [
         {
@@ -584,7 +584,7 @@ export const test: RootCommand[] = [
           weight: 19
         },
         {
-          executeAll: true,
+          execute_all: true,
           content: [
             {
               media_url: 'https://www.youtube.com/watch?v=8CvqmD0CZao'
@@ -598,7 +598,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /super\s*mario\s*world/i,
+    look_up: /super\s*mario\s*world/i,
     command: {
       content: [
         {
@@ -611,7 +611,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /thx/i,
+    look_up: /thx/i,
     command: {
       content: [
         {
@@ -626,61 +626,61 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /g(od|ah)\s*dam/i,
+    look_up: /g(od|ah)\s*dam/i,
     command: {
       bucket_folder: 'GahDamn'
     }
   },
   {
-    lookUp: /halo/i,
+    look_up: /halo/i,
     command: {
       bucket_folder: 'HaloAnnouncer'
     }
   },
   {
-    lookUp: /i.*m\s*working\s*on\s*it/i,
+    look_up: /i.*m\s*working\s*on\s*it/i,
     command: {
       bucket_folder: 'im working on it'
     }
   },
   {
-    lookUp: /juju/i,
+    look_up: /juju/i,
     command: {
       bucket_folder: 'jujuOnThatBeat'
     }
   },
   {
-    lookUp: /boys\sare\sback/i,
+    look_up: /boys\sare\sback/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/boys are back in town (to kill you).mp3'
     }
   },
   {
-    lookUp: /bababooey/i,
+    look_up: /bababooey/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bababooey.wav'
     }
   },
   {
-    lookUp: /why/i,
+    look_up: /why/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/why.mp3'
     }
   },
   {
-    lookUp: /change\s*da\s*world/i,
+    look_up: /change\s*da\s*world/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/changeDaWorld.wav'
     }
   },
   {
-    lookUp: /rare.*high.*moments/i,
+    look_up: /rare.*high.*moments/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/rareHighMoments.wav'
     }
   },
   {
-    lookUp: /breathing\sin/i,
+    look_up: /breathing\sin/i,
     command: {
       content: [
         {
@@ -694,270 +694,270 @@ export const test: RootCommand[] = [
     }
   },
   {
-    lookUp: /DUST|Detroit\s*Urban\s*Survival\s*Training/i,
+    look_up: /DUST|Detroit\s*Urban\s*Survival\s*Training/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/DUST.wav'
     }
   },
   {
-    lookUp: /all\sa\s(little|lil)\snuts/i,
+    look_up: /all\sa\s(little|lil)\snuts/i,
     command: {
       text_content: 'https://monke.s3.us-east-1.amazonaws.com/after%20all%2C%20we%27re%20all%20a%20little%20nuts.mp4'
     }
   },
   {
-    lookUp: /nuts/i,
+    look_up: /nuts/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/all_nuts.wav'
     }
   },
   {
-    lookUp: /watching.*me/i,
+    look_up: /watching.*me/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/somebody_watching_me.mp3'
     }
   },
   {
-    lookUp: /alien/i,
+    look_up: /alien/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/JOEL_ANTI_ALIEN_ALARM.ogg'
     }
   },
   {
-    lookUp: /dial.*up/i,
+    look_up: /dial.*up/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/dialup.mp3'
     }
   },
   {
-    lookUp: /rumbling/i,
+    look_up: /rumbling/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/rumbling.mp3'
     }
   },
   {
-    lookUp: /pumpkin.*cowboy/i,
+    look_up: /pumpkin.*cowboy/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/Pumpkin_Cowboy.ogg'
     }
   },
   {
-    lookUp: /wh?a+h/i,
+    look_up: /wh?a+h/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/whaaah.mp4'
     }
   },
   {
-    lookUp: /you.*are.*gay/i,
+    look_up: /you.*are.*gay/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/youAreGay.wav'
     }
   },
   {
-    lookUp: /gay/i,
+    look_up: /gay/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/why%20are%20you%20gay.wav'
     }
   },
   {
-    lookUp: /jeopardy/i,
+    look_up: /jeopardy/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3'
     }
   },
   {
-    lookUp: /cheezy\s*street|rat\s*taxi/i,
+    look_up: /cheezy\s*street|rat\s*taxi/i,
     command: {
-      executeAll: true,
+      execute_all: true,
       content: [
         {
           media_url: 'https://monke.s3.us-east-1.amazonaws.com/cheezy_street.mp3'
         },
         {
-          timedSequence: [
+          timed_sequence: [
             {
               command: { text_content: 'https://tenor.com/view/mozzarella-sticks-spinning-mozzarella-sticks-gif-24129498' },
-              timeoutMillisecs: 11700
+              timeout_ms: 11700
             },
             {
               command: { text_content: 'https://tenor.com/view/nutella-gif-4099928683247293109' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/pesto-mozzarella-crustini-verde-burrata-gif-13144754' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/boba-fett-boba-feta-disney-the-book-of-boba-fett-boba-gif-24410023' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/tom-and-jerry-cheese-one-bite-jerry-mouse-gif-27668294' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/rats-rat-dancing-dance-gif-26758028' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/rat-gif-26402521' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/rat-mice-crawling-roaming-gif-4449455' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/master-splinter-gif-11457286' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/remy-gif-18417714' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/butterfly-rat-beautiful-gif-13423696376657218513' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/white-cheese-cheese-chessy-delicious-yummy-gif-12756441' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/rat-wheel-race-gif-11850721' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/cheese-wheel-italian-knife-trentino-gif-11362805' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/vanillabizcotti-vanbiz-vanbiztherapper-comedy-memes-gif-21535703' },
-              timeoutMillisecs: 666
+              timeout_ms: 666
             },
             {
               command: { text_content: 'https://tenor.com/view/cheese-slice-cheddar-oddly-satisfying-gif-3382829' },
-              timeoutMillisecs: 666
+              timeout_ms: 666
             },
             {
               command: { text_content: 'https://tenor.com/view/biggie-cheese-biggiecheese-aesthetic-gif-20932775' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/pixel-city-chill-gif-22227473' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/tom-and-jerry-gangster-cats-gif-18913622' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/rat-dancing-rat-dancing-gif-24339527' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/muppets-from-space-rizzo-the-rat-lab-rat-punch-test-gif-27398336' },
-              timeoutMillisecs: 21328
+              timeout_ms: 21328
             },
             {
               command: { text_content: 'https://tenor.com/view/lost-in-the-maze-oxygen-rat-in-a-maze-where-am-i-finding-the-exit-gif-21612298' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/rat-in-a-maze-oxygen-gotta-escape-find-my-way-out-where-am-i-gif-21612283' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/labirent-maze-labyrinth-gif-10894379' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/exercise-funny-animals-mouse-rat-work-out-gif-17244075' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/work-out-cute-rat-exercise-fitness-gif-17489902' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/ugly-rat-gif-22684958' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/ninju-shino-buff-mice-demon-slayer-demon-slayer-season2-tengen-uzui-gif-24439479' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/taxi-insurance-car-insurance-cheap-taxi-insurance-insurance-company-insurance-in-london-gif-13721155' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/rat-rat-drive-rat-driving-rat-car-gif-26515012' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/cheese-mouse-trap-food-hungry-creature-comforts-gif-12489639' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/transfer-bologna-siena-gif-22856402' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/transfer-verona-lake-garda-gif-22425999' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/mouse-trap-tom-and-jerry-gif-10143379' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/poison-gif-25302299' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/tkt-smart-gif-20642718' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/stiffy-uh-rat-mouse-grooves-gif-16483892' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/rat-ouais-le-rat-rat-de-france-cest%C3%A7a-le-rat-rat-fr352-gif-24643050' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/taxi-insurance-car-insurance-cheap-taxi-insurance-insurance-company-insurance-in-london-gif-13721155' },
-              timeoutMillisecs: 13330
+              timeout_ms: 13330
             },
             {
               command: { text_content: 'https://tenor.com/view/rat-rat-drive-rat-driving-rat-car-gif-26515012' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/cheese-mouse-trap-food-hungry-creature-comforts-gif-12489639' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/transfer-bologna-siena-gif-22856402' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { text_content: 'https://tenor.com/view/transfer-verona-lake-garda-gif-22425999' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/mouse-trap-tom-and-jerry-gif-10143379' },
-              timeoutMillisecs: 1333
+              timeout_ms: 1333
             },
             {
               command: { text_content: 'https://tenor.com/view/cute-peace-fade-bye-awesome-gif-16994521' },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             },
             {
               command: { clean_up: true },
-              timeoutMillisecs: 2666
+              timeout_ms: 2666
             }
           ]
         }
