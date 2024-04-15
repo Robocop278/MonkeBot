@@ -36,7 +36,7 @@ let timedSequenceUuid: string;
 
 client.once(Events.ClientReady, (c: Client<boolean>) => {
   client.user?.setActivity('with type safety!', { type: ActivityType.Playing });
-  client.user?.setAvatar('avatar_images/skylarMonke.png');
+  // client.user?.setAvatar('avatar_images/skylarMonke.png');
   client.guilds.cache
     .get(configs.CHANNEL_MAIN)
     ?.members.cache.get('690351869650010333')
