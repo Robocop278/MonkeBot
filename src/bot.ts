@@ -32,7 +32,7 @@ const client = new Client({
 
 const sentMessages: Message[] = [];
 const commandSequenceIndices: { [key: string]: number } = {};
-let timeSequenceUuid: string;
+let timedSequenceUuid: string;
 
 client.once(Events.ClientReady, (c: Client<boolean>) => {
   client.user?.setActivity('with type safety!', { type: ActivityType.Playing });
@@ -89,7 +89,7 @@ client.on(Events.MessageCreate, message => {
     ) {
       console.log("Found match for lookUp: " + result.lookUp);
       sentMessages.length = 0;
-      timeSequenceUuid = "";
+      timedSequenceUuid = "";
       void processCommand(result.command, message)
     }
   }
@@ -206,9 +206,13 @@ async function processCommand(command: ActionableCommand, message: Message) {
     console.log("Fetched as TimedSequenceCommand");
     let timedSequenceCommand = command as TimedSequenceCommand;
 
-    const selfUuid: string = (timeSequenceUuid = uuidv4());
+    const selfUuid: string = (timedSequenceUuid = uuidv4());
 
     for (let i = 0; i < timedSequenceCommand.timedSequence.length; i++) {
+      if (selfUuid != timedSequenceUuid) {
+        break;
+      }
+
       const sequenceEvent = timedSequenceCommand.timedSequence[i];
 
       await new Promise<void>((resolve) => {
@@ -217,10 +221,6 @@ async function processCommand(command: ActionableCommand, message: Message) {
           resolve();
         }, sequenceEvent.timeoutMillisecs);
       });
-
-      if (selfUuid != timeSequenceUuid) {
-        break;
-      }
     }
     console.log("Finished TimedSequenceCommand");
   }
