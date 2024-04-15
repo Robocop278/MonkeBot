@@ -1,5 +1,5 @@
 #!/bin/bash
 
-git pull --rebase
+git pull
 sleep 3
 npm run build
