@@ -638,6 +638,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /i.*m\s*working\s*on\s*it/i,
+    command: {
+      bucket_folder: 'im working on it'
+    }
+  },
+  {
     lookUp: /juju/i,
     command: {
       bucket_folder: 'jujuOnThatBeat'
@@ -718,15 +724,45 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /dial.*up/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/dialup.mp3'
+    }
+  },
+  {
     lookUp: /rumbling/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/rumbling.mp3'
     }
   },
   {
+    lookUp: /pumpkin.*cowboy/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/Pumpkin_Cowboy.ogg'
+    }
+  },
+  {
     lookUp: /wh?a+h/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/whaaah.mp4'
+    }
+  },
+  {
+    lookUp: /you.*are.*gay/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/youAreGay.wav'
+    }
+  },
+  {
+    lookUp: /gay/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/why%20are%20you%20gay.wav'
+    }
+  },
+  {
+    lookUp: /jeopardy/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3'
     }
   },
   {
