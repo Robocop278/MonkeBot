@@ -1,3 +1,4 @@
 #!/bin/bash
 
-npm run update
+git pull --rebase
+npm run build
