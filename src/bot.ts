@@ -4,6 +4,7 @@ import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
 import { ActionableCommand, MediaCommand, GroupCommand, AdminCommand, SequenceCommand, TimedSequenceCommand, TextMessageCommand, ReactCommand, S3FolderCommand, CleanUpCommand } from './bot-commands';
 import S3 from 'aws-sdk/clients/s3';
+import { v4 as uuidv4 } from 'uuid';
 
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
@@ -31,6 +32,7 @@ const client = new Client({
 
 const sentMessages: Message[] = [];
 const commandSequenceIndices: { [key: string]: number } = {};
+let timeSequenceUuid: string;
 
 client.once(Events.ClientReady, (c: Client<boolean>) => {
   client.user?.setActivity('with type safety!', { type: ActivityType.Playing });
@@ -53,7 +55,6 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
     });
 });
 
-let timeoutId: NodeJS.Timeout;
 let currentMessage: Message;
 client.on(Events.MessageCreate, message => {
   // We want to ignore all messages that come from monke itself
@@ -87,8 +88,8 @@ client.on(Events.MessageCreate, message => {
       message.member?.voice.channel instanceof VoiceChannel
     ) {
       console.log("Found match for lookUp: " + result.lookUp);
-      clearTimeout(timeoutId);
       sentMessages.length = 0;
+      timeSequenceUuid = "";
       void processCommand(result.command, message)
     }
   }
@@ -205,14 +206,17 @@ async function processCommand(command: ActionableCommand, message: Message) {
     console.log("Fetched as TimedSequenceCommand");
     let timedSequenceCommand = command as TimedSequenceCommand;
 
+    const selfUuid: string = (timeSequenceUuid = uuidv4());
+
     for (let i = 0; i < timedSequenceCommand.timedSequence.length; i++) {
       const sequenceEvent = timedSequenceCommand.timedSequence[i];
-      await new Promise<void>((resolve) => {
-        timeoutId = setTimeout(() => {
-          processCommand(sequenceEvent.command, message);
-          resolve();
-        }, sequenceEvent.timeoutMillisecs);
-      });
+      setTimeout(() => {
+        processCommand(sequenceEvent.command, message);
+      }, sequenceEvent.timeoutMillisecs);
+
+      if (selfUuid != timeSequenceUuid) {
+        break;
+      }
     }
     console.log("Finished TimedSequenceCommand");
   }
