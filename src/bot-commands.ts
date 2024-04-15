@@ -726,6 +726,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /pumpkin.*cowboy/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/Pumpkin_Cowboy.ogg'
+    }
+  },
+  {
     lookUp: /wh?a+h/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/whaaah.mp4'
