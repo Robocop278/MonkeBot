@@ -219,13 +219,24 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       if (selfUuid != timedSequenceUuid) {
         // Special case, if there is a cleanup command remaining in the rest of our timed sequence, execute it now
         console.log("selfUuid != timedSequenceUuid, checking for cleanup command");
-        let cleanupCommand = timedSequenceCommand.timed_sequence.some((event) => {
-          (<CleanUpCommand>(event.command)).clean_up !== undefined;
-        });
-        if (cleanupCommand) {
-          console.log("Cleanup command found, executing");
-          processCommand({ clean_up: true }, message);
+
+        for (let index = 0; index < timedSequenceCommand.timed_sequence.length; index++) {
+          const element = timedSequenceCommand.timed_sequence[index];
+          console.log(`checking element: ${element.timeout_ms}, index ${index}`);
+          if ((<CleanUpCommand>(element.command)).clean_up !== undefined) {
+            console.log("Cleanup command found, executing");
+            processCommand(element.command, message);
+            break;
+          }
         }
+
+        // let cleanupCommand = timedSequenceCommand.timed_sequence.some((event) => {
+        //   (<CleanUpCommand>(event.command)).clean_up !== undefined;
+        // });
+        // if (cleanupCommand) {
+        //   console.log("Cleanup command found, executing");
+        //   processCommand({ clean_up: true }, message);
+        // }
         break;
       }
 
