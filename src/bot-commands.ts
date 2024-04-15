@@ -48,7 +48,11 @@ export interface S3FolderCommand extends CommandBase {
   bucket_folder: string;
 }
 
-export type ActionableCommand = GroupCommand | AdminCommand | SequenceCommand | TimedSequenceCommand | TextMessageCommand | MediaCommand | ReactCommand | S3FolderCommand;
+export interface CleanUpCommand extends CommandBase {
+  clean_up: boolean;
+}
+
+export type ActionableCommand = GroupCommand | AdminCommand | SequenceCommand | TimedSequenceCommand | TextMessageCommand | MediaCommand | ReactCommand | S3FolderCommand | CleanUpCommand;
 
 export const test: RootCommand[] = [
 
@@ -913,6 +917,10 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'https://tenor.com/view/cute-peace-fade-bye-awesome-gif-16994521' },
+              timeoutMillisecs: 2666
+            },
+            {
+              command: { clean_up: true },
               timeoutMillisecs: 2666
             }
           ]

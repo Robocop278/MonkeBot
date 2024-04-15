@@ -2,7 +2,7 @@ import { ActivityType, Message, VoiceChannel, TextChannel } from 'discord.js';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
-import { ActionableCommand, MediaCommand, GroupCommand, AdminCommand, SequenceCommand, TimedSequenceCommand, TextMessageCommand, ReactCommand, S3FolderCommand } from './bot-commands';
+import { ActionableCommand, MediaCommand, GroupCommand, AdminCommand, SequenceCommand, TimedSequenceCommand, TextMessageCommand, ReactCommand, S3FolderCommand, CleanUpCommand } from './bot-commands';
 import S3 from 'aws-sdk/clients/s3';
 
 require('json5/lib/register');
@@ -29,6 +29,7 @@ const client = new Client({
   partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
 
+const sentMessages: Message[] = [];
 const commandSequenceIndices: { [key: string]: number } = {};
 
 client.once(Events.ClientReady, (c: Client<boolean>) => {
@@ -87,6 +88,7 @@ client.on(Events.MessageCreate, message => {
     ) {
       console.log("Found match for lookUp: " + result.lookUp);
       clearTimeout(timeoutId);
+      sentMessages.length = 0;
       void processCommand(result.command, message)
     }
   }
@@ -214,9 +216,9 @@ async function processCommand(command: ActionableCommand, message: Message) {
     console.log("Fetched as TextMessageCommand");
     let textMessageCommand = command as TextMessageCommand;
     if (textMessageCommand.reply) {
-      currentMessage.reply(textMessageCommand.text_content);
+      sentMessages.push(await currentMessage.reply(textMessageCommand.text_content));
     } else {
-      message.channel.send(textMessageCommand.text_content);
+      sentMessages.push(await message.channel.send(textMessageCommand.text_content));
     }
   }
   else if ((<MediaCommand>command).media_url !== undefined) {
@@ -248,7 +250,14 @@ async function processCommand(command: ActionableCommand, message: Message) {
       }
     }
   }
+  else if ((<CleanUpCommand>command).clean_up !== undefined) {
+    console.log("Fetched as CleanUpCommand");
+    let cleanUpCommand = command as CleanUpCommand;
 
+    if (cleanUpCommand.clean_up) {
+      (message.channel as TextChannel).bulkDelete(sentMessages);
+    }
+  }
 }
 
 client.login(configs.PRIVATE_KEY);
