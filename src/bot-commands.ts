@@ -720,6 +720,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /dial.*up/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/dialup.mp3'
+    }
+  },
+  {
     lookUp: /rumbling/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/rumbling.mp3'
