@@ -217,7 +217,9 @@ async function processCommand(command: ActionableCommand, message: Message) {
 
       await new Promise<void>((resolve) => {
         setTimeout(() => {
-          processCommand(sequenceEvent.command, message);
+          if (selfUuid === timedSequenceUuid) {
+            processCommand(sequenceEvent.command, message);
+          }
           resolve();
         }, sequenceEvent.timeoutMillisecs);
       });
