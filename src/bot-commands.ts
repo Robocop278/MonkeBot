@@ -634,6 +634,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /i.*m\s*working\s*on\s*it/i,
+    command: {
+      bucket_folder: 'im working on it'
+    }
+  },
+  {
     lookUp: /juju/i,
     command: {
       bucket_folder: 'jujuOnThatBeat'
