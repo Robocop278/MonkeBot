@@ -1,4 +1,4 @@
-import { ActivityType, Message, VoiceChannel } from 'discord.js';
+import { ActivityType, Message, VoiceChannel, TextChannel } from 'discord.js';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
@@ -45,6 +45,11 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
   let initinfo = execSync(`git log -1 --pretty="format:The author of %h was %an, %ar;;The title was >>%s<<%n"`, { encoding: 'utf8' });
   console.log(`------------------\n  INITIALIZATION\n------------------\nTIME:\t${inittime.toLocaleTimeString('it-IT')} \nOFFSET:\t${inittime.getTimezoneOffset()} \nOS:\t${OS}\n------------------\n`);
   console.log(`${initinfo.replace(';;', '\n')}------------------\n`);
+
+  client.channels.fetch('974290034133987429')
+    .then(channel => {
+      (channel as TextChannel).send(`------------------------------\nmonke started at ${inittime}, it ${inittime.getTimezoneOffset() == 0 ? 'is being hosted via AWS.' : `***is being hosted locally***, probably by ${inittime.getTimezoneOffset() >= 420 ? 'socal nerds christian or lisbin.' : 'the Ohio:tm: lad kebo.'}`}\n\n${initinfo.replace(';;', '\n')}------------------------------\n`);
+    });
 });
 
 let timeoutId: NodeJS.Timeout;
@@ -157,7 +162,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
         case 'restart': {
           console.log(' restarting')
           await message.reply("https://tenor.com/view/bmo-adventure-time-recharge-batteries-power-gif-5006828");
-          exec('sh shcmd/update.sh');
+          exec('sh shcmd/restart.sh');
           break;
         }
         case 'shutdown': {
