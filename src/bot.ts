@@ -33,11 +33,11 @@ const commandSequenceIndices: { [key: string]: number } = {};
 
 client.once(Events.ClientReady, (c: Client<boolean>) => {
   client.user?.setActivity('with type safety!', { type: ActivityType.Playing });
-  // client.user?.setAvatar('avatar_images/monkeBot_hardHat.png');
+  client.user?.setAvatar('avatar_images/skylarMonke.png');
   client.guilds.cache
     .get(configs.CHANNEL_MAIN)
     ?.members.cache.get('690351869650010333')
-    ?.setNickname('🚧 Monke 2.0 🚧');
+    ?.setNickname('Monke 2.0');
   console.log(`Ready! Logged in as ${c.user?.tag}`);
 });
 
