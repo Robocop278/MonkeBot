@@ -9,7 +9,7 @@
 		"build": "tsc --build --verbose",
 		"start": "pm2 start . --watch",
 		"restart": "pm2 restart .",
-		"update": "git pull && pause 3",
+		"update": "git pull --rebase",
 		"postupdate": "npm run build",
 		"stop": "pm2 stop ."
 	},
