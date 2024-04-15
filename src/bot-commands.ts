@@ -13,9 +13,9 @@ export interface GroupCommand extends CommandBase {
   executeAll?: boolean;
 }
 
-export type SchCmd = 'update' | 'restart' | 'shutdown';
+export type ShCmd = 'update' | 'restart' | 'shutdown';
 export interface AdminCommand extends CommandBase {
-  shcmd: SchCmd;
+  shcmd: ShCmd;
 }
 
 export interface SequenceCommand extends CommandBase {
@@ -111,7 +111,21 @@ export const test: RootCommand[] = [
           weight: 8
         },
         {
-          media_url: 'https://www.youtube.com/watch?v=P1zOBJYKUBc'//, '5' //as in at 5 seconds
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/I_Love_Lean.ogg'
+        }
+      ]
+    }
+  },
+  {
+    lookUp: 'intermission',
+    command: {
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/09%20-%20Intermission.mp3',
+          weight: 5
+        },
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/intermission%20crit.mp3'
         }
       ]
     }
@@ -160,6 +174,12 @@ export const test: RootCommand[] = [
           media_url: 'https://monke.s3.amazonaws.com/yippee/yippee jazz.mp3'
         }
       ]
+    }
+  },
+  {
+    lookUp: /monke.*suck|monke.*succ/,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/fart_with_extra_reverb_reversed.mp3'
     }
   },
   {
@@ -288,6 +308,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    lookUp: /bby.*pit boys/,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3'
+    }
+  },
+  {
     lookUp: /(balloon\s*boy|balloonboy|bb)\s*hello/,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hello.ogg'
@@ -339,6 +365,30 @@ export const test: RootCommand[] = [
     lookUp: /drunke/,
     command: {
       bucket_folder: 'demoman'
+    }
+  },
+  {
+    lookUp: /oreo/,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/no_more_oreos.ogg'
+    }
+  },
+  {
+    lookUp: /^ow+$/,
+    command: {
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/oww/oww.ogg',
+          weight: 3
+        },
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/oww/oww2.ogg',
+          weight: 3
+        },
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/oww/owwcrit.ogg'
+        }
+      ]
     }
   },
   {
