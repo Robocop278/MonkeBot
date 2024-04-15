@@ -148,6 +148,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
         }
       };
     }
+    console.log("Finished GroupCommand");
   }
   else if ((<AdminCommand>command).shcmd !== undefined) {
     console.log("Fetched as AdminCommand");
@@ -184,6 +185,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
         ]
       }, message);
     }
+    console.log("Finished AdminCommand");
   }
   else if ((<SequenceCommand>command).sequence) {
     console.log("Fetched as SequenceCommand");
@@ -197,6 +199,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
     commandSequenceIndices[sequenceCommand.sequenceId] = sequenceIdx;
 
     processCommand(sequenceCommand.sequence[sequenceIdx], message);
+    console.log("Finished SequenceCommand");
   }
   else if ((<TimedSequenceCommand>command).timedSequence !== undefined) {
     console.log("Fetched as TimedSequenceCommand");
@@ -211,6 +214,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
         }, sequenceEvent.timeoutMillisecs);
       });
     }
+    console.log("Finished TimedSequenceCommand");
   }
   else if ((<TextMessageCommand>command).text_content !== undefined) {
     console.log("Fetched as TextMessageCommand");
@@ -220,6 +224,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
     } else {
       sentMessages.push(await message.channel.send(textMessageCommand.text_content));
     }
+    console.log("Finished TextMessageCommand");
   }
   else if ((<MediaCommand>command).media_url !== undefined) {
     console.log("Fetched as MediaCommand");
@@ -229,11 +234,13 @@ async function processCommand(command: ActionableCommand, message: Message) {
       monkeVoice.connect(voiceChannel);
       await monkeVoice.testAudio(mediaCommand.media_url);
     }
+    console.log("Finished MediaCommand");
   }
   else if ((<ReactCommand>command).reaction !== undefined) {
     console.log("Fetched as ReactCommand");
     let reactionCommand = command as ReactCommand;
     message.react(reactionCommand.reaction);
+    console.log("Finished ReactCommand");
   }
   else if ((<S3FolderCommand>command).bucket_folder !== undefined) {
     console.log("Fetched as S3FolderCommand");
@@ -249,6 +256,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
         processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
       }
     }
+    console.log("Finished S3FolderCommand");
   }
   else if ((<CleanUpCommand>command).clean_up !== undefined) {
     console.log("Fetched as CleanUpCommand");
@@ -257,6 +265,7 @@ async function processCommand(command: ActionableCommand, message: Message) {
     if (cleanUpCommand.clean_up) {
       (message.channel as TextChannel).bulkDelete(sentMessages);
     }
+    console.log("Finished CleanUpCommand");
   }
 }
 
