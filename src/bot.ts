@@ -210,9 +210,13 @@ async function processCommand(command: ActionableCommand, message: Message) {
 
     for (let i = 0; i < timedSequenceCommand.timedSequence.length; i++) {
       const sequenceEvent = timedSequenceCommand.timedSequence[i];
-      setTimeout(() => {
-        processCommand(sequenceEvent.command, message);
-      }, sequenceEvent.timeoutMillisecs);
+
+      await new Promise<void>((resolve) => {
+        setTimeout(() => {
+          processCommand(sequenceEvent.command, message);
+          resolve();
+        }, sequenceEvent.timeoutMillisecs);
+      });
 
       if (selfUuid != timeSequenceUuid) {
         break;
