@@ -996,19 +996,19 @@ export const test: RootCommand[] = [
           timed_sequence: [
             {
               command: { bucket_folder: 'kazuya_guy', type: 'text' },
-              timeout_ms: 5800
+              timeout_ms: 5700
             },
             {
               command: { bucket_folder: 'kazuya_guy', type: 'text' },
-              timeout_ms: 2800
+              timeout_ms: 2700
             },
             {
               command: { bucket_folder: 'kazuya_guy', type: 'text' },
-              timeout_ms: 2300
+              timeout_ms: 2200
             },
             {
               command: { text_content: 'https://monke.s3.us-east-1.amazonaws.com/skylarMonke.png' },
-              timeout_ms: 2100
+              timeout_ms: 2000
             },
             {
               command: { clean_up: true },
