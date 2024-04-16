@@ -1004,15 +1004,15 @@ export const test: RootCommand[] = [
             },
             {
               command: { bucket_folder: 'kazuya_guy', type: 'text' },
-              timeout_ms: 2500
+              timeout_ms: 2300
             },
             {
-              command: { bucket_folder: 'kazuya_guy', type: 'text' },
-              timeout_ms: 2500
+              command: { text_content: 'https://monke.s3.us-east-1.amazonaws.com/skylarMonke.png' },
+              timeout_ms: 2100
             },
             {
               command: { clean_up: true },
-              timeout_ms: 2500
+              timeout_ms: 1000
             }
           ]
         }
