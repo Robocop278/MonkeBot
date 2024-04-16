@@ -44,8 +44,10 @@ export interface ReactCommand extends CommandBase {
   reaction: string;
 }
 
+export type FolderType = 'text' | 'audio';
 export interface S3FolderCommand extends CommandBase {
   bucket_folder: string;
+  type?: FolderType
 }
 
 export interface CleanUpCommand extends CommandBase {
@@ -993,19 +995,19 @@ export const test: RootCommand[] = [
         {
           timed_sequence: [
             {
-              command: { bucket_folder: 'kazuya_guy' },
+              command: { bucket_folder: 'kazuya_guy', type: 'text' },
               timeout_ms: 5800
             },
             {
-              command: { bucket_folder: 'kazuya_guy' },
-              timeout_ms: 3500
+              command: { bucket_folder: 'kazuya_guy', type: 'text' },
+              timeout_ms: 2800
             },
             {
-              command: { bucket_folder: 'kazuya_guy' },
+              command: { bucket_folder: 'kazuya_guy', type: 'text' },
               timeout_ms: 2500
             },
             {
-              command: { bucket_folder: 'kazuya_guy' },
+              command: { bucket_folder: 'kazuya_guy', type: 'text' },
               timeout_ms: 2500
             },
             {

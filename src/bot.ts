@@ -278,7 +278,11 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       const selectedMedia = dataContents[Math.floor(Math.random() * dataContents.length)].Key;
       console.log("Selected S3 media: " + selectedMedia);
       if (selectedMedia) {
-        processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+        if (s3FolderCommand.type === 'text') {
+          processCommand({ text_content: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+        } else {
+          processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+        }
       }
     }
     console.log("Finished S3FolderCommand");
