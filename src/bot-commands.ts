@@ -414,6 +414,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /thank.*you|ty/,
+    command: {
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/metal-slug-thank-you-tenkiu.mp3"
+    }
+  },
+  {
     look_up: /badumtss/,
     command: {
       bucket_folder: 'badumtss'
