@@ -420,6 +420,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /hell naw/,
+    command: {
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/hell%20naw.ogg"
+    }
+  },
+  {
     look_up: /badumtss/,
     command: {
       bucket_folder: 'badumtss'
