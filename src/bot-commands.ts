@@ -963,5 +963,40 @@ export const test: RootCommand[] = [
         }
       ]
     }
+  },
+  {
+    look_up: /skyl(?:a|e)r|kazuya\s*guy/i,
+    command: {
+      execute_all: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/my_name_is_skyler_white_yo.mp3'
+        },
+        {
+          timed_sequence: [
+            {
+              command: { bucket_folder: 'kazuya_guy' },
+              timeout_ms: 5800
+            },
+            {
+              command: { bucket_folder: 'kazuya_guy' },
+              timeout_ms: 3500
+            },
+            {
+              command: { bucket_folder: 'kazuya_guy' },
+              timeout_ms: 2500
+            },
+            {
+              command: { bucket_folder: 'kazuya_guy' },
+              timeout_ms: 2500
+            },
+            {
+              command: { clean_up: true },
+              timeout_ms: 2500
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
