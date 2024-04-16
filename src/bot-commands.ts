@@ -1000,7 +1000,7 @@ export const test: RootCommand[] = [
             },
             {
               command: { bucket_folder: 'kazuya_guy', type: 'text' },
-              timeout_ms: 2750
+              timeout_ms: 2800
             },
             {
               command: { bucket_folder: 'kazuya_guy', type: 'text' },
