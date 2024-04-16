@@ -366,6 +366,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /i'?ll\s*kill\s*ya/,
+    command: {
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/ill_kill_ya.ogg"
+    }
+  },
+  {
     look_up: /drunke/,
     command: {
       bucket_folder: 'demoman'
