@@ -366,6 +366,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /i'?ll\s*kill\s*ya/,
+    command: {
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/ill_kill_ya.ogg"
+    }
+  },
+  {
     look_up: /drunke/,
     command: {
       bucket_folder: 'demoman'
@@ -411,6 +417,18 @@ export const test: RootCommand[] = [
     look_up: /gnome.*yay/,
     command: {
       bucket_folder: 'gnome/yay'
+    }
+  },
+  {
+    look_up: /thank.*you|ty/,
+    command: {
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/metal-slug-thank-you-tenkiu.mp3"
+    }
+  },
+  {
+    look_up: /hell naw/,
+    command: {
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/hell%20naw.ogg"
     }
   },
   {
