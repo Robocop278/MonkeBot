@@ -118,16 +118,16 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
 
   if ((<GroupCommand>command).content !== undefined) {
     console.log("Fetched as GroupCommand");
-    let monkeyCommand = command as GroupCommand;
+    let groupCommand = command as GroupCommand;
 
-    if (monkeyCommand.content.length === 1) {
-      processCommand(monkeyCommand.content[0], message);
+    if (groupCommand.content.length === 1) {
+      processCommand(groupCommand.content[0], message);
     } else {
       // If executeAll is set to true, execute all commands
-      if (monkeyCommand.execute_all) {
-        monkeyCommand.content.forEach(async element => {
-          await processCommand(element, message);
-        });
+      if (groupCommand.execute_all) {
+        for (let index = 0; index < groupCommand.content.length; index++) {
+          await processCommand(groupCommand.content[index], message);
+        }
         return;
       }
 
@@ -137,7 +137,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       let weightsTotal = 0;
 
       console.log("Parsing through available media:")
-      monkeyCommand.content.forEach(content => {
+      groupCommand.content.forEach(content => {
         console.log("  Content weight: " + (content.weight ?? 1));
         weightsTotal += (content.weight ?? 1);
       });
@@ -146,7 +146,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       let randIndex = Math.random() * weightsTotal;
       console.log("Generated randIndex: " + randIndex);
       let weightIndex = 0;
-      for (let content of monkeyCommand.content) {
+      for (let content of groupCommand.content) {
         weightIndex += (content.weight ?? 1);
         console.log("  Current weightIndex: " + weightIndex);
         if (randIndex < weightIndex) {
