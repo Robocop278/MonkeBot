@@ -60,19 +60,19 @@ export const test: RootCommand[] = [
 
   // admin shit
   {
-    look_up: /monke\.app update/,
+    look_up: /monke\.app update/i,
     command: {
       shcmd: 'update'
     }
   },
   {
-    look_up: /monke\.app restart/,
+    look_up: /monke\.app restart/i,
     command: {
       shcmd: 'restart'
     }
   },
   {
-    look_up: /monke\.app shutdown/,
+    look_up: /monke\.app shutdown/i,
     command: {
       shcmd: 'shutdown'
     }
@@ -123,7 +123,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: 'intermission',
+    look_up: /intermission/i,
     command: {
       content: [
         {
@@ -183,19 +183,19 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /monke.*suck|monke.*succ/,
+    look_up: /monke.*suck|monke.*succ/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/fart_with_extra_reverb_reversed.mp3'
     }
   },
   {
-    look_up: /bwop/,
+    look_up: /bwop/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/bwop.mp3'
     }
   },
   {
-    look_up: /clash.*royale|clashr/,
+    look_up: /clash.*royale|clashr/i,
     command: {
       content: [
         {
@@ -248,7 +248,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /king.*sad|king.*cry/,
+    look_up: /king.*sad|king.*cry/i,
     command: {
       execute_all: true,
       content: [
@@ -263,7 +263,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /heheheha|king.*laugh/,
+    look_up: /heheheha|king.*laugh/i,
     command: {
       execute_all: true,
       content: [
@@ -278,7 +278,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /king.*happy/,
+    look_up: /king.*happy/i,
     command: {
       execute_all: true,
       content: [
@@ -293,7 +293,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /king.*mad|king.*angry|king.*rage/,
+    look_up: /king.*mad|king.*angry|king.*rage/i,
     command: {
       execute_all: true,
       content: [
@@ -308,37 +308,37 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /YYYY/,
+    look_up: /YYYY/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/YYYY.mp3'
     }
   },
   {
-    look_up: /bby.*pit boys/,
+    look_up: /bby.*pit boys/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/BBQ Pit Boys, Blue House - BBQ Shoes.mp3'
     }
   },
   {
-    look_up: /(balloon\s*boy|balloonboy|bb)\s*hello/,
+    look_up: /(balloon\s*boy|balloonboy|bb)\s*hello/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hello.ogg'
     }
   },
   {
-    look_up: /(balloon\s*boy|balloonboy|bb)\s*hi/,
+    look_up: /(balloon\s*boy|balloonboy|bb)\s*hi/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_hi.ogg'
     }
   },
   {
-    look_up: /(balloon\s*boy|balloonboy|bb)\s*(haha|laugh)/,
+    look_up: /(balloon\s*boy|balloonboy|bb)\s*(ha.*ha|laugh)/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/bb_sounds/bb_laugh.ogg'
     }
   },
   {
-    look_up: /balloon\s*boy|balloonboy/,
+    look_up: /balloon\s*boy|balloonboy/i,
     command: {
       bucket_folder: 'bb_sounds'
     }
@@ -350,43 +350,43 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /tt.*laugh/,
+    look_up: /tt.*laugh/i,
     command: {
       bucket_folder: 'tatl/laugh'
     }
   },
   {
-    look_up: /tt.*mama/,
+    look_up: /tt.*mama/i,
     command: {
       bucket_folder: 'tatl/mama'
     }
   },
   {
-    look_up: /goblin/,
+    look_up: /goblin/i,
     command: {
       bucket_folder: 'goblin'
     }
   },
   {
-    look_up: /i'?ll\s*kill\s*ya/,
+    look_up: /i'?ll\s*kill\s*ya/i,
     command: {
       media_url: "https://monke.s3.us-east-1.amazonaws.com/ill_kill_ya.ogg"
     }
   },
   {
-    look_up: /drunke/,
+    look_up: /drunke/i,
     command: {
       bucket_folder: 'demoman'
     }
   },
   {
-    look_up: /oreo/,
+    look_up: /oreo/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/no_more_oreos.ogg'
     }
   },
   {
-    look_up: /^ow+$/,
+    look_up: /^ow+$/i,
     command: {
       content: [
         {
@@ -404,37 +404,37 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /byeah/,
+    look_up: /byeah/i,
     command: {
       bucket_folder: 'byeah'
     }
   },
   {
-    look_up: /cleveland/,
+    look_up: /cleveland/i,
     command: {
       bucket_folder: 'cleveland'
     }
   },
   {
-    look_up: /gnome.*yay/,
+    look_up: /gnome.*yay/i,
     command: {
       bucket_folder: 'gnome/yay'
     }
   },
   {
-    look_up: /thank.*you|ty/,
+    look_up: /thank.*you|ty/i,
     command: {
-      media_url: "https://monke.s3.us-east-1.amazonaws.com/metal-slug-thank-you-tenkiu.mp3"
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/metal-slug-thank-you-tenkiu.ogg"
     }
   },
   {
-    look_up: /hell naw/,
+    look_up: /hell naw/i,
     command: {
       media_url: "https://monke.s3.us-east-1.amazonaws.com/hell%20naw.ogg"
     }
   },
   {
-    look_up: /badumtss/,
+    look_up: /badumtss/i,
     command: {
       bucket_folder: 'badumtss'
     }
@@ -452,7 +452,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /bad|bone/,
+    look_up: /bad|bone/i,
     command: {
       content: [
         {
