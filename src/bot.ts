@@ -1,4 +1,4 @@
-import { ActivityType, Message, VoiceChannel, TextChannel } from 'discord.js';
+import { ActivityType, Message, VoiceChannel, TextChannel, User, GuildMember, Guild } from 'discord.js';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
@@ -58,6 +58,38 @@ let currentMessage: Message;
 client.on(Events.MessageCreate, message => {
   // We want to ignore all messages that come from monke itself
   if (message.author.id === '690351869650010333') return;
+
+  if (message.applicationId === '1231040317105373295') {
+    let bottag = message.author.username;
+    const minecraft = [
+      { key: 'theemadbro', value: '102131584240480256' },
+      { key: 'awbeans18', value: '464864751206531082' },
+      { key: 'CrackBone17', value: '107376008528711680' },
+      { key: 'Robocop278', value: '102265685224194048' },
+      { key: 'Bramblestaff', value: '300122791959855106' },
+      { key: 'HyperMate', value: '227115221838331905' },
+      { key: 'KingOfCactus', value: '144327546832551937' }
+    ]
+    let returnuser = minecraft.find(key => key.key === bottag)?.value
+    if (returnuser) {
+      let voiceuserlist = message.guild?.voiceStates.cache;
+      let founduser = voiceuserlist?.get(returnuser);
+
+      let updateMes: Message = Object.assign({} as Message, message as Message, { member: founduser?.member as GuildMember }) as Message;
+
+      // const updateMemb: { member: GuildMember } = { member: founduser?.member as GuildMember }
+
+      // const updateMes: Message = { ...message, ...updateMemb } as Message
+      message = updateMes as Message;
+      // message = { message: message, sent_messages: [] } as MessageContext;
+      console.log(typeof (message));
+      console.log("updatedMes: \n" + updateMes);
+      // message.member = founduser?.member;
+      // Object.assign(message, { ...message, member: founduser?.member })
+
+      console.log(founduser);
+    }
+  }
 
   console.log(`Message from ${message.author.username}: ${message.content}`);
   currentMessage = message;
@@ -254,7 +286,13 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
   else if ((<MediaCommand>command).media_url !== undefined) {
     console.log("Fetched as MediaCommand");
     let mediaCommand = command as MediaCommand;
-    let voiceChannel = message.message.member?.voice.channel
+    let voiceChannel;
+    if (!('sent_messages' in message)) {
+      voiceChannel = message['member']['voice']['channel']
+    }
+    else {
+      voiceChannel = message.message.member?.voice.channel
+    }
     if (voiceChannel && voiceChannel instanceof VoiceChannel) {
       monkeVoice.connect(voiceChannel);
       await monkeVoice.testAudio(mediaCommand.media_url);
