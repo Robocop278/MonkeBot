@@ -350,7 +350,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /tt.*laugh/i,
+    look_up: /tt.*(laugh|h(a|e).*h(a|e))/i,
     command: {
       bucket_folder: 'tatl/laugh'
     }
@@ -428,7 +428,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /gnome.*(failed|lost)the challenge/i,
+    look_up: /(failed|lost) the challenge/i,
     command: {
       media_url: "https://monke.s3.us-east-1.amazonaws.com/gnome/GNOME%20CHALLENGE.mp3"
     }
