@@ -422,7 +422,19 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /thank.*you|ty/i,
+    look_up: /(ha.*he|gnome.*(laugh|ha.*(ha|he))))/i,
+    command: {
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/gnome/GNOME%20HAHE.mp3"
+    }
+  },
+  {
+    look_up: /gnome.*(failed|lost)the challenge/i,
+    command: {
+      media_url: "https://monke.s3.us-east-1.amazonaws.com/gnome/GNOME%20CHALLENGE.mp3"
+    }
+  },
+  {
+    look_up: /thank.*you|(^ty)/i,
     command: {
       media_url: "https://monke.s3.us-east-1.amazonaws.com/metal-slug-thank-you-tenkiu.ogg"
     }
