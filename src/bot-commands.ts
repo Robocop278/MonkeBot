@@ -1043,7 +1043,7 @@ export const test: RootCommand[] = [
           timed_sequence: [
             {
               command: { text_content: 'https://tenor.com/view/mapache-pedro-gif-7206648027763736533' },
-              timeout_ms: 800
+              timeout_ms: 1000
             },
             {
               command: { clean_up: true },
