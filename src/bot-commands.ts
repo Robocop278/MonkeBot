@@ -1030,5 +1030,28 @@ export const test: RootCommand[] = [
         }
       ]
     }
+  },
+  {
+    look_up: /(?:pedro\s*){3,}/i,
+    command: {
+      execute_all: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/pedropedropedro.mp3'
+        },
+        {
+          timed_sequence: [
+            {
+              command: { text_content: 'https://tenor.com/view/mapache-pedro-gif-7206648027763736533' },
+              timeout_ms: 800
+            },
+            {
+              command: { clean_up: true },
+              timeout_ms: 12000
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
