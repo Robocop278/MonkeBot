@@ -59,6 +59,7 @@ client.on(Events.MessageCreate, message => {
   // We want to ignore all messages that come from monke itself
   if (message.author.id === '690351869650010333') return;
 
+  // if coming from Minecraft chat integration bot ...
   if (message.applicationId === '1231040317105373295') {
     let bottag = message.author.username;
     const minecraft = [

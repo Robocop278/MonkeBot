@@ -538,6 +538,18 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /oof/i,
+    command: {
+      content: [{
+        media_url: 'https://monke.s3.amazonaws.com/roblox_oof_slow.ogg',
+        weight: 6
+      },
+      {
+        media_url: 'https://monke.s3.amazonaws.com/roblox_oof.ogg'
+      }]
+    }
+  },
+  {
     look_up: /how\s*to\s*spoon/i,
     command: {
       sequence_id: 'how-to-spoon',
@@ -795,6 +807,24 @@ export const test: RootCommand[] = [
     look_up: /jeopardy/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3'
+    }
+  },
+  {
+    look_up: /kenna|halloween/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Michael_Myers_Theme_Song.ogg'
+    }
+  },
+  {
+    look_up: /what are you doing on computer/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/what_are_you_doing_on_computer.ogg'
+    }
+  },
+  {
+    look_up: /yoda|cock-rock/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Lego_yoda_death_sound.ogg'
     }
   },
   {
