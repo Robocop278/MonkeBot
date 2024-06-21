@@ -676,6 +676,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /pickle/i,
+    command: {
+      bucket_folder: 'pickle'
+    }
+  },
+  {
     look_up: /halo/i,
     command: {
       bucket_folder: 'HaloAnnouncer'
