@@ -1,17 +1,56 @@
 {
-	"name": "Monke-Bot",
-	"version": "1.0.0",
+	"name": "monke-bot",
+	"version": "2.0.0",
 	"description": "Stupee Monke",
-	"main": "bot.js",
+	"main": "dist/bot.js",
 	"author": "Christian Gutierrez",
+	"scripts": {
+		"dev": "tsx watch src/bot.ts",
+		"build": "tsc --build --verbose",
+		"start": "pm2 start . --watch",
+		"restart": "pm2 restart .",
+		"update": "git pull --rebase",
+		"postupdate": "npm run build",
+		"stop": "pm2 stop ."
+	},
+	"engines": {
+		"node": ">=16"
+	},
 	"dependencies": {
-		"@discordjs/opus": "^0.3.3",
-		"aws-sdk": "^2.1106.0",
-		"discord-reply": "^0.1.2",
-		"discord-ytdl-core": "^4.1.5",
-		"discord.js": "^12.5.3",
-		"ffmpeg-static": "^4.4.0",
-		"lazy-search": "^1.0.3",
-		"ytdl-core": "^4.11.2"
+		"@discordjs/opus": "^0.9.0",
+		"@discordjs/voice": "^0.15.0",
+		"aws-sdk": "^2.1594.0",
+		"chalk": "^4.1.0",
+		"discord.js": "^14.14.1",
+		"dotenv": "^16.4.5",
+		"ffmpeg-static": "^5.1.0",
+		"json5": "^2.2.3",
+		"libsodium-wrappers": "^0.7.11",
+		"nodemon": "^2.0.22",
+		"uuid": "^9.0.1"
+	},
+	"devDependencies": {
+		"@npm/types": "^1.0.2",
+		"@types/eslint": "^8.37.0",
+		"@types/fs-extra": "^11.0.1",
+		"@types/node": "^18.19.26",
+		"@types/prettier": "^2.7.2",
+		"@types/uuid": "^9.0.8",
+		"@typescript-eslint/eslint-plugin": "^5.57.0",
+		"@typescript-eslint/parser": "^5.57.0",
+		"eslint": "^8.37.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"fs-extra": "^11.1.1",
+		"husky": "^8.0.3",
+		"prettier": "2.8.7",
+		"ts-node": "^10.9.1",
+		"tsup": "^8.0.2",
+		"tsx": "^4.7.1",
+		"typescript": "^5.4.3"
+	},
+	"peerDependencies": {
+		"typescript": ">=3"
 	}
 }

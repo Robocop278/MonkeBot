@@ -1,6 +1,10 @@
 node_modules/*
+dist/*
 auth.json
 constants.js
 tests.js
 package.json
 package-lock.json
+config.json5
+*.ogg
+MonkeBot.code-workspace
