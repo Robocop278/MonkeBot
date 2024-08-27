@@ -836,37 +836,37 @@ export const test: RootCommand[] = [
   {
     look_up: /eene.*bird/i,
     command: {
-      bucket_folder: 'eene/birds'
+      bucket_folder: 'EEnE/birds'
     }
   },
   {
     look_up: /eene.*monkey/i,
     command: {
-      bucket_folder: 'eene/monkey'
+      bucket_folder: 'EEnE/monkey'
     }
   },
   {
     look_up: /eene.*orangutan/i,
     command: {
-      bucket_folder: 'eene/orangutan'
+      bucket_folder: 'EEnE/orangutan'
     }
   },
   {
     look_up: /eene.*horse/i,
     command: {
-      bucket_folder: 'eene/horse'
+      bucket_folder: 'EEnE/horse'
     }
   },
   {
     look_up: /eene.*impact/i,
     command: {
-      bucket_folder: 'eene/impact'
+      bucket_folder: 'EEnE/impact'
     }
   },
   {
     look_up: /eene.*Band Hits/i,
     command: {
-      bucket_folder: 'eene/Band Hits'
+      bucket_folder: 'EEnE/Band Hits'
     }
   },
   {
