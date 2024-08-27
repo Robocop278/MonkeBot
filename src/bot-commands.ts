@@ -834,6 +834,102 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /eene.*bird/i,
+    command: {
+      bucket_folder: 'eene/birds'
+    }
+  },
+  {
+    look_up: /eene.*monkey/i,
+    command: {
+      bucket_folder: 'eene/monkey'
+    }
+  },
+  {
+    look_up: /eene.*orangutan/i,
+    command: {
+      bucket_folder: 'eene/orangutan'
+    }
+  },
+  {
+    look_up: /eene.*horse/i,
+    command: {
+      bucket_folder: 'eene/horse'
+    }
+  },
+  {
+    look_up: /eene.*impact/i,
+    command: {
+      bucket_folder: 'eene/impact'
+    }
+  },
+  {
+    look_up: /eene.*Band Hits/i,
+    command: {
+      bucket_folder: 'eene/Band Hits'
+    }
+  },
+  {
+    look_up: /eene.*Title/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE - Episode Title.wav'
+    }
+  },
+  {
+    look_up: /eene.*hello/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Hello.wav'
+    }
+  },
+  {
+    look_up: /eene.*slide/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Slide 2 longer.wav'
+    }
+  },
+  {
+    look_up: /eene.*horn/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE THE Horn.wav'
+    }
+  },
+  {
+    look_up: /mama/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Mama Doll.wav'
+    }
+  },
+  {
+    look_up: /crow/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEne Crows.wav'
+    }
+  },
+  {
+    look_up: /slide.*guitar/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE 88 Fingers Edd.wav'
+    }
+  },
+  {
+    look_up: /doors/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE doors.wav'
+    }
+  },
+  {
+    look_up: /baby.*gasp/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Baby Gasp 1.wav'
+    }
+  },
+  {
+    look_up: /yodel/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Yodel Goofy.wav'
+    }
+  },
+  {
     look_up: /cheezy\s*street|rat\s*taxi/i,
     command: {
       execute_all: true,
