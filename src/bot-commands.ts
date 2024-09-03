@@ -834,6 +834,16 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /ladder|snake.*eater/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Snake_Eater.ogg'
+    }
+  },
+
+
+  //Ed Edd Eddy Block
+
+  {
     look_up: /eene.*bird/i,
     command: {
       bucket_folder: 'EEnE/birds'
