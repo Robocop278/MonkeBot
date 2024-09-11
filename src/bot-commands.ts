@@ -308,6 +308,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /hulloo/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/hulloo.mp3'
+    }
+  },
+  {
     look_up: /YYYY/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/YYYY.mp3'
