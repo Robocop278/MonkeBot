@@ -310,7 +310,7 @@ export const test: RootCommand[] = [
   {
     look_up: /hulloo/i,
     command: {
-      media_url: 'https://monke.s3.amazonaws.com/hulloo.mp3'
+      media_url: 'https://monke.s3.amazonaws.com/hulloo.ogg'
     }
   },
   {
@@ -840,7 +840,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /ladder|snake.*eater/i,
+    look_up: /ladder|snake.*eater|sneater/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/Snake_Eater.ogg'
     }
