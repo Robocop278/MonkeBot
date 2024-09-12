@@ -576,7 +576,7 @@ export const test: RootCommand[] = [
   {
     look_up: /spi+n|speen/i,
     command: {
-      media_url: 'https://monke.s3.amazonaws.com/shart.mp3'
+      media_url: 'https://monke.s3.amazonaws.com/speen.mp3'
     }
   },
   {
