@@ -580,6 +580,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /brerb/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/brerb.ogg'
+    }
+  },
+  {
     look_up: /spi+n|speen/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/speen.ogg'
