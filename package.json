@@ -9,8 +9,8 @@
 		"build": "tsc --build --verbose",
 		"start": "pm2 start . --watch",
 		"restart": "pm2 restart .",
-		"update": "git pull --rebase",
-		"postupdate": "npm run build",
+		"updatemonke": "git pull --rebase",
+		"postupdatemonke": "tsc --build --verbose",
 		"stop": "pm2 stop ."
 	},
 	"engines": {
