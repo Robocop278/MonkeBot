@@ -682,6 +682,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /sound\s*clown/i,
+    command: {
+      bucket_folder: 'soundclown'
+    }
+  },
+  {
     look_up: /pickle/i,
     command: {
       bucket_folder: 'pickle'
