@@ -194,7 +194,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       if (groupCommand.on_complete) {
 
         // Calculate rolled weight
-        let rolledWeight = weightsTotal / randIndex;
+        let rolledWeight = randIndex / weightsTotal;
 
         let additionalCommand = groupCommand.on_complete(rolledWeight);
 
