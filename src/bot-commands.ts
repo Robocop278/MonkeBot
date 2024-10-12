@@ -475,12 +475,12 @@ export const test: RootCommand[] = [
     command: {
       content: [
         {
-          media_url: 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3',
-          weight: 30
-        },
-        {
           media_url: 'https://monke.s3.amazonaws.com/bad to the bone quiet.mp3',
           weight: 70
+        },
+        {
+          media_url: 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3',
+          weight: 30
         },
         {
           execute_all: true,
@@ -514,7 +514,16 @@ export const test: RootCommand[] = [
 
         let truncatedWeight = Math.trunc(rolledWeight * 100);
 
-        return { text_content: numberToScaryText(truncatedWeight) };
+        let outputText = numberToScaryText(truncatedWeight);
+
+        if (truncatedWeight <= 69) {
+          outputText = "-# " + outputText;
+        }
+        else if (truncatedWeight > 99) {
+          outputText += "# ***" + outputText + "***";
+        }
+
+        return { text_content: outputText };
       },
     }
   },
