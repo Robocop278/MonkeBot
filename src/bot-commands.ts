@@ -505,8 +505,8 @@ export const test: RootCommand[] = [
             '5': 'Ҕ',
             '6': 'ᑳ',
             '7': 'ᒉ',
-            '8': 'ᖗ',
-            '9': 'ꝋ'
+            '8': 'ზ',
+            '9': 'ᖗ'
           };
 
           return num.toString().split('').map(digit => digitMap[digit]).join('');
