@@ -520,7 +520,7 @@ export const test: RootCommand[] = [
           outputText = "-# " + outputText;
         }
         else if (rolledWeight >= (100 / 101)) {
-          outputText = "# ***ᛑꝋꝋ***";
+          outputText = "# ***ᛑꝋꝋ***\n# ***𐌵ᙁ𐌋𐌄𐌀𐌔𐋅 𐌕𐋅𐌄 𐌁Ꝋᙁ𐌄***";
         }
 
         return { text_content: outputText };
