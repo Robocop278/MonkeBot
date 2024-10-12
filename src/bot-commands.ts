@@ -519,8 +519,8 @@ export const test: RootCommand[] = [
         if (rolledWeight < (70 / 101)) {
           outputText = "-# " + outputText;
         }
-        else if (truncatedWeight >= (100 / 101)) {
-          outputText += "# ***ᛑꝋꝋ***";
+        else if (rolledWeight >= (100 / 101)) {
+          outputText = "# ***ᛑꝋꝋ***";
         }
 
         return { text_content: outputText };
