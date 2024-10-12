@@ -516,11 +516,11 @@ export const test: RootCommand[] = [
 
         let outputText = numberToScaryText(truncatedWeight);
 
-        if (truncatedWeight <= 69) {
+        if (rolledWeight < (70 / 101)) {
           outputText = "-# " + outputText;
         }
-        else if (truncatedWeight > 99) {
-          outputText += "# ***" + outputText + "***";
+        else if (truncatedWeight >= (100 / 101)) {
+          outputText += "# ***ᛑꝋꝋ***";
         }
 
         return { text_content: outputText };
