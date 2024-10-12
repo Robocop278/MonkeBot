@@ -11,6 +11,7 @@ export interface RootCommand {
 export interface GroupCommand extends CommandBase {
   content: ActionableCommand[];
   execute_all?: boolean;
+  on_complete?: (rolledWeight: number) => ActionableCommand | void;
 }
 
 export type ShCmd = 'update' | 'restart' | 'shutdown';
@@ -492,7 +493,27 @@ export const test: RootCommand[] = [
             }
           ]
         }
-      ]
+      ],
+      on_complete(rolledWeight): ActionableCommand | void {
+        function numberToScaryText(num: number): string {
+          const digitMap: { [key: string]: string } = {
+            '0': 'ꝋ',
+            '1': 'ᛑ',
+            '2': 'ᘖ',
+            '3': 'ᙣ',
+            '4': 'ᔦ',
+            '5': 'Ҕ',
+            '6': 'ᑳ',
+            '7': 'ᒉ',
+            '8': 'ᖗ',
+            '9': 'ꝋ'
+          };
+
+          return num.toString().split('').map(digit => digitMap[digit]).join('');
+        }
+
+        return { text_content: numberToScaryText(rolledWeight) };
+      },
     }
   },
   {
