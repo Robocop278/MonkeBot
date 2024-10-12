@@ -512,7 +512,7 @@ export const test: RootCommand[] = [
           return num.toString().split('').map(digit => digitMap[digit]).join('');
         }
 
-        let truncatedWeight = Math.trunc(rolledWeight);
+        let truncatedWeight = Math.trunc(rolledWeight * 100);
 
         return { text_content: numberToScaryText(truncatedWeight) };
       },
