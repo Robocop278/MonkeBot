@@ -1201,6 +1201,53 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /sexy\s*hat/i,
+    command: {
+      execute_all: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/sexy_hat.mp3'
+        },
+        {
+          timed_sequence: [
+            {
+              command: { text_content: 'https://tenor.com/view/mozzarella-sticks-spinning-mozzarella-sticks-gif-24129498' },
+              timeout_ms: 2000
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/nutella-gif-4099928683247293109' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/pesto-mozzarella-crustini-verde-burrata-gif-13144754' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/boba-fett-boba-feta-disney-the-book-of-boba-fett-boba-gif-24410023' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/tom-and-jerry-cheese-one-bite-jerry-mouse-gif-27668294' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rats-rat-dancing-dance-gif-26758028' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/rat-gif-26402521' },
+              timeout_ms: 2033
+            },
+            {
+              command: { clean_up: true },
+              timeout_ms: 2033
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     look_up: /skyl(?:a|e)r|kazuya\s*guy/i,
     command: {
       execute_all: true,
