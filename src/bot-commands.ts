@@ -1220,11 +1220,11 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'https://tenor.com/view/agree-sure-eyebrows-raised-oh-yeah-great-gif-14134262' },
-              timeout_ms: 4066
+              timeout_ms: 4320
             },
             {
               command: { text_content: 'https://media.tenor.com/VBTAFdK3d1MAAAAC/dog-cute.gif' },
-              timeout_ms: 4320
+              timeout_ms: 4066
             },
             {
               command: { text_content: 'https://64.media.tumblr.com/0d4539bd961dad74198a2283b51a6372/da83c7c8f6769d24-a4/s500x750/afe80f854baed38d4ab4e997c6b5608b07799c62.gif' },
