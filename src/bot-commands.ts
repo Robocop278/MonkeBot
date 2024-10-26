@@ -1248,7 +1248,7 @@ export const test: RootCommand[] = [
           timed_sequence: [
             {
               command: { text_content: 'beat' },
-              timeout_ms: 500
+              timeout_ms: 250
             },
             {
               command: { text_content: 'beat' },
