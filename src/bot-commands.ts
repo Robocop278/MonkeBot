@@ -1257,7 +1257,7 @@ export const test: RootCommand[] = [
               timeout_ms: 3934
             },
             {
-              command: { text_content: 'https://media.tenor.com/925LDfyVUGEAAAAi/cute-sad.gif' },
+              command: { text_content: 'https://media.tenor.com/CgvAMwk418EAAAAM/hades.gif' },
               timeout_ms: 1967
             },
             {
@@ -1265,7 +1265,7 @@ export const test: RootCommand[] = [
               timeout_ms: 1967
             },
             {
-              command: { text_content: 'https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flhzl1hvuo2n91.gif' },
+              command: { text_content: 'https://c.tenor.com/ppKEvFBsAKsAAAAC/tenor.gif' },
               timeout_ms: 1967
             },
             {
@@ -1274,6 +1274,54 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'https://static.wikia.nocookie.net/fraytools/images/e/e4/DougDimmadomeSummon.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2sxbnU5ZGYwNHg0OGR1bWYxcHFmbWp2cDR5bmJ4amNiaXBwcXQzeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DE2SPf5htCh36CU82c/giphy.webp' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://static.wixstatic.com/media/9fe155_5e54290a17dc402dbd9dc7901ab12421~mv2.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://content.presentermedia.com/content/animsp/00012000/12224/stick_figure_handshake_standout_anim_md_nwm_v2.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://c.tenor.com/o1fnLBZm-OAAAAAC/tenor.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/zMQs175tn4IAAAAM/pooh-pooh-bear.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://monke.s3.us-east-1.amazonaws.com/skylarMonke.png' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/zClpMfpzzIwAAAAM/decepcao-pensativo.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTF3YnR6anV0ZDdoZnhmdGEwbnJ0bGhic2Vndm9xcGR2dHA0MW4zeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oxOCCjVreWgdcfQiI/giphy.webp' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://c.tenor.com/Rj3ZUiIeTkoAAAAC/tenor.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/t9hWWFdlEaMAAAAM/grind-grinding.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/nB8Uk27tSqgAAAAM/dr-seuss-cat-in-the-hat.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/fo6LaSNyn5kAAAAM/cat-wif.gif' },
               timeout_ms: 1967
             },
 
