@@ -1372,10 +1372,38 @@ export const test: RootCommand[] = [
               command: { text_content: 'https://data.textstudio.com/output/sample/animated/4/8/0/5/benefits-1-5084.gif' },
               timeout_ms: 1967
             },
-
-
-
-
+            {
+              command: { text_content: 'https://i.gifer.com/6a8F.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/_TOqgOsnpDMAAAAM/cali7.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://cdn.dribbble.com/users/3248309/screenshots/9025204/media/3652fb4312adb3025f10298df3fc37ad.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://www.icegif.com/wp-content/uploads/2023/09/icegif-140.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.pinimg.com/originals/3e/6a/70/3e6a708c04fd6fd38f0932022d413cf9.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTUwcDYwcmQzb2pyYm45YWYzZmRzaG14cWdvYmd6OGMxb29ybm9tYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VHeeFmvBRCfVtE7J1c/200.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.giphy.com/LorktCbMnFR5bUhQxo.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.giphy.com/SM4Gn6peFUKQiY3NzV.gif' },
+              timeout_ms: 1967
+            },
             {
               command: { clean_up: true },
               timeout_ms: 3934
