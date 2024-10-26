@@ -1252,87 +1252,75 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2032
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2032
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2032
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2032
+              timeout_ms: 1967
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2033
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 2033
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 2033
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 2032
+              timeout_ms: 1967
             },
             {
               command: { clean_up: true },
-              timeout_ms: 2033
+              timeout_ms: 1967
             }
           ]
         }
