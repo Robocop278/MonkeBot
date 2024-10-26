@@ -1217,7 +1217,7 @@ export const test: RootCommand[] = [
               timeout_ms: 3000
             },
             {
-              command: { text_content: 'https://tenor.com/view/mesh-cap-gif-18676730' },
+              command: { text_content: 'https://hoveybenjamin.com/cdn/shop/files/sexy-hat-home_300x300.png?v=1683064346' },
               timeout_ms: 5118
             },
             {
@@ -1240,6 +1240,43 @@ export const test: RootCommand[] = [
               command: { text_content: 'https://img1.picmix.com/output/pic/normal/0/8/7/9/12069780_62098.gif' },
               timeout_ms: 3934
             },
+            {
+              command: { text_content: 'https://tenor.com/view/mesh-cap-gif-18676730' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/m7eA33h9Z8YAAAAM/black-red-cap.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://i.pinimg.com/originals/6c/6a/bd/6c6abd275132826c35b69d915ba77e5d.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/925LDfyVUGEAAAAi/cute-sad.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/925LDfyVUGEAAAAi/cute-sad.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://stridewise.com/wp-content/uploads/2021/08/nick-holding-hide.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flhzl1hvuo2n91.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.gifer.com/8BE3.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://static.wikia.nocookie.net/fraytools/images/e/e4/DougDimmadomeSummon.gif' },
+              timeout_ms: 1967
+            },
+
             {
               command: { clean_up: true },
               timeout_ms: 3934
