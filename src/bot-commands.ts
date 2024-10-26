@@ -1212,7 +1212,7 @@ export const test: RootCommand[] = [
           timed_sequence: [
             {
               command: { text_content: 'https://tenor.com/view/mozzarella-sticks-spinning-mozzarella-sticks-gif-24129498' },
-              timeout_ms: 2000
+              timeout_ms: 2033
             },
             {
               command: { text_content: 'https://tenor.com/view/nutella-gif-4099928683247293109' },
