@@ -1243,6 +1243,66 @@ export const test: RootCommand[] = [
               timeout_ms: 2033
             }
           ]
+        },
+        {
+          timed_sequence: [
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 0
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            }
+          ]
         }
       ]
     }
