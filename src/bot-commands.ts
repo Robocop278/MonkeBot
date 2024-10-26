@@ -1260,7 +1260,11 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2034
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2032
             },
             {
               command: { text_content: 'beat' },
@@ -1272,7 +1276,11 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2034
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2032
             },
             {
               command: { text_content: 'beat' },
@@ -1284,7 +1292,11 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2034
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2032
             },
             {
               command: { text_content: 'beat' },
@@ -1296,11 +1308,27 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'beat' },
-              timeout_ms: 2034
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2032
             },
             {
               command: { text_content: 'beat' },
               timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2033
+            },
+            {
+              command: { text_content: 'beat' },
+              timeout_ms: 2032
             },
             {
               command: { clean_up: true },
