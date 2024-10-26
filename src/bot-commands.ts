@@ -1277,7 +1277,7 @@ export const test: RootCommand[] = [
               timeout_ms: 1967
             },
             {
-              command: { text_content: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2sxbnU5ZGYwNHg0OGR1bWYxcHFmbWp2cDR5bmJ4amNiaXBwcXQzeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DE2SPf5htCh36CU82c/giphy.webp' },
+              command: { text_content: 'https://media.tenor.com/-SkXk-I3YAoAAAAM/diamonds.gif' },
               timeout_ms: 1967
             },
             {
@@ -1305,7 +1305,7 @@ export const test: RootCommand[] = [
               timeout_ms: 1967
             },
             {
-              command: { text_content: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTF3YnR6anV0ZDdoZnhmdGEwbnJ0bGhic2Vndm9xcGR2dHA0MW4zeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oxOCCjVreWgdcfQiI/giphy.webp' },
+              command: { text_content: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTF3YnR6anV0ZDdoZnhmdGEwbnJ0bGhic2Vndm9xcGR2dHA0MW4zeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oxOCCjVreWgdcfQiI/giphy.gif' },
               timeout_ms: 1967
             },
             {
@@ -1324,6 +1324,57 @@ export const test: RootCommand[] = [
               command: { text_content: 'https://media.tenor.com/fo6LaSNyn5kAAAAM/cat-wif.gif' },
               timeout_ms: 1967
             },
+            {
+              command: { text_content: 'https://i0.wp.com/media0.giphy.com/media/l3nW69ahAX7F6Pcsw/giphy.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/L_rRPzX1_coAAAAM/charmed-heated.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/k8vMYqhwgQoAAAAM/searching.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/5a6nI1uzhJAAAAAM/happy-birthday.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/naGzRDw2BykAAAAM/take-off-the-hat-cordell-walker.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/C7IXUsdG2UYAAAAj/putting-on-a-hat-tim-robinson.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://helenkaminski.com/cdn/shop/files/ezgif.com-gif-maker_9__1635399480869_600x.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.pinimg.com/originals/f7/4c/e8/f74ce8e4d28ef1556aa0acd71ef619ac.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/s85UU1L28CwAAAAM/lol-omg-lol.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.imgur.com/gddISpO.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/56xC9t2YXEcAAAAM/jerma-dollhouse.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://data.textstudio.com/output/sample/animated/4/8/0/5/benefits-1-5084.gif' },
+              timeout_ms: 1967
+            },
+
+
+
 
             {
               command: { clean_up: true },
