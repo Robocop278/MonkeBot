@@ -1209,8 +1209,8 @@ export const test: RootCommand[] = [
           media_url: 'https://monke.s3.us-east-1.amazonaws.com/sexy_hat.mp3'
         },
         {
-          // Sexy hat, seconds per beat: 1967
-          // Half bar: 3934. Full bar: 7868
+          // Sexy hat, 8 measures per bar. Seconds per beat: 0.4918
+          // Half bar: 1967ms. Full bar: 3934ms
           timed_sequence: [
             {
               command: { text_content: 'https://tenor.com/view/hovey-benjamin-hovey-benjamin-love-kiss-gif-13271427' },
@@ -1218,7 +1218,7 @@ export const test: RootCommand[] = [
             },
             {
               command: { text_content: 'https://tenor.com/view/mesh-cap-gif-18676730' },
-              timeout_ms: 7085
+              timeout_ms: 5118
             },
             {
               command: { text_content: 'https://tenor.com/view/agree-sure-eyebrows-raised-oh-yeah-great-gif-14134262' },
