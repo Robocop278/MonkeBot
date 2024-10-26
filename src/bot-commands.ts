@@ -1208,122 +1208,124 @@ export const test: RootCommand[] = [
         {
           media_url: 'https://monke.s3.us-east-1.amazonaws.com/sexy_hat.mp3'
         },
-        // {
-        //   timed_sequence: [
-        //     {
-        //       command: { text_content: 'https://tenor.com/view/hovey-benjamin-hovey-benjamin-love-kiss-gif-13271427' },
-        //       timeout_ms: 3000
-        //     },
-        //     {
-        //       command: { text_content: 'https://tenor.com/view/mesh-cap-gif-18676730' },
-        //       timeout_ms: 5132
-        //     },
-        //     {
-        //       command: { text_content: 'https://tenor.com/view/agree-sure-eyebrows-raised-oh-yeah-great-gif-14134262' },
-        //       timeout_ms: 4066
-        //     },
-        //     {
-        //       command: { text_content: 'https://media.tenor.com/VBTAFdK3d1MAAAAC/dog-cute.gif' },
-        //       timeout_ms: 4066
-        //     },
-        //     {
-        //       command: { text_content: 'https://64.media.tumblr.com/0d4539bd961dad74198a2283b51a6372/da83c7c8f6769d24-a4/s500x750/afe80f854baed38d4ab4e997c6b5608b07799c62.gif' },
-        //       timeout_ms: 4066
-        //     },
-        //     {
-        //       command: { text_content: 'https://i.makeagif.com/media/7-10-2015/cAMjHK.gif' },
-        //       timeout_ms: 4066
-        //     },
-        //     {
-        //       command: { text_content: 'https://img1.picmix.com/output/pic/normal/0/8/7/9/12069780_62098.gif' },
-        //       timeout_ms: 4066
-        //     },
-        //     {
-        //       command: { clean_up: true },
-        //       timeout_ms: 2033
-        //     }
-        //   ]
-        // },
         {
+          // Sexy hat, seconds per beat: 1967
+          // Half bar: 3934. Full bar: 7868
           timed_sequence: [
             {
-              command: { text_content: 'beat' },
-              timeout_ms: 250
+              command: { text_content: 'https://tenor.com/view/hovey-benjamin-hovey-benjamin-love-kiss-gif-13271427' },
+              timeout_ms: 3000
             },
             {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
+              command: { text_content: 'https://tenor.com/view/mesh-cap-gif-18676730' },
+              timeout_ms: 7085
             },
             {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
+              command: { text_content: 'https://tenor.com/view/agree-sure-eyebrows-raised-oh-yeah-great-gif-14134262' },
+              timeout_ms: 3934
             },
             {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
+              command: { text_content: 'https://media.tenor.com/VBTAFdK3d1MAAAAC/dog-cute.gif' },
+              timeout_ms: 3934
             },
             {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
+              command: { text_content: 'https://64.media.tumblr.com/0d4539bd961dad74198a2283b51a6372/da83c7c8f6769d24-a4/s500x750/afe80f854baed38d4ab4e997c6b5608b07799c62.gif' },
+              timeout_ms: 3934
             },
             {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
+              command: { text_content: 'https://i.makeagif.com/media/7-10-2015/cAMjHK.gif' },
+              timeout_ms: 3934
             },
             {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
-            },
-            {
-              command: { text_content: 'beat' },
-              timeout_ms: 1967
+              command: { text_content: 'https://img1.picmix.com/output/pic/normal/0/8/7/9/12069780_62098.gif' },
+              timeout_ms: 3934
             },
             {
               command: { clean_up: true },
-              timeout_ms: 1967
+              timeout_ms: 3934
             }
           ]
-        }
+        },
+        // {
+        //   timed_sequence: [
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 250
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { clean_up: true },
+        //       timeout_ms: 1967
+        //     }
+        //   ]
+        // }
       ]
     }
   },
