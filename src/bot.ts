@@ -347,6 +347,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
         }
         else {
           if (awsCache.hasOwnProperty(s3FolderCommand.bucket_folder)) {
+            console.log(`aws cache match ${s3FolderCommand.bucket_folder}`);
             let unique = false;
             if (dataContents.length == awsCache[s3FolderCommand.bucket_folder].length) {
               awsCache[s3FolderCommand.bucket_folder].length = 0;
@@ -363,7 +364,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
                 awsCache[s3FolderCommand.bucket_folder].push(selectedMedia);
               }
             }
-            processCommand({ text_content: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+            processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
           }
           else {
             processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
