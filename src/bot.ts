@@ -188,6 +188,18 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
           break;
         }
       };
+
+      // Once we have chosen and executed our command, execute the on_complete passed in for this event (if assigned)
+      // If this gives us back another ActionableCommand, we execute it
+      if (groupCommand.on_complete) {
+
+        // Calculate rolled weight
+        let rolledWeight = randIndex / weightsTotal;
+
+        let additionalCommand = groupCommand.on_complete(rolledWeight);
+
+        if (additionalCommand) processCommand(additionalCommand, message);
+      }
     }
     console.log("Finished GroupCommand");
   }
@@ -309,18 +321,53 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
   else if ((<S3FolderCommand>command).bucket_folder !== undefined) {
     console.log("Fetched as S3FolderCommand");
     let s3FolderCommand = command as S3FolderCommand;
+    interface awsCacheMap { [key: string]: string[] };
+    const awsCache: awsCacheMap = { // these are the folders we want to have no repeats in, good for larger getRandomFromFolder data.Contents lists.
+      "lounge/classical": [],
+      "lounge/piano": [],
+      "lounge/jazz": [],
+      "lounge/video_games": [],
+      "lounge/movie": [],
+      "soundclown": [],
+      "the  star war": [],
+      "NFL": [],
+      "gas/crit": []
+    };
 
     const data = await s3Client.listObjectsV2({ Bucket: configs.aws_bucket_name, Prefix: `${s3FolderCommand.bucket_folder}/`, StartAfter: `${s3FolderCommand.bucket_folder}/` }).promise();
     if (data.Contents) {
       const dataContents = data.Contents.filter(entry => (entry.Size ?? 0) > 0);
       console.log(`Reading S3 bucket contents for "${s3FolderCommand.bucket_folder}":\n${JSON.stringify(dataContents.map((entry) => entry.Key))}`);
-      const selectedMedia = dataContents[Math.floor(Math.random() * dataContents.length)].Key;
+
+      let selectedMedia = dataContents[Math.floor(Math.random() * dataContents.length)].Key as string;
       console.log("Selected S3 media: " + selectedMedia);
       if (selectedMedia) {
         if (s3FolderCommand.type === 'text') {
           processCommand({ text_content: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
-        } else {
-          processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+        }
+        else {
+          if (awsCache.hasOwnProperty(s3FolderCommand.bucket_folder)) {
+            let unique = false;
+            if (dataContents.length == awsCache[s3FolderCommand.bucket_folder].length) {
+              awsCache[s3FolderCommand.bucket_folder].length = 0;
+
+            }
+            while (!unique) {
+              if (awsCache[s3FolderCommand.bucket_folder].includes(selectedMedia)) {
+                console.log("not unique, try again...");
+                selectedMedia = dataContents[Math.floor(Math.random() * dataContents.length)].Key as string;
+                continue;
+              }
+              else {
+                unique = true;
+                awsCache[s3FolderCommand.bucket_folder].push(selectedMedia);
+              }
+            }
+            processCommand({ text_content: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+          }
+          else {
+            processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+          }
         }
       }
     }

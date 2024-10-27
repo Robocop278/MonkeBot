@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm run update
+npm run updatemonke

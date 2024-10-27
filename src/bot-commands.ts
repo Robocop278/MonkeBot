@@ -11,6 +11,7 @@ export interface RootCommand {
 export interface GroupCommand extends CommandBase {
   content: ActionableCommand[];
   execute_all?: boolean;
+  on_complete?: (rolledWeight: number) => ActionableCommand | void;
 }
 
 export type ShCmd = 'update' | 'restart' | 'shutdown';
@@ -308,6 +309,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /hulloo/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/hulloo.ogg'
+    }
+  },
+  {
     look_up: /YYYY/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/YYYY.mp3'
@@ -468,12 +475,12 @@ export const test: RootCommand[] = [
     command: {
       content: [
         {
-          media_url: 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3',
-          weight: 30
-        },
-        {
           media_url: 'https://monke.s3.amazonaws.com/bad to the bone quiet.mp3',
           weight: 70
+        },
+        {
+          media_url: 'https://monke.s3.amazonaws.com/bad to the bone normal.mp3',
+          weight: 30
         },
         {
           execute_all: true,
@@ -486,7 +493,38 @@ export const test: RootCommand[] = [
             }
           ]
         }
-      ]
+      ],
+      on_complete(rolledWeight): ActionableCommand | void {
+        function numberToScaryText(num: number): string {
+          const digitMap: { [key: string]: string } = {
+            '0': 'ꝋ',
+            '1': 'ᛑ',
+            '2': 'ᘖ',
+            '3': 'ᙣ',
+            '4': 'ᔦ',
+            '5': 'Ҕ',
+            '6': 'ᑳ',
+            '7': 'ᒉ',
+            '8': 'ზ',
+            '9': 'ᖗ'
+          };
+
+          return num.toString().split('').map(digit => digitMap[digit]).join('');
+        }
+
+        let truncatedWeight = Math.trunc(rolledWeight * 100);
+
+        let outputText = numberToScaryText(truncatedWeight);
+
+        if (rolledWeight < (70 / 101)) {
+          outputText = "-# " + outputText;
+        }
+        else if (rolledWeight >= (100 / 101)) {
+          outputText = "# ***𝟙𝟘𝟘***\n# **𐌵ᙁ𐌋𐌄𐌀𐌔𐋅 𐌕𐋅𐌄 𐌁Ꝋᙁ𐌄**";
+        }
+
+        return { text_content: outputText };
+      },
     }
   },
   {
@@ -565,6 +603,24 @@ export const test: RootCommand[] = [
     look_up: /shart/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/shart.mp3'
+    }
+  },
+  {
+    look_up: /egg/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/egg.ogg'
+    }
+  },
+  {
+    look_up: /brerb/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/brerb.ogg'
+    }
+  },
+  {
+    look_up: /spi+n|speen/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/speen.ogg'
     }
   },
   {
@@ -673,6 +729,12 @@ export const test: RootCommand[] = [
     look_up: /g(od|ah)\s*dam/i,
     command: {
       bucket_folder: 'GahDamn'
+    }
+  },
+  {
+    look_up: /sound\s*clown/i,
+    command: {
+      bucket_folder: 'soundclown'
     }
   },
   {
@@ -831,6 +893,112 @@ export const test: RootCommand[] = [
     look_up: /yoda|cock-rock/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/Lego_yoda_death_sound.ogg'
+    }
+  },
+  {
+    look_up: /ladder|snake.*eater|sneater/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Snake_Eater.ogg'
+    }
+  },
+
+
+  //Ed Edd Eddy Block
+
+  {
+    look_up: /eene.*bird/i,
+    command: {
+      bucket_folder: 'EEnE/birds'
+    }
+  },
+  {
+    look_up: /eene.*monkey/i,
+    command: {
+      bucket_folder: 'EEnE/monkey'
+    }
+  },
+  {
+    look_up: /eene.*orangutan/i,
+    command: {
+      bucket_folder: 'EEnE/orangutan'
+    }
+  },
+  {
+    look_up: /eene.*horse/i,
+    command: {
+      bucket_folder: 'EEnE/horse'
+    }
+  },
+  {
+    look_up: /eene.*impact/i,
+    command: {
+      bucket_folder: 'EEnE/impact'
+    }
+  },
+  {
+    look_up: /eene.*Band Hits/i,
+    command: {
+      bucket_folder: 'EEnE/Band Hits'
+    }
+  },
+  {
+    look_up: /eene.*Title/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE - Episode Title.wav'
+    }
+  },
+  {
+    look_up: /eene.*hello/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Hello.wav'
+    }
+  },
+  {
+    look_up: /eene.*slide/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Slide 2 longer.wav'
+    }
+  },
+  {
+    look_up: /eene.*horn/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE THE Horn.wav'
+    }
+  },
+  {
+    look_up: /mama/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Mama Doll.wav'
+    }
+  },
+  {
+    look_up: /crow/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEne Crows.wav'
+    }
+  },
+  {
+    look_up: /slide.*guitar/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE 88 Fingers Edd.wav'
+    }
+  },
+  {
+    look_up: /doors/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE doors.wav'
+    }
+  },
+  {
+    look_up: /baby.*gasp/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Baby Gasp 1.wav'
+    }
+  },
+  {
+    look_up: /yodel/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Yodel Goofy.wav'
     }
   },
   {
@@ -1029,6 +1197,299 @@ export const test: RootCommand[] = [
             }
           ]
         }
+      ]
+    }
+  },
+  {
+    look_up: /sexy\s*hat/i,
+    command: {
+      execute_all: true,
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/sexy_hat.mp3'
+        },
+        {
+          // Sexy hat, 8 measures per bar. Seconds per beat: 0.4918
+          // Half bar: 1967ms. Full bar: 3934ms
+          timed_sequence: [
+            {
+              command: { text_content: 'https://tenor.com/view/hovey-benjamin-hovey-benjamin-love-kiss-gif-13271427' },
+              timeout_ms: 3000
+            },
+            {
+              command: { text_content: 'https://hoveybenjamin.com/cdn/shop/files/sexy-hat-home_300x300.png?v=1683064346' },
+              timeout_ms: 5118
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/agree-sure-eyebrows-raised-oh-yeah-great-gif-14134262' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/VBTAFdK3d1MAAAAC/dog-cute.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://64.media.tumblr.com/0d4539bd961dad74198a2283b51a6372/da83c7c8f6769d24-a4/s500x750/afe80f854baed38d4ab4e997c6b5608b07799c62.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://i.makeagif.com/media/7-10-2015/cAMjHK.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://img1.picmix.com/output/pic/normal/0/8/7/9/12069780_62098.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://tenor.com/view/mesh-cap-gif-18676730' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/m7eA33h9Z8YAAAAM/black-red-cap.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://i.pinimg.com/originals/6c/6a/bd/6c6abd275132826c35b69d915ba77e5d.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/925LDfyVUGEAAAAi/cute-sad.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/CgvAMwk418EAAAAM/hades.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://stridewise.com/wp-content/uploads/2021/08/nick-holding-hide.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://c.tenor.com/ppKEvFBsAKsAAAAC/tenor.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.gifer.com/8BE3.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://static.wikia.nocookie.net/fraytools/images/e/e4/DougDimmadomeSummon.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/-SkXk-I3YAoAAAAM/diamonds.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://static.wixstatic.com/media/9fe155_5e54290a17dc402dbd9dc7901ab12421~mv2.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://content.presentermedia.com/content/animsp/00012000/12224/stick_figure_handshake_standout_anim_md_nwm_v2.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://c.tenor.com/o1fnLBZm-OAAAAAC/tenor.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/zMQs175tn4IAAAAM/pooh-pooh-bear.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://monke.s3.us-east-1.amazonaws.com/skylarMonke.png' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/zClpMfpzzIwAAAAM/decepcao-pensativo.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTF3YnR6anV0ZDdoZnhmdGEwbnJ0bGhic2Vndm9xcGR2dHA0MW4zeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oxOCCjVreWgdcfQiI/giphy.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://c.tenor.com/Rj3ZUiIeTkoAAAAC/tenor.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/t9hWWFdlEaMAAAAM/grind-grinding.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/nB8Uk27tSqgAAAAM/dr-seuss-cat-in-the-hat.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/fo6LaSNyn5kAAAAM/cat-wif.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i0.wp.com/media0.giphy.com/media/l3nW69ahAX7F6Pcsw/giphy.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/L_rRPzX1_coAAAAM/charmed-heated.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/k8vMYqhwgQoAAAAM/searching.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/5a6nI1uzhJAAAAAM/happy-birthday.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/naGzRDw2BykAAAAM/take-off-the-hat-cordell-walker.gif' },
+              timeout_ms: 3934
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/C7IXUsdG2UYAAAAj/putting-on-a-hat-tim-robinson.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://helenkaminski.com/cdn/shop/files/ezgif.com-gif-maker_9__1635399480869_600x.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.pinimg.com/originals/f7/4c/e8/f74ce8e4d28ef1556aa0acd71ef619ac.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/s85UU1L28CwAAAAM/lol-omg-lol.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.imgur.com/gddISpO.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/56xC9t2YXEcAAAAM/jerma-dollhouse.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://data.textstudio.com/output/sample/animated/4/8/0/5/benefits-1-5084.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.gifer.com/6a8F.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media.tenor.com/_TOqgOsnpDMAAAAM/cali7.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://cdn.dribbble.com/users/3248309/screenshots/9025204/media/3652fb4312adb3025f10298df3fc37ad.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://www.icegif.com/wp-content/uploads/2023/09/icegif-140.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.pinimg.com/originals/3e/6a/70/3e6a708c04fd6fd38f0932022d413cf9.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTUwcDYwcmQzb2pyYm45YWYzZmRzaG14cWdvYmd6OGMxb29ybm9tYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VHeeFmvBRCfVtE7J1c/200.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.giphy.com/LorktCbMnFR5bUhQxo.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { text_content: 'https://i.giphy.com/SM4Gn6peFUKQiY3NzV.gif' },
+              timeout_ms: 1967
+            },
+            {
+              command: { clean_up: true },
+              timeout_ms: 3934
+            }
+          ]
+        },
+        // {
+        //   timed_sequence: [
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 250
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { text_content: 'beat' },
+        //       timeout_ms: 1967
+        //     },
+        //     {
+        //       command: { clean_up: true },
+        //       timeout_ms: 1967
+        //     }
+        //   ]
+        // }
       ]
     }
   },
