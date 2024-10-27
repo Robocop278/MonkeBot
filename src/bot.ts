@@ -188,6 +188,18 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
           break;
         }
       };
+
+      // Once we have chosen and executed our command, execute the on_complete passed in for this event (if assigned)
+      // If this gives us back another ActionableCommand, we execute it
+      if (groupCommand.on_complete) {
+
+        // Calculate rolled weight
+        let rolledWeight = randIndex / weightsTotal;
+
+        let additionalCommand = groupCommand.on_complete(rolledWeight);
+
+        if (additionalCommand) processCommand(additionalCommand, message);
+      }
     }
     console.log("Finished GroupCommand");
   }
