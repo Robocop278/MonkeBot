@@ -738,7 +738,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /intermission/i,
+    look_up: /gas/i,
     command: {
       content: [
         {
