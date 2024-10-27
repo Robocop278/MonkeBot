@@ -731,10 +731,59 @@ export const test: RootCommand[] = [
       bucket_folder: 'GahDamn'
     }
   },
+
+  ///////////////////////////////////
+  //                               //
+  //       awsCache  Commands      //
+  //                               //
+  ///////////////////////////////////
+
+  {
+    look_up: /(football|nfl)/i,
+    command: {
+      bucket_folder: 'NFL'
+    }
+  },
+  {
+    look_up: /star\s*war/i,
+    command: {
+      bucket_folder: 'the  star war'
+    }
+  },
   {
     look_up: /sound\s*clown/i,
     command: {
       bucket_folder: 'soundclown'
+    }
+  },
+  {
+    look_up: /lounge\s*classical/i,
+    command: {
+      bucket_folder: 'lounge/classical'
+    }
+  },
+  {
+    look_up: /lounge\s*piano/i,
+    command: {
+      bucket_folder: 'lounge/piano'
+    }
+  },
+  {
+    look_up: /lounge\s*jazz/i,
+    command: {
+      bucket_folder: 'lounge/jazz'
+    }
+  },
+  {
+    look_up: /lounge\s*movie/i,
+    command: {
+      bucket_folder: 'lounge/movie'
+    }
+  },
+  {
+    look_up: /lounge\s*video\s*games/i,
+    command: {
+      bucket_folder: 'lounge/video_games'
     }
   },
   {
@@ -751,6 +800,10 @@ export const test: RootCommand[] = [
       ]
     }
   },
+
+
+
+
   {
     look_up: /pickle/i,
     command: {
