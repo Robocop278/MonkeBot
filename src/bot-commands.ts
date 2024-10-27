@@ -738,6 +738,20 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /intermission/i,
+    command: {
+      content: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/gas/Jerma985%20-%20gas.ogg',
+          weight: 2
+        },
+        {
+          bucket_folder: 'https://monke.s3.us-east-1.amazonaws.com/gas/crit/'
+        }
+      ]
+    }
+  },
+  {
     look_up: /pickle/i,
     command: {
       bucket_folder: 'pickle'
