@@ -746,7 +746,7 @@ export const test: RootCommand[] = [
           weight: 2
         },
         {
-          bucket_folder: 'https://monke.s3.us-east-1.amazonaws.com/gas/crit/'
+          bucket_folder: 'gas/crit'
         }
       ]
     }
