@@ -40,6 +40,7 @@ var awsCache: awsCacheMap = { // these are the folders we want to have no repeat
   "soundclown": [],
   "the  star war": [],
   "NFL": [],
+  "WesleyWillis": [],
   "gas/crit": []
 };
 
@@ -320,6 +321,9 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       voiceChannel = message.message.member?.voice.channel
     }
     if (voiceChannel && voiceChannel instanceof VoiceChannel) {
+      if (mediaCommand.nowPlaying) {
+        message.sent_messages.push(await currentMessage.reply(mediaCommand.nowPlaying));
+      }
       monkeVoice.connect(voiceChannel);
       await monkeVoice.testAudio(mediaCommand.media_url);
     }
@@ -369,7 +373,12 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
                 awsCache[s3FolderCommand.bucket_folder].push(selectedMedia);
               }
             }
-            processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+            if (s3FolderCommand.nowPlaying) {
+              processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}`, nowPlaying: `Now Playing: \`${selectedMedia}\`` }, message);
+            }
+            else {
+              processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+            }
           }
           else {
             processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
