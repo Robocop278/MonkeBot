@@ -957,15 +957,35 @@ export const test: RootCommand[] = [
   {
     look_up: /gambling/i,
     command: {
-      execute_all: true,
+
       content: [
         {
-          media_url: 'https://monke.s3.us-east-1.amazonaws.com/gamblecore/gamblecore_lets_go_gambling.mp3'
+          weight: 99,
+          execute_all: true,
+          content: [
+            {
+              content: [
+                {
+                  weight: 19,
+                  media_url: 'https://monke.s3.us-east-1.amazonaws.com/gamblecore/gamblecore_lets_go_gambling.mp3'
+                },
+                {
+                  media_url: 'https://monke.s3.us-east-1.amazonaws.com/gamblecore/gamblecore_lets_go_gambling_alt.mp3'
+                }
+
+              ]
+            },
+            {
+              bucket_folder: 'gamblecore/results'
+            }
+          ]
         },
         {
-          bucket_folder: 'gamblecore/results'
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/gamblecore/gamblecore_i_hate_gambling.mp3'
         }
       ]
+
+
     }
   },
   {
