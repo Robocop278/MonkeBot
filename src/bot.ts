@@ -168,7 +168,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
     let groupCommand = command as GroupCommand;
 
     if (groupCommand.content.length === 1) {
-      processCommand(groupCommand.content[0], message);
+      await processCommand(groupCommand.content[0], message);
     } else {
       // If executeAll is set to true, execute all commands
       if (groupCommand.execute_all) {
@@ -198,7 +198,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
         console.log("  Current weightIndex: " + weightIndex);
         if (randIndex < weightIndex) {
           console.log("  Selecting content");
-          processCommand(content, message)
+          await processCommand(content, message)
           break;
         }
       };
@@ -212,7 +212,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
 
         let additionalCommand = groupCommand.on_complete(rolledWeight);
 
-        if (additionalCommand) processCommand(additionalCommand, message);
+        if (additionalCommand) await processCommand(additionalCommand, message);
       }
     }
     console.log("Finished GroupCommand");
@@ -243,7 +243,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
         }
       }
     } else {
-      processCommand({
+      await processCommand({
         content: [
           { reply: true, text_content: 'https://64.media.tumblr.com/fcb630b33a66e2d0a45e76baa59f1e2b/tumblr_o35vmuaRom1s2w9y9o4_500.gif' },
           { reply: true, text_content: 'https://www.reactiongifs.com/r/trlrky.gif' },
@@ -265,7 +265,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
     sequenceIdx = (sequenceIdx + 1) % sequenceCommand.sequence.length;
     commandSequenceIndices[sequenceCommand.sequence_id] = sequenceIdx;
 
-    processCommand(sequenceCommand.sequence[sequenceIdx], message);
+    await processCommand(sequenceCommand.sequence[sequenceIdx], message);
     console.log("Finished SequenceCommand");
   }
   else if ((<TimedSequenceCommand>command).timed_sequence !== undefined) {
@@ -280,7 +280,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
         for (let index = i; index < timedSequenceCommand.timed_sequence.length; index++) {
           const element = timedSequenceCommand.timed_sequence[index];
           if ((<CleanUpCommand>(element.command)).clean_up !== undefined) {
-            processCommand(element.command, message);
+            await processCommand(element.command, message);
             break;
           }
         }
@@ -290,10 +290,10 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       const sequenceEvent = timedSequenceCommand.timed_sequence[i];
 
       await new Promise<void>((resolve) => {
-        setTimeout(() => {
+        setTimeout(async () => {
           resolve();
           if (selfUuid === timedSequenceUuid) {
-            processCommand(sequenceEvent.command, message);
+            await processCommand(sequenceEvent.command, message);
           }
         }, sequenceEvent.timeout_ms);
       });
@@ -348,7 +348,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       console.log("Selected S3 media: " + selectedMedia);
       if (selectedMedia) {
         if (s3FolderCommand.type === 'text') {
-          processCommand({ text_content: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+          await processCommand({ text_content: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
         }
         else {
           if (awsCache.hasOwnProperty(s3FolderCommand.bucket_folder)) {
@@ -374,14 +374,14 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
               }
             }
             if (s3FolderCommand.nowPlaying) {
-              processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}`, nowPlaying: `Now Playing: \`${selectedMedia}\`` }, message);
+              await processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}`, nowPlaying: `Now Playing: \`${selectedMedia}\`` }, message);
             }
             else {
-              processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+              await processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
             }
           }
           else {
-            processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+            await processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
           }
         }
       }
