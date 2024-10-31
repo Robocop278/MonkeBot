@@ -957,8 +957,8 @@ export const test: RootCommand[] = [
   {
     look_up: /gambling/i,
     command: {
-      sequence_id: 'gamblecore',
-      sequence: [
+      execute_all: true,
+      content: [
         {
           media_url: 'https://monke.s3.us-east-1.amazonaws.com/gamblecore/gamblecore_lets_go_gambling.mp3'
         },
