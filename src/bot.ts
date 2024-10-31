@@ -30,6 +30,20 @@ const client = new Client({
   partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
 
+interface awsCacheMap { [key: string]: string[] };
+var awsCache: awsCacheMap = { // these are the folders we want to have no repeats in, good for larger getRandomFromFolder data.Contents lists.
+  "lounge/classical": [],
+  "lounge/piano": [],
+  "lounge/jazz": [],
+  "lounge/video_games": [],
+  "lounge/movie": [],
+  "soundclown": [],
+  "the  star war": [],
+  "NFL": [],
+  "WesleyWillis": [],
+  "gas/crit": []
+};
+
 const commandSequenceIndices: { [key: string]: number } = {};
 let timedSequenceUuid: string;
 
@@ -307,6 +321,9 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
       voiceChannel = message.message.member?.voice.channel
     }
     if (voiceChannel && voiceChannel instanceof VoiceChannel) {
+      if (mediaCommand.nowPlaying) {
+        message.sent_messages.push(await currentMessage.reply(mediaCommand.nowPlaying));
+      }
       monkeVoice.connect(voiceChannel);
       await monkeVoice.testAudio(mediaCommand.media_url);
     }
@@ -321,18 +338,6 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
   else if ((<S3FolderCommand>command).bucket_folder !== undefined) {
     console.log("Fetched as S3FolderCommand");
     let s3FolderCommand = command as S3FolderCommand;
-    interface awsCacheMap { [key: string]: string[] };
-    const awsCache: awsCacheMap = { // these are the folders we want to have no repeats in, good for larger getRandomFromFolder data.Contents lists.
-      "lounge/classical": [],
-      "lounge/piano": [],
-      "lounge/jazz": [],
-      "lounge/video_games": [],
-      "lounge/movie": [],
-      "soundclown": [],
-      "the  star war": [],
-      "NFL": [],
-      "gas/crit": []
-    };
 
     const data = await s3Client.listObjectsV2({ Bucket: configs.aws_bucket_name, Prefix: `${s3FolderCommand.bucket_folder}/`, StartAfter: `${s3FolderCommand.bucket_folder}/` }).promise();
     if (data.Contents) {
@@ -349,10 +354,14 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
           if (awsCache.hasOwnProperty(s3FolderCommand.bucket_folder)) {
             console.log(`aws cache match ${s3FolderCommand.bucket_folder}`);
             let unique = false;
+            console.log(`${awsCache[s3FolderCommand.bucket_folder].length} of ${dataContents.length} in cache`)
             if (dataContents.length == awsCache[s3FolderCommand.bucket_folder].length) {
               awsCache[s3FolderCommand.bucket_folder].length = 0;
-
+              awsCache[s3FolderCommand.bucket_folder].push(selectedMedia);
+              unique = true;
+              console.log("cache max reached, cache reset!!!")
             }
+            console.log("while start")
             while (!unique) {
               if (awsCache[s3FolderCommand.bucket_folder].includes(selectedMedia)) {
                 console.log("not unique, try again...");
@@ -364,7 +373,12 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
                 awsCache[s3FolderCommand.bucket_folder].push(selectedMedia);
               }
             }
-            processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+            if (s3FolderCommand.nowPlaying) {
+              processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}`, nowPlaying: `Now Playing: \`${selectedMedia}\`` }, message);
+            }
+            else {
+              processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
+            }
           }
           else {
             processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);

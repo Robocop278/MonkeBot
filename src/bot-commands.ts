@@ -39,6 +39,7 @@ export interface TextMessageCommand extends CommandBase {
 
 export interface MediaCommand extends CommandBase {
   media_url: string;
+  nowPlaying?: string;
 }
 
 export interface ReactCommand extends CommandBase {
@@ -49,6 +50,7 @@ export type FolderType = 'text' | 'audio';
 export interface S3FolderCommand extends CommandBase {
   bucket_folder: string;
   type?: FolderType
+  nowPlaying?: boolean;
 }
 
 export interface CleanUpCommand extends CommandBase {
@@ -731,10 +733,73 @@ export const test: RootCommand[] = [
       bucket_folder: 'GahDamn'
     }
   },
+
+  ///////////////////////////////////
+  //                               //
+  //       awsCache  Commands      //
+  //                               //
+  ///////////////////////////////////
+
+  {
+    look_up: /(football|nfl)/i,
+    command: {
+      bucket_folder: 'NFL'
+    }
+  },
+  {
+    look_up: /star\s*war/i,
+    command: {
+      bucket_folder: 'the  star war',
+      nowPlaying: true
+    }
+  },
   {
     look_up: /sound\s*clown/i,
     command: {
-      bucket_folder: 'soundclown'
+      bucket_folder: 'soundclown',
+      nowPlaying: true
+    }
+  },
+  {
+    look_up: /lounge\s*classical/i,
+    command: {
+      bucket_folder: 'lounge/classical',
+      nowPlaying: true
+    }
+  },
+  {
+    look_up: /lounge\s*piano/i,
+    command: {
+      bucket_folder: 'lounge/piano',
+      nowPlaying: true
+    }
+  },
+  {
+    look_up: /lounge\s*jazz/i,
+    command: {
+      bucket_folder: 'lounge/jazz',
+      nowPlaying: true
+    }
+  },
+  {
+    look_up: /lounge\s*movie/i,
+    command: {
+      bucket_folder: 'lounge/movie',
+      nowPlaying: true
+    }
+  },
+  {
+    look_up: /lounge\s*video\s*games/i,
+    command: {
+      bucket_folder: 'lounge/video_games',
+      nowPlaying: true
+    }
+  },
+  {
+    look_up: /Wesley\s*Willis/i,
+    command: {
+      bucket_folder: 'WesleyWillis',
+      nowPlaying: true
     }
   },
   {
@@ -746,11 +811,15 @@ export const test: RootCommand[] = [
           weight: 2
         },
         {
-          bucket_folder: 'https://monke.s3.us-east-1.amazonaws.com/gas/crit/'
+          bucket_folder: 'gas/crit'
         }
       ]
     }
   },
+
+
+
+
   {
     look_up: /pickle/i,
     command: {
