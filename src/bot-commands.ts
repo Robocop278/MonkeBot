@@ -886,6 +886,20 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /gambling/i,
+    command: {
+      sequence_id: 'gamblecore',
+      sequence: [
+        {
+          media_url: 'https://monke.s3.us-east-1.amazonaws.com/gamblecore/gamblecore_lets_go_gambling.mp3'
+        },
+        {
+          bucket_folder: 'gamblecore/results'
+        }
+      ]
+    }
+  },
+  {
     look_up: /jeopardy/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3'
@@ -1015,6 +1029,8 @@ export const test: RootCommand[] = [
       media_url: 'https://monke.s3.amazonaws.com/EEnE/EEnE Yodel Goofy.wav'
     }
   },
+
+  // Bigger commands
   {
     look_up: /cheezy\s*street|rat\s*taxi/i,
     command: {
@@ -1423,87 +1439,7 @@ export const test: RootCommand[] = [
               timeout_ms: 3934
             }
           ]
-        },
-        // {
-        //   timed_sequence: [
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 250
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { text_content: 'beat' },
-        //       timeout_ms: 1967
-        //     },
-        //     {
-        //       command: { clean_up: true },
-        //       timeout_ms: 1967
-        //     }
-        //   ]
-        // }
+        }
       ]
     }
   },
