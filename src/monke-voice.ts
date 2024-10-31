@@ -19,42 +19,38 @@ export function connect(channel: VoiceChannel) {
   });
 }
 
-export async function testAudio(pathToFile: string) {
-  console.log("testAudio");
-  const player = new AudioPlayer();
+export async function testAudio(pathToFile: string): Promise<void> {
+  return new Promise(async (resolve) => {
+    console.log("testAudio");
+    const player = new AudioPlayer();
 
-  const resource = createAudioResource(pathToFile);
+    const resource = createAudioResource(pathToFile);
 
-  const connections = getVoiceConnections();
-  console.log(connections.size);
-  let subscribers: PlayerSubscription[] = [];
-  connections.forEach(connection => {
-    const subscription = connection.subscribe(player);
-    if (subscription instanceof PlayerSubscription) {
-      subscribers.push(subscription);
-    }
-  });
+    const connections = getVoiceConnections();
+    console.log(connections.size);
+    let subscribers: PlayerSubscription[] = [];
+    connections.forEach(connection => {
+      const subscription = connection.subscribe(player);
+      if (subscription instanceof PlayerSubscription) {
+        subscribers.push(subscription);
+      }
+    });
 
-  await connectionReady(connections);
+    await connectionReady(connections);
 
-  player.play(resource);
+    player.play(resource);
 
-  player.on('stateChange', (oldState, newState) => {
-    if (newState.status === 'idle') {
-      console.log("unsubscribing in testAudio")
-      subscribers.forEach(subscriber => {
-        subscriber.unsubscribe();
-      });
-      subscribers = [];
-    }
+    player.on('stateChange', (oldState, newState) => {
+      if (newState.status === 'idle') {
+        console.log("unsubscribing in testAudio")
+        subscribers.forEach(subscriber => {
+          subscriber.unsubscribe();
+        });
+        subscribers = [];
+        resolve();
+      }
+    })
   })
-
-  // setTimeout(() => {
-  //   subscribers.forEach(subscriber => {
-  //     subscriber.unsubscribe();
-  //   });
-  //   subscribers = [];
-  // }, 30000);
 }
 
 function connectionReady(connections: Map<String, VoiceConnection>) {
