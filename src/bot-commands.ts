@@ -1021,6 +1021,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /stunt/i,
+    command: {
+      media_url: 'https://monke.s3.us-east-1.amazonaws.com/thps_stunt.mp3'
+    }
+  },
+  {
     look_up: /jeopardy/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/Jeopardy Theme.mp3'
