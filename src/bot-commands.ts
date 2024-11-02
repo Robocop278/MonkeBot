@@ -803,6 +803,13 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /boss\s*music/i,
+    command: {
+      bucket_folder: 'boss music',
+      nowPlaying: true
+    }
+  },
+  {
     look_up: /gas/i,
     command: {
       content: [
@@ -818,6 +825,7 @@ export const test: RootCommand[] = [
   },
 
 
+  /////////////////////////////////////////////////////////
 
 
   {
@@ -845,9 +853,33 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /gnarpy/i,
+    command: {
+      bucket_folder: 'gnarpy'
+    }
+  },
+  {
     look_up: /boys\sare\sback/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/boys are back in town (to kill you).mp3'
+    }
+  },
+  {
+    look_up: /overkill/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/HaloAnnouncer/Halo_3_Overkill.ogg'
+    }
+  },
+  {
+    look_up: /congratulations/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Congratulations.ogg'
+    }
+  },
+  {
+    look_up: /oh\s*shit\s*a\s*rat/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Oh_shit_a_rat.ogg'
     }
   },
   {
