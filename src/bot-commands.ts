@@ -1033,6 +1033,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /get\s*you\s*bitch/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/illgetyoubitch.ogg'
+    }
+  },
+  {
     look_up: /kenna|halloween/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/Michael_Myers_Theme_Song.ogg'
