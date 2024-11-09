@@ -371,6 +371,18 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /(tt.*)uh.*oh/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/tatl/mama/EmptyBattery.ogg'
+    }
+  },
+  {
+    look_up: /no more mama/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/tatl/mama/Ritual2.ogg'
+    }
+  },
+  {
     look_up: /goblin/i,
     command: {
       bucket_folder: 'goblin'
