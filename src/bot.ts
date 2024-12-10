@@ -71,7 +71,7 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
   console.log(`Starting crons`);
 
   // Test cron
-  new CronJob('15 8 10 12 *', async () => {
+  new CronJob('17 8 10 12 *', async () => {
     client.channels.fetch(configs.CHANNEL_LOGS)
       .then(channel => {
         (channel as TextChannel).send(`https://monke.s3.us-east-1.amazonaws.com/can_u_believe_it_christmas_a_week_away.mp4`);
