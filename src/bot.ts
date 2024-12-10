@@ -70,10 +70,10 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
 
   console.log(`Starting crons`);
 
-  new CronJob('* * * * * *', async () => {
+  new CronJob('0 8 * * *', async () => {
     client.channels.fetch(configs.CHANNEL_LOGS)
       .then(channel => {
-        (channel as TextChannel).send(`Test`);
+        (channel as TextChannel).send(`It is midnight`);
       });
   }, null, true);
 });
