@@ -70,10 +70,26 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
 
   console.log(`Starting crons`);
 
-  new CronJob('0 8 * * *', async () => {
+  // Test cron
+  new CronJob('15 8 10 12 *', async () => {
     client.channels.fetch(configs.CHANNEL_LOGS)
       .then(channel => {
-        (channel as TextChannel).send(`It is midnight`);
+        (channel as TextChannel).send(`https://monke.s3.us-east-1.amazonaws.com/can_u_believe_it_christmas_a_week_away.mp4`);
+      });
+  }, null, true);
+
+  // Christmas crons
+  new CronJob('0 8 18 12 *', async () => {
+    client.channels.fetch(configs.CHANNEL_MAIN)
+      .then(channel => {
+        (channel as TextChannel).send(`https://monke.s3.us-east-1.amazonaws.com/can_u_believe_it_christmas_a_week_away.mp4`);
+      });
+  }, null, true);
+
+  new CronJob('0 8 25 12 *', async () => {
+    client.channels.fetch(configs.CHANNEL_MAIN)
+      .then(channel => {
+        (channel as TextChannel).send(`https://monke.s3.us-east-1.amazonaws.com/can_u_believe_it_christmas.mp4`);
       });
   }, null, true);
 });

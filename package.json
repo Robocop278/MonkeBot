@@ -6,11 +6,11 @@
 	"author": "Christian Gutierrez",
 	"scripts": {
 		"dev": "tsx watch src/bot.ts",
-		"build": "tsc --build --verbose",
+		"build": "npx tsc --build --verbose",
 		"start": "pm2 start . --watch",
 		"restart": "pm2 restart .",
 		"updatemonke": "git pull --rebase",
-		"postupdatemonke": "tsc --build --verbose",
+		"postupdatemonke": "npx tsc --build --verbose",
 		"stop": "pm2 stop ."
 	},
 	"engines": {
