@@ -68,6 +68,8 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
       (channel as TextChannel).send(`------------------------------\nmonke started at ${inittime}, it ${inittime.getTimezoneOffset() == 0 ? 'is being hosted via AWS.' : `***is being hosted locally***, probably by ${inittime.getTimezoneOffset() >= 420 ? 'socal nerds christian or lisbin.' : 'the Ohio:tm: lad kebo.'}`}\n\n${initinfo.replace(';;', '\n')}------------------------------\n`);
     });
 
+  console.log(`Starting crons`);
+
   new CronJob('* * * * * *', async () => {
     client.channels.fetch(configs.CHANNEL_LOGS)
       .then(channel => {
