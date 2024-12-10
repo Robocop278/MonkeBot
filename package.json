@@ -21,6 +21,7 @@
 		"@discordjs/voice": "^0.15.0",
 		"aws-sdk": "^2.1594.0",
 		"chalk": "^4.1.0",
+		"cron": "^3.3.0",
 		"discord.js": "^14.14.1",
 		"dotenv": "^16.4.5",
 		"ffmpeg-static": "^5.1.0",

@@ -1,10 +1,11 @@
-import { ActivityType, Message, VoiceChannel, TextChannel, User, GuildMember, Guild } from 'discord.js';
+import { ActivityType, Message, VoiceChannel, TextChannel, User, GuildMember, Guild, PartialGroupDMChannel } from 'discord.js';
 import { Client, Events, GatewayIntentBits, Partials } from 'discord.js';
 import * as monkeVoice from './monke-voice';
 import * as monkeCommands from './bot-commands';
 import { ActionableCommand, MediaCommand, GroupCommand, AdminCommand, SequenceCommand, TimedSequenceCommand, TextMessageCommand, ReactCommand, S3FolderCommand, CleanUpCommand } from './bot-commands';
 import S3 from 'aws-sdk/clients/s3';
 import { v4 as uuidv4 } from 'uuid';
+import { CronJob } from 'cron';
 
 require('json5/lib/register');
 // eslint-disable-next-line node/no-unpublished-require
@@ -50,10 +51,10 @@ let timedSequenceUuid: string;
 client.once(Events.ClientReady, (c: Client<boolean>) => {
   client.user?.setActivity('with type safety!', { type: ActivityType.Playing });
   // client.user?.setAvatar('avatar_images/skylarMonke.png');
-  client.guilds.cache
-    .get(configs.CHANNEL_MAIN)
-    ?.members.cache.get('690351869650010333')
-    ?.setNickname('Monke 2.0');
+  // client.guilds.cache
+  //   .get(configs.CHANNEL_MAIN)
+  //   ?.members.cache.get(configs.SELF_ID)
+  //   ?.setNickname('Monke 2.0');
   console.log(`Ready! Logged in as ${c.user?.tag}`);
 
   let inittime = new Date();
@@ -62,49 +63,57 @@ client.once(Events.ClientReady, (c: Client<boolean>) => {
   console.log(`------------------\n  INITIALIZATION\n------------------\nTIME:\t${inittime.toLocaleTimeString('it-IT')} \nOFFSET:\t${inittime.getTimezoneOffset()} \nOS:\t${OS}\n------------------\n`);
   console.log(`${initinfo.replace(';;', '\n')}------------------\n`);
 
-  client.channels.fetch('974290034133987429')
+  client.channels.fetch(configs.CHANNEL_LOGS)
     .then(channel => {
       (channel as TextChannel).send(`------------------------------\nmonke started at ${inittime}, it ${inittime.getTimezoneOffset() == 0 ? 'is being hosted via AWS.' : `***is being hosted locally***, probably by ${inittime.getTimezoneOffset() >= 420 ? 'socal nerds christian or lisbin.' : 'the Ohio:tm: lad kebo.'}`}\n\n${initinfo.replace(';;', '\n')}------------------------------\n`);
     });
+
+  new CronJob('* * * * * *', async () => {
+    client.channels.fetch(configs.CHANNEL_LOGS)
+      .then(channel => {
+        (channel as TextChannel).send(`Test`);
+      });
+  }, null, true);
 });
 
 let currentMessage: Message;
 client.on(Events.MessageCreate, message => {
   // We want to ignore all messages that come from monke itself
-  if (message.author.id === '690351869650010333') return;
+  if (message.author.id === configs.SELF_ID) return;
 
+  // 12/9/2024 commenting this out as the workaround to update the message is throwing errors now
   // if coming from Minecraft chat integration bot ...
-  if (message.applicationId === '1231040317105373295') {
-    let bottag = message.author.username;
-    const minecraft = [
-      { key: 'theemadbro', value: '102131584240480256' },
-      { key: 'awbeans18', value: '464864751206531082' },
-      { key: 'CrackBone17', value: '107376008528711680' },
-      { key: 'Robocop278', value: '102265685224194048' },
-      { key: 'Bramblestaff', value: '300122791959855106' },
-      { key: 'HyperMate', value: '227115221838331905' },
-      { key: 'KingOfCactus', value: '144327546832551937' }
-    ]
-    let returnuser = minecraft.find(key => key.key === bottag)?.value
-    if (returnuser) {
-      let voiceuserlist = message.guild?.voiceStates.cache;
-      let founduser = voiceuserlist?.get(returnuser);
+  // if (message.applicationId === '') {
+  //   let bottag = message.author.username;
+  //   const minecraft = [
+  //     { key: 'theemadbro', value: '' },
+  //     { key: 'awbeans18', value: '' },
+  //     { key: 'CrackBone17', value: '' },
+  //     { key: 'Robocop278', value: '' },
+  //     { key: 'Bramblestaff', value: '' },
+  //     { key: 'HyperMate', value: '' },
+  //     { key: 'KingOfCactus', value: '' }
+  //   ]
+  //   let returnuser = minecraft.find(key => key.key === bottag)?.value
+  //   if (returnuser) {
+  //     let voiceuserlist = message.guild?.voiceStates.cache;
+  //     let founduser = voiceuserlist?.get(returnuser);
 
-      let updateMes: Message = Object.assign({} as Message, message as Message, { member: founduser?.member as GuildMember }) as Message;
+  //     let updateMes: Message = Object.assign({} as Message, message as Message, { member: founduser?.member as GuildMember }) as Message;
 
-      // const updateMemb: { member: GuildMember } = { member: founduser?.member as GuildMember }
+  //     // const updateMemb: { member: GuildMember } = { member: founduser?.member as GuildMember }
 
-      // const updateMes: Message = { ...message, ...updateMemb } as Message
-      message = updateMes as Message;
-      // message = { message: message, sent_messages: [] } as MessageContext;
-      console.log(typeof (message));
-      console.log("updatedMes: \n" + updateMes);
-      // message.member = founduser?.member;
-      // Object.assign(message, { ...message, member: founduser?.member })
+  //     // const updateMes: Message = { ...message, ...updateMemb } as Message
+  //     message = updateMes as Message;
+  //     // message = { message: message, sent_messages: [] } as MessageContext;
+  //     console.log(typeof (message));
+  //     console.log("updatedMes: \n" + updateMes);
+  //     // message.member = founduser?.member;
+  //     // Object.assign(message, { ...message, member: founduser?.member })
 
-      console.log(founduser);
-    }
-  }
+  //     console.log(founduser);
+  //   }
+  // }
 
   console.log(`Message from ${message.author.username}: ${message.content}`);
   currentMessage = message;
@@ -220,7 +229,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
   else if ((<AdminCommand>command).shcmd !== undefined) {
     console.log("Fetched as AdminCommand");
     let adminshcmd = command as AdminCommand;
-    if (message.message.member?.roles.cache.has('899529644880056341')) {
+    if (message.message.member?.roles.cache.has(configs.ROLE_ADMIN)) {
       console.log(adminshcmd.shcmd)
       switch (adminshcmd.shcmd) {
         case 'update': {
@@ -306,7 +315,10 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
     if (textMessageCommand.reply) {
       message.sent_messages.push(await currentMessage.reply(textMessageCommand.text_content));
     } else {
-      message.sent_messages.push(await message.message.channel.send(textMessageCommand.text_content));
+      const targetChannel = currentMessage.channel;
+      if (!(targetChannel instanceof PartialGroupDMChannel)) {
+        message.sent_messages.push(await targetChannel.send(textMessageCommand.text_content));
+      }
     }
     console.log("Finished TextMessageCommand");
   }
