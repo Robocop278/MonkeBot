@@ -1,5 +1,6 @@
 import {
   AudioPlayer,
+  DiscordGatewayAdapterCreator,
   PlayerSubscription,
   StreamType,
   VoiceConnection,
@@ -15,7 +16,7 @@ export function connect(channel: VoiceChannel) {
   const connection = joinVoiceChannel({
     channelId: channel.id,
     guildId: channel.guild.id,
-    adapterCreator: channel.guild.voiceAdapterCreator,
+    adapterCreator: channel.guild.voiceAdapterCreator as unknown as DiscordGatewayAdapterCreator,
   });
 }
 
