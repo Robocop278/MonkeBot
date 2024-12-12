@@ -400,11 +400,11 @@ export const test: RootCommand[] = [
       execute_all: true,
       content: [
         {
-          media_url: "https://monke.s3.us-east-1.amazonaws.com/Flashbeagle.ogg"
+          reply: true,
+          text_content: 'https://c.tenor.com/bmPJQKlEqX4AAAAd/tenor.gif'
         },
         {
-          reply: true,
-          text_content: 'https://media1.tenor.com/m/bmPJQKlEqX4AAAAd/snoopy-its-flashbeagle-charlie-brown.gif'
+          media_url: "https://monke.s3.us-east-1.amazonaws.com/Flashbeagle.ogg"
         }
       ]
     }
