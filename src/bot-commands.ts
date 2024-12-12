@@ -397,7 +397,15 @@ export const test: RootCommand[] = [
   {
     look_up: /flash.*beagle/i,
     command: {
-      media_url: "https://monke.s3.us-east-1.amazonaws.com/Flashbeagle.ogg"
+      execute_all: true,
+      content: [
+        {
+          media_url: "https://monke.s3.us-east-1.amazonaws.com/Flashbeagle.ogg"
+        },
+        {
+          text_content: 'https://media1.tenor.com/m/bmPJQKlEqX4AAAAd/snoopy-its-flashbeagle-charlie-brown.gif'
+        }
+      ]
     }
   },
   {
