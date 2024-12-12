@@ -395,7 +395,7 @@ export const test: RootCommand[] = [
     }
   },
   {
-    look_up: /flash.*beagle/i,
+    look_up: /flash|beagle|flashbeagle/i,
     command: {
       execute_all: true,
       content: [
