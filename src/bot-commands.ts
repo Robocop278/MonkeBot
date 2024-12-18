@@ -395,6 +395,21 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /flash|beagle|flashbeagle/i,
+    command: {
+      execute_all: true,
+      content: [
+        {
+          reply: true,
+          text_content: 'https://c.tenor.com/bmPJQKlEqX4AAAAd/tenor.gif'
+        },
+        {
+          media_url: "https://monke.s3.us-east-1.amazonaws.com/Flashbeagle.ogg"
+        }
+      ]
+    }
+  },
+  {
     look_up: /drunke/i,
     command: {
       bucket_folder: 'demoman'
