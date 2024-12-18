@@ -614,6 +614,26 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /spray|jsr/i,
+    command: {
+      sequence_id: 'jsr-spray',
+      sequence: [
+        { media_url: 'https://monke.s3.us-east-1.amazonaws.com/spray/jsr_spray_1.mp3' },
+        { media_url: 'https://monke.s3.us-east-1.amazonaws.com/spray/jsr_spray_2.mp3' },
+        { media_url: 'https://monke.s3.us-east-1.amazonaws.com/spray/jsr_spray_3.mp3' },
+        { media_url: 'https://monke.s3.us-east-1.amazonaws.com/spray/jsr_spray_4.mp3' },
+        { media_url: 'https://monke.s3.us-east-1.amazonaws.com/spray/jsr_spray_5.mp3' },
+        { media_url: 'https://monke.s3.us-east-1.amazonaws.com/spray/jsr_spray_6.mp3' },
+        {
+          content: [
+            { media_url: 'https://monke.s3.us-east-1.amazonaws.com/spray/jsr_spray_small.mp3' },
+            { media_url: 'https://monke.s3.us-east-1.amazonaws.com/spray/jsr_spray_large.mp3' }
+          ]
+        }
+      ]
+    }
+  },
+  {
     look_up: /shart/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/shart.mp3'
