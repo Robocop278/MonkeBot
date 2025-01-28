@@ -152,6 +152,20 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /(brain|stroke|aneurysm)/i,
+    command: {
+      content: [
+        {
+          media_url: 'https://monke.s3.amazonaws.com/brain.ogg',
+          weight: 2
+        },
+        {
+          bucket_folder: 'brain-crit'
+        }
+      ]
+    }
+  },
+  {
     look_up: /tenor.*(autism.*creature|yipp?(e|i)e?)/i,
     command: {
       media_url: "https://monke.s3.amazonaws.com/yippee/yippee.mp3",
@@ -195,6 +209,30 @@ export const test: RootCommand[] = [
     look_up: /bwop/i,
     command: {
       media_url: 'https://monke.s3.us-east-1.amazonaws.com/bwop.mp3'
+    }
+  },
+  {
+    look_up: /u.*ri(te|ght)/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/bwop.mp3'
+    }
+  },
+  {
+    look_up: /clap/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Clapping_-_Fesh_Pince.ogg'
+    }
+  },
+  {
+    look_up: /kick.*butt/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Kick_His_Butt.ogg'
+    }
+  },
+  {
+    look_up: /thats hilarious/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/Thats_hilarious_Sr_Pelo.ogg'
     }
   },
   {
@@ -909,6 +947,12 @@ export const test: RootCommand[] = [
     look_up: /boys\sare\sback/i,
     command: {
       media_url: 'https://monke.s3.amazonaws.com/boys are back in town (to kill you).mp3'
+    }
+  },
+  {
+    look_up: /ack/i,
+    command: {
+      media_url: 'https://monke.s3.amazonaws.com/ack.mp3'
     }
   },
   {
