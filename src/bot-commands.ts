@@ -448,6 +448,12 @@ export const test: RootCommand[] = [
     }
   },
   {
+    look_up: /ford truck month/i,
+    command: {
+      bucket_folder: 'ford-truck-month'
+    }
+  },
+  {
     look_up: /drunke/i,
     command: {
       bucket_folder: 'demoman'
