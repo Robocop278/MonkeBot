@@ -42,7 +42,8 @@ var awsCache: awsCacheMap = { // these are the folders we want to have no repeat
   "the  star war": [],
   "NFL": [],
   "WesleyWillis": [],
-  "gas/crit": []
+  "gas/crit": [],
+  "ford-truck-month": []
 };
 
 const commandSequenceIndices: { [key: string]: number } = {};
