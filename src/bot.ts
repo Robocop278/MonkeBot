@@ -384,6 +384,10 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
         else {
           if (awsCache.hasOwnProperty(s3FolderCommand.bucket_folder)) {
             console.log(`aws cache match ${s3FolderCommand.bucket_folder}`);
+            client.channels.fetch(configs.CHANNEL_LOGS)
+              .then(channel => {
+                (channel as TextChannel).send(`${s3FolderCommand.bucket_folder} - ${awsCache[s3FolderCommand.bucket_folder].length} of ${dataContents.length} in cache`);
+              });
             let unique = false;
             console.log(`${awsCache[s3FolderCommand.bucket_folder].length} of ${dataContents.length} in cache`)
             if (dataContents.length == awsCache[s3FolderCommand.bucket_folder].length) {
@@ -410,10 +414,7 @@ async function processCommand(command: ActionableCommand, message: Message | Mes
             else {
               await processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
             }
-            client.channels.fetch(configs.CHANNEL_LOGS)
-              .then(channel => {
-                (channel as TextChannel).send(`${awsCache[s3FolderCommand.bucket_folder]} - ${awsCache[s3FolderCommand.bucket_folder].length} of ${dataContents.length} in cache`);
-              });
+
           }
           else {
             await processCommand({ media_url: `https://monke.s3.amazonaws.com/${selectedMedia}` }, message);
